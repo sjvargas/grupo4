@@ -1,5 +1,6 @@
 package g4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Semestre {
@@ -11,8 +12,8 @@ public class Semestre {
 	
 	public Semestre(String periodo){
 		this.periodo = periodo;
-		cursos = new List<Curso>();
-		notas = new List<Nota>();
+		cursos = new ArrayList<Curso>();
+		notas = new ArrayList<Nota>();
 		creditosActuales = 0;
 		semestreCerrado = false;
 	}
@@ -54,7 +55,18 @@ public class Semestre {
 	}
 
 	public void CerrarSemestre(){
-		for(int i = 0; i < )
+		boolean sePuedeCerrar = true;
+		// revisa que todos tengan nota
+		for(int i = 0; i < notas.size(); i++ ){
+			if(notas.get(i).GetNota()!= null){
+				sePuedeCerrar = sePuedeCerrar && true;
+			}
+			else{
+				sePuedeCerrar = sePuedeCerrar && false;
+			}
+		}
+		// si se puede cerrar se cierra
+		semestreCerrado = sePuedeCerrar;
 	}
 	
 	public String GetPeriodo(){return periodo;}

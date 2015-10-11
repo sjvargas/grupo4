@@ -2,11 +2,12 @@ package g4;
 
 public class Nota {
 	private Curso curso;
-	private float valor;
+	private Float valor;
 	
 	// constructor solo con el curso
 	public Nota(Curso curso){
 		this.curso = curso;
+		valor = null;
 	}
 	// constructor con el curso y la nota
 	public Nota(Curso curso, float valor){
@@ -14,7 +15,7 @@ public class Nota {
 		this.valor = valor;
 	}
 	
-	public float GetNota(){
+	public Float GetNota(){
 		return valor;
 	}
 	public Curso GetCurso(){
