@@ -23,6 +23,8 @@ public class Curso {
 	
 	private int semestre;
 	
+	private int creditos;
+	
 	private List<String> salas;
 	
 	private List<String> horario;
@@ -30,14 +32,13 @@ public class Curso {
 	private List<Alumno> lista_alumnos;
 	
 	
-	public Curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos){
+	public Curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos){
 		this.id_curso = id;
 		//this.profesores = new List<Profesor>();
 		this.semestre = semestre;
 		this.horario = horario;
 		this.lista_alumnos = Alumnos;
-		
-		
+		this.creditos = creditos;
 	}
 	
 ////////////////////////////////////
@@ -60,7 +61,7 @@ public class Curso {
 	public int getSemestre() {
 		return semestre;
 	}
-	
+	public int GetCreditos(){ return creditos;}
 	
 	public void agregar_profesor(Profesor profesor){
 		// este metodo recibe un objeto de la case Profesor

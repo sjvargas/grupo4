@@ -50,7 +50,7 @@ public class Ramo {
 	}
 	////////////////////////////////////
 	
-	public Ramo(int id,String sigla, int creditos, Carrera carrera, String semestre_impartido,String objetivos){
+	public Ramo(int id,String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
 		this.id_ramo=id;
 		this.sigla = sigla;
 		this.creditos = creditos;
