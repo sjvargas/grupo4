@@ -1,5 +1,6 @@
 package g4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Historial_Academico {
@@ -13,7 +14,7 @@ public class Historial_Academico {
 	
 	public Historial_Academico(){
 		semestreActual = null;
-		semestres = new List<Semestre>();
+		semestres = new ArrayList<Semestre>();
 		creditosAprovados = 0;
 		cantidad_cursos_aprovados = 0;
 		cantidad_cursos_reprobados = 0;

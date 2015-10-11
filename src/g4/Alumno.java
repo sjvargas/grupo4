@@ -1,4 +1,5 @@
 package g4;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Alumno {
@@ -10,8 +11,8 @@ public class Alumno {
 	
 	public Alumno(){
 		historial_academico = new Historial_Academico();
-		carreras = new List<Carrera>();
-		mallas_curriculares = new List<Malla_curricular>();
+		carreras = new ArrayList<Carrera>();
+		mallas_curriculares = new ArrayList<Malla_curricular>();
 		acceso = true;		
 	}
 	
