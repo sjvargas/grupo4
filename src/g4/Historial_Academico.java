@@ -34,7 +34,7 @@ public class Historial_Academico {
 			Nota n = listaNotas.get(i);
 			if(n.GetNota() <= 4.0){
 				cantidad_cursos_aprovados += 1;
-				creditosAprovados += n.GetCurso().GetCreditos();
+				// Falta sumar lo creditos aprovados
 			}
 			else{
 				cantidad_cursos_reprobados += 1;
