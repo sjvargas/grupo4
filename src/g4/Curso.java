@@ -17,28 +17,24 @@ import java.util.List;
  */
 public class Curso {
 	
-	private int id_curso;
-	
-	private List<Profesor> profesores;
-	
-	private int semestre;
-	
-	private int creditos;
-	
-	private List<String> salas;
-	
-	private List<String> horario;
-	
-	private List<Alumno> lista_alumnos;
+	public int id_curso;
+	public List<Profesor> profesores;
+	public int semestre;
+	public int creditos;
+	public List<String> salas;
+	public List<String> horario;
+	public List<Alumno> lista_alumnos;
+	public Ramo ramo;
 	
 	
-	public Curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos){
+	public Curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo){
 		this.id_curso = id;
-		//this.profesores = new List<Profesor>();
+		this.profesores = profesores;
 		this.semestre = semestre;
 		this.horario = horario;
 		this.lista_alumnos = Alumnos;
 		this.creditos = creditos;
+		this.ramo = ramo;
 	}
 	
 ////////////////////////////////////
