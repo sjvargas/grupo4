@@ -7,7 +7,7 @@ public class Historial_Academico {
 
 	private Semestre semestreActual;
 	private List<Semestre> semestres;
-	private int creditosAprovados;
+	private int creditosAprobados;
 	private int cantidad_cursos_aprovados;
 	private int cantidad_cursos_reprobados;
 	public int creditosMaximos;
