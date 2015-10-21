@@ -12,7 +12,7 @@ public class Ramo {
 
 	
 	//
-	public int id_ramo;
+//	public int id_ramo;
 	//
 	private String sigla;
 	private int creditos;
@@ -36,9 +36,11 @@ public class Ramo {
 	public int getCreditos() {
 		return creditos;
 	}
+	/*
 	public int getId_ramo() {
 		return id_ramo;
 	}
+	*/
 	public String getObjetivos() {
 		return objetivos;
 	}
@@ -50,8 +52,8 @@ public class Ramo {
 	}
 	////////////////////////////////////
 	
-	public Ramo(int id,String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
-		this.id_ramo=id;
+	public Ramo(String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
+		//this.id_ramo=id;
 		this.sigla = sigla;
 		this.creditos = creditos;
 		this.carrera = carrera;

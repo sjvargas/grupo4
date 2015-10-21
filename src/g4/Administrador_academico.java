@@ -12,9 +12,9 @@ import java.util.List;
  * 
  */
 
-public class Administrador_academico {
+public class Administrador_academico extends Usuario {
 	
-	
+	//
 	
 	private List<Programacion_Academica> historial_de_progrmacion_academica;
 	
@@ -25,7 +25,12 @@ public class Administrador_academico {
 	private List<Alumno> lista_alumnos_restringidos;
 	
 	
-	public Administrador_academico(){
+	public Administrador_academico(String nom, String cont, String sex, int ed){
+		
+		
+		super(nom, cont, sex, ed);
+		
+
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		lista_carreras = new ArrayList<Carrera>();
 		lista_profesores = new ArrayList<Profesor>();
@@ -43,10 +48,10 @@ public class Administrador_academico {
 		lista_carreras.add(nuevaCarrera);
 	}
 	
-	public void agregar_ramo(int id,String sigla,Carrera carrera, int creditos, String semestre_impartido,String contenidos,String objetivos){
+	public void agregar_ramo(String sigla,Carrera carrera, int creditos, String semestre_impartido,String contenidos,String objetivos){
 		
 
-			Ramo nuevoRamo = new Ramo(id, sigla, creditos, carrera, semestre_impartido, contenidos, objetivos);
+			Ramo nuevoRamo = new Ramo( sigla, creditos, carrera, semestre_impartido, contenidos, objetivos);
 			lista_ramos.add(nuevoRamo);
 			
 	}

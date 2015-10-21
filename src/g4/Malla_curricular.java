@@ -39,10 +39,10 @@ public class Malla_curricular {
 		// agrega el objeto recibido a la lista de ramos
 	}
 	
-	public void eliminar_ramo(int id_ramo){
+	public void eliminar_ramo(String sigla){
 		// metodo que recibe un identificador de una instancia de ramo
 				for(int i=0; i< ramos.size();i++){
-					if(((ramos.get(i)).id_ramo) == id_ramo){
+					if(((ramos.get(i)).getSigla()).equalsIgnoreCase(sigla)){
 						ramos.remove(i);
 						break;
 					}
