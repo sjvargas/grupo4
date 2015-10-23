@@ -1,5 +1,6 @@
 package g4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -26,6 +27,8 @@ public class Carrera {
 		this.Decano= decano;
 		this.nombre= nombre;
 		this.facultad = facultad;
+		
+		mallas_curriculares = new ArrayList<Malla_curricular>();
 	}
 	
 	
@@ -69,5 +72,11 @@ public class Carrera {
 		}
 		// si ese id corresponde a alguno de los id de las mallas que estan en la lista, entonces se elimina 
 	}
+	
+	
+	   @Override
+	   public String toString() {
+	       return nombre;
+	   }
 
 }

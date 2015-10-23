@@ -21,6 +21,7 @@ import g4.Alumno;
 import g4.AplicacionInicio;
 import g4.Carrera;
 import g4.Curso;
+import g4.Malla_curricular;
 import g4.Usuario;
 
 
@@ -95,7 +96,8 @@ public class InicioController {
 	
 	
 	
-	
+	@FXML
+	private ChoiceBox choice_malla;
 	
 	
 	public void IngresarUsuario(ActionEvent event){
@@ -227,7 +229,7 @@ public class InicioController {
 	{
 		mostrar_panel(pane_carreras_alumno);
 		
-		ObservableList<Carrera>  ss = FXCollections.observableList(aplicacionInicio.listaCarreras);
+		ObservableList<Carrera>  ss = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera());
 		choise_carreras_alumno.setItems(ss);
 		
 		
@@ -254,10 +256,15 @@ public class InicioController {
 	
 	public void clickvercarrera()
 	{
-		Carrera c = (Carrera) choise_carreras_alumno.getItems();
+		Carrera c = (Carrera) choise_carreras_alumno.getValue();
 		label_nombre_carrera_alumno.setText(c.getnombre_carrera());
 		label_decano_carrera_alumno.setText(c.getDecano());
 		label_facultad_carrera_alumno.setText(c.getFacultad());
+		
+		
+		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
+		choice_malla.setItems(mallasDeLaCarrera);
+		
 	}
 	
 	

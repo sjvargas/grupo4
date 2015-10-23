@@ -68,5 +68,8 @@ public class Administrador_academico extends Usuario {
 		
 	}
 	
+	public List<Carrera> getListaCarrera(){
+		return this.lista_carreras;
+	}
 
 }

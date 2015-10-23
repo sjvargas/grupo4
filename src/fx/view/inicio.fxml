@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.InicioController">
    <children>
       <Pane fx:id="pantalla_inicio" layoutX="-49.0" layoutY="-79.0" prefHeight="600.0" prefWidth="800.0">
@@ -87,7 +86,7 @@
                   <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="5" />
                </children>
             </GridPane>
-            <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0">
+            <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0" visible="false">
                <children>
                   <Label layoutX="27.0" layoutY="22.0" text="todas las carreras" />
                   <ChoiceBox fx:id="choise_carreras_alumno" layoutX="27.0" layoutY="60.0" prefWidth="150.0" />
@@ -113,7 +112,7 @@
                         <Label text="facultad" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Button fx:id="boton_ver_carrera_alumno" layoutX="204.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickvercarrera" text="Button" />
+                  <Button fx:id="boton_ver_carrera_alumno" layoutX="204.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickvercarrera" text="Ver Carrera" />
                </children>
             </Pane>
          </children>

@@ -50,6 +50,10 @@ public class Malla_curricular {
 		// si ese id corresponde a alguno de los id de los ramos que estan en la lista, entonces se elimina 
 	}
 	
-	
+	@Override
+	   public String toString() {
+	       return "Malla con codigo: "+id_malla;
+	   }
+
 
 }

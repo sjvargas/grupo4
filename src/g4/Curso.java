@@ -1,5 +1,6 @@
 package g4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,6 +36,11 @@ public class Curso {
 		this.lista_alumnos = Alumnos;
 		this.creditos = creditos;
 		this.ramo = ramo;
+		
+	//	profesores = new ArrayList<Profesor>();
+	//	salas = new ArrayList<String>();
+	//	horario = new ArrayList<String>();
+		
 	}
 	
 ////////////////////////////////////
