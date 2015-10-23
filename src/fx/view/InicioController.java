@@ -1,8 +1,12 @@
 package fx.view;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -57,6 +61,16 @@ public class InicioController {
 	@FXML
 	private Button cerrar_sesion;
 	
+	@FXML private javafx.scene.control.Button closeButton;
+
+	@FXML
+	private void closeButtonAction(){
+	    // get a handle to the stage
+	    Stage Window = (Stage) closeButton.getScene().getWindow();
+	    // do what you have to do
+	    Window.close();
+	}
+	
 	
 	//crea instancia de  Apicacion inicio-.. No estoy seguro de si se crea acá o en Main
 	
@@ -71,30 +85,41 @@ public class InicioController {
 			String nombre = a_nombre.getText() ;
 			String clave = a_clave.getText();
 			
+			if (aplicacionInicio.listaAlumnos.isEmpty())
+			{
+				error_ingreso.setText("no existe ningun alumno");
+			}
+			boolean aux = false;
 			for (Alumno j : aplicacionInicio.listaAlumnos)
 			{
-				if ( j.nombre == nombre || j.contraseña == clave )
+
+				System.out.println("entre: "+ nombre +","+clave+" = "+j.nombre+","+j.contraseña);
+				if ( j.nombre.equals(nombre) && j.contraseña.equals(clave) )
 				{
+					aux = true;
+					System.out.println("son iguales");
 					if (j.acceso== true)
 					{
-						pantalla_inicio.managedProperty().bind(pantalla_inicio.visibleProperty());
-						pantalla_alumno.managedProperty().bind(pantalla_alumno.visibleProperty());
-						pantalla_inicio.setVisible(false);
-						pantalla_alumno.setVisible(true);
+						System.out.println("con acceso");
 						j.Iniciar_sesion();
 						Usuario_conectado = j;
 						Usuario_tipo = "alumno";
+						error_ingreso.setText("perfecto te conectaste!!");
+
+						pantalla_alumno.setVisible(true);
+						pantalla_inicio.setVisible(false);
+						
 					}
 					else {
 						error_ingreso.setText("tu excediste el numero de creditos reprobados :(");
 
 						}
+					break;
 				}
-				else {
-					error_ingreso.setText("tu usuario o contraseña son incorrectas");
-
-					}
 			}
+			if (!aux){
+				error_ingreso.setText("tu usuario o contraseña son incorrectas");
+				}
 		}
 		else
 		{
@@ -115,8 +140,6 @@ public class InicioController {
 	}
 
 	public void CerrarSesion(ActionEvent event){
-		pantalla_inicio.managedProperty().bind(pantalla_inicio.visibleProperty());
-		pantalla_alumno.managedProperty().bind(pantalla_alumno.visibleProperty());
 		pantalla_inicio.setVisible(true);
 		pantalla_alumno.setVisible(false);
 		Usuario_conectado.Cerrar_sesion();
@@ -135,8 +158,6 @@ public class InicioController {
 			
 			aplicacionInicio.agregarAlumno(a);
 			
-			pantalla_inicio.managedProperty().bind(pantalla_inicio.visibleProperty());
-			pantalla_alumno.managedProperty().bind(pantalla_alumno.visibleProperty());
 			pantalla_inicio.setVisible(false);
 			pantalla_alumno.setVisible(true);
 			
@@ -149,8 +170,6 @@ public class InicioController {
 			Administrador_academico a =new Administrador_academico(tfNombre.getText(), tfCont.getText(), tfSexo.getText(), Integer.parseInt(tfEdad.getText()));
 			aplicacionInicio.agregarAdministrador(a);
 			
-			pantalla_inicio.managedProperty().bind(pantalla_inicio.visibleProperty());
-			pantalla_alumno.managedProperty().bind(pantalla_alumno.visibleProperty());
 			pantalla_inicio.setVisible(false);
 			pantalla_alumno.setVisible(true); /// cambiar esta pantalla que se vea
 			a.Iniciar_sesion();

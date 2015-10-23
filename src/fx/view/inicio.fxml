@@ -10,7 +10,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.InicioController">
    <children>
-      <Pane fx:id="Pantalla_Alumno" prefHeight="521.0" prefWidth="751.0" visible="false">
+      <Pane fx:id="pantalla_alumno" prefHeight="521.0" prefWidth="751.0" visible="false">
          <children>
             <Label layoutX="35.0" layoutY="14.0" prefHeight="37.0" prefWidth="209.0" text="bienvenido alumno">
                <font>
