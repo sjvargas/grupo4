@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.AdminOverviewController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <GridPane layoutX="14.0" layoutY="150.0" prefHeight="231.0" prefWidth="155.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="buttonAdminInicio" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Inicio" />
+                  <Button fx:id="buttonAdminAlumnos" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Alumnos" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonAdminProfesor" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Profesores" GridPane.rowIndex="1" />
+                  <Button fx:id="buttonAdminRamos" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Ramos" GridPane.rowIndex="3" />
+                  <Button fx:id="buttonAdminCarreras" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Carreras" GridPane.rowIndex="4" />
+                  <Button fx:id="buttonAdminProgramacionA" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Programacion Academica" GridPane.rowIndex="5" />
+                  <Button fx:id="buttonAdminCerrarSesion" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Cerrar Sesion" GridPane.rowIndex="7" />
+                  <Button fx:id="buttonAdminModificarD" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Modificar Datos" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+            <Label layoutX="14.0" layoutY="27.0" prefHeight="37.0" prefWidth="155.0" text="Academic Manager">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Pane fx:id="paneAdminInicio" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+               <children>
+                  <GridPane hgap="2.0" layoutX="200.0" layoutY="200.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nombre:" />
+                        <Label text="Nombre Usuario:" GridPane.rowIndex="1" />
+                        <Label text="Sexo:" GridPane.rowIndex="2" />
+                        <Label text="Edad:" GridPane.rowIndex="3" />
+                        <Label text="Label" GridPane.columnIndex="1" />
+                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+            <Label layoutX="14.0" layoutY="64.0" prefHeight="25.0" prefWidth="155.0" text="Administrador Academico">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelPanelAdminEstado" layoutX="14.0" layoutY="113.0" prefHeight="25.0" prefWidth="155.0" text="Estado" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Pane fx:id="paneAdminProfesores" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+               <children>
+                  <ListView layoutX="50.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutX="60.0" layoutY="25.0" text="Lista Profesores:" />
+                  <Label layoutX="50.0" layoutY="300.0" text="Agregar Profesor:" />
+                  <Label layoutX="50.0" layoutY="450.0" text="Eliminar Profesor:" />
+                  <GridPane layoutX="50.0" layoutY="330.0" prefHeight="103.0" prefWidth="275.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="72.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nombre:" />
+                        <Label text="Apellidos:" GridPane.rowIndex="1" />
+                        <Label text="Sueldo:" GridPane.rowIndex="2" />
+                        <Label text="Facultad:" GridPane.rowIndex="3" />
+                        <TextField GridPane.columnIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="400.0" layoutY="410.0" mnemonicParsing="false" text="Agregar" />
+                  <GridPane layoutX="50.0" layoutY="470.0" prefHeight="25.0" prefWidth="275.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="69.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="206.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" />
+                        <Label text="Id" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="400.0" layoutY="470.0" mnemonicParsing="false" text="Eliminar" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneAdminAlumnos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+               <children>
+                  <Label layoutX="50.0" layoutY="310.0" text="Restringir Acceso Alumno:" />
+                  <GridPane layoutX="50.0" layoutY="330.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="67.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="133.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Id Alumno:" />
+                        <TextField GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="300.0" layoutY="330.0" mnemonicParsing="false" text="Restringir" />
+                  <Label layoutX="50.0" layoutY="60.0" text="Lista Alumnos:" />
+                  <ListView layoutX="50.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+               <children>
+                  <ListView layoutX="50.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutX="50.0" layoutY="60.0" text="Lista de Ramos: " />
+                  <GridPane layoutX="50.0" layoutY="340.0" prefHeight="188.0" prefWidth="325.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="121.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="121.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Sigla:" />
+                        <Label text="Carrera:" GridPane.rowIndex="1" />
+                        <Label text="Creditos:" GridPane.rowIndex="2" />
+                        <Label text="Sesmestre Impartido:" GridPane.rowIndex="3" />
+                        <Label text="Objetivos:" GridPane.rowIndex="5" />
+                        <TextField prefHeight="25.0" prefWidth="182.0" GridPane.columnIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Contenido:" GridPane.rowIndex="4" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <Label layoutX="50.0" layoutY="315.0" text="Agregar Ramo:" />
+                  <Button layoutX="413.0" layoutY="503.0" mnemonicParsing="false" text="Agregar" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneAdminCarreras" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+               <children>
+                  <ListView layoutX="50.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutX="50.0" layoutY="50.0" text="Lista Carreras:" />
+                  <GridPane layoutX="50.0" layoutY="318.0" prefHeight="92.0" prefWidth="275.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="89.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nombre Carrera:" />
+                        <Label text="Facultad:" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Decano:" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Label layoutX="50.0" layoutY="290.0" text="Agregar Carrera:" />
+                  <Button layoutX="370.0" layoutY="380.0" mnemonicParsing="false" text="Agregar" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneAdminProgramacionAcademica" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+               <children>
+                  <Label layoutX="50.0" layoutY="60.0" text="Crear Programacion Academica:" />
+                  <GridPane layoutX="50.0" layoutY="90.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="60.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="140.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField GridPane.columnIndex="1" />
+                        <Label text="Semestre:" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="300.0" layoutY="93.0" mnemonicParsing="false" text="Agregar" />
+                  <ChoiceBox layoutX="114.0" layoutY="200.0" prefHeight="25.0" prefWidth="186.0" />
+                  <Label layoutX="50.0" layoutY="170.0" text="Ver Cursos Semestre:" />
+                  <Label layoutX="50.0" layoutY="205.0" text="Semestre:" />
+                  <ListView layoutX="51.0" layoutY="270.0" prefHeight="275.0" prefWidth="275.0" />
+                  <Label layoutX="50.0" layoutY="243.0" text="Cursos:" />
+               </children>
+            </Pane>
+            <Pane fx:id="paneAdminModificarDatos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0">
+               <children>
+                  <Label layoutX="50.0" layoutY="150.0" text="Datos del usuario" />
+                  <GridPane layoutX="50.0" layoutY="200.0" prefHeight="147.0" prefWidth="315.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="99.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="216.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nombre:" />
+                        <Label text="Nombre Usuario:" GridPane.rowIndex="1" />
+                        <Label text="Sexo:" GridPane.rowIndex="2" />
+                        <Label text="Edad:" GridPane.rowIndex="3" />
+                        <Label text="Constraseña:" GridPane.rowIndex="4" />
+                        <TextField GridPane.columnIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="53.0" layoutY="393.0" mnemonicParsing="false" text="Modificar" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

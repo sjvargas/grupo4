@@ -10,10 +10,12 @@ public class Semestre {
 	// Lista de todas las notas
 	private List<Nota> notas;
 	private int creditosActuales;
+	private int maximoCreditosPermitidos;
 	public boolean semestreCerrado;
 	
-	public Semestre(String periodo){
+	public Semestre(String periodo){ //falta que el constructor tenga maximoCreditosPermitidos
 		this.periodo = periodo;
+		//this.maximoCreditosPermitidos = maximoCreditosPermitidos;
 		cursos = new ArrayList<Integer>();
 		notas = new ArrayList<Nota>();
 		creditosActuales = 0;
@@ -72,6 +74,7 @@ public class Semestre {
 	}
 	
 	public String GetPeriodo(){return periodo;}
+	public int GetMaximoCreditosPermitidos(){ return maximoCreditosPermitidos;}
 	public List<Integer> GetCursos(){return cursos;}
 	public List<Nota> GetNotas(){return notas;}
 	public int GetCreditos(){return creditosActuales;}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Historial_Academico {
-
+	
 	private Semestre semestreActual;
 	private List<Semestre> semestres;
 	private int creditosAprobados;
@@ -15,7 +15,7 @@ public class Historial_Academico {
 	public Historial_Academico(){
 		semestreActual = null;
 		semestres = new ArrayList<Semestre>();
-		int creditosAprovados = 0;
+		int creditosAprobados = 0;
 		cantidad_cursos_aprovados = 0;
 		cantidad_cursos_reprobados = 0;
 	}

@@ -21,7 +21,6 @@ public class Administrador_academico extends Usuario {
 	private List<Carrera> lista_carreras;
 	private List<Ramo> lista_ramos;
 	private List<Profesor> lista_profesores;
-
 	private List<Alumno> lista_alumnos_restringidos;
 	
 	
@@ -56,8 +55,8 @@ public class Administrador_academico extends Usuario {
 			
 	}
 	
-	public void agregar_profesor(String nombre, int sueldo, String facultad){
-		Profesor nuevoProfesor = new Profesor(lista_profesores.size()+1, nombre, sueldo, facultad);
+	public void agregar_profesor(String nombre, String apellidos, int sueldo, String facultad){
+		Profesor nuevoProfesor = new Profesor(lista_profesores.size()+1, nombre, apellidos, sueldo, facultad);
 		
 		lista_profesores.add(nuevoProfesor);
 	}
