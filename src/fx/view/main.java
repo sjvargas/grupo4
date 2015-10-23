@@ -1,5 +1,12 @@
 package fx.view;
 	
+import java.util.List;
+
+import g4.Profesor;
+import g4.Usuario;
+import g4.Alumno;
+import g4.Administrador_academico;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -16,6 +23,8 @@ public class main extends Application {
 	//@Override
 	Stage window;
 	Scene scene1,scene2;
+
+	public List<Usuario> usuarios;
 	
 	
 	public void start(Stage primaryStage) {
@@ -32,6 +41,10 @@ public class main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
+		
 	}
 	
 	public static void main(String[] args) {

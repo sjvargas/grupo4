@@ -8,7 +8,7 @@ public class Alumno extends Usuario {
 	private List<Integer> carreras;
 	// Lista de los id de las mallas a las que pertenece
 	private List<Integer> mallas_curriculares;
-	private boolean acceso;
+	public boolean acceso;
 	private Semestre semestre_actual;
 	
 	// Constructor

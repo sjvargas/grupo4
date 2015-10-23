@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
+
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.InicioController">
    <children>
-      <Pane layoutX="-49.0" layoutY="-79.0" prefHeight="600.0" prefWidth="800.0">
+      <Pane fx:id="Pantalla_Alumno" prefHeight="521.0" prefWidth="751.0" visible="false">
+         <children>
+            <Label layoutX="35.0" layoutY="14.0" prefHeight="37.0" prefWidth="209.0" text="bienvenido alumno">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="cerrar_sesion" layoutX="625.0" layoutY="26.0" mnemonicParsing="false" onAction="#CerrarSesion" text="cerrar sesion" />
+         </children>
+      </Pane>
+      <Pane fx:id="pantalla_inicio" layoutX="-49.0" layoutY="-79.0" prefHeight="600.0" prefWidth="800.0">
          <children>
             <Label layoutX="279.0" layoutY="283.0" text="Usuario(nombre)" />
             <Label layoutX="279.0" layoutY="320.0" text="Contraseña" />
-            <TextField layoutX="376.0" layoutY="279.0" />
-            <TextField layoutX="376.0" layoutY="316.0" />
+            <TextField fx:id="a_nombre" layoutX="376.0" layoutY="279.0" />
+            <TextField fx:id="a_clave" layoutX="376.0" layoutY="316.0" />
             <Label layoutX="360.0" layoutY="235.0" text="Ingresar" />
             <Label layoutX="360.0" layoutY="383.0" text="Registrarse" />
             <Label layoutX="285.0" layoutY="419.0" text="Nombre" />
@@ -24,16 +36,23 @@
             <TextField fx:id="tfCont" layoutX="360.0" layoutY="454.0" />
             <TextField fx:id="tfSexo" layoutX="360.0" layoutY="491.0" />
             <TextField fx:id="tfEdad" layoutX="360.0" layoutY="531.0" />
-            <Button layoutX="541.0" layoutY="292.0" mnemonicParsing="false" text="Ingresar" />
-            <Button layoutX="532.0" layoutY="454.0" mnemonicParsing="false" onAction="#registrarse" text="Registrarse" />
+            <Button fx:id="ingresar" layoutX="541.0" layoutY="292.0" mnemonicParsing="false" onAction="#IngresarUsuario" text="Ingresar" />
+            <Button fx:id="registrar" layoutX="532.0" layoutY="454.0" mnemonicParsing="false" onAction="#registrarse" text="Registrarse" />
             <RadioButton layoutX="285.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarModoAlumno" selected="true" text="Alumno">
                <toggleGroup>
                   <ToggleGroup fx:id="tg1" />
-               </toggleGroup></RadioButton>
+               </toggleGroup>
+            </RadioButton>
             <RadioButton layoutX="412.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarModoAdmin" text="Administrador Académico" toggleGroup="$tg1" />
             <Group layoutX="243.0" layoutY="178.0" />
             <Group layoutX="605.0" layoutY="228.0" />
             <Group layoutX="204.0" layoutY="170.0" />
+            <Label layoutX="213.0" layoutY="118.0" prefHeight="51.0" prefWidth="475.0" text="Bienvenido a Academic Manager">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="error_ingreso" layoutX="261.0" layoutY="355.0" prefHeight="17.0" prefWidth="353.0" text="." />
          </children>
       </Pane>
    </children>

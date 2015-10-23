@@ -9,8 +9,8 @@ public class AplicacionInicio {
 	
 	
 	
-	private List<Alumno> listaAlumnos;
-	private List<Administrador_academico> listaAdministradores;
+	public List<Alumno> listaAlumnos;
+	public List<Administrador_academico> listaAdministradores;
 	
 	public AplicacionInicio(){
 		listaAlumnos = new ArrayList<Alumno>();
@@ -19,14 +19,14 @@ public class AplicacionInicio {
 	}
 	
 	
-	public void agregarAlumno(String nom, String cont, String sex, int ed){
+	public void agregarAlumno(Alumno A){
 		
-		listaAlumnos.add(new Alumno(nom, cont, sex, ed));
+		listaAlumnos.add(A);
 		
 	}
 	
-	public void agregarAdministrador(String nom, String cont, String sex, int ed){
-		listaAdministradores.add(new Administrador_academico(nom, cont, sex, ed));
+	public void agregarAdministrador(Administrador_academico a){
+		listaAdministradores.add(a);
 		
 	}
 

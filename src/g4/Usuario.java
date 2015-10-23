@@ -1,8 +1,8 @@
 package g4;
 
 public class Usuario {
-	String nombre;
-	String contraseña;
+	public String nombre;
+	public String contraseña;
 	String sexo;
 	int edad;
 	Boolean conectado;
@@ -15,13 +15,10 @@ public class Usuario {
 		conectado = false;
 	}
 	
-	public void Iniciar_sesion(String nombre_usuario, String contraseña_usuario){
-		if ( this.nombre == nombre_usuario || this.contraseña == contraseña_usuario)
-		{
+	public void Iniciar_sesion(){
 			conectado = true;
-			
-		}
 	}
+	
 	public void Cerrar_sesion(){
 		conectado = false;
 	}
