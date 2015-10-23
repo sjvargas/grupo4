@@ -1,6 +1,8 @@
 package fx.view;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -8,6 +10,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
@@ -16,6 +19,7 @@ import java.util.List;
 import g4.Administrador_academico;
 import g4.Alumno;
 import g4.AplicacionInicio;
+import g4.Carrera;
 import g4.Curso;
 import g4.Usuario;
 
@@ -61,16 +65,31 @@ public class InicioController {
 	@FXML
 	private Button cerrar_sesion;
 	
-	@FXML private javafx.scene.control.Button closeButton;
+	/// variables de Usuario
 
 	@FXML
-	private void closeButtonAction(){
-	    // get a handle to the stage
-	    Stage Window = (Stage) closeButton.getScene().getWindow();
-	    // do what you have to do
-	    Window.close();
-	}
+	private Button boton_carreras_alumno;
+	@FXML
+	private Pane pane_carreras_alumno;
+	@FXML
+	private Button boton_semestres_alumno;
+	@FXML
+	private Pane pane_semestres_alumno;
+	@FXML
+	private Button boton_cursos_alumno;
+	@FXML
+	private Pane pane_cursos_alumno;
+	@FXML
+    private Label label_nombre_carrera_alumno;
+	@FXML
+    private Label label_decano_carrera_alumno;
+	@FXML
+    private Label label_facultad_carrera_alumno;
+	@FXML
+	private Button boton_ver_carrera_alumno;
 	
+	@FXML
+	private ChoiceBox choise_carreras_alumno;
 	
 	//crea instancia de  Apicacion inicio-.. No estoy seguro de si se crea acá o en Main
 	
@@ -92,12 +111,9 @@ public class InicioController {
 			boolean aux = false;
 			for (Alumno j : aplicacionInicio.listaAlumnos)
 			{
-
-				System.out.println("entre: "+ nombre +","+clave+" = "+j.nombre+","+j.contraseña);
 				if ( j.nombre.equals(nombre) && j.contraseña.equals(clave) )
 				{
 					aux = true;
-					System.out.println("son iguales");
 					if (j.acceso== true)
 					{
 						System.out.println("con acceso");
@@ -113,7 +129,7 @@ public class InicioController {
 					else {
 						error_ingreso.setText("tu excediste el numero de creditos reprobados :(");
 
-						}
+					}
 					break;
 				}
 			}
@@ -133,9 +149,11 @@ public class InicioController {
 	public InicioController(){
 		
 		aplicacionInicio = new AplicacionInicio();
-		
+
 		
 		modoAlumnoSelecionado = true;
+
+		
 		
 	}
 
@@ -193,4 +211,55 @@ public class InicioController {
 	}
 	
 
+	//// eventos paneles de usuario
+	
+	public void clicksemestres()
+	{
+		mostrar_panel(pane_semestres_alumno);
+	}
+	
+	public void clickcursos()
+	{
+		mostrar_panel(pane_cursos_alumno);
+	}
+	
+	public void clickcarreras()
+	{
+		mostrar_panel(pane_carreras_alumno);
+		
+		ObservableList<Carrera>  ss = FXCollections.observableList(aplicacionInicio.listaCarreras);
+		choise_carreras_alumno.setItems(ss);
+		
+		
+	}
+	
+	
+	public void mostrar_panel(Pane a)
+	{
+		if (pane_cursos_alumno.isVisible()){
+			pane_cursos_alumno.setVisible(false);
+		}
+		if (pane_carreras_alumno.isVisible()){
+			pane_carreras_alumno.setVisible(false);
+		}
+		if (pane_semestres_alumno.isVisible()){
+			pane_semestres_alumno.setVisible(false);
+		}
+		
+		a.setVisible(true);
+	}
+	
+	
+	/// eventos paneles de carreras
+	
+	public void clickvercarrera()
+	{
+		Carrera c = (Carrera) choise_carreras_alumno.getItems();
+		label_nombre_carrera_alumno.setText(c.getnombre_carrera());
+		label_decano_carrera_alumno.setText(c.getDecano());
+		label_facultad_carrera_alumno.setText(c.getFacultad());
+	}
+	
+	
+	
 }

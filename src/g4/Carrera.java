@@ -19,10 +19,12 @@ public class Carrera {
 	private List<Malla_curricular> mallas_curriculares;
 	private String Decano;
 	private String facultad;
+	private String nombre;
 	
-	public Carrera(int id, String decano, String facultad){
+	public Carrera(int id, String decano, String facultad,String nombre){
 		this.id_carrera = id;
 		this.Decano= decano;
+		this.nombre= nombre;
 		this.facultad = facultad;
 	}
 	
@@ -39,6 +41,9 @@ public class Carrera {
 	}
 	public int getId_carrera() {
 		return id_carrera;
+	}
+	public String getnombre_carrera() {
+		return nombre;
 	}
 	public List<Malla_curricular> getMallas_curriculares() {
 		return mallas_curriculares;

@@ -41,9 +41,9 @@ public class Administrador_academico extends Usuario {
 		Programacion_Academica nueva_progra = new Programacion_Academica(periodo);
 	}
 	
-	public void agregar_carrera(String decano, String facultad){
+	public void agregar_carrera(String decano, String facultad, String nombre){
 		
-		Carrera nuevaCarrera = new Carrera(lista_carreras.size()+1,decano,facultad);
+		Carrera nuevaCarrera = new Carrera(lista_carreras.size()+1,decano,facultad, nombre);
 		
 		lista_carreras.add(nuevaCarrera);
 	}
