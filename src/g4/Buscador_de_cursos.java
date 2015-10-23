@@ -9,11 +9,10 @@ import java.util.ArrayList;
 
 
 public class Buscador_de_cursos {
-	private static Buscador_de_cursos instancia = null;
 	
 	public ArrayList<Curso> todo_cursos;
 	public String periodo;
-	protected Buscador_de_cursos(String periodo)
+	public Buscador_de_cursos(String periodo)
 	{
 		todo_cursos = new ArrayList<Curso>();
 		this.periodo = periodo;
@@ -21,12 +20,13 @@ public class Buscador_de_cursos {
 	
 	/// uno le entrega una lista de horarios y
 	/// entrega los cursos que como minimo tenga esos horarios.
+	/// NUevo: se le agrega una lista de cursos a filtrar: cursosAFiltrar
 	
-	public ArrayList<Curso> filtrar_por_horario(List<String> horarios)
+	private ArrayList<Curso> filtrar_por_horario(ArrayList<Curso> cursosAFiltrar,List<String> horarios)
 	{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
 		
-		for (Curso j : this.todo_cursos) {
+		for (Curso j : cursosAFiltrar) {
 
 			boolean aux1 = true;
 			for (String i : horarios) {
@@ -46,12 +46,12 @@ public class Buscador_de_cursos {
 
 	/// uno le entrega un nombre de profesor o parte del nombre (ejemplo: "juan") y
 	/// te entrega todos los cursos que contengan algun profesor que haga mach.
-	
-	public ArrayList<Curso> filtrar_por_profesor(String nombre_profesor)
+	/// NUevo: se le agrega una lista de cursos a filtrar: cursosAFiltrar
+	private ArrayList<Curso> filtrar_por_profesor(ArrayList<Curso> cursosAFiltrar,String nombre_profesor)
 	{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
 		
-		for (Curso j : this.todo_cursos) {
+		for (Curso j : cursosAFiltrar) {
 
 			boolean aux1 = false;
 			
@@ -73,11 +73,12 @@ public class Buscador_de_cursos {
 	
 	/// uno le entrega el id de la carrera y
 	/// entrega los cursos que pertenesen a esa carrera.
-	public ArrayList<Curso> filtrar_por_carrera(int id_carrera)
+	/// NUevo: se le agrega una lista de cursos a filtrar: cursosAFiltrar
+	private ArrayList<Curso> filtrar_por_carrera(ArrayList<Curso> cursosAFiltrar, int id_carrera)
 	{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
 		
-		for (Curso j : this.todo_cursos) {
+		for (Curso j : cursosAFiltrar) {
 			Carrera i = j.ramo.getCarrera();	
 			if (i.getId_carrera() == id_carrera){
 				{
@@ -91,11 +92,11 @@ public class Buscador_de_cursos {
 	/// uno le entrega una sigla o parte de una  (ejemplo: "iic") y
 	/// te entrega todos los cursos que hagan mach.
 		
-	public ArrayList<Curso> filtrar_por_sigla(String sigla)
+	private ArrayList<Curso> filtrar_por_sigla(ArrayList<Curso> cursosAFiltrar,String sigla)
 	{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
 		
-		for (Curso j : this.todo_cursos) {
+		for (Curso j : cursosAFiltrar) {
 
 			boolean aux1 = false;
 			
@@ -116,12 +117,38 @@ public class Buscador_de_cursos {
 		
 		return cursos_encontrados;
 	}
+	//
 	
-	
-	public static Buscador_de_cursos getInstancia(){
-		if(instancia == null){
-			instancia = new Buscador_de_cursos();
+	// metodo unico para filtrar, si no se quiere filtrar por algo, se coloca Null.
+	public ArrayList<Curso> filtrar(List<String> horarios, String nombre_profesor,Integer id_carrera,String sigla){
+		
+		
+		ArrayList<Curso> cursosFiltrados = new ArrayList<Curso>();
+		
+		// filtrar por horarios
+		if(horarios!=null && horarios.size()>0){
+			cursosFiltrados = this.filtrar_por_horario(cursosFiltrados, horarios);
 		}
-		return instancia;
+		
+		if(nombre_profesor!=null && nombre_profesor!=""){
+			
+			cursosFiltrados = this.filtrar_por_profesor(cursosFiltrados, nombre_profesor);
+			
+		}
+		//
+		if(id_carrera!= null && id_carrera!=-1){
+			this.filtrar_por_carrera(cursosFiltrados, id_carrera);
+		}
+		if(sigla!=null && sigla!="" && sigla.length()>0){
+			this.filtrar_por_sigla(cursosFiltrados, sigla);
+		}
+		
+		
+		
+		return cursosFiltrados;
+		
+		
+		
+		
 	}
 }
