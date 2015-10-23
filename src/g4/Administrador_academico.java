@@ -70,5 +70,23 @@ public class Administrador_academico extends Usuario {
 	public List<Carrera> getListaCarrera(){
 		return this.lista_carreras;
 	}
+	
+	public Carrera GetCarrera(int id_Carrera){
+		for(Carrera c : lista_carreras){
+			if(c.getId_carrera() == id_Carrera){
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	public Carrera GetCarrera(String nombreCarrera){
+		for(Carrera c : lista_carreras){
+			if(c.getnombre_carrera() == nombreCarrera){
+				return c;
+			}
+		}
+		return null;
+	}
 
 }

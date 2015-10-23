@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import g4.Administrador_academico;
+import g4.Carrera;
 import g4.Profesor;
 
 public class AdminOverviewController {
@@ -161,4 +162,67 @@ public class AdminOverviewController {
 	}
 	
 	// MODULO RAMOS
+	private TextField textFieldSiglaRamo;
+	private TextField textFieldCarreraRamo;
+	private TextField textFieldCreditosRamo;
+	private TextField textFieldSemestreImpartidoRamo;
+	private TextField textFieldContenidoRamo;
+	private TextField textFieldObjetivosRamo;
+	private Label labelAgregarRamo;
+	
+	public void AgregarRamo(){
+		String siglaRamo = textFieldSiglaRamo.getText();
+		String carreraRamo = textFieldCarreraRamo.getText();
+		String creditosRamo = textFieldCreditosRamo.getText();
+		String semestreImpartidoRamo = textFieldSemestreImpartidoRamo.getText();
+		String contenidoRamo = textFieldContenidoRamo.getText();
+		String objetivosRamo = textFieldObjetivosRamo.getText();
+		int creditosRamo2 = Integer.parseInt(creditosRamo);
+		Carrera c = usuarioAdministrador.GetCarrera(carreraRamo);
+		if(siglaRamo != "" && carreraRamo!= "" && creditosRamo!= "" && semestreImpartidoRamo!= "" && contenidoRamo!= "" && objetivosRamo!= "" ){
+			usuarioAdministrador.agregar_ramo(siglaRamo, c, creditosRamo2, semestreImpartidoRamo, contenidoRamo, objetivosRamo);
+			labelAgregarRamo.setText("Ramo Agregado");
+		}
+		else{
+			labelAgregarRamo.setText("Error al agregar Ramo");
+		}
+	}
+
+	// MODULO CARRERAS
+	private TextField textFieldNombreCarrera;
+	private TextField textFieldFacultadCarrera;
+	private TextField textFieldDecanoCarrera;
+	private Label labelEstadoAgregarCarrera;
+	
+	public void AgregarCarrera(){
+		String nombreCarrera = textFieldNombreCarrera.getText();
+		String facultadCarrera = textFieldFacultadCarrera.getText();
+		String decanoCarrera = textFieldDecanoCarrera.getText();
+		if(nombreCarrera!="" && facultadCarrera!="" && decanoCarrera!=""){
+			usuarioAdministrador.agregar_carrera(decanoCarrera, facultadCarrera, nombreCarrera);
+			labelEstadoAgregarCarrera.setText("Carrera Agregada");
+		}
+		else{
+			labelEstadoAgregarCarrera.setText("Campo Vacio");
+		}
+	}
+	
+	// MODULO PROGRAMACION ACADEMICA
+	private TextField textFieldSemestreProgramacionAcademica;
+	private Label LabelEstadoProgramacionAcademica;
+	
+	public void AgregarProgramacionAcademica(){
+		String semestre = textFieldSemestreProgramacionAcademica.getText();
+		if(semestre != ""){
+			usuarioAdministrador.crear_programacion_academica(semestre);
+			LabelEstadoProgramacionAcademica.setText("Agregado");
+		}
+		else{
+			LabelEstadoProgramacionAcademica.setText("Campo Vacio");
+		}
+	}
+	
+	// MODULO MODIFICAR DATOS
+	
+	
 }
