@@ -12,8 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import g4.Administrador_academico;
@@ -23,8 +27,7 @@ import g4.Carrera;
 import g4.Curso;
 import g4.Malla_curricular;
 import g4.Usuario;
-
-
+import javafx.beans.property.SimpleStringProperty;
 
 public class InicioController {
 	
@@ -102,6 +105,9 @@ public class InicioController {
 	
 	
 	
+	// tabla 
+	@FXML
+	ListView<String> listViewCarrerasInscritas;
 	
 	//crea instancia de  Apicacion inicio-.. No estoy seguro de si se crea acá o en Main
 	
@@ -252,8 +258,10 @@ public class InicioController {
 		
 		choise_carreras_alumno.setValue(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0));
 		
-		
-		
+		this.actualizarTablaConCarrerasInscritas();
+		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
+		//choice_malla.setItems(mallasDeLaCarrera);
+		//choice_malla.setValue(mallasDeLaCarrera.get(0));
 		
 	}
 	
@@ -284,9 +292,11 @@ public class InicioController {
 		label_facultad_carrera_alumno.setText(c.getFacultad());
 		
 		
-		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
-		choice_malla.setItems(mallasDeLaCarrera);
-		choice_malla.setValue(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares().get(0));
+		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(c.getMallas_curriculares());
+	//	choice_malla.setItems(mallasDeLaCarrera);
+	//	choice_malla.setValue(mallasDeLaCarrera.get(0));
+		
+		
 		
 	}
 	
@@ -295,8 +305,29 @@ public class InicioController {
 		
 		((Alumno)Usuario_conectado).Inscribir_carrera(((Carrera) choise_carreras_alumno.getValue()).getId_carrera());
 		
-		((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular) choice_malla.getValue()).getId_malla());
+	//	((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular) choice_malla.getValue()).getId_malla());
 		
+		
+		
+		//
+		this.actualizarTablaConCarrerasInscritas();
+		 
+		
+	}
+	
+	private void actualizarTablaConCarrerasInscritas(){
+		//listViewCarrerasInscritas = new ListView<String>();
+		List<String> nombresCarrerasInscritas= new ArrayList<String>();
+		
+		for(int i=0;i<((Alumno)Usuario_conectado).GetCarreras().size();i++){
+			nombresCarrerasInscritas.add(aplicacionInicio.listaAdministradores.get(0).GetCarrera(((Alumno)Usuario_conectado).GetCarreras().get(i)).getnombre_carrera());
+			
+		}
+		
+		ObservableList<String> items =FXCollections.observableArrayList (nombresCarrerasInscritas);
+		listViewCarrerasInscritas.setItems(items);
+		
+		//
 	}
 	
 	
