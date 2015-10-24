@@ -114,6 +114,11 @@
                   </GridPane>
                   <Button fx:id="boton_ver_carrera_alumno" layoutX="204.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickvercarrera" text="Ver Carrera" />
                   <Button layoutX="227.0" layoutY="239.0" mnemonicParsing="false" onAction="#clickInscribirCarreraYMalla" text="Inscribir Carrera y Malla" />
+                  <TitledPane layoutX="368.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" text="Carreras Inscritas">
+                     <content>
+                        <ListView fx:id="listViewCarrerasInscritas" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
                </children>
             </Pane>
          </children>

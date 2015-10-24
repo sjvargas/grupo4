@@ -34,6 +34,10 @@ public class AplicacionInicio {
 		listaAdministradores.get(0).agregar_carrera("juan perez", "artes", "teatro");
 		listaAdministradores.get(0).agregar_carrera("juan perez", "artes", "coreografia");
 		
+		
+		//carreras parten desde indice 1
+		listaAlumnos.get(0).Inscribir_carrera(2);
+		
 		Malla_curricular malla1 = new Malla_curricular(0);
 		Malla_curricular malla2 = new Malla_curricular(1);
 		
