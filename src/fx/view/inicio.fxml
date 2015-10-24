@@ -113,6 +113,7 @@
                      </children>
                   </GridPane>
                   <Button fx:id="boton_ver_carrera_alumno" layoutX="204.0" layoutY="60.0" mnemonicParsing="false" onAction="#clickvercarrera" text="Ver Carrera" />
+                  <Button layoutX="227.0" layoutY="239.0" mnemonicParsing="false" onAction="#clickInscribirCarreraYMalla" text="Inscribir Carrera y Malla" />
                </children>
             </Pane>
          </children>

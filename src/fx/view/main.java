@@ -36,6 +36,13 @@ public class main extends Application {
 			primaryStage.setScene(new Scene(root,800,500));
 			primaryStage.show();
 			
+			
+			//Parent root2 = FXMLLoader.load(getClass().getResource("AdminOverview.fxml"));
+			//primaryStage.setScene(new Scene(root2,800,500));
+			//primaryStage.show();
+			
+
+			
 		
 			
 		} catch(Exception e) {

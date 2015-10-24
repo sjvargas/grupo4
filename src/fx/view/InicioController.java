@@ -30,8 +30,8 @@ public class InicioController {
 	
 	
 
-	public List<Alumno> alumnos;
-	public List<Administrador_academico> admins;
+//	public List<Alumno> alumnos;
+//	public List<Administrador_academico> admins;
 	public Usuario Usuario_conectado;
 	public String Usuario_tipo;  /// aca va un string que si es "alumno" o si es "admin".
 	
@@ -92,12 +92,22 @@ public class InicioController {
 	@FXML
 	private ChoiceBox choise_carreras_alumno;
 	
+	@FXML
+	private ChoiceBox choice_malla;
+	
+	@FXML
+	private ChoiceBox choice_curso;
+	
+	
+	
+	
+	
+	
 	//crea instancia de  Apicacion inicio-.. No estoy seguro de si se crea acá o en Main
 	
 	
 	
-	@FXML
-	private ChoiceBox choice_malla;
+	
 	
 	
 	public void IngresarUsuario(ActionEvent event){
@@ -142,6 +152,12 @@ public class InicioController {
 		else
 		{
 			error_ingreso.setText("admiiin");
+			
+			
+			
+			
+			
+			
 		}
 		
 		
@@ -223,6 +239,9 @@ public class InicioController {
 	public void clickcursos()
 	{
 		mostrar_panel(pane_cursos_alumno);
+		
+		//ObservableList<Curso>  ss = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera());
+		//choise_carreras_alumno.setItems(ss);
 	}
 	
 	public void clickcarreras()
@@ -231,6 +250,10 @@ public class InicioController {
 		
 		ObservableList<Carrera>  ss = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera());
 		choise_carreras_alumno.setItems(ss);
+		
+		choise_carreras_alumno.setValue(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0));
+		
+		
 		
 		
 	}
@@ -264,6 +287,16 @@ public class InicioController {
 		
 		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
 		choice_malla.setItems(mallasDeLaCarrera);
+		choice_malla.setValue(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares().get(0));
+		
+	}
+	
+	public void clickInscribirCarreraYMalla(){
+		System.out.println("metal");
+		
+		((Alumno)Usuario_conectado).Inscribir_carrera(((Carrera) choise_carreras_alumno.getValue()).getId_carrera());
+		
+		((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular) choice_malla.getValue()).getId_malla());
 		
 	}
 	

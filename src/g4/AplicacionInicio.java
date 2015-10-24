@@ -13,12 +13,16 @@ public class AplicacionInicio {
 	public List<Administrador_academico> listaAdministradores;
 	//public List<Carrera>  listaCarreras; /// cada vez que se agrege una carrera hay que agregarla aca tambien.
 	
+	public Buscador_de_cursos buscador;
+	
 	public AplicacionInicio(){
 		
 
 
 		listaAlumnos = new ArrayList<Alumno>();
 		listaAdministradores = new ArrayList<Administrador_academico>();
+		buscador = new Buscador_de_cursos("2015-2");
+		
 //		listaCarreras = new ArrayList<Carrera>();
 
 		// datos iniciales
@@ -36,8 +40,10 @@ public class AplicacionInicio {
 		listaAdministradores.get(0).getListaCarrera().get(0).crear_malla_curricular(malla1);
 		listaAdministradores.get(0).getListaCarrera().get(0).crear_malla_curricular(malla2);
 		
-		
+		Ramo calculo1 = new Ramo("MAT1610", 10, listaAdministradores.get(0).getListaCarrera().get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
 
+		//Curso calculo11 = new Curso(1, 1, "a1,a2", null, 10, null, calculo1);
+		
 		
 	//	listaCarreras.add(new Carrera(1, "juan perez", "artes", "teatro"));
 	//	listaCarreras.add(new Carrera(2, "juan perez", "artes", "coreografia"));
