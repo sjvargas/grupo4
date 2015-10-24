@@ -28,10 +28,7 @@ public class AdminOverviewController {
 	// Constructor que recibe el administrador
 	public AdminOverviewController(Administrador_academico usuarioAdministrador){
 		this.usuarioAdministrador = usuarioAdministrador;
-		paneAdminBasico.setVisible(true);
-		CambiarAPanel(paneAdminInicio);
 	}
-	
 	
 	// Botones del menu de inicio
 	@FXML
@@ -70,7 +67,8 @@ public class AdminOverviewController {
 	private Pane paneAdminModificarDatos;
 
 	// Label Panel Admin Estado
-	private Label LabelPanelAdminEstado;
+	@FXML
+    private Label LabelPanelAdminEstado;
 	
 	// Metodo para cambiar el panel
 	protected void CambiarAPanel(Pane paneDeseado){
@@ -88,6 +86,10 @@ public class AdminOverviewController {
 	public void ApretarBotonInicio(ActionEvent event){
 		CambiarAPanel(paneAdminInicio);
 		LabelPanelAdminEstado.setText("Inicio");
+		labelNombre.setText(usuarioAdministrador.nombre);
+		labelNombreUsuario.setText(usuarioAdministrador.nombre);
+		labelSexo.setText(usuarioAdministrador.GetSexo());
+		labelEdad.setText(usuarioAdministrador.GetEdad());
 	}
 	public void ApretarBotonProfesores(ActionEvent event){
 		CambiarAPanel(paneAdminProfesores);
@@ -116,14 +118,29 @@ public class AdminOverviewController {
 	public void ApretarBotonCerrarSesion(ActionEvent event){
 	}
 	
+	// MODULO INICIO:
+	@FXML
+    private Label labelNombre;
+	@FXML
+    private Label labelNombreUsuario;
+	@FXML
+    private Label labelSexo;
+	@FXML
+    private Label labelEdad;
 	
 	// MODULO PROFESORES:
-	private TextField campoANombreProfesor;
-	private TextField campoAApellidosProfesor;
-	private TextField campoASueldoProfesor;
-	private TextField campoAFacultadProfesor;
-	private TextField campoEliminarProfID;
-	private Label labelAvisoProfesor;
+	@FXML
+    private TextField campoANombreProfesor;
+	@FXML
+    private TextField campoAApellidosProfesor;
+	@FXML
+    private TextField campoASueldoProfesor;
+	@FXML
+    private TextField campoAFacultadProfesor;
+	@FXML
+    private TextField campoEliminarProfID;
+	@FXML
+    private Label labelAvisoProfesor;
 	// Tabla Lista Profesores:
 	
 	// Agregar Nuevo Profesor:
@@ -149,8 +166,10 @@ public class AdminOverviewController {
 	}
 	
 	// MODULO ALUMNOS
-	private TextField textFieldIdAlumno;
-	private Label labelEstadoRestringirAlumno;
+	@FXML
+    private TextField textFieldIdAlumno;
+	@FXML
+    private Label labelEstadoRestringirAlumno;
 	public void ApretarRestringirAlumno(ActionEvent event){
 		String idAlumno = textFieldIdAlumno.getText();
 		if(idAlumno != ""){
@@ -162,13 +181,20 @@ public class AdminOverviewController {
 	}
 	
 	// MODULO RAMOS
-	private TextField textFieldSiglaRamo;
-	private TextField textFieldCarreraRamo;
-	private TextField textFieldCreditosRamo;
-	private TextField textFieldSemestreImpartidoRamo;
-	private TextField textFieldContenidoRamo;
-	private TextField textFieldObjetivosRamo;
-	private Label labelAgregarRamo;
+	@FXML
+    private TextField textFieldSiglaRamo;
+	@FXML
+    private TextField textFieldCarreraRamo;
+	@FXML
+    private TextField textFieldCreditosRamo;
+	@FXML
+    private TextField textFieldSemestreImpartidoRamo;
+	@FXML
+    private TextField textFieldContenidoRamo;
+	@FXML
+    private TextField textFieldObjetivosRamo;
+	@FXML
+    private Label labelAgregarRamo;
 	
 	public void AgregarRamo(){
 		String siglaRamo = textFieldSiglaRamo.getText();
@@ -189,10 +215,14 @@ public class AdminOverviewController {
 	}
 
 	// MODULO CARRERAS
-	private TextField textFieldNombreCarrera;
-	private TextField textFieldFacultadCarrera;
-	private TextField textFieldDecanoCarrera;
-	private Label labelEstadoAgregarCarrera;
+	@FXML
+    private TextField textFieldNombreCarrera;
+	@FXML
+    private TextField textFieldFacultadCarrera;
+	@FXML
+    private TextField textFieldDecanoCarrera;
+	@FXML
+    private Label labelEstadoAgregarCarrera;
 	
 	public void AgregarCarrera(){
 		String nombreCarrera = textFieldNombreCarrera.getText();
@@ -208,8 +238,10 @@ public class AdminOverviewController {
 	}
 	
 	// MODULO PROGRAMACION ACADEMICA
-	private TextField textFieldSemestreProgramacionAcademica;
-	private Label LabelEstadoProgramacionAcademica;
+	@FXML
+    private TextField textFieldSemestreProgramacionAcademica;
+	@FXML
+    private Label LabelEstadoProgramacionAcademica;
 	
 	public void AgregarProgramacionAcademica(){
 		String semestre = textFieldSemestreProgramacionAcademica.getText();

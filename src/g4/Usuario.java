@@ -22,5 +22,8 @@ public class Usuario {
 	public void Cerrar_sesion(){
 		conectado = false;
 	}
+	
+	public String GetSexo(){return sexo;}
+	public String GetEdad(){return Integer.toString(edad);}
 
 }

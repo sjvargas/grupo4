@@ -6,7 +6,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +16,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import java.util.List;
 
 import g4.Administrador_academico;
@@ -151,15 +155,50 @@ public class InicioController {
 		else
 		{
 			error_ingreso.setText("admiiin");
-			
-			
-			
-			
-			
-			
-		}
-		
-		
+			Administrador_academico administrador = null;
+			boolean existeElAdmin = false;
+			for(Administrador_academico a : aplicacionInicio.listaAdministradores){
+				if (aplicacionInicio.listaAdministradores.isEmpty())
+				{
+					error_ingreso.setText("no existe ningun administrador");
+				}
+				if ( a.nombre.equals(nombre) && a.contraseña.equals(clave)){
+					administrador = a;
+					existeElAdmin = true;
+				}
+			}
+			if(existeElAdmin){
+				error_ingreso.setText("l1");
+			      try{
+			            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminOverview.fxml"));
+			            error_ingreso.setText("l2");
+			            AdminOverviewController adminController = new AdminOverviewController(administrador);
+			            error_ingreso.setText("l2,3");
+			            fxmlLoader.setController(adminController);
+			            error_ingreso.setText("l3");
+			            Parent root1 = (Parent) fxmlLoader.load();
+			            error_ingreso.setText("l4");
+			            Stage stage = new Stage();
+			            error_ingreso.setText("l5");
+			            stage.initModality(Modality.APPLICATION_MODAL);
+			            error_ingreso.setText("l6");
+			            stage.initStyle(StageStyle.UNDECORATED);
+			            error_ingreso.setText("l7");
+			            stage.setTitle("Administrador");
+			            error_ingreso.setText("l8");
+			            stage.setScene(new Scene(root1));  
+			            error_ingreso.setText("l9");
+			            stage.show();
+			    	  
+			      }
+			      catch(Exception e) {
+			           e.printStackTrace();
+			          }
+			}
+			else{
+				error_ingreso.setText("no existe ese administrador");
+			}			
+		}	
 	}
 	
 
