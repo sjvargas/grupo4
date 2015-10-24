@@ -111,11 +111,10 @@ public class InicioController {
 	
 	
 	public void IngresarUsuario(ActionEvent event){
+		String nombre = a_nombre.getText() ;
+		String clave = a_clave.getText();
 		if (modoAlumnoSelecionado)
 		{
-			String nombre = a_nombre.getText() ;
-			String clave = a_clave.getText();
-			
 			if (aplicacionInicio.listaAlumnos.isEmpty())
 			{
 				error_ingreso.setText("no existe ningun alumno");
