@@ -19,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ import java.util.List;
 import g4.Alumno;
 import g4.Carrera;
 import g4.Malla_curricular;
+import g4.Usuario;
 
 public class AlumnoOverviewController implements PrincipalController {
 	/// objeto para realizar el cambio de paginas
@@ -76,6 +78,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private Pane pane_cursos_alumno;
 	@FXML
+	private Pane pane_inicio_alumno;
+	@FXML
 	private Label label_nombre_carrera_alumno;
 	@FXML
 	private Label label_decano_carrera_alumno;
@@ -84,6 +88,15 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private Button boton_ver_carrera_alumno;
 
+	
+	//label de inicio alumno
+	@FXML
+	private Label label_nombre_inicio_alumno;
+	@FXML
+	private Label label_sexo_inicio_alumno;
+	@FXML
+	private Label label_edad_inicio_alumno;
+	
 	@FXML
 	private ChoiceBox choise_carreras_alumno;
 	@FXML
@@ -149,12 +162,21 @@ public class AlumnoOverviewController implements PrincipalController {
 		if (pane_semestres_alumno.isVisible()) {
 			pane_semestres_alumno.setVisible(false);
 		}
+		if(pane_inicio_alumno.isVisible()){
+			pane_inicio_alumno.setVisible(false);
+		}
 
 		a.setVisible(true);
 	}
 	
 	public void clickinicio() {
-		mostrar_panel(pane_semestres_alumno);
+		//mostrar_panel(pane_semestres_alumno);
+		label_nombre_inicio_alumno.textProperty().setValue(main.U.alumno_actual.nombre);
+		label_edad_inicio_alumno.textProperty().set(main.U.alumno_actual.GetEdad());
+		label_sexo_inicio_alumno.textProperty().set(main.U.alumno_actual.GetSexo());
+		
+		mostrar_panel(pane_inicio_alumno);
+
 	}	
 	
 	public void clickbuscador() {
