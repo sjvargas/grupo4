@@ -44,23 +44,35 @@ public class AlumnoOverviewController implements PrincipalController {
 	/// objeto para realizar el cambio de paginas
 	ScreensController controlador;
 
-	@FXML
-	private Pane pantalla_alumno;
-	@FXML
-	private Button cerrar_sesion;
 
 	/// variables de Usuario
 
+	// panel basico
+	@FXML
+	private Pane pantalla_alumno;
 	@FXML
 	private Button boton_carreras_alumno;
 	@FXML
-	private Pane pane_carreras_alumno;
+	private Button boton_inicio_alumno;
 	@FXML
 	private Button boton_semestres_alumno;
 	@FXML
-	private Pane pane_semestres_alumno;
-	@FXML
 	private Button boton_cursos_alumno;
+	@FXML
+	private Button boton_semestre_actual_alumno;
+	@FXML
+	private Button boton_buscador_alumno;
+	@FXML
+	private Button boton_avance_malla_alumno;
+	@FXML
+	private Button cerrar_sesion;
+
+	///
+	
+	@FXML
+	private Pane pane_carreras_alumno;
+	@FXML
+	private Pane pane_semestres_alumno;
 	@FXML
 	private Pane pane_cursos_alumno;
 	@FXML
@@ -86,10 +98,6 @@ public class AlumnoOverviewController implements PrincipalController {
 	// crea instancia de Apicacion inicio-.. No estoy seguro de si se crea acá o
 	// en Main
 
-	public void CerrarSesion(ActionEvent event) {
-		controlador.setScreen(main.InicioID);
-	}
-
 	public void botonPrueba() {
 		controlador.setScreen(main.AdminID);
 	}
@@ -105,7 +113,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	public void clicksemestres() {
 		mostrar_panel(pane_semestres_alumno);
 	}
-
+	
 	public void clickcursos() {
 		mostrar_panel(pane_cursos_alumno);
 
@@ -144,7 +152,30 @@ public class AlumnoOverviewController implements PrincipalController {
 
 		a.setVisible(true);
 	}
+	
+	public void clickinicio() {
+		mostrar_panel(pane_semestres_alumno);
+	}	
+	
+	public void clickbuscador() {
+		mostrar_panel(pane_semestres_alumno);
+	}	
+	
+	public void clicksemestreactual() {
+		mostrar_panel(pane_semestres_alumno);
+	}	
+	
+	public void clickavancemalla() {
+		mostrar_panel(pane_semestres_alumno);
+	}	
+	
+	public void CerrarSesion(ActionEvent event) {
+		main.U.alumno_actual.Cerrar_sesion();
+		main.U.alumno_actual = null;
+		controlador.setScreen(main.InicioID);
+	}
 
+	
 	/// eventos paneles de carreras
 
 	public void clickvercarrera() {

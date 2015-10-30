@@ -118,6 +118,9 @@ public class AdminOverviewController implements PrincipalController {
 		LabelPanelAdminEstado.setText("Modificar Datos");
 	}
 	public void ApretarBotonCerrarSesion(ActionEvent event){
+		main.U.administrador_actual.Cerrar_sesion();
+		main.U.administrador_actual = null;
+		controlador.setScreen(main.InicioID);
 	}
 	
 	// MODULO INICIO:

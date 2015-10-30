@@ -52,16 +52,14 @@ public class ScreensController extends StackPane{
 		}
 		catch (Exception e){
 
-			System.out.println("no se pudoo");
-			System.out.println(e.getMessage());
+			System.out.println("no se pudoo agregar a "+nombre+" :( ");
 			return false;
 		}
 	}
 	
 	
 	public boolean setScreen(final String nombre){
-		System.out.println(getChildren());
-		System.out.println("\n"+nombre);
+		System.out.println("\n abriendo: "+nombre);
 		if (screens.get(nombre) != null){
 			if(!getChildren().isEmpty()){
 				
