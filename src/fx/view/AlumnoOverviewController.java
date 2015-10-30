@@ -39,7 +39,10 @@ import java.util.List;
 
 import g4.Alumno;
 import g4.Carrera;
+import g4.Curso;
 import g4.Malla_curricular;
+import g4.Nota;
+import g4.Semestre;
 import g4.Usuario;
 
 public class AlumnoOverviewController implements PrincipalController {
@@ -76,6 +79,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private Pane pane_semestres_alumno;
 	@FXML
+	private Pane pane_semestre_actual_alumno;
+	@FXML
 	private Pane pane_cursos_alumno;
 	@FXML
 	private Pane pane_inicio_alumno;
@@ -87,7 +92,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	private Label label_facultad_carrera_alumno;
 	@FXML
 	private Button boton_ver_carrera_alumno;
-
+	@FXML
+	private Button boton_actualizar_semestre_actual;
 	
 	//label de inicio alumno
 	@FXML
@@ -104,10 +110,53 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private ChoiceBox choice_curso;
 
+	
+	
+
 	// tabla
 	@FXML
 	ListView<String> listViewCarrerasInscritas;
-
+	
+	
+	
+	
+	// semestre ACTUAL textos de cursos y notas
+	@FXML
+	TextField text_periodo_semestre_actual;
+	@FXML
+	TextField text_curso1_semestre_actual;
+	@FXML
+	TextField text_curso2_semestre_actual;
+	@FXML
+	TextField text_curso3_semestre_actual;
+	@FXML
+	TextField text_curso4_semestre_actual;
+	@FXML
+	TextField text_curso5_semestre_actual;
+	@FXML
+	TextField text_curso6_semestre_actual;
+	@FXML
+	TextField text_curso7_semestre_actual;
+	@FXML
+	TextField text_curso8_semestre_actual;
+	@FXML
+	TextField text_nota1_semestre_actual;
+	@FXML
+	TextField text_nota2_semestre_actual;
+	@FXML
+	TextField text_nota3_semestre_actual;
+	@FXML
+	TextField text_nota4_semestre_actual;
+	@FXML
+	TextField text_nota5_semestre_actual;
+	@FXML
+	TextField text_nota6_semestre_actual;
+	@FXML
+	TextField text_nota7_semestre_actual;
+	@FXML
+	TextField text_nota8_semestre_actual;
+	
+	
 	// crea instancia de Apicacion inicio-.. No estoy seguro de si se crea acá o
 	// en Main
 
@@ -165,6 +214,9 @@ public class AlumnoOverviewController implements PrincipalController {
 		if(pane_inicio_alumno.isVisible()){
 			pane_inicio_alumno.setVisible(false);
 		}
+		if(pane_semestre_actual_alumno.isVisible()){
+			pane_semestre_actual_alumno.setVisible(false);
+		}
 
 		a.setVisible(true);
 	}
@@ -184,7 +236,21 @@ public class AlumnoOverviewController implements PrincipalController {
 	}	
 	
 	public void clicksemestreactual() {
-		mostrar_panel(pane_semestres_alumno);
+		
+		Semestre semestreActual;
+		if(main.U.alumno_actual.GetSemestreActual()!= null){
+			semestreActual = main.U.alumno_actual.GetSemestreActual();
+			List<Integer> idsCursos = semestreActual.GetCursos();
+			List<Nota> notas = semestreActual.GetNotas();
+
+		}
+
+		
+		
+		
+		
+		
+		mostrar_panel(pane_semestre_actual_alumno);
 	}	
 	
 	public void clickavancemalla() {
@@ -239,6 +305,120 @@ public class AlumnoOverviewController implements PrincipalController {
 		listViewCarrerasInscritas.setItems(items);
 
 		//
+	}
+	
+	
+	
+	// cambia el semestre actual del alumno, en base a la informacion que ingrese
+	public void actualizarSemestreActual(){
+		
+		Semestre semestreActual;
+		
+		if(main.U.alumno_actual.GetSemestreActual()!= null){
+			semestreActual = main.U.alumno_actual.GetSemestreActual();
+		}
+		
+		else{
+			
+			semestreActual = new Semestre(""+text_periodo_semestre_actual.textProperty());
+			
+			List<Curso> listaCursos = new ArrayList<Curso>();
+			List<Integer> listaNotas = new ArrayList<Integer>();
+
+			
+			
+			
+			if(text_curso1_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso1_semestre_actual.getText())));
+				if(text_nota1_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota1_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso2_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso2_semestre_actual.getText())));
+				if(text_nota2_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota2_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso3_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso3_semestre_actual.getText())));
+				if(text_nota3_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota3_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso4_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso4_semestre_actual.getText())));
+				if(text_nota4_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota4_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso5_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso5_semestre_actual.getText())));
+				if(text_nota5_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota5_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso6_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso6_semestre_actual.getText())));
+				if(text_nota6_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota6_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso7_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso7_semestre_actual.getText())));
+				if(text_nota7_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota7_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+			if(text_curso8_semestre_actual.getText().isEmpty() == false){
+				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso8_semestre_actual.getText())));
+				if(text_nota8_semestre_actual.getText().isEmpty() == false){
+					listaNotas.add(Integer.parseInt(""+text_nota8_semestre_actual.getText()));
+				}
+				else{
+					// valor default si no hay nada ingresado en nota 
+					listaNotas.add(1);
+
+				}
+			}
+		}
+		
+		
 	}
 
 }

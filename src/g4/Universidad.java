@@ -12,6 +12,7 @@ public class Universidad {
 	public List<Profesor> lista_profesores;
 	public List<Alumno> lista_alumnos;
 	public List<Administrador_academico> lista_administradores;
+	public List<Curso> lista_cursos;
 	
 	public Buscador_de_cursos buscador;
 	
@@ -27,6 +28,8 @@ public class Universidad {
 		lista_alumnos = new ArrayList<Alumno>();
 		lista_administradores = new ArrayList<Administrador_academico>();
 		buscador = new Buscador_de_cursos();
+		
+		lista_cursos = new ArrayList<Curso>();
 		
 		alumno_actual = null;
 		administrador_actual = null;
@@ -71,7 +74,15 @@ public class Universidad {
 		lista_administradores.add(a);	
 	}
 	
-	
+	// metodo que retorna el curso de la lista que tiene el id indicado
+	public Curso getCursoConID(int id){
+		for(int i=0;i<lista_cursos.size();i++){
+			if(lista_cursos.get(i).getId_curso()==id){
+				return lista_cursos.get(i);
+			}
+		}
+		return null;
+	}
 	
 	
 }
