@@ -260,7 +260,7 @@ public class AlumnoOverviewController implements PrincipalController {
 			List<Integer> idsCursos = semestreActual.GetCursos();
 			List<Nota> notas = semestreActual.GetNotas();
 			
-			//borrar
+			//borrar: es para verificar que Se vuelve a escribir los cursos con sus notas
 			System.out.println("EL SEMESTRE DE ALUMNO NO ES NULL!");
 			
 			text_curso1_semestre_actual.setText("");
@@ -285,8 +285,8 @@ public class AlumnoOverviewController implements PrincipalController {
 			//borrar
 			
 			int cantidadCursos = idsCursos.size();
-			
-			
+				
+			// los IF son para ir rellenando las casillas de idCursos y notas solo si hay mas cursos en los arreglos de curso
 			System.out.println("cantidad de cursos: "+cantidadCursos);
 			if(cantidadCursos>=1){
 				
@@ -431,7 +431,7 @@ public class AlumnoOverviewController implements PrincipalController {
 			List<Float> listaNotas = new ArrayList<Float>();
 
 			
-			
+			// Se revisan las casillas para los cursos, si no estan vacias, se agregan a la lista de cursos
 			
 			if(text_curso1_semestre_actual.getText().isEmpty() == false){
 				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso1_semestre_actual.getText())));
@@ -523,13 +523,17 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			
 			
-			
+			// se actualiza el semesrtre del alumno
 			main.U.alumno_actual.setSemestreActual(semestreActual);
-			
+			// se rellena el semestre en base a los cursos ingresados
 			for(int i=0;i<listaCursos.size();i++){
 				main.U.alumno_actual.GetSemestreActual().Agregar_Curso(listaCursos.get(i).getId_curso());
 				main.U.alumno_actual.GetSemestreActual().Poner_Nota(listaCursos.get(i).getId_curso(), listaNotas.get(i));
 			}
+			
+			// falta ver donde mas se agrega el semestre (hasta el momento solo esta en el alumno
+			
+			
 		//}
 		
 		
