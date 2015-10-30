@@ -21,6 +21,10 @@ public class Buscador_de_cursos {
 	/// entrega los cursos que como minimo tenga esos horarios.
 	/// NUevo: se le agrega una lista de cursos a filtrar: cursosAFiltrar
 	
+	
+	/// filtrar por todo!!!
+	
+	
 	private ArrayList<Curso> filtrar_por_horario(ArrayList<Curso> cursosAFiltrar,List<String> horarios)
 	{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
