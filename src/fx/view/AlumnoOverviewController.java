@@ -120,7 +120,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	
 	
 	
-	// semestre ACTUAL textos de cursos y notas
+	// INICIO ELEMENTOS semestre ACTUAL textos de cursos y notas
 	@FXML
 	TextField text_periodo_semestre_actual;
 	@FXML
@@ -155,7 +155,24 @@ public class AlumnoOverviewController implements PrincipalController {
 	TextField text_nota7_semestre_actual;
 	@FXML
 	TextField text_nota8_semestre_actual;
-	
+	////////
+	@FXML
+	Label label_curso1_semestre_actual;
+	@FXML
+	Label label_curso2_semestre_actual;
+	@FXML
+	Label label_curso3_semestre_actual;
+	@FXML
+	Label label_curso4_semestre_actual;
+	@FXML
+	Label label_curso5_semestre_actual;
+	@FXML
+	Label label_curso6_semestre_actual;
+	@FXML
+	Label label_curso7_semestre_actual;
+	@FXML
+	Label label_curso8_semestre_actual;
+	// FIN DE ELEMENTOS DE SEMESTRE ACTUAL
 	
 	// crea instancia de Apicacion inicio-.. No estoy seguro de si se crea acá o
 	// en Main
@@ -274,34 +291,47 @@ public class AlumnoOverviewController implements PrincipalController {
 			if(cantidadCursos>=1){
 				
 				text_curso1_semestre_actual.setText(""+idsCursos.get(0));
-				text_nota1_semestre_actual.setText(""+notas.get(0).GetNota());	
-				
+				text_nota1_semestre_actual.setText(""+notas.get(0).GetNota());
+				label_curso1_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(0)).getRamo().getSigla());
 				if(cantidadCursos>=2){
 					text_curso2_semestre_actual.setText(""+idsCursos.get(1));
 					text_nota2_semestre_actual.setText(""+notas.get(1).GetNota());	
+					label_curso2_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(1)).getRamo().getSigla());
+
 					
 					if(cantidadCursos>=3){
 						text_curso3_semestre_actual.setText(""+idsCursos.get(2));
 						text_nota3_semestre_actual.setText(""+notas.get(2).GetNota());	
+						label_curso3_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(2)).getRamo().getSigla());
+
 						
 						if(cantidadCursos>=4){
 							text_curso4_semestre_actual.setText(""+idsCursos.get(3));
 							text_nota4_semestre_actual.setText(""+notas.get(3).GetNota());
+							label_curso4_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(3)).getRamo().getSigla());
+
 							
 							if(cantidadCursos>=5){
 								text_curso5_semestre_actual.setText(""+idsCursos.get(4));
 								text_nota5_semestre_actual.setText(""+notas.get(4).GetNota());
+								label_curso5_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(4)).getRamo().getSigla());
+
 								if(cantidadCursos>=6){
 									text_curso6_semestre_actual.setText(""+idsCursos.get(5));
 									text_nota6_semestre_actual.setText(""+notas.get(5).GetNota());
+									label_curso6_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(5)).getRamo().getSigla());
+
 									
 									if(cantidadCursos>=7){
 										text_curso7_semestre_actual.setText(""+idsCursos.get(6));
 										text_nota7_semestre_actual.setText(""+notas.get(6).GetNota());
-										
+										label_curso7_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(6)).getRamo().getSigla());
+
 										if(cantidadCursos>=8){
 											text_curso8_semestre_actual.setText(""+idsCursos.get(7));
 											text_nota8_semestre_actual.setText(""+notas.get(7).GetNota());
+											label_curso8_semestre_actual.setText(""+main.U.getCursoConID(idsCursos.get(7)).getRamo().getSigla());
+
 										}
 									}
 									

@@ -72,6 +72,9 @@ public class Curso {
 		// este metodo agrega el profesor a la lista de profesores
 		
 	}
+	public Ramo getRamo(){
+		return this.ramo;
+	}
 	
 	///////////////////////////////
 	//////////////////////////////

@@ -131,6 +131,14 @@
                   <Button fx:id="boton_actualizar_semestre_actual" layoutX="156.0" layoutY="353.0" mnemonicParsing="false" onAction="#actualizarSemestreActual" prefHeight="50.0" prefWidth="125.0" text="Actualizar Semestre" />
                   <Label layoutX="32.0" layoutY="314.0" text="Periodo Actual" />
                   <TextField fx:id="text_periodo_semestre_actual" layoutX="141.0" layoutY="310.0" prefHeight="25.0" prefWidth="162.0" />
+                  <Label fx:id="label_curso1_semestre_actual" layoutX="319.0" layoutY="43.0" text="-" />
+                  <Label fx:id="label_curso2_semestre_actual" layoutX="319.0" layoutY="80.0" text="-" />
+                  <Label fx:id="label_curso3_semestre_actual" layoutX="319.0" layoutY="113.0" text="-" />
+                  <Label fx:id="label_curso4_semestre_actual" layoutX="319.0" layoutY="145.0" text="-" />
+                  <Label fx:id="label_curso5_semestre_actual" layoutX="319.0" layoutY="176.0" text="-" />
+                  <Label fx:id="label_curso6_semestre_actual" layoutX="319.0" layoutY="212.0" text="-" />
+                  <Label fx:id="label_curso7_semestre_actual" layoutX="319.0" layoutY="246.0" text="-" />
+                  <Label fx:id="label_curso8_semestre_actual" layoutX="319.0" layoutY="279.0" text="-" />
                </children></Pane>
          </children>
       </Pane>
