@@ -22,12 +22,14 @@ import g4.Administrador_academico;
 import g4.Carrera;
 import g4.Profesor;
 
-public class AdminOverviewController {
-	protected Administrador_academico usuarioAdministrador;
-
+public class AdminOverviewController implements PrincipalController {
+	
+	/// para realizar el cambio de paginas
+	ScreensController controlador;
+	
+	
 	// Constructor que recibe el administrador
-	public AdminOverviewController(Administrador_academico usuarioAdministrador){
-		this.usuarioAdministrador = usuarioAdministrador;
+	public AdminOverviewController(){
 	}
 	
 	// Botones del menu de inicio
@@ -86,10 +88,10 @@ public class AdminOverviewController {
 	public void ApretarBotonInicio(ActionEvent event){
 		CambiarAPanel(paneAdminInicio);
 		LabelPanelAdminEstado.setText("Inicio");
-		labelNombre.setText(usuarioAdministrador.nombre);
-		labelNombreUsuario.setText(usuarioAdministrador.nombre);
-		labelSexo.setText(usuarioAdministrador.GetSexo());
-		labelEdad.setText(usuarioAdministrador.GetEdad());
+		labelNombre.setText(main.U.administrador_actual.nombre);
+		labelNombreUsuario.setText(main.U.administrador_actual.nombre);
+		labelSexo.setText(main.U.administrador_actual.GetSexo());
+		labelEdad.setText(main.U.administrador_actual.GetEdad());
 	}
 	public void ApretarBotonProfesores(ActionEvent event){
 		CambiarAPanel(paneAdminProfesores);
@@ -152,7 +154,7 @@ public class AdminOverviewController {
 		String facultadProfesor = campoAFacultadProfesor.getText();
 		if(nombreProfesor != "" && apellidoProfesor!= "" && facultadProfesor!= "")
 		{
-			usuarioAdministrador.agregar_profesor(nombreProfesor, apellidoProfesor, sueldoProfesor2, facultadProfesor);
+			main.U.administrador_actual.agregar_profesor(nombreProfesor, apellidoProfesor, sueldoProfesor2, facultadProfesor);
 			labelAvisoProfesor.setText("Agregado");
 		}
 		else{
@@ -173,7 +175,7 @@ public class AdminOverviewController {
 	public void ApretarRestringirAlumno(ActionEvent event){
 		String idAlumno = textFieldIdAlumno.getText();
 		if(idAlumno != ""){
-			//usuarioAdministrador.restringir_acceso_alumno(idAlumno);
+			//main.U.administrador_actual.restringir_acceso_alumno(idAlumno);
 		}
 		else{
 			labelEstadoRestringirAlumno.setText("Campo Vacio");
@@ -204,9 +206,9 @@ public class AdminOverviewController {
 		String contenidoRamo = textFieldContenidoRamo.getText();
 		String objetivosRamo = textFieldObjetivosRamo.getText();
 		int creditosRamo2 = Integer.parseInt(creditosRamo);
-		Carrera c = usuarioAdministrador.GetCarrera(carreraRamo);
+		Carrera c = main.U.administrador_actual.GetCarrera(carreraRamo);
 		if(siglaRamo != "" && carreraRamo!= "" && creditosRamo!= "" && semestreImpartidoRamo!= "" && contenidoRamo!= "" && objetivosRamo!= "" ){
-			usuarioAdministrador.agregar_ramo(siglaRamo, c, creditosRamo2, semestreImpartidoRamo, contenidoRamo, objetivosRamo);
+			main.U.administrador_actual.agregar_ramo(siglaRamo, c, creditosRamo2, semestreImpartidoRamo, contenidoRamo, objetivosRamo);
 			labelAgregarRamo.setText("Ramo Agregado");
 		}
 		else{
@@ -229,7 +231,7 @@ public class AdminOverviewController {
 		String facultadCarrera = textFieldFacultadCarrera.getText();
 		String decanoCarrera = textFieldDecanoCarrera.getText();
 		if(nombreCarrera!="" && facultadCarrera!="" && decanoCarrera!=""){
-			usuarioAdministrador.agregar_carrera(decanoCarrera, facultadCarrera, nombreCarrera);
+			main.U.administrador_actual.agregar_carrera(decanoCarrera, facultadCarrera, nombreCarrera);
 			labelEstadoAgregarCarrera.setText("Carrera Agregada");
 		}
 		else{
@@ -246,12 +248,19 @@ public class AdminOverviewController {
 	public void AgregarProgramacionAcademica(){
 		String semestre = textFieldSemestreProgramacionAcademica.getText();
 		if(semestre != ""){
-			usuarioAdministrador.crear_programacion_academica(semestre);
+			main.U.administrador_actual.crear_programacion_academica(semestre);
 			LabelEstadoProgramacionAcademica.setText("Agregado");
 		}
 		else{
 			LabelEstadoProgramacionAcademica.setText("Campo Vacio");
 		}
+	}
+
+	
+	/// metodo para realizar el cambio de paginas.
+	@Override
+	public void setScreenParent(ScreensController ScreenPage) {
+		controlador = ScreenPage;	
 	}
 	
 	// MODULO MODIFICAR DATOS

@@ -23,28 +23,22 @@ import java.util.List;
 
 import g4.Administrador_academico;
 import g4.Alumno;
-import g4.AplicacionInicio;
+import g4.Universidad;
 import g4.Carrera;
 import g4.Curso;
 import g4.Malla_curricular;
 import g4.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 
-public class InicioController {
+public class InicioController implements PrincipalController {
 	
 	
-
-//	public List<Alumno> alumnos;
-//	public List<Administrador_academico> admins;
-	public Usuario Usuario_conectado;
-	public String Usuario_tipo;  /// aca va un string que si es "alumno" o si es "admin".
-	
-	
-	
-	
-	// el siguiente boolean es para saber si esta en modo alumno (en true) o en modo Admin(en false)
+/// objeto para realizar el cambio de paginas
+	ScreensController controlador;
+	Universidad U;
+		
+// el siguiente boolean es para saber si esta en modo alumno (en true) o en modo Admin(en false)
 	boolean modoAlumnoSelecionado;
-	AplicacionInicio aplicacionInicio;
 	@FXML
     private TextField tfNombre;
 	@FXML
@@ -65,69 +59,23 @@ public class InicioController {
     private Label error_ingreso;
 	@FXML
 	private Pane pantalla_inicio;
-	@FXML
-	private Pane pantalla_alumno;
-	@FXML
-	private Button cerrar_sesion;
-	
-	/// variables de Usuario
 
-	@FXML
-	private Button boton_carreras_alumno;
-	@FXML
-	private Pane pane_carreras_alumno;
-	@FXML
-	private Button boton_semestres_alumno;
-	@FXML
-	private Pane pane_semestres_alumno;
-	@FXML
-	private Button boton_cursos_alumno;
-	@FXML
-	private Pane pane_cursos_alumno;
-	@FXML
-    private Label label_nombre_carrera_alumno;
-	@FXML
-    private Label label_decano_carrera_alumno;
-	@FXML
-    private Label label_facultad_carrera_alumno;
-	@FXML
-	private Button boton_ver_carrera_alumno;
-	
-	@FXML
-	private ChoiceBox choise_carreras_alumno;
-	
-	@FXML
-	private ChoiceBox choice_malla;
-	
-	@FXML
-	private ChoiceBox choice_curso;
-	
-	
-	
-	
-	
-	// tabla 
-	@FXML
-	ListView<String> listViewCarrerasInscritas;
-	
-	//crea instancia de  Apicacion inicio-.. No estoy seguro de si se crea acá o en Main
-	
-	
-	
 	
 	
 	
 	public void IngresarUsuario(ActionEvent event){
+		List<Alumno> r = main.U.lista_alumnos;
 		String nombre = a_nombre.getText() ;
 		String clave = a_clave.getText();
+		System.out.println("1");
 		if (modoAlumnoSelecionado)
 		{
-			if (aplicacionInicio.listaAlumnos.isEmpty())
-			{
-				error_ingreso.setText("no existe ningun alumno");
-			}
+			System.out.println("2");
+			if (main.U.lista_alumnos.isEmpty())
+				error_ingreso.setText("no existe ningun alumno");			
 			boolean aux = false;
-			for (Alumno j : aplicacionInicio.listaAlumnos)
+			System.out.println("3b");
+			for (Alumno j : main.U.lista_alumnos)
 			{
 				if ( j.nombre.equals(nombre) && j.contraseña.equals(clave) )
 				{
@@ -136,13 +84,10 @@ public class InicioController {
 					{
 						System.out.println("con acceso");
 						j.Iniciar_sesion();
-						Usuario_conectado = j;
-						Usuario_tipo = "alumno";
+						main.U.alumno_actual = j;
 						error_ingreso.setText("perfecto te conectaste!!");
-
-						pantalla_alumno.setVisible(true);
-						pantalla_inicio.setVisible(false);
 						
+						controlador.setScreen(main.AlumnoID);
 					}
 					else {
 						error_ingreso.setText("tu excediste el numero de creditos reprobados :(");
@@ -160,10 +105,11 @@ public class InicioController {
 			error_ingreso.setText("admiiin");
 			Administrador_academico administrador = null;
 			boolean existeElAdmin = false;
-			for(Administrador_academico a : aplicacionInicio.listaAdministradores){
-				if (aplicacionInicio.listaAdministradores.isEmpty())
+			for(Administrador_academico a : main.U.lista_administradores){
+				if (main.U.lista_administradores.isEmpty())
 				{
 					error_ingreso.setText("no existe ningun administrador");
+					break;
 				}
 				if ( a.nombre.equals(nombre) && a.contraseña.equals(clave)){
 					administrador = a;
@@ -171,32 +117,10 @@ public class InicioController {
 				}
 			}
 			if(existeElAdmin){
-				error_ingreso.setText("l1");
-			      try{
-			            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminOverview.fxml"));
-			            error_ingreso.setText("l2");
-			            AdminOverviewController adminController = new AdminOverviewController(administrador);
-			            error_ingreso.setText("l2,3");
-			            fxmlLoader.setController(adminController);
-			            error_ingreso.setText("l3");
-			            Parent root1 = (Parent) fxmlLoader.load();
-			            error_ingreso.setText("l4");
-			            Stage stage = new Stage();
-			            error_ingreso.setText("l5");
-			            stage.initModality(Modality.APPLICATION_MODAL);
-			            error_ingreso.setText("l6");
-			            stage.initStyle(StageStyle.UNDECORATED);
-			            error_ingreso.setText("l7");
-			            stage.setTitle("Administrador");
-			            error_ingreso.setText("l8");
-			            stage.setScene(new Scene(root1));  
-			            error_ingreso.setText("l9");
-			            stage.show();
-			    	  
-			      }
-			      catch(Exception e) {
-			           e.printStackTrace();
-			          }
+				
+				administrador.Iniciar_sesion();
+				main.U.administrador_actual = administrador;
+				controlador.setScreen(main.AdminID);
 			}
 			else{
 				error_ingreso.setText("no existe ese administrador");
@@ -206,21 +130,10 @@ public class InicioController {
 	
 
 	public InicioController(){
-		
-		aplicacionInicio = new AplicacionInicio();
-
-		
+		U = main.getU();
 		modoAlumnoSelecionado = true;
-
-		
-		
 	}
 
-	public void CerrarSesion(ActionEvent event){
-		pantalla_inicio.setVisible(true);
-		pantalla_alumno.setVisible(false);
-		Usuario_conectado.Cerrar_sesion();
-	}
 	
 	
 	
@@ -232,26 +145,21 @@ public class InicioController {
 			
 			System.out.println("nombre: "+tfNombre.getText());
 			Alumno a = new Alumno(tfNombre.getText(), tfCont.getText(), tfSexo.getText(), Integer.parseInt(tfEdad.getText()));
-			
-			aplicacionInicio.agregarAlumno(a);
-			
-			pantalla_inicio.setVisible(false);
-			pantalla_alumno.setVisible(true);
-			
+			main.U.agregarAlumno(a);
 			a.Iniciar_sesion();
-			Usuario_conectado = a;
-			Usuario_tipo = "alumno";
+			main.U.alumno_actual = a;
+			controlador.setScreen(main.AlumnoID);
+
 		}
 		
 		else{
 			Administrador_academico a =new Administrador_academico(tfNombre.getText(), tfCont.getText(), tfSexo.getText(), Integer.parseInt(tfEdad.getText()));
-			aplicacionInicio.agregarAdministrador(a);
+			main.U.agregarAdministrador(a);
 			
-			pantalla_inicio.setVisible(false);
-			pantalla_alumno.setVisible(true); /// cambiar esta pantalla que se vea
 			a.Iniciar_sesion();
-			Usuario_conectado = a;
-			Usuario_tipo = "admin";
+			main.U.administrador_actual = a;
+			controlador.setScreen(main.AdminID);
+
 		}
 		
 		//if()
@@ -269,102 +177,14 @@ public class InicioController {
 		
 	}
 	
-
-	//// eventos paneles de usuario
 	
-	public void clicksemestres()
-	{
-		mostrar_panel(pane_semestres_alumno);
+	
+	/// metodo para realizar el cambio de paginas.
+	@Override
+	public void setScreenParent(ScreensController ScreenPage) {
+		controlador = ScreenPage;	
 	}
 	
-	public void clickcursos()
-	{
-		mostrar_panel(pane_cursos_alumno);
-		
-		//ObservableList<Curso>  ss = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera());
-		//choise_carreras_alumno.setItems(ss);
-	}
-	
-	public void clickcarreras()
-	{
-		mostrar_panel(pane_carreras_alumno);
-		
-		ObservableList<Carrera>  ss = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera());
-		choise_carreras_alumno.setItems(ss);
-		
-		choise_carreras_alumno.setValue(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0));
-		
-		this.actualizarTablaConCarrerasInscritas();
-		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(aplicacionInicio.listaAdministradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
-		//choice_malla.setItems(mallasDeLaCarrera);
-		//choice_malla.setValue(mallasDeLaCarrera.get(0));
-		
-	}
-	
-	
-	public void mostrar_panel(Pane a)
-	{
-		if (pane_cursos_alumno.isVisible()){
-			pane_cursos_alumno.setVisible(false);
-		}
-		if (pane_carreras_alumno.isVisible()){
-			pane_carreras_alumno.setVisible(false);
-		}
-		if (pane_semestres_alumno.isVisible()){
-			pane_semestres_alumno.setVisible(false);
-		}
-		
-		a.setVisible(true);
-	}
-	
-	
-	/// eventos paneles de carreras
-	
-	public void clickvercarrera()
-	{
-		Carrera c = (Carrera) choise_carreras_alumno.getValue();
-		label_nombre_carrera_alumno.setText(c.getnombre_carrera());
-		label_decano_carrera_alumno.setText(c.getDecano());
-		label_facultad_carrera_alumno.setText(c.getFacultad());
-		
-		
-		ObservableList<Malla_curricular>  mallasDeLaCarrera = FXCollections.observableList(c.getMallas_curriculares());
-	//	choice_malla.setItems(mallasDeLaCarrera);
-	//	choice_malla.setValue(mallasDeLaCarrera.get(0));
-		
-		
-		
-	}
-	
-	public void clickInscribirCarreraYMalla(){
-		System.out.println("metal");
-		
-		((Alumno)Usuario_conectado).Inscribir_carrera(((Carrera) choise_carreras_alumno.getValue()).getId_carrera());
-		
-	//	((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular) choice_malla.getValue()).getId_malla());
-		
-		
-		
-		//
-		this.actualizarTablaConCarrerasInscritas();
-		 
-		
-	}
-	
-	private void actualizarTablaConCarrerasInscritas(){
-		//listViewCarrerasInscritas = new ListView<String>();
-		List<String> nombresCarrerasInscritas= new ArrayList<String>();
-		
-		for(int i=0;i<((Alumno)Usuario_conectado).GetCarreras().size();i++){
-			nombresCarrerasInscritas.add(aplicacionInicio.listaAdministradores.get(0).GetCarrera(((Alumno)Usuario_conectado).GetCarreras().get(i)).getnombre_carrera());
-			
-		}
-		
-		ObservableList<String> items =FXCollections.observableArrayList (nombresCarrerasInscritas);
-		listViewCarrerasInscritas.setItems(items);
-		
-		//
-	}
 	
 	
 	

@@ -12,7 +12,7 @@ public class Programacion_Academica {
 	{
 		this.periodo = periodo;
 		cursos_en_progreso = new ArrayList<Curso>();
-		buscador_de_cursos = new Buscador_de_cursos(periodo);
+		buscador_de_cursos = new Buscador_de_cursos();
 	}
 	
 	// se le da toda la informacion, habia que revisar antes cual es el id_curso mas alto para darselo pero eso es otra cosa

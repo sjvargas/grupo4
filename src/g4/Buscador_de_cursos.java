@@ -11,11 +11,10 @@ import java.util.ArrayList;
 public class Buscador_de_cursos {
 	
 	public ArrayList<Curso> todo_cursos;
-	public String periodo;
-	public Buscador_de_cursos(String periodo)
+	
+	public Buscador_de_cursos()
 	{
 		todo_cursos = new ArrayList<Curso>();
-		this.periodo = periodo;
 	}
 	
 	/// uno le entrega una lista de horarios y
