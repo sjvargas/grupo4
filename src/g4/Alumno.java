@@ -32,6 +32,9 @@ public class Alumno extends Usuario {
 		mallas_curriculares.add(id_malla);
 	}
 	
+	public void setSemestreActual(Semestre semestre){
+		this.semestre_actual = semestre;
+	}
 	public Historial_Academico GetHistorialAcademico(){return historial_academico;}
 	public List<Integer> GetCarreras(){return carreras;}
 	public List<Integer> GetMallas(){return mallas_curriculares;}

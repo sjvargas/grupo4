@@ -242,6 +242,77 @@ public class AlumnoOverviewController implements PrincipalController {
 			semestreActual = main.U.alumno_actual.GetSemestreActual();
 			List<Integer> idsCursos = semestreActual.GetCursos();
 			List<Nota> notas = semestreActual.GetNotas();
+			
+			//borrar
+			System.out.println("EL SEMESTRE DE ALUMNO NO ES NULL!");
+			
+			text_curso1_semestre_actual.setText("");
+			text_curso2_semestre_actual.setText("");
+			text_curso3_semestre_actual.setText("");
+			text_curso4_semestre_actual.setText("");
+			text_curso5_semestre_actual.setText("");
+			text_curso6_semestre_actual.setText("");
+			text_curso7_semestre_actual.setText("");
+			text_curso8_semestre_actual.setText("");
+			
+			text_nota1_semestre_actual.setText("");
+			text_nota2_semestre_actual.setText("");
+			text_nota3_semestre_actual.setText("");
+			text_nota4_semestre_actual.setText("");
+			text_nota5_semestre_actual.setText("");
+			text_nota6_semestre_actual.setText("");
+			text_nota7_semestre_actual.setText("");
+			text_nota8_semestre_actual.setText("");
+		
+
+			//borrar
+			
+			int cantidadCursos = idsCursos.size();
+			
+			if(cantidadCursos>=1){
+				
+				text_curso1_semestre_actual.setText(""+idsCursos.get(0));
+				text_nota1_semestre_actual.setText(""+notas.get(0).GetNota());	
+				
+				if(cantidadCursos>=2){
+					text_curso2_semestre_actual.setText(""+idsCursos.get(1));
+					text_nota2_semestre_actual.setText(""+notas.get(1).GetNota());	
+					
+					if(cantidadCursos>=3){
+						text_curso3_semestre_actual.setText(""+idsCursos.get(2));
+						text_nota3_semestre_actual.setText(""+notas.get(2).GetNota());	
+						
+						if(cantidadCursos>=4){
+							text_curso4_semestre_actual.setText(""+idsCursos.get(3));
+							text_nota4_semestre_actual.setText(""+notas.get(3).GetNota());
+							
+							if(cantidadCursos>=5){
+								text_curso5_semestre_actual.setText(""+idsCursos.get(4));
+								text_nota5_semestre_actual.setText(""+notas.get(4).GetNota());
+								if(cantidadCursos>=6){
+									text_curso6_semestre_actual.setText(""+idsCursos.get(5));
+									text_nota6_semestre_actual.setText(""+notas.get(5).GetNota());
+									
+									if(cantidadCursos>=7){
+										text_curso7_semestre_actual.setText(""+idsCursos.get(6));
+										text_nota7_semestre_actual.setText(""+notas.get(6).GetNota());
+										
+										if(cantidadCursos>=8){
+											text_curso8_semestre_actual.setText(""+idsCursos.get(7));
+											text_nota8_semestre_actual.setText(""+notas.get(7).GetNota());
+										}
+									}
+									
+								}
+							}
+							
+						}
+					}
+				}
+				
+			}
+			
+			
 
 		}
 
@@ -319,6 +390,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		}
 		
 		else{
+			
 			
 			semestreActual = new Semestre(""+text_periodo_semestre_actual.textProperty());
 			
@@ -415,6 +487,15 @@ public class AlumnoOverviewController implements PrincipalController {
 					listaNotas.add(1);
 
 				}
+			}
+			
+			
+			
+			main.U.alumno_actual.setSemestreActual(semestreActual);
+			
+			for(int i=0;i<listaCursos.size();i++){
+				main.U.alumno_actual.GetSemestreActual().Agregar_Curso(listaCursos.get(i).getId_curso());
+				main.U.alumno_actual.GetSemestreActual().Poner_Nota(listaCursos.get(i).getId_curso(), listaNotas.get(i));
 			}
 		}
 		
