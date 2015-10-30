@@ -269,6 +269,8 @@ public class AlumnoOverviewController implements PrincipalController {
 			
 			int cantidadCursos = idsCursos.size();
 			
+			
+			System.out.println("cantidad de cursos: "+cantidadCursos);
 			if(cantidadCursos>=1){
 				
 				text_curso1_semestre_actual.setText(""+idsCursos.get(0));

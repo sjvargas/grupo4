@@ -61,6 +61,14 @@ public class Universidad {
 		lista_carreras.add(new Carrera(1, "juan perez", "artes", "teatro"));
 		lista_carreras.add(new Carrera(2, "juan perez", "artes", "coreografia"));
 		
+		lista_cursos.add(new Curso(1, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(2, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(3, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(4, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(5, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(6, 1, null, null, null, 10, null, calculo1));
+		
+
 		
 		
 	}
