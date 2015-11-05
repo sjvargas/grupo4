@@ -71,11 +71,15 @@ public class AlumnoOverviewController implements PrincipalController {
 	private Button boton_avance_malla_alumno;
 	@FXML
 	private Button cerrar_sesion;
+	@FXML
+	private Button ver_mallas;
 
 	///
 	
 	@FXML
 	private Pane pane_carreras_alumno;
+	@FXML
+	private Pane pane_mallas_alumno;
 	@FXML
 	private Pane pane_semestres_alumno;
 	@FXML
@@ -119,7 +123,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	// tabla
 	@FXML
 	ListView<String> listViewCarrerasInscritas;
-	
+	@FXML
+	ListView<String> listViewCarrerasInscritas1;
 	
 	
 	
@@ -236,6 +241,9 @@ public class AlumnoOverviewController implements PrincipalController {
 		}
 		if(pane_semestre_actual_alumno.isVisible()){
 			pane_semestre_actual_alumno.setVisible(false);
+		}
+		if(pane_mallas_alumno.isVisible()){
+			pane_mallas_alumno.setVisible(false);
 		}
 
 		a.setVisible(true);
@@ -383,6 +391,9 @@ public class AlumnoOverviewController implements PrincipalController {
 		// choice_malla.setValue(mallasDeLaCarrera.get(0));
 
 	}
+	public void clickMallas(){
+		mostrar_panel(pane_mallas_alumno);
+	}
 
 	public void clickInscribirCarreraYMalla() {
 		System.out.println("metal");
@@ -408,6 +419,7 @@ public class AlumnoOverviewController implements PrincipalController {
 
 		ObservableList<String> items = FXCollections.observableArrayList(nombresCarrerasInscritas);
 		listViewCarrerasInscritas.setItems(items);
+		listViewCarrerasInscritas1.setItems(items);
 
 		//
 	}
@@ -544,8 +556,11 @@ public class AlumnoOverviewController implements PrincipalController {
 	public void eliminarCarrera(){
 		////System.out.println("Hay que eliminar carrera: "+listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
 		
-		Carrera carreraAEliminar =main.U.lista_administradores.get(0).GetCarrera(listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
-		main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getnombre_carrera());
+		String carreraAEliminar = listViewCarrerasInscritas.getSelectionModel().getSelectedItem();
+		if(carreraAEliminar!=null){
+			main.U.alumno_actual.eliminar_carrera(carreraAEliminar);
+			
+		}
 		
 		this.actualizarTablaConCarrerasInscritas();
 	}

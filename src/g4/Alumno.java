@@ -24,7 +24,9 @@ public class Alumno extends Usuario {
 	
 	public void Inscribir_carrera(Carrera carrera){
 		// agregar carrera por id
-		carreras.add(carrera);
+		if (!carreras.contains(carrera)){
+			carreras.add(carrera);
+		}
 	}
 	
 	public void setSemestreActual(Semestre semestre){
@@ -42,9 +44,12 @@ public class Alumno extends Usuario {
 	public boolean GetAcceso(){return acceso;}
 	public Semestre GetSemestreActual(){return semestre_actual;}
 
-	public void eliminar_carrera(String getnombre_carrera) {
-		for (Carrera j : carreras){
-			
+	public void eliminar_carrera(String carreraAEliminar){
+		for(int i=0;i<carreras.size();i++){
+			if(carreras.get(i).getnombre_carrera().equals(carreraAEliminar)){
+				carreras.remove(i);
+				break;
+			}
 		}
 	}
 }
