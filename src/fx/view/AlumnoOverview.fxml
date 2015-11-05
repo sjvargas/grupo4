@@ -46,16 +46,17 @@
               </rowConstraints>
                <children>
                   <Button fx:id="boton_inicio_alumno" mnemonicParsing="false" onAction="#clickinicio" prefHeight="25.0" prefWidth="155.0" text="Inicio" />
-                  <Button fx:id="boton_carreras_alumno" mnemonicParsing="false" onAction="#clickcarreras" prefHeight="25.0" prefWidth="155.0" text="Carreras Y mallas" GridPane.rowIndex="2" />
+                  <Button fx:id="boton_carreras_alumno" mnemonicParsing="false" onAction="#clickcarreras" prefHeight="25.0" prefWidth="155.0" text="Carreras " GridPane.rowIndex="2" />
                   <Button fx:id="boton_semestres_alumno" mnemonicParsing="false" onAction="#clicksemestres" prefHeight="25.0" prefWidth="155.0" text="Semestres" GridPane.rowIndex="1" />
-                  <Button fx:id="boton_cursos_alumno" mnemonicParsing="false" onAction="#clickcursos" prefHeight="25.0" prefWidth="155.0" text="Cursos" GridPane.rowIndex="3" />
-                  <Button fx:id="boton_semestre_actual_alumno" mnemonicParsing="false" onAction="#clicksemestreactual" prefHeight="25.0" prefWidth="155.0" text="Semestre Actual" GridPane.rowIndex="4" />
-                  <Button fx:id="boton_buscador_alumno" mnemonicParsing="false" onAction="#clickbuscador" prefHeight="25.0" prefWidth="155.0" text="Buscador de cursos" GridPane.rowIndex="5" />
-                  <Button fx:id="boton_avance_malla_alumno" mnemonicParsing="false" onAction="#clickavancemalla" prefHeight="25.0" prefWidth="155.0" text=" Avance curricular por malla" GridPane.rowIndex="6" />
-                  <Button fx:id="cerrar_sesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="155.0" text="Cerrar Sesion" GridPane.rowIndex="7" />
+                  <Button fx:id="boton_cursos_alumno" mnemonicParsing="false" onAction="#clickcursos" prefHeight="25.0" prefWidth="155.0" text="Cursos" GridPane.rowIndex="4" />
+                  <Button fx:id="boton_semestre_actual_alumno" mnemonicParsing="false" onAction="#clicksemestreactual" prefHeight="25.0" prefWidth="155.0" text="Semestre Actual" GridPane.rowIndex="5" />
+                  <Button fx:id="boton_buscador_alumno" mnemonicParsing="false" onAction="#clickbuscador" prefHeight="25.0" prefWidth="155.0" text="Buscador de cursos" GridPane.rowIndex="6" />
+                  <Button fx:id="boton_avance_malla_alumno" mnemonicParsing="false" onAction="#clickavancemalla" prefHeight="25.0" prefWidth="155.0" text=" Avance curricular por malla" GridPane.rowIndex="7" />
+                  <Button fx:id="cerrar_sesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="155.0" text="Cerrar Sesion" GridPane.rowIndex="8" />
+                  <Button fx:id="ver_mallas" mnemonicParsing="false" onAction="#clickMallas" prefHeight="25.0" prefWidth="113.0" text="Mallas" GridPane.rowIndex="3" />
                </children> 
             </GridPane>
-            <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0" visible="false">
+            <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0">
                <children>
                   <Label layoutX="27.0" layoutY="22.0" text="todas las carreras" />
                   <ChoiceBox fx:id="choise_carreras_alumno" layoutX="27.0" layoutY="60.0" prefWidth="150.0" />
@@ -138,6 +139,14 @@
                   <Label fx:id="label_curso6_semestre_actual" layoutX="319.0" layoutY="212.0" text="-" />
                   <Label fx:id="label_curso7_semestre_actual" layoutX="319.0" layoutY="246.0" text="-" />
                   <Label fx:id="label_curso8_semestre_actual" layoutX="319.0" layoutY="279.0" text="-" />
+               </children></Pane>
+            <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0" visible="false">
+               <children>
+                  <TitledPane layoutX="233.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" text="Carreras Inscritas">
+                     <content>
+                        <ListView fx:id="listViewCarrerasInscritas1" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
                </children></Pane>
          </children>
       </Pane>
