@@ -546,7 +546,12 @@ public class AlumnoOverviewController implements PrincipalController {
 		////System.out.println("Hay que eliminar carrera: "+listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
 		
 		Carrera carreraAEliminar =main.U.lista_administradores.get(0).GetCarrera(listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
-		main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getId_carrera());
+		
+		if(carreraAEliminar!=null){
+			main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getId_carrera());
+			
+		}
+		
 		
 		this.actualizarTablaConCarrerasInscritas();
 	}
