@@ -387,7 +387,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	public void clickInscribirCarreraYMalla() {
 		System.out.println("metal");
 
-		main.U.alumno_actual.Inscribir_carrera(((Carrera) choise_carreras_alumno.getValue()).getId_carrera());
+		main.U.alumno_actual.Inscribir_carrera(((Carrera) choise_carreras_alumno.getValue()));
 
 		// ((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular)
 		// choice_malla.getValue()).getId_malla());
@@ -402,8 +402,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		List<String> nombresCarrerasInscritas = new ArrayList<String>();
 
 		for (int i = 0; i < main.U.alumno_actual.GetCarreras().size(); i++) {
-			nombresCarrerasInscritas.add(main.U.lista_administradores.get(0)
-					.GetCarrera(main.U.alumno_actual.GetCarreras().get(i)).getnombre_carrera());
+			nombresCarrerasInscritas.add((main.U.alumno_actual.GetCarreras()).get(i).getnombre_carrera());
 
 		}
 
@@ -546,7 +545,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		////System.out.println("Hay que eliminar carrera: "+listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
 		
 		Carrera carreraAEliminar =main.U.lista_administradores.get(0).GetCarrera(listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
-		main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getId_carrera());
+		main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getnombre_carrera());
 		
 		this.actualizarTablaConCarrerasInscritas();
 	}
