@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -13,12 +14,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
 import g4.Administrador_academico;
+import g4.Alumno;
 import g4.Carrera;
 import g4.Profesor;
 
@@ -175,6 +178,56 @@ public class AdminOverviewController implements PrincipalController {
     private TextField textFieldIdAlumno;
 	@FXML
     private Label labelEstadoRestringirAlumno;
+	@FXML
+	private TableView<Integer> tableViewAlumnos;
+	// aca se deberian agregar los alumnos a la vista tableView
+	
+	private boolean seCreoTablaAlumnos = false;
+	// lista que se mostrara en la tabla de los alumnos
+	private ObservableList<Integer> listaObservable;
+	
+	
+	
+	
+	
+	//lista id
+	private List<Integer> listaId;
+	
+	private void CrearTablaAlumnos(){
+		tableViewAlumnos.setEditable(true);
+		TableColumn columnaIdAlumno = new TableColumn("id_alumno");
+		columnaIdAlumno.setCellValueFactory(new PropertyValueFactory<Alumno,Integer>("id_alumno"));
+		/*TableColumn columnaNombre = new TableColumn("Nombre");
+		columnaNombre.setCellValueFactory(new PropertyValueFactory<Alumno,String>("nombre"));
+		TableColumn columnaApellidoParterno = new TableColumn("Apellido Paterno");
+		columnaApellidoParterno.setCellValueFactory(new PropertyValueFactory<Alumno,String>("apellidoPaterno"));
+		TableColumn columnaApellidoMaterno = new TableColumn("Apellido Materno");
+		columnaApellidoMaterno.setCellValueFactory(new PropertyValueFactory<Alumno,String>("apellidoMaterno"));
+		TableColumn columnaAcceso = new TableColumn("Acceso");
+		columnaAcceso.setCellValueFactory(new PropertyValueFactory<Alumno,String>("acceso"));*/
+		listaId = new ArrayList<Integer>();
+		seCreoTablaAlumnos = true;
+		for(Alumno alumno: main.U.lista_alumnos){
+			//listaObservable.add(alumno);
+			listaId.add(alumno.GetIdAlumno());
+			System.out.println(alumno.GetIdAlumno());
+		}
+		tableViewAlumnos.getColumns().addAll(columnaIdAlumno);
+		listaObservable = FXCollections.observableArrayList(listaId);
+		tableViewAlumnos.setItems(listaObservable);
+		//tableViewAlumnos.getColumns().addAll(columnaIdAlumno, columnaNombre, columnaApellidoParterno, columnaApellidoMaterno, columnaAcceso );
+	}
+	
+	public void ActualizarTablaAlumnos(){
+		if(!seCreoTablaAlumnos){
+			CrearTablaAlumnos();
+		}
+		else{
+			
+		}		
+	}
+	
+
 	public void ApretarRestringirAlumno(ActionEvent event){
 		String idAlumno = textFieldIdAlumno.getText();
 		if(idAlumno != ""){

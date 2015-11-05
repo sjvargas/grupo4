@@ -132,7 +132,7 @@
                   <Label fx:id="labelAvisoProfesor" layoutX="415.0" layoutY="382.0" />
                </children>
             </Pane>
-            <Pane fx:id="paneAdminAlumnos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminAlumnos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0">
                <children>
                   <Label layoutX="50.0" layoutY="310.0" text="Restringir Acceso Alumno:" />
                   <GridPane layoutX="50.0" layoutY="330.0">
@@ -150,8 +150,9 @@
                   </GridPane>
                   <Button layoutX="300.0" layoutY="330.0" mnemonicParsing="false" onAction="#ApretarRestringirAlumno" text="Restringir" />
                   <Label layoutX="50.0" layoutY="60.0" text="Lista Alumnos:" />
-                  <ListView layoutX="50.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" />
                   <Label fx:id="labelEstadoRestringirAlumno" layoutX="319.0" layoutY="302.0" />
+                  <TableView fx:id="tableViewAlumnos" layoutX="50.0" layoutY="84.0" prefHeight="200.0" prefWidth="390.0" />
+                  <Button layoutX="475.0" layoutY="253.0" mnemonicParsing="false" onAction="#ActualizarTablaAlumnos" text="Actualizar" />
                </children>
             </Pane>
             <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">

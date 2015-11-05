@@ -1,3 +1,4 @@
+
 package g4;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +7,7 @@ public class Alumno extends Usuario {
 	private Historial_Academico historial_academico;
 	// Lista de los id de las carreras a las que pertenece
 	private List<Integer> carreras;
+	private int	id_alumno;
 	// Lista de los id de las mallas a las que pertenece
 	private List<Integer> mallas_curriculares;
 	public boolean acceso;
@@ -37,4 +39,5 @@ public class Alumno extends Usuario {
 	public List<Integer> GetMallas(){return mallas_curriculares;}
 	public boolean GetAcceso(){return acceso;}
 	public Semestre GetSemestreActual(){return semestre_actual;}
+	public int GetIdAlumno(){return id_alumno;}
 }
