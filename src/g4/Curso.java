@@ -72,6 +72,9 @@ public class Curso {
 		// este metodo agrega el profesor a la lista de profesores
 		
 	}
+	public Ramo getRamo(){
+		return this.ramo;
+	}
 	
 	///////////////////////////////
 	//////////////////////////////
@@ -92,10 +95,6 @@ public class Curso {
 	public int obtener_id(){
 		return this.id_curso;
 		// este metodo devudelve el atributo id_curso
-	}
-
-	public Ramo getRamo() {
-		return this.ramo;
 	}
 	
 	

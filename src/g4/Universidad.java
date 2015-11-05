@@ -13,7 +13,6 @@ public class Universidad {
 	public List<Alumno> lista_alumnos;
 	public List<Administrador_academico> lista_administradores;
 	public List<Curso> lista_cursos;
-
 	
 	public Buscador_de_cursos buscador;
 	
@@ -29,6 +28,7 @@ public class Universidad {
 		lista_alumnos = new ArrayList<Alumno>();
 		lista_administradores = new ArrayList<Administrador_academico>();
 		buscador = new Buscador_de_cursos();
+		
 		lista_cursos = new ArrayList<Curso>();
 		
 		alumno_actual = null;
@@ -39,35 +39,37 @@ public class Universidad {
 		lista_alumnos.add(new Alumno("max", "1", "hombre", 21 ));
 		lista_administradores.add( new Administrador_academico("ana","123","mujer", 40));
 
-		lista_carreras.add(new Carrera(1, "valentina perez", "artes", "teatro"));
-		lista_carreras.add(new Carrera(2, "juan perez", "artes", "coreografia"));
-		lista_carreras.add(new Carrera(2, "luis Correa", "ing", "ingeniera"));
+		lista_administradores.get(0).agregar_carrera("juan perez", "ing", "ingeniera");
+		lista_administradores.get(0).agregar_carrera("juan perez", "artes", "teatro");
+		lista_administradores.get(0).agregar_carrera("juan perez", "artes", "coreografia");
 		
-		lista_ramos.add(new Ramo("icc1001", 10, lista_carreras.get(0), "3", "hacerte odiar la universidad", "1) hacerte extrañar tu colegio \n 2) aprender algo de logaritmos"));
-		ArrayList<Ramo> aux = new ArrayList<Ramo>();
-		aux.add(lista_ramos.get(0));
-		lista_ramos.add(new Ramo("icc2001", 10, lista_carreras.get(0), "3", "¿querias mas calculo I? aca tienes mas!!", "1) ver series \n 2) intentar aprender series \n 3) rendirte con series"));
-		aux.remove(0);
-		aux.add(lista_ramos.get(1));
-		lista_ramos.add(new Ramo("icc3001", 10, lista_carreras.get(0), "3", " Si sabemos que te encanta calculo, por eso hacemos otro mas", "1) reaprender todo lo que no aprendiste en calculo I \n 2) lo mismo con calculo II"));
-	
-		aux.remove(0);
-		lista_ramos.add(new Ramo("ttr1001", 10, lista_carreras.get(1), "3", "expreciones faciales y mas", "1) hacerte extrañar tu colegio \n 2) aprender algo de logaritmos"));
-		aux.add(lista_ramos.get(3));
-		lista_ramos.add(new Ramo("ttr1002", 10, lista_carreras.get(1), "3", "canto basico y tonos del habla", "1) ver series \n 2) intentar aprender series \n 3) rendirte con series"));
-		aux.add(lista_ramos.get(4));
-		lista_ramos.add(new Ramo("ttr2001", 10, lista_carreras.get(1), "3", "Primera practica de los alumnos para enfrentar el mundo real", "1) presentaciones reales \n 2) musicales"));
 		
-	
 		
-		lista_alumnos.get(0).Inscribir_carrera(lista_carreras.get(2));
+
+		lista_alumnos.get(0).Inscribir_carrera(2);
 		Malla_curricular malla1 = new Malla_curricular(0);
 		Malla_curricular malla2 = new Malla_curricular(1);
 		
-		lista_carreras.get(0).crear_malla_curricular(malla1);
-		lista_carreras.get(0).crear_malla_curricular(malla2);
+		lista_administradores.get(0).getListaCarrera().get(0).crear_malla_curricular(malla1);
+		lista_administradores.get(0).getListaCarrera().get(0).crear_malla_curricular(malla2);
+		
+		Ramo calculo1 = new Ramo("MAT1610", 10, lista_administradores.get(0).getListaCarrera().get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
+
+		//Curso calculo11 = new Curso(1, 1, "a1,a2", null, 10, null, calculo1);
+		
+		
+		lista_carreras.add(new Carrera(1, "juan perez", "artes", "teatro"));
+		lista_carreras.add(new Carrera(2, "juan perez", "artes", "coreografia"));
+		
+		lista_cursos.add(new Curso(1, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(2, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(3, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(4, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(5, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso(6, 1, null, null, null, 10, null, calculo1));
 		
 
+		
 		
 	}
 	
