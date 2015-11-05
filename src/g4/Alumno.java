@@ -26,6 +26,14 @@ public class Alumno extends Usuario {
 		// agregar carrera por id
 		carreras.add(id_carrera);
 	}
+	public void eliminar_carrera(int id_carrera){
+		for(int i=0;i<carreras.size();i++){
+			if(carreras.get(i) == id_carrera){
+				carreras.remove(i);
+				break;
+			}
+		}
+	}
 	
 	public void Inscribir_malla_curricular(int id_malla){
 		// agregar carrera por id

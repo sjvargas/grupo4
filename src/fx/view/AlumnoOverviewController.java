@@ -94,6 +94,9 @@ public class AlumnoOverviewController implements PrincipalController {
 	private Button boton_ver_carrera_alumno;
 	@FXML
 	private Button boton_actualizar_semestre_actual;
+	@FXML
+	private Button boton_eliminar_carrera;
+	
 	
 	//label de inicio alumno
 	@FXML
@@ -537,6 +540,15 @@ public class AlumnoOverviewController implements PrincipalController {
 		//}
 		
 		
+	}
+	
+	public void eliminarCarrera(){
+		////System.out.println("Hay que eliminar carrera: "+listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
+		
+		Carrera carreraAEliminar =main.U.lista_administradores.get(0).GetCarrera(listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
+		main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getId_carrera());
+		
+		this.actualizarTablaConCarrerasInscritas();
 	}
 
 }

@@ -88,6 +88,7 @@
                         <ListView fx:id="listViewCarrerasInscritas" prefHeight="200.0" prefWidth="200.0" />
                      </content>
                   </TitledPane>
+                  <Button fx:id="boton_eliminar_carrera" layoutX="227.0" layoutY="290.0" mnemonicParsing="false" onAction="#eliminarCarrera" prefHeight="25.0" prefWidth="117.0" text="Eliminar Carrera" />
                </children>
             </Pane>
             <Pane fx:id="pane_inicio_alumno" layoutX="195.0" layoutY="70.0" prefHeight="360.0" prefWidth="492.0" visible="false">
