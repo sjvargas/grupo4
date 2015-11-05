@@ -1,9 +1,143 @@
 package fx.view;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+
 public class BuscadorDeCursosController implements PrincipalController {
 	/// objeto para realizar el cambio de paginas
 	ScreensController controlador;
 
+	@FXML
+	private Button boton_eliminar;
+	@FXML
+	private Button boton_agregar;
+	@FXML
+	private Button boton_cerrar_sesion;
+	@FXML
+	private Button boton_menu;
+	@FXML
+	private Button boton_buscar;
+	@FXML
+	private Label label_periodo;
+	@FXML
+	private Label label_carrera;
+	@FXML
+	private Label label_sigla;
+	@FXML
+	private Label label_profesor;
+	@FXML
+	private RadioButton lu_1; 
+	@FXML
+	private RadioButton lu_2; 
+	@FXML
+	private RadioButton lu_3; 
+	@FXML
+	private RadioButton lu_4; 
+	@FXML
+	private RadioButton lu_5; 
+	@FXML
+	private RadioButton lu_6; 
+	@FXML
+	private RadioButton lu_7; 
+	@FXML
+	private RadioButton lu_8; 
+	@FXML
+	private RadioButton lu_9; 
+	@FXML
+	private RadioButton ma_1; 
+	@FXML
+	private RadioButton ma_2; 
+	@FXML
+	private RadioButton ma_3; 
+	@FXML
+	private RadioButton ma_4; 
+	@FXML
+	private RadioButton ma_5; 
+	@FXML
+	private RadioButton ma_6; 
+	@FXML
+	private RadioButton ma_7; 
+	@FXML
+	private RadioButton ma_8; 
+	@FXML
+	private RadioButton ma_9;
+	@FXML
+	private RadioButton mi_1;
+	@FXML
+	private RadioButton mi_2;
+	@FXML
+	private RadioButton mi_3;
+	@FXML
+	private RadioButton mi_4;
+	@FXML
+	private RadioButton mi_5;
+	@FXML
+	private RadioButton mi_6;
+	@FXML
+	private RadioButton mi_7;
+	@FXML
+	private RadioButton mi_8;
+	@FXML
+	private RadioButton mi_9; 
+	@FXML
+	private RadioButton ju_1;
+	@FXML
+	private RadioButton ju_2;
+	@FXML
+	private RadioButton ju_3;
+	@FXML
+	private RadioButton ju_4;
+	@FXML
+	private RadioButton ju_5;
+	@FXML
+	private RadioButton ju_6;
+	@FXML
+	private RadioButton ju_7;
+	@FXML
+	private RadioButton ju_8;
+	@FXML
+	private RadioButton ju_9;
+	@FXML
+	private RadioButton vi_1;
+	@FXML
+	private RadioButton vi_2;
+	@FXML
+	private RadioButton vi_3;
+	@FXML
+	private RadioButton vi_4;
+	@FXML
+	private RadioButton vi_5;
+	@FXML
+	private RadioButton vi_6;
+	@FXML
+	private RadioButton vi_7;
+	@FXML
+	private RadioButton vi_8;
+	@FXML
+	private RadioButton vi_9;
+	@FXML
+	private RadioButton sa_1;
+	@FXML
+	private RadioButton sa_2;
+	@FXML
+	private RadioButton sa_3;
+	@FXML
+	private RadioButton sa_4;
+	@FXML
+	private RadioButton sa_5;
+	@FXML
+	private RadioButton sa_6;
+	@FXML
+	private RadioButton sa_7;
+	@FXML
+	private RadioButton sa_8;
+	@FXML
+	private RadioButton sa_9;
+	
+	
+	
 	// evento para cambiar de paginas.
 	@Override
 	public void setScreenParent(ScreensController ScreenPage) {
