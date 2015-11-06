@@ -25,8 +25,6 @@ public class Universidad {
 			
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		lista_carreras = new ArrayList<Carrera>();
-		int out = lista_carreras.size();
-		System.out.println(out);
 		lista_profesores = new ArrayList<Profesor>();
 		lista_ramos = new ArrayList<Ramo>();		
 		lista_alumnos = new ArrayList<Alumno>();

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fx.view.main;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
 
 
 /*
@@ -98,6 +100,14 @@ public class Curso {
 	public int obtener_id(){
 		return this.id_curso;
 		// este metodo devudelve el atributo id_curso
+	}
+	
+	public ArrayList<TableColumn<Curso,?>> getColumn(TableView tabla){
+		int i;
+		ArrayList<TableColumn<Curso,?>> columns = new ArrayList<TableColumn<Curso,?>>();
+		
+		String[] columns_names = {"sigla", "secc","nombre","profesor","horario"};
+		return columns;
 	}
 	
 	

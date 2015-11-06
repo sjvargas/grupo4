@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.BuscadorDeCursosController">
+<AnchorPane  maxHeight="900.0" maxWidth="1200.0" minHeight="900.0" minWidth="1200.0" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.BuscadorDeCursosController">
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -39,59 +39,59 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <RadioButton fx:id="lu_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="lu_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <RadioButton fx:id="lu_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <RadioButton fx:id="lu_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <RadioButton fx:id="lu_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="lu_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="lu_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="lu_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="lu_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="lu_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="lu_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="lu_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="lu_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="lu_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="lu_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="lu_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                               
-                              <RadioButton fx:id="ma_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="ma_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <RadioButton fx:id="ma_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <RadioButton fx:id="ma_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <RadioButton fx:id="ma_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="ma_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="ma_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="ma_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="ma_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="ma_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="ma_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="ma_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="ma_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="ma_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="ma_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="ma_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                               
-                              <RadioButton fx:id="mi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="mi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <RadioButton fx:id="mi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                              <RadioButton fx:id="mi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                              <RadioButton fx:id="mi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="mi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="mi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="mi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="mi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="mi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="mi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="mi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="mi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="mi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="mi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="mi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
                               
-                              <RadioButton fx:id="ju_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="ju_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <RadioButton fx:id="ju_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                              <RadioButton fx:id="ju_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                              <RadioButton fx:id="ju_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="ju_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="ju_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="ju_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="ju_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="ju_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="ju_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="ju_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="ju_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="ju_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="ju_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="ju_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
                               
-                              <RadioButton fx:id="vi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="vi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <RadioButton fx:id="vi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                              <RadioButton fx:id="vi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                              <RadioButton fx:id="vi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="vi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="vi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="vi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="vi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="vi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="vi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="vi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="vi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="vi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="vi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="vi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
                               
-                              <RadioButton fx:id="sa_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="sa_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                              <RadioButton fx:id="sa_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                              <RadioButton fx:id="sa_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-                              <RadioButton fx:id="sa_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="sa_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="sa_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="sa_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="sa_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="sa_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="sa_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="sa_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="sa_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="sa_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="sa_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="sa_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
                               
                               <Label text="8:30" GridPane.rowIndex="1" />
                               <Label text="10:00" GridPane.rowIndex="2" />
@@ -114,18 +114,18 @@
                      </children>
                   </Pane>
                   <TextField fx:id="text_sigla" layoutX="14.0" layoutY="85.0" />
-                  <Label layoutX="14.0" layoutY="167.0" text="seleccionar carrera" />
+                  <Label layoutX="14.0" layoutY="167.0" text="Carrera" />
                   <Label layoutX="169.0" layoutY="14.0" text="filta por modulos" />
-                  <TextField fx:id="text_carrera" layoutX="14.0" layoutY="184.0" />
+                  <ChoiceBox fx:id="text_carrera" layoutX="14.0" layoutY="184.0" />
                   <Label layoutX="14.0" layoutY="9.0" text="Filtros Para Cursos:" />
-                  <Label layoutX="14.0" layoutY="26.0" text="seleccionar periodo" />
-                  <Label layoutX="14.0" layoutY="68.0" text="seleccionar sigla" />
-                  <Label layoutX="14.0" layoutY="116.0" text="seleccionar profesor" />
+                  <Label layoutX="14.0" layoutY="26.0" text="Periodo" />
+                  <Label layoutX="14.0" layoutY="68.0" text="Sigla" />
+                  <Label layoutX="14.0" layoutY="116.0" text="Profesor" />
                   <TextField fx:id="text_profesor" layoutX="14.0" layoutY="133.0" />
-                  <TextField fx:id="text_periodo" layoutX="14.0" layoutY="43.0" />
+                  <ChoiceBox fx:id="text_periodo" layoutX="13.0" layoutY="43.0" prefWidth="150.0" />
                </children>
             </Pane>
-            <TableView fx:id="tabla_seleccion" layoutX="371.0" layoutY="71.0" prefHeight="147.0" prefWidth="364.0">
+            <TableView fx:id="tabla_seleccion" layoutX="371.0" layoutY="71.0" prefHeight="147.0" prefWidth="364.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn fx:id="sigla_seleccion" prefWidth="75.0" text="sigla" />
                 <TableColumn fx:id="secc_seleccion" prefWidth="39.0" text="secc" />
@@ -137,7 +137,7 @@
             <Pane layoutX="16.0" layoutY="347.0" prefHeight="248.0" prefWidth="748.0">
                <children>
                   <Button fx:id="boton_agregar" layoutX="647.0" layoutY="210.0" mnemonicParsing="false" onAction="#ClickAgregar" prefHeight="31.0" prefWidth="72.0" text="Agregar" />
-                  <TableView fx:id="tabla_busqueda" layoutX="12.0" layoutY="8.0" prefHeight="195.0" prefWidth="707.0">
+                  <TableView fx:id="tabla_busqueda" layoutX="12.0" layoutY="8.0" prefHeight="195.0" prefWidth="707.0" tableMenuButtonVisible="true">
                      <columns>
                         <TableColumn fx:id="nombre_busqueda" prefWidth="179.0" text="Nombre" />
                         <TableColumn fx:id="sigla_busqueda" minWidth="9.0" prefWidth="99.0" text="Sigla" />
