@@ -275,7 +275,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	
 	public void ClickAgregar(ActionEvent event) {
-		
+		System.out.print(tabla_busqueda.getSelectionModel().getSelectedItem());
 	}
 	
 	

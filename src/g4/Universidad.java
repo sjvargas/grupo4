@@ -118,6 +118,14 @@ public class Universidad implements java.io.Serializable {
 		Curso u7 = new Curso( 1,salas1, horario4, alumnos, 10, profesores2, calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u7);
 
+		lista_cursos.add(u);
+		lista_cursos.add(u7);
+		lista_cursos.add(u2);
+		lista_cursos.add(u3);
+		lista_cursos.add(u4);
+		lista_cursos.add(u5);
+		lista_cursos.add(u6);
+
 
 		
 		
