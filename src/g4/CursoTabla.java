@@ -1,6 +1,6 @@
 package g4;
 
-public class CursoTabla {
+public class CursoTabla  implements java.io.Serializable {
 	private final String sigla;
 	private final String profesores;
 	private final String horarios;

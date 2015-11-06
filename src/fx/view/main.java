@@ -41,9 +41,9 @@ public class main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-	//	U = new Universidad();
+		U = new Universidad();
 		
-	//	Serializador.serializar(U);
+		Serializador.serializar(U);
 		
 		
 		U = Serializador.Deserializar();

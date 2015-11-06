@@ -36,6 +36,9 @@ public class Universidad implements java.io.Serializable {
 		administrador_actual = null;
 		
 		lista_profesores.add( new Profesor("sofia", "Sofia", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
+		lista_profesores.add( new Profesor("ian", "ian", "sapallo", "casuela", "123", Sexo.Masculino, 42, 2000000, "Ingenieria"));
+		lista_profesores.add( new Profesor("jorge", "jorge", "zanahoria", "ensalada", "123", Sexo.Masculino, 45, 1000000, "Ingenieria"));
+		lista_profesores.add( new Profesor("jaime", "jaime", "vargas", "vargas", "123", Sexo.Femenino, 55, 2200000, "Ingenieria"));
 		
 		//carreras parten desde indice 1 nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad
 		lista_alumnos.add(new Alumno("juan","juan", "perez", "lopez", "123", Sexo.Masculino, 20 ));
@@ -61,14 +64,60 @@ public class Universidad implements java.io.Serializable {
 		lista_carreras.add(new Carrera( "juan perez", "artes", "teatro"));
 		lista_carreras.add(new Carrera( "Patricio Correa", "artes", "coreografia"));
 		
-
-
-		for (int i=0; i<6; i++){
-			Curso u = new Curso( 1, null, null, null, 10, null, calculo1);
-			lista_cursos.add(u);
-			historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
-		}
+		List<String> salas = new ArrayList<String>();
+		salas.add("A1"); salas.add("B16");
+		List<String> salas1 = new ArrayList<String>();
+		salas1.add("A2");
+		List<String> salas2 = new ArrayList<String>();
+		salas2.add("A7"); salas2.add("B16");
+		List<String> salas3 = new ArrayList<String>();
+		salas3.add("B15"); salas3.add("B21");
+		List<String> salas4 = new ArrayList<String>();
+		salas4.add("BC25"); salas4.add("B25");
 		
+		List<String> horario = new ArrayList<String>();
+		horario.add("lu:1"); horario.add("mi:1"); horario.add("vi:1");
+		List<String> horario1 = new ArrayList<String>();
+		horario1.add("ma:1");horario1.add("ju:1");horario1.add("vi:1");
+		List<String> horario2 = new ArrayList<String>();
+		horario2.add("lu:2"); horario2.add("mi:2"); horario2.add("vi:2");
+		List<String> horario3 = new ArrayList<String>();
+		horario3.add("lu:5"); horario3.add("mi:5"); horario2.add("vi:1");
+		List<String> horario4 = new ArrayList<String>();
+		horario4.add("ma:2"); horario4.add("ju:2"); horario4.add("ju:3");
+		
+		List<Alumno> alumnos = new ArrayList<Alumno>();
+		
+		List<Profesor> profesores = new ArrayList<Profesor>();
+		profesores.add(lista_profesores.get(0));
+		List<Profesor> profesores1 = new ArrayList<Profesor>();
+		profesores1.add(lista_profesores.get(1));
+		List<Profesor> profesores2 = new ArrayList<Profesor>();
+		profesores2.add(lista_profesores.get(2));
+		List<Profesor> profesores3 = new ArrayList<Profesor>();
+		profesores3.add(lista_profesores.get(3));
+		List<Profesor> profesores4 = new ArrayList<Profesor>();
+		profesores4.add(lista_profesores.get(0));
+		profesores4.add(lista_profesores.get(2));
+				
+		
+		
+
+		Curso u = new Curso( 1,salas, horario, alumnos, 10, profesores, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
+		Curso u2 = new Curso( 1,salas1, horario1, alumnos, 10, profesores1, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u2);
+		Curso u3 = new Curso( 1,salas2, horario2, alumnos, 10, profesores2, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u3);
+		Curso u4 = new Curso( 1,salas3, horario3, alumnos, 10, profesores3, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u4);
+		Curso u5 = new Curso( 1,salas4, horario4, alumnos, 10, profesores4, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u5);
+		Curso u6 = new Curso( 1,salas, horario2, alumnos, 10, profesores, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u6);
+		Curso u7 = new Curso( 1,salas1, horario4, alumnos, 10, profesores2, calculo1);
+		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u7);
+
 
 		
 		
