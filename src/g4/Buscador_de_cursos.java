@@ -56,21 +56,26 @@ public class Buscador_de_cursos implements java.io.Serializable{
 	private ArrayList<Curso> filtrar_por_profesor(ArrayList<Curso> cursosAFiltrar,String nombre_profesor)
 	{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
+		if (nombre_profesor== null){
+			return cursosAFiltrar;
+		}
 		
 		for (Curso j : cursosAFiltrar) {
-
+			
+			
 			boolean aux1 = false;
-			
-			for (Profesor i : j.profesores) {
-				if (i.GetNombre().toLowerCase().contains(nombre_profesor.toLowerCase()))
-				{
-					aux1 = true;
+			if (j.profesores!=null){
+				for (Profesor i : j.profesores) {
+					if (i.GetNombre().toLowerCase().contains(nombre_profesor.toLowerCase()))
+					{
+						aux1 = true;
+					}
 				}
-			}
-			
-			if (aux1)
-			{
-				cursos_encontrados.add(j);
+				
+				if (aux1)
+				{
+					cursos_encontrados.add(j);
+				}
 			}
 		}
 		
@@ -85,8 +90,9 @@ public class Buscador_de_cursos implements java.io.Serializable{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
 		
 		for (Curso j : cursosAFiltrar) {
-			Carrera i = j.ramo.getCarrera();	
-			if (i.getId_carrera() == id_carrera){
+			Carrera i = j.ramo.getCarrera();
+			System.out.println(id_carrera + "--" + i.getId_carrera());
+			if (i.getId_carrera()==id_carrera){
 				{
 					cursos_encontrados.add(j);
 				}
@@ -103,7 +109,7 @@ public class Buscador_de_cursos implements java.io.Serializable{
 		ArrayList<Curso> cursos_encontrados = new ArrayList<Curso>();
 		
 		for (Curso j : cursosAFiltrar) {
-
+			
 			boolean aux1 = false;
 			
 			String i = j.ramo.getSigla();
@@ -128,28 +134,42 @@ public class Buscador_de_cursos implements java.io.Serializable{
 	// metodo unico para filtrar, si no se quiere filtrar por algo, se coloca Null.
 	public ArrayList<Curso> filtrar(List<String> horarios, String nombre_profesor,Integer id_carrera,String sigla,String periodo){
 		ArrayList<Curso> cursosFiltrados = new ArrayList<Curso>();
+		
 		for (Programacion_Academica j : main.U.historial_de_progrmacion_academica){
 			if (j.periodo.equals(periodo)){
 				cursosFiltrados = j.cursos_en_progreso;
 				break;
 			}
 		}
+	    System.out.println(horarios);
 		// filtrar por horarios
 		if(horarios!=null && horarios.size()>0){
 			cursosFiltrados = this.filtrar_por_horario(cursosFiltrados, horarios);
 		}
-		
-		if(nombre_profesor!=null && nombre_profesor!=""){
-			
-			cursosFiltrados = this.filtrar_por_profesor(cursosFiltrados, nombre_profesor);
-			
+		for (Curso i : cursosFiltrados){
+			System.out.println("-"+ i.getId_curso());
 		}
-		//
-		if(id_carrera!= null && id_carrera!=-1){
+
+	    System.out.println(nombre_profesor);
+		if(nombre_profesor!=null && nombre_profesor!="" && nombre_profesor.length()>1){	
+			cursosFiltrados = this.filtrar_por_profesor(cursosFiltrados, nombre_profesor);	
+		}
+		for (Curso i : cursosFiltrados){
+			System.out.println("+"+ i.getId_curso());
+		}
+		//	    
+		System.out.println(id_carrera);
+		if(id_carrera!= null && id_carrera>-1){
 			this.filtrar_por_carrera(cursosFiltrados, id_carrera);
+		}
+		for (Curso i : cursosFiltrados){
+			System.out.println("$"+ i.getId_curso());
 		}
 		if(sigla!=null && sigla!="" && sigla.length()>0){
 			this.filtrar_por_sigla(cursosFiltrados, sigla);
+		}
+		for (Curso i : cursosFiltrados){
+			System.out.println("%"+ i.getId_curso());
 		}
 		
 		

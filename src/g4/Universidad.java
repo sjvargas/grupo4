@@ -35,6 +35,8 @@ public class Universidad implements java.io.Serializable {
 		alumno_actual = null;
 		administrador_actual = null;
 		
+		lista_profesores.add( new Profesor("sofia", "Sofia", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
+		
 		//carreras parten desde indice 1 nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad
 		lista_alumnos.add(new Alumno("juan","juan", "perez", "lopez", "123", Sexo.Masculino, 20 ));
 		lista_alumnos.add(new Alumno("max", "max", "garcia", "sanchez", "1", Sexo.Masculino, 21 ));
@@ -59,10 +61,8 @@ public class Universidad implements java.io.Serializable {
 		lista_carreras.add(new Carrera( "juan perez", "artes", "teatro"));
 		lista_carreras.add(new Carrera( "Patricio Correa", "artes", "coreografia"));
 		
-		
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
 
-		
+
 		for (int i=0; i<6; i++){
 			Curso u = new Curso( 1, null, null, null, 10, null, calculo1);
 			lista_cursos.add(u);
