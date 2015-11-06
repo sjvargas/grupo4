@@ -68,6 +68,8 @@ public class AdminOverviewController implements PrincipalController {
 	private Pane paneAdminProgramacionAcademica;	
 	@FXML
 	private Pane paneAdminModificarDatos;
+	@FXML
+	private Pane paneAdminCursos;
 
 	// Label Panel Admin Estado
 	@FXML
@@ -118,6 +120,10 @@ public class AdminOverviewController implements PrincipalController {
 	public void ApretarBotonModificarDatos(ActionEvent event){
 		CambiarAPanel(paneAdminModificarDatos);
 		LabelPanelAdminEstado.setText("Modificar Datos");
+	}
+	public void ApretarBotonCursos(ActionEvent event){
+		CambiarAPanel(paneAdminCursos);
+		LabelPanelAdminEstado.setText("Cursos");
 	}
 	public void ApretarBotonCerrarSesion(ActionEvent event){
 		main.U.administrador_actual.Cerrar_sesion();
@@ -292,6 +298,11 @@ public class AdminOverviewController implements PrincipalController {
 		}
 	}
 	
+	
+	// MODULO CURSOS
+	
+	
+	
 	// MODULO PROGRAMACION ACADEMICA
 	@FXML
     private TextField textFieldSemestreProgramacionAcademica;
@@ -309,7 +320,6 @@ public class AdminOverviewController implements PrincipalController {
 		}
 	}
 
-	
 	/// metodo para realizar el cambio de paginas.
 	@Override
 	public void setScreenParent(ScreensController ScreenPage) {
@@ -317,6 +327,7 @@ public class AdminOverviewController implements PrincipalController {
 	}
 	
 	// MODULO MODIFICAR DATOS
+	
 	
 	
 }

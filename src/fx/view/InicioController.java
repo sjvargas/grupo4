@@ -19,7 +19,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import g4.Administrador_academico;
 import g4.Alumno;
@@ -58,6 +61,8 @@ public class InicioController implements PrincipalController {
     private TextField tFSexoRegistro;
 	@FXML
     private TextField tFEdadRegistro;
+	@FXML
+	private ChoiceBox cBSexoRegistro;
 	@FXML
 	private Button ingresar;
 	@FXML
@@ -136,8 +141,6 @@ public class InicioController implements PrincipalController {
 		modoAlumnoSelecionado = true;
 	}
 	public void registrarse(){
-		
-		
 		if(modoAlumnoSelecionado){	
 			System.out.println("nombre: "+tfNombreUsuarioRegistro.getText());
 			// arreglar el sexo
@@ -146,9 +149,7 @@ public class InicioController implements PrincipalController {
 			alumno.Iniciar_sesion();
 			main.U.alumno_actual = alumno;
 			controlador.setScreen(main.AlumnoID);
-
 		}
-		
 		else{
 			Administrador_academico admin =new Administrador_academico(tfNombreUsuarioRegistro.getText(), tFNombreRegistro.getText(), tFApPatRegistro.getText(), tFApMatRegistro.getText(), tFContrasenaRegistro.getText(), Sexo.Masculino, Integer.parseInt(tFEdadRegistro.getText()));
 			main.U.agregarAdministrador(admin);
@@ -156,11 +157,7 @@ public class InicioController implements PrincipalController {
 			admin.Iniciar_sesion();
 			main.U.administrador_actual = admin;
 			controlador.setScreen(main.AdminID);
-
 		}
-		
-		//if()
-		
 	}
 	public void seleccionarModoAlumno(){
 		modoAlumnoSelecionado = true;
@@ -172,6 +169,11 @@ public class InicioController implements PrincipalController {
 		
 	}
 
+	public void ActualizarChoiceBoxSexo(ActionEvent event){
+		ObservableList<Sexo> listaSexos = FXCollections.observableList(Arrays.asList(Sexo.values()));
+		cBSexoRegistro.setItems(listaSexos);
+		cBSexoRegistro.setValue(listaSexos);
+	}
 	/// metodo para realizar el cambio de paginas.
 	@Override
 	public void setScreenParent(ScreensController ScreenPage) {
