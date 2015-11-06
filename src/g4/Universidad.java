@@ -66,6 +66,9 @@ public class Universidad {
 		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
 		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
 		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
 		
 
 		

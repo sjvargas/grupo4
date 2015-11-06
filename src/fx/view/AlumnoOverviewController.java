@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -124,10 +125,15 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	ListView<String> listViewCarrerasInscritas;
 	@FXML
-	ListView<String> listViewCarrerasInscritas1;
+	ListView<String> listViewMallasInscritas;
 	
+	////Elementos MALLA
+	@FXML
+	ComboBox<String> comboBoxCarrerasInscritas;
+	@FXML TextField mallaActual;
+	//// fin elementos de malla
 	
-	
+	 
 	// INICIO ELEMENTOS semestre ACTUAL textos de cursos y notas
 	@FXML
 	TextField text_periodo_semestre_actual;
@@ -420,7 +426,8 @@ public class AlumnoOverviewController implements PrincipalController {
 
 		ObservableList<String> items = FXCollections.observableArrayList(nombresCarrerasInscritas);
 		listViewCarrerasInscritas.setItems(items);
-		listViewCarrerasInscritas1.setItems(items);
+		
+		comboBoxCarrerasInscritas.setItems(items);
 
 		//
 	}
@@ -553,6 +560,19 @@ public class AlumnoOverviewController implements PrincipalController {
 			
 		}
 		this.actualizarTablaConCarrerasInscritas();
+	}
+	
+	
+	public void cambioEnComboCarrera(){
+		System.out.println("meeetal");
+		
+		int id_carreraSeleccionada = (main.U.lista_administradores.get(0).GetCarrera(comboBoxCarrerasInscritas.getValue())).getId_carrera();
+		int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
+		System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
+		mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
+		// ((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular)
+		// choice_malla.getValue()).getId_malla());
+
 	}
 
 }
