@@ -50,8 +50,8 @@ public class Universidad {
 		lista_carreras.get(0).crear_malla_curricular(malla1);
 		lista_carreras.get(0).crear_malla_curricular(malla2);
 		
-		Ramo calculo1 = new Ramo("MAT1610", 10, lista_carreras.get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
-
+		Ramo calculo1 = new Ramo("Calculo 1","MAT1610", 10, lista_carreras.get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
+		lista_ramos.add(calculo1);
 		//Curso calculo11 = new Curso(1, 1, "a1,a2", null, 10, null, calculo1);
 		
 		
@@ -89,5 +89,21 @@ public class Universidad {
 		return null;
 	}
 	
-	
+	public Ramo GetRamo(String siglaRamo){
+		for(int i=0;i<lista_ramos.size();i++){
+			if(lista_ramos.get(i).getSigla()== siglaRamo){
+				return lista_ramos.get(i);
+			}
+		}
+		return null;
+	}
+
+	public List<String> GetSiglasRamos(){
+		List<String> listaRetorno = new ArrayList<String>();
+		for(Ramo ramo: lista_ramos){
+			listaRetorno.add(ramo.getSigla());
+			System.out.print(ramo.getSigla());
+		}
+		return listaRetorno;
+	}
 }

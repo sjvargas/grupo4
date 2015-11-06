@@ -1,5 +1,7 @@
 package g4;
 
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  *  Clase Ramo:
@@ -14,16 +16,14 @@ public class Ramo {
 	//
 //	public int id_ramo;
 	//
+	private String nombreRamo;
 	private String sigla;
 	private int creditos;
-	
 	private Carrera carrera;
-	
 	private String semestre_impartido;
-	
 	private String contenidos;
-	
 	private String objetivos;
+	private List<String> prerrequisitos;
 	
 	////////////////////////////////////
 	//// GETTERS de atributos
@@ -36,11 +36,6 @@ public class Ramo {
 	public int getCreditos() {
 		return creditos;
 	}
-	/*
-	public int getId_ramo() {
-		return id_ramo;
-	}
-	*/
 	public String getObjetivos() {
 		return objetivos;
 	}
@@ -50,9 +45,10 @@ public class Ramo {
 	public String getSigla() {
 		return sigla;
 	}
+	public List<String> GetPrerrequisitos(){return prerrequisitos;	}
 	////////////////////////////////////
 	
-	public Ramo(String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
+	public Ramo(String nombreRamo, String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
 		//this.id_ramo=id;
 		this.sigla = sigla;
 		this.creditos = creditos;
@@ -60,14 +56,12 @@ public class Ramo {
 		this.semestre_impartido = semestre_impartido;
 		this.contenidos = contenidos;
 		this.objetivos = objetivos;
+		this.prerrequisitos = new ArrayList<String>();
 		
 	}
 	
+	public void AgregarPrerrequisito(String siglaPrerrequisito){
+		prerrequisitos.add(siglaPrerrequisito);
+	}
 	
-	
-	
-	
-	
-	
-
 }

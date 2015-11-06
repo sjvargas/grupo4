@@ -33,14 +33,17 @@ public class Administrador_academico extends Usuario {
 		main.U.lista_carreras.add(new Carrera(decano,facultad, nombre));
 	}
 	
-	public void agregar_ramo(String sigla,Carrera carrera, int creditos, String semestre_impartido,String contenidos,String objetivos){
+	public void agregar_ramo(String nombreRamo, String sigla,Carrera carrera, int creditos, String semestre_impartido,String contenidos,String objetivos){
 		
 
-			Ramo nuevoRamo = new Ramo( sigla, creditos, carrera, semestre_impartido, contenidos, objetivos);
+			Ramo nuevoRamo = new Ramo(nombreRamo, sigla, creditos, carrera, semestre_impartido, contenidos, objetivos);
 			main.U.lista_ramos.add(nuevoRamo);
 			
 	}
 	
+	public void AgregarPrerrequisito(String siglaRamo, String siglaPrerrequisito){
+		main.U.GetRamo(siglaRamo).AgregarPrerrequisito(siglaPrerrequisito);
+	}
 	
 	public void agregar_profesor(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad, int sueldo, String facultad){
 		Profesor nuevoProfesor = new Profesor(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad, sueldo, facultad);
