@@ -137,9 +137,15 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML TextField mallaActual;
 	//// fin elementos de malla
 	@FXML
-	ListView<String> listViewMallasPorCarrera;
-	
+	ListView<Malla_curricular> listViewMallasPorCarrera;
+	@FXML
+	Button buttonAgregarMalla;
+	@FXML
+	Button buttonEliminarMalla;
 	 
+	
+	
+	
 	// INICIO ELEMENTOS semestre ACTUAL textos de cursos y notas
 	@FXML
 	TextField text_periodo_semestre_actual;
@@ -231,8 +237,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		choise_carreras_alumno.setValue(main.U.lista_administradores.get(0).getListaCarrera().get(0));
 
 		this.actualizarTablaConCarrerasInscritas();
-		ObservableList<Malla_curricular> mallasDeLaCarrera = FXCollections.observableList(
-				main.U.lista_administradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
+	//	ObservableList<Malla_curricular> mallasDeLaCarrera = FXCollections.observableList(
+		//		main.U.lista_administradores.get(0).getListaCarrera().get(0).getMallas_curriculares());
 		// choice_malla.setItems(mallasDeLaCarrera);
 		// choice_malla.setValue(mallasDeLaCarrera.get(0));
 
@@ -574,19 +580,68 @@ public class AlumnoOverviewController implements PrincipalController {
 	
 	
 	public void cambioEnComboCarrera(){
-		System.out.println("meeetal");
+		//System.out.println("meeetal");
+		Carrera carreraSeleccionada = main.U.lista_administradores.get(0).GetCarrera(comboBoxCarrerasInscritas.getValue());
+		
+		if(carreraSeleccionada!=null){
+			int id_carreraSeleccionada = carreraSeleccionada.getId_carrera();
+			int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
+			//System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
+			mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
+			
+			titlePaneMallasPorCarrera.setText("Mallas de la Carrera "+comboBoxCarrerasInscritas.getValue());
+			
+			
+			
+			//// actualizar lista con mallas disponibles.
+			
+			
+			List<Malla_curricular> mallasPorCarrera= carreraSeleccionada.getMallas_curriculares();
+
+			
+			ObservableList<Malla_curricular> items = FXCollections.observableArrayList(mallasPorCarrera);
+			listViewMallasPorCarrera.setItems(items);
+		}
+	
+
+	}
+	
+	
+	public void clickAgregarMalla(){
+		System.out.println("Hay que Agregar malla");
 		
 		int id_carreraSeleccionada = (main.U.lista_administradores.get(0).GetCarrera(comboBoxCarrerasInscritas.getValue())).getId_carrera();
 		int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
-		System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
+		//System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
+		
+		
+		
+		//main.U.alumno_actual.Inscribir_malla_curricular(indiceDeCarreraSeleccionadaEnAlumno, listViewMallasPorCarrera);
+		Malla_curricular mallaSeleccionada = listViewMallasPorCarrera.getSelectionModel().getSelectedItem();
+		
+		if(mallaSeleccionada!=null){
+			main.U.alumno_actual.Inscribir_malla_curricular(indiceDeCarreraSeleccionadaEnAlumno, mallaSeleccionada.id_malla);
+			mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
+		}
+		
+		
+		
+	}
+	public void clickEliminarMalla(){
+		System.out.println("Hay que Eliminar malla");
+		
+		int id_carreraSeleccionada = (main.U.lista_administradores.get(0).GetCarrera(comboBoxCarrerasInscritas.getValue())).getId_carrera();
+		int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
+		//System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
+		
+		
+		//// se agrega malla con id -1, lo cual significa que no hay malla.
+		main.U.alumno_actual.Inscribir_malla_curricular(indiceDeCarreraSeleccionadaEnAlumno, -1);
 		mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
 		
+		
+		
 		titlePaneMallasPorCarrera.setText("Mallas de la Carrera "+comboBoxCarrerasInscritas.getValue());
-		
-		
-		
-		// ((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular)
-		// choice_malla.getValue()).getId_malla());
 
 	}
 

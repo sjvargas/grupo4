@@ -142,7 +142,7 @@
                </children></Pane>
             <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0">
                <children>
-                  <TitledPane fx:id="titlePaneMallasPorCarrera" layoutX="25.0" layoutY="200.0" prefHeight="114.0" prefWidth="64.0" text="Mallas de la carrera">
+                  <TitledPane fx:id="titlePaneMallasPorCarrera" layoutX="25.0" layoutY="200.0" prefHeight="114.0" prefWidth="257.0" text="Mallas de la carrera">
                      <content>
                         <ListView fx:id="listViewMallasPorCarrera" prefHeight="200.0" prefWidth="200.0" />
                      </content>
@@ -152,6 +152,8 @@
                   <ComboBox fx:id="comboBoxCarrerasInscritas" layoutX="34.0" layoutY="78.0" onAction="#cambioEnComboCarrera" prefWidth="150.0" />
                   <Label layoutX="34.0" layoutY="130.0" text="Malla inscrita:" />
                   <TextField fx:id="mallaActual" layoutX="126.0" layoutY="126.0" />
+                  <Button fx:id="buttonAgregarMalla" layoutX="306.0" layoutY="245.0" mnemonicParsing="false" onAction="#clickAgregarMalla" prefHeight="25.0" prefWidth="136.0" text="Agregar Malla" />
+                  <Button fx:id="buttonEliminarMalla" layoutX="308.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickEliminarMalla" text="Eliminar Malla inscrita" />
                </children></Pane>
          </children>
       </Pane>
