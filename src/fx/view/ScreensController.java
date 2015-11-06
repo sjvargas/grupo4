@@ -41,9 +41,16 @@ public class ScreensController extends StackPane{
 	public boolean loadScreen(String nombre,String resourse){
 		try {
 
+			System.out.println(1);
 			FXMLLoader cargador = new FXMLLoader(getClass().getResource(resourse));
+
+			System.out.println(2);
 			Parent proxima_pantalla = cargador.load();
+
+			System.out.println(3);
 			PrincipalController pantalla = ((PrincipalController) cargador.getController());
+
+			System.out.println(4);
 			pantalla.setScreenParent(this);
 			
 			System.out.println("agregando a "+nombre+" :) ");
@@ -51,7 +58,7 @@ public class ScreensController extends StackPane{
 			return true;
 		}
 		catch (Exception e){
-
+			System.out.println(e);
 			System.out.println("no se pudoo agregar a "+nombre+" :( ");
 			return false;
 		}

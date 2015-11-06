@@ -260,7 +260,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	}	
 	
 	public void clickbuscador() {
-		mostrar_panel(pane_semestres_alumno);
+		controlador.setScreen(main.BuscadorID);
 	}	
 	
 	public void clicksemestreactual() {

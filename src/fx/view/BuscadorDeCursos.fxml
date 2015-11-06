@@ -76,7 +76,7 @@
                               <RadioButton fx:id="ju_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
                               
                               <RadioButton fx:id="vi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <RadioButton fx:id="vi_2" ="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="vi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                               <RadioButton fx:id="vi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
                               <RadioButton fx:id="vi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
                               <RadioButton fx:id="vi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />

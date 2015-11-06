@@ -1,5 +1,6 @@
 package fx.view;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -136,6 +137,15 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private RadioButton sa_9;
 	
+	
+	public void ClickCerrarSesion(ActionEvent event) {
+		main.U.alumno_actual.Cerrar_sesion();
+		main.U.alumno_actual = null;
+		controlador.setScreen(main.InicioID);
+	}
+	public void ClickVolverMenu(ActionEvent event) {
+		controlador.setScreen(main.AlumnoID);
+	}
 	
 	
 	// evento para cambiar de paginas.
