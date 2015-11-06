@@ -10,14 +10,25 @@ import g4.Programacion_Academica;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import jdk.nashorn.internal.runtime.ListAdapter;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.CheckBoxListCell;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -27,15 +38,9 @@ public class BuscadorDeCursosController implements PrincipalController {
 	ScreensController controlador;
 
 	@FXML
-	private Button boton_eliminar;
+	private Pane pane_aceptar; 
 	@FXML
-	private Button boton_agregar;
-	@FXML
-	private Button boton_cerrar_sesion;
-	@FXML
-	private Button boton_menu;
-	@FXML
-	private Button boton_buscar;
+	private Button boton_eliminar, boton_agregar, boton_cerrar_sesion, boton_menu, boton_buscar, boton_aceptar;
 	@FXML
 	private ChoiceBox<String> text_periodo;
 	@FXML
@@ -73,29 +78,31 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private CheckBox sa_1,sa_2,sa_3, sa_4,sa_5,sa_6, sa_7,sa_8;
 	
-	public BuscadorDeCursosController(){
-	
+	public void ClickAceptar(ActionEvent e){
+		pane_aceptar.setVisible(false);
+		ObservableList<Carrera> ss = FXCollections
+				.observableList(main.U.lista_carreras);
 		
-//		ObservableList<Carrera> ss = FXCollections
-//				.observableList(main.U.lista_carreras);
-//		text_carrera.setItems(ss);
-//		text_carrera.setValue(main.U.lista_carreras.get(0));
-//		ArrayList<String> periodos = new ArrayList<String>();
-//		for (Programacion_Academica j : main.U.historial_de_progrmacion_academica){
-//			periodos.add(j.periodo);}
-//		ObservableList<String> uu = FXCollections
-//				.observableList(periodos);
-//		text_periodo.setItems(uu);
-//		text_periodo.setValue(periodos.get(0));
+		text_carrera.setItems(ss);
+		text_carrera.setValue(main.U.lista_carreras.get(0));
+		
+		
+		ArrayList<String> periodos = new ArrayList<String>();
+		for (Programacion_Academica j : main.U.historial_de_progrmacion_academica){
+			periodos.add(j.periodo);}
+		ObservableList<String> uu = FXCollections
+				.observableList(periodos);
+		text_periodo.setItems(uu);
+		text_periodo.setValue(periodos.get(0));
 
 
-//		sigla_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("sigla"));
-//		secc_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("seccion"));
-//		nombre_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("nombre"));
-//		profesor_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("profesores"));
-//		horarios_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("horarios"));
-//		
-//		tabla_seleccion.setItems(data_seleccion);
+		sigla_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("sigla"));
+		secc_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("seccion"));
+		nombre_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("nombre"));
+		profesor_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("profesores"));
+		horarios_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("horarios"));
+		
+		tabla_seleccion.setItems(data_seleccion);
 		
 		lu_1 = new CheckBox("lu:1");
 		lu_2 = new CheckBox("lu:2");
@@ -233,8 +240,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 		
 		ArrayList<Curso> cursos = main.U.buscador.filtrar(horario_buscar, prof, carrera, sigla,periodo);
 		
-		
-		controlador.setScreen(main.AlumnoID);
 	}
 	public void ClickAgregar(ActionEvent event) {
 		System.out.println(sa_1);

@@ -22,7 +22,7 @@ public class Universidad {
 	public Alumno alumno_actual;
 	
 	public Universidad(){
-			
+		
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		lista_carreras = new ArrayList<Carrera>();
 		lista_profesores = new ArrayList<Profesor>();
@@ -41,7 +41,8 @@ public class Universidad {
 		lista_administradores.add( new Administrador_academico("ana", "ana", "guzman", "alvarez","123",Sexo.Femenino, 40));
 
 		lista_carreras.add(new Carrera("decano","facultad", "carrera baisca"));
-	
+		historial_de_progrmacion_academica.add(new Programacion_Academica("2015-2"));
+		historial_de_progrmacion_academica.add(new Programacion_Academica("2016-1"));
 
 		lista_alumnos.get(0).Inscribir_carrera(2);
 		Malla_curricular malla1 = new Malla_curricular(0);
@@ -58,12 +59,16 @@ public class Universidad {
 		lista_carreras.add(new Carrera( "juan perez", "artes", "teatro"));
 		lista_carreras.add(new Carrera( "Patricio Correa", "artes", "coreografia"));
 		
+		
 		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		
+		for (int i=0; i<6; i++){
+			Curso u = new Curso( 1, null, null, null, 10, null, calculo1);
+			lista_cursos.add(u);
+			historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
+		}
+		
+		
 		
 
 		
