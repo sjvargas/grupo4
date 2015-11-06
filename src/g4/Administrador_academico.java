@@ -19,12 +19,10 @@ public class Administrador_academico extends Usuario {
 	
 	private List<Programacion_Academica> historial_de_progrmacion_academica;
 	
-	
-	public Administrador_academico(String nom, String cont, String sex, int ed){
-		
-		
-		super(nom, cont, sex, ed);
-	
+
+	public Administrador_academico(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad){
+		super(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad);
+
 	}
 	
 	public void crear_programacion_academica(String periodo){
@@ -43,10 +41,11 @@ public class Administrador_academico extends Usuario {
 			
 	}
 	
-	public void agregar_profesor(String nombre, String apellidos, int sueldo, String facultad){
-		Profesor nuevoProfesor = new Profesor( nombre, apellidos, sueldo, facultad);
-		
+	
+	public void agregar_profesor(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad, int sueldo, String facultad){
+		Profesor nuevoProfesor = new Profesor(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad, sueldo, facultad);
 		main.U.lista_profesores.add(nuevoProfesor);
+
 	}
 	
 	public void restringir_acceso_alumno(Alumno alumno){

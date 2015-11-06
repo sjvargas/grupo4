@@ -1,22 +1,20 @@
 package g4;
 
-import fx.view.main;
-
-public class Profesor {
-	
-
+public class Profesor extends Usuario {
+	private int id_profesor;
+	private int sueldo;
+	private String facultad;
     private static int NextId = 0;
-	public String nombre;
-	public String apellidos;
-	public int id_profesor=1;
-	public int sueldo;
-	public String facultad;
 	
-	public Profesor( String nombre, String apellidos, int sueldo, String facultad){
-		this.id_profesor = NextId++;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
+	public Profesor(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad , int sueldo, String facultad)
+	{	super(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad);
 		this.sueldo = sueldo;
 		this.facultad = facultad;
-	}	
+		this.id_profesor = NextId++;
+	}
+	
+	public void CalificarAlumno(Curso curso, Alumno alumno ,Float nota){
+		
+	}
+	public int GetId(){ return id_profesor;}
 }

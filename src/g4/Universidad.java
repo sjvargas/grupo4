@@ -37,10 +37,10 @@ public class Universidad {
 		alumno_actual = null;
 		administrador_actual = null;
 		
-		//carreras parten desde indice 1
-		lista_alumnos.add(new Alumno("juan", "123", "hombre", 20 ));
-		lista_alumnos.add(new Alumno("max", "1", "hombre", 21 ));
-		lista_administradores.add( new Administrador_academico("ana","123","mujer", 40));
+		//carreras parten desde indice 1 nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad
+		lista_alumnos.add(new Alumno("juan","juan", "perez", "lopez", "123", Sexo.Masculino, 20 ));
+		lista_alumnos.add(new Alumno("max", "max", "garcia", "sanchez", "1", Sexo.Masculino, 21 ));
+		lista_administradores.add( new Administrador_academico("ana", "ana", "guzman", "alvarez","123",Sexo.Femenino, 40));
 
 		lista_carreras.add(new Carrera("decano","facultad", "carrera baisca"));
 	

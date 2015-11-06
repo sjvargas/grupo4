@@ -59,7 +59,7 @@ public class Buscador_de_cursos {
 			boolean aux1 = false;
 			
 			for (Profesor i : j.profesores) {
-				if (i.nombre.toLowerCase().contains(nombre_profesor.toLowerCase()))
+				if (i.GetNombre().toLowerCase().contains(nombre_profesor.toLowerCase()))
 				{
 					aux1 = true;
 				}

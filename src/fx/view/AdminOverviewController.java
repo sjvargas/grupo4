@@ -21,6 +21,7 @@ import java.util.List;
 import g4.Administrador_academico;
 import g4.Carrera;
 import g4.Profesor;
+import g4.Sexo;
 
 public class AdminOverviewController implements PrincipalController {
 	
@@ -88,10 +89,10 @@ public class AdminOverviewController implements PrincipalController {
 	public void ApretarBotonInicio(ActionEvent event){
 		CambiarAPanel(paneAdminInicio);
 		LabelPanelAdminEstado.setText("Inicio");
-		labelNombre.setText(main.U.administrador_actual.nombre);
-		labelNombreUsuario.setText(main.U.administrador_actual.nombre);
-		labelSexo.setText(main.U.administrador_actual.GetSexo());
-		labelEdad.setText(main.U.administrador_actual.GetEdad());
+		labelNombre.setText(main.U.administrador_actual.GetNombre());
+		labelNombreUsuario.setText(main.U.administrador_actual.GetNombreUsuario());
+		labelSexo.setText(main.U.administrador_actual.GetSexo().name());
+		labelEdad.setText(main.U.administrador_actual.GetEdadString());
 	}
 	public void ApretarBotonProfesores(ActionEvent event){
 		CambiarAPanel(paneAdminProfesores);
@@ -137,7 +138,17 @@ public class AdminOverviewController implements PrincipalController {
 	@FXML
     private TextField campoANombreProfesor;
 	@FXML
-    private TextField campoAApellidosProfesor;
+    private TextField campoAApPatProfesor;
+	@FXML
+    private TextField campoAApMatProfesor;
+	@FXML
+    private TextField campoANombreUsuarioProfesor;
+	@FXML
+    private TextField campoAContrasenaProfesor;
+	@FXML
+    private TextField campoASexoProfesor;
+	@FXML
+    private TextField campoAEdadProfesor;
 	@FXML
     private TextField campoASueldoProfesor;
 	@FXML
@@ -151,13 +162,21 @@ public class AdminOverviewController implements PrincipalController {
 	// Agregar Nuevo Profesor:
 	public void ApretarAgregarProfesor(ActionEvent event){
 		String nombreProfesor = campoANombreProfesor.getText();
-		String apellidoProfesor = campoAApellidosProfesor.getText();
+		String apellidoPatProfesor = campoAApPatProfesor.getText();
+		String apellidoMatProfesor = campoAApMatProfesor.getText();
+		String nombreUsuarioProfesor = campoANombreUsuarioProfesor.getText();
+		String contrasenaProfesor = campoAContrasenaProfesor.getText();
+		String sexoProfesor = campoASexoProfesor.getText();
+		String edadProfesor = campoAEdadProfesor.getText();
+		int edadPreforesorInt = Integer.parseInt(edadProfesor);
 		String sueldoProfesor = campoASueldoProfesor.getText();
 		int sueldoProfesor2 = Integer.parseInt(sueldoProfesor);
 		String facultadProfesor = campoAFacultadProfesor.getText();
-		if(nombreProfesor != "" && apellidoProfesor!= "" && facultadProfesor!= "")
+		if(nombreProfesor != "" && apellidoPatProfesor!= "" && apellidoMatProfesor!= "" &&
+				nombreUsuarioProfesor != "" && contrasenaProfesor!= "" && sexoProfesor!= "" &&
+						edadProfesor != "" && sueldoProfesor!= "" && facultadProfesor!= "")
 		{
-			main.U.administrador_actual.agregar_profesor(nombreProfesor, apellidoProfesor, sueldoProfesor2, facultadProfesor);
+			main.U.administrador_actual.agregar_profesor(nombreProfesor, apellidoPatProfesor, apellidoMatProfesor, nombreUsuarioProfesor, contrasenaProfesor, Sexo.Masculino, edadPreforesorInt , sueldoProfesor2, facultadProfesor);
 			labelAvisoProfesor.setText("Agregado");
 		}
 		else{
