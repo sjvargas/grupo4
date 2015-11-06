@@ -34,7 +34,7 @@ public class main extends Application {
 	public static String AlumnoID = "Alumno";
 	public static String AdminFile = "AdminOverview.fxml";
 	public static String AdminID = "Admin";
-	public static String BuscadorFile = "BuscadorDeCursosOverview.fxml";
+	public static String BuscadorFile = "BuscadorDeCursos.fxml";
 	public static String BuscadorID = "Buscador";
 	
 	public static Universidad U;

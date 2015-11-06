@@ -1,5 +1,7 @@
 package fx.view;
 
+import java.awt.TextField;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,13 +23,13 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private Button boton_buscar;
 	@FXML
-	private Label label_periodo;
+	private TextField text_periodo;
 	@FXML
-	private Label label_carrera;
+	private TextField text_carrera;
 	@FXML
-	private Label label_sigla;
+	private TextField text_sigla;
 	@FXML
-	private Label label_profesor;
+	private TextField text_profesor;
 	@FXML
 	private RadioButton lu_1; 
 	@FXML
@@ -45,8 +47,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private RadioButton lu_8; 
 	@FXML
-	private RadioButton lu_9; 
-	@FXML
 	private RadioButton ma_1; 
 	@FXML
 	private RadioButton ma_2; 
@@ -62,8 +62,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	private RadioButton ma_7; 
 	@FXML
 	private RadioButton ma_8; 
-	@FXML
-	private RadioButton ma_9;
 	@FXML
 	private RadioButton mi_1;
 	@FXML
@@ -81,8 +79,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private RadioButton mi_8;
 	@FXML
-	private RadioButton mi_9; 
-	@FXML
 	private RadioButton ju_1;
 	@FXML
 	private RadioButton ju_2;
@@ -98,8 +94,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	private RadioButton ju_7;
 	@FXML
 	private RadioButton ju_8;
-	@FXML
-	private RadioButton ju_9;
 	@FXML
 	private RadioButton vi_1;
 	@FXML
@@ -117,8 +111,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private RadioButton vi_8;
 	@FXML
-	private RadioButton vi_9;
-	@FXML
 	private RadioButton sa_1;
 	@FXML
 	private RadioButton sa_2;
@@ -134,8 +126,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	private RadioButton sa_7;
 	@FXML
 	private RadioButton sa_8;
-	@FXML
-	private RadioButton sa_9;
 	
 	
 	public void ClickCerrarSesion(ActionEvent event) {
@@ -144,6 +134,16 @@ public class BuscadorDeCursosController implements PrincipalController {
 		controlador.setScreen(main.InicioID);
 	}
 	public void ClickVolverMenu(ActionEvent event) {
+		controlador.setScreen(main.AlumnoID);
+	}
+	
+	public void ClickEliminar(ActionEvent event) {
+		controlador.setScreen(main.AlumnoID);
+	}	
+	public void ClickBuscar(ActionEvent event) {
+		controlador.setScreen(main.AlumnoID);
+	}
+	public void ClickAgregar(ActionEvent event) {
 		controlador.setScreen(main.AlumnoID);
 	}
 	

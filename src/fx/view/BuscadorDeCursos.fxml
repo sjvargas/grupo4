@@ -113,16 +113,16 @@
                         <Label layoutX="49.0" layoutY="78.0" prefHeight="17.0" prefWidth="103.0" text="A-L-M-U-E-R-Z-O" />
                      </children>
                   </Pane>
-                  <TextField fx:id="label_sigla" layoutX="14.0" layoutY="85.0" />
+                  <TextField fx:id="text_sigla" layoutX="14.0" layoutY="85.0" />
                   <Label layoutX="14.0" layoutY="167.0" text="seleccionar carrera" />
                   <Label layoutX="169.0" layoutY="14.0" text="filta por modulos" />
-                  <TextField fx:id="label_carrera" layoutX="14.0" layoutY="184.0" />
+                  <TextField fx:id="text_carrera" layoutX="14.0" layoutY="184.0" />
                   <Label layoutX="14.0" layoutY="9.0" text="Filtros Para Cursos:" />
                   <Label layoutX="14.0" layoutY="26.0" text="seleccionar periodo" />
                   <Label layoutX="14.0" layoutY="68.0" text="seleccionar sigla" />
                   <Label layoutX="14.0" layoutY="116.0" text="seleccionar profesor" />
-                  <TextField fx:id="label_profesor" layoutX="14.0" layoutY="133.0" />
-                  <TextField fx:id="label_periodo" layoutX="14.0" layoutY="43.0" />
+                  <TextField fx:id="text_profesor" layoutX="14.0" layoutY="133.0" />
+                  <TextField fx:id="text_periodo" layoutX="14.0" layoutY="43.0" />
                </children>
             </Pane>
             <TableView fx:id="tabla_seleccion" layoutX="371.0" layoutY="71.0" prefHeight="147.0" prefWidth="364.0">
