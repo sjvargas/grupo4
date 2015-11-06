@@ -40,59 +40,59 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <CheckBox fx:id="lu_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="lu_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="lu_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="lu_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="lu_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="lu_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="lu_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="lu_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="lu_1" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="lu_2" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="lu_3" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="lu_4" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="lu_5" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="lu_6" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="lu_7" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="lu_8" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                               
-                              <CheckBox fx:id="ma_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="ma_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="ma_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="ma_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="ma_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="ma_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="ma_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="ma_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="ma_1" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="ma_2" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="ma_3" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="ma_4" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="ma_5" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="ma_6" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="ma_7" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="ma_8" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                               
-                              <CheckBox fx:id="mi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="mi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="mi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="mi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="mi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="mi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="mi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="mi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="mi_1" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="mi_2" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="mi_3" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="mi_4" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="mi_5" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="mi_6" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="mi_7" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="mi_8" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
                               
-                              <CheckBox fx:id="ju_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="ju_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="ju_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="ju_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="ju_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="ju_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="ju_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="ju_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="ju_1" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="ju_2" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="ju_3" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="ju_4" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="ju_5" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="ju_6" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="ju_7" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="ju_8" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
                               
-                              <CheckBox fx:id="vi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="vi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="vi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="vi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="vi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="vi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="vi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="vi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="vi_1" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="vi_2" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="vi_3" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="vi_4" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="vi_5" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="vi_6" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="vi_7" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="vi_8" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
                               
-                              <CheckBox fx:id="sa_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="sa_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                              <CheckBox fx:id="sa_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="sa_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-                              <CheckBox fx:id="sa_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-                              <CheckBox fx:id="sa_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-                              <CheckBox fx:id="sa_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="sa_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                              <CheckBox fx:id="sa_1" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <CheckBox fx:id="sa_2" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="sa_3" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <CheckBox fx:id="sa_4" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="sa_5" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                              <CheckBox fx:id="sa_6" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                              <CheckBox fx:id="sa_7" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                              <CheckBox fx:id="sa_8" mnemonicParsing="false" onAction="#ClickCheckbox" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
                               
                               <Label text="8:30" GridPane.rowIndex="1" />
                               <Label text="10:00" GridPane.rowIndex="2" />
