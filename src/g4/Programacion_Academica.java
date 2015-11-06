@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Programacion_Academica {
 	public ArrayList<Curso> cursos_en_progreso;
-	public String periodo;
+	public String periodo;  
 	public Buscador_de_cursos buscador_de_cursos;
 	
 	public Programacion_Academica(String periodo)

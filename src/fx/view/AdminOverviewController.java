@@ -105,6 +105,7 @@ public class AdminOverviewController implements PrincipalController {
 	public void ApretarBotonRamos(ActionEvent event){
 		CambiarAPanel(paneAdminRamos);
 		LabelPanelAdminEstado.setText("Ramos");
+		ActualizarValoresChoiseBoxProf();
 	}
 	public void ApretarBotonCarreras(ActionEvent event){
 		CambiarAPanel(paneAdminCarreras);
@@ -183,6 +184,7 @@ public class AdminOverviewController implements PrincipalController {
 			labelAvisoProfesor.setText("Completar");
 		}
 	}
+
 	
 	// Eliminar Profesor:
 	public void ApretarEliminarProfesor(ActionEvent event){
@@ -206,6 +208,8 @@ public class AdminOverviewController implements PrincipalController {
 	
 	// MODULO RAMOS
 	@FXML
+	private TextField textFieldNombreRamo;
+	@FXML
     private TextField textFieldSiglaRamo;
 	@FXML
     private TextField textFieldCarreraRamo;
@@ -219,8 +223,14 @@ public class AdminOverviewController implements PrincipalController {
     private TextField textFieldObjetivosRamo;
 	@FXML
     private Label labelAgregarRamo;
+	@FXML
+	private ChoiceBox cBAgPrerreqRamo;
+	@FXML
+	private ChoiceBox cBAgPrerreqPrerrequisito;
+	
 	
 	public void AgregarRamo(){
+		String nombreRamo = textFieldNombreRamo.getText();
 		String siglaRamo = textFieldSiglaRamo.getText();
 		String carreraRamo = textFieldCarreraRamo.getText();
 		String creditosRamo = textFieldCreditosRamo.getText();
@@ -229,15 +239,34 @@ public class AdminOverviewController implements PrincipalController {
 		String objetivosRamo = textFieldObjetivosRamo.getText();
 		int creditosRamo2 = Integer.parseInt(creditosRamo);
 		Carrera c = main.U.administrador_actual.GetCarrera(carreraRamo);
-		if(siglaRamo != "" && carreraRamo!= "" && creditosRamo!= "" && semestreImpartidoRamo!= "" && contenidoRamo!= "" && objetivosRamo!= "" ){
-			main.U.administrador_actual.agregar_ramo(siglaRamo, c, creditosRamo2, semestreImpartidoRamo, contenidoRamo, objetivosRamo);
+		if(nombreRamo != "" && siglaRamo != "" && carreraRamo!= "" && creditosRamo!= "" &&
+				semestreImpartidoRamo!= "" && contenidoRamo!= "" && objetivosRamo!= "" ){
+			main.U.administrador_actual.agregar_ramo(nombreRamo ,siglaRamo, c, creditosRamo2, semestreImpartidoRamo, contenidoRamo, objetivosRamo);
 			labelAgregarRamo.setText("Ramo Agregado");
+			ActualizarValoresChoiseBoxProf();
 		}
 		else{
 			labelAgregarRamo.setText("Error al agregar Ramo");
 		}
 	}
-
+	public void ActualizarValoresChoiseBoxProf(){
+		System.out.print("se apreto Choice Box");
+		ObservableList<String> listaCargaRamos = FXCollections.observableList(main.getU().GetSiglasRamos());
+		cBAgPrerreqRamo.setItems(listaCargaRamos);
+		cBAgPrerreqRamo.setValue(listaCargaRamos);
+		cBAgPrerreqPrerrequisito.setItems(listaCargaRamos);
+		cBAgPrerreqPrerrequisito.setValue(listaCargaRamos);
+	}	
+	
+	public void ApretarAgregarPrerrequisito(ActionEvent event){
+		String siglaRamo = cBAgPrerreqRamo.getValue().toString();
+		String siglaPrerrequisito = cBAgPrerreqPrerrequisito.getValue().toString();
+		main.U.administrador_actual.AgregarPrerrequisito(siglaRamo, siglaPrerrequisito);
+		System.out.println("para"+ siglaRamo+"el prerrequisito es" + main.getU().GetRamo(siglaRamo).GetPrerrequisitos().get(0));
+	}
+	
+	
+	
 	// MODULO CARRERAS
 	@FXML
     private TextField textFieldNombreCarrera;

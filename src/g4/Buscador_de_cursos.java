@@ -1,5 +1,8 @@
 package g4;
 import java.util.List;
+
+import fx.view.main;
+
 import java.util.ArrayList;
 
 //  Como el alumno no puede crear un curso y para inscribirlo solo necesita el id, de algun lado se debe obtener el curso para que 
@@ -123,11 +126,14 @@ public class Buscador_de_cursos {
 	//
 	
 	// metodo unico para filtrar, si no se quiere filtrar por algo, se coloca Null.
-	public ArrayList<Curso> filtrar(List<String> horarios, String nombre_profesor,Integer id_carrera,String sigla){
-		
-		
+	public ArrayList<Curso> filtrar(List<String> horarios, String nombre_profesor,Integer id_carrera,String sigla,String periodo){
 		ArrayList<Curso> cursosFiltrados = new ArrayList<Curso>();
-		
+		for (Programacion_Academica j : main.U.historial_de_progrmacion_academica){
+			if (j.periodo.equals(periodo)){
+				cursosFiltrados = j.cursos_en_progreso;
+				break;
+			}
+		}
 		// filtrar por horarios
 		if(horarios!=null && horarios.size()>0){
 			cursosFiltrados = this.filtrar_por_horario(cursosFiltrados, horarios);

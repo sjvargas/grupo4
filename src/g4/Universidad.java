@@ -22,11 +22,9 @@ public class Universidad {
 	public Alumno alumno_actual;
 	
 	public Universidad(){
-			
+		
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		lista_carreras = new ArrayList<Carrera>();
-		int out = lista_carreras.size();
-		System.out.println(out);
 		lista_profesores = new ArrayList<Profesor>();
 		lista_ramos = new ArrayList<Ramo>();		
 		lista_alumnos = new ArrayList<Alumno>();
@@ -43,7 +41,8 @@ public class Universidad {
 		lista_administradores.add( new Administrador_academico("ana", "ana", "guzman", "alvarez","123",Sexo.Femenino, 40));
 
 		lista_carreras.add(new Carrera("decano","facultad", "carrera baisca"));
-	
+		historial_de_progrmacion_academica.add(new Programacion_Academica("2015-2"));
+		historial_de_progrmacion_academica.add(new Programacion_Academica("2016-1"));
 
 		lista_alumnos.get(0).Inscribir_carrera(2);
 		Malla_curricular malla1 = new Malla_curricular(0);
@@ -52,23 +51,23 @@ public class Universidad {
 		lista_carreras.get(0).crear_malla_curricular(malla1);
 		lista_carreras.get(0).crear_malla_curricular(malla2);
 		
-		Ramo calculo1 = new Ramo("MAT1610", 10, lista_carreras.get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
-
+		Ramo calculo1 = new Ramo("Calculo 1","MAT1610", 10, lista_carreras.get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
+		lista_ramos.add(calculo1);
 		//Curso calculo11 = new Curso(1, 1, "a1,a2", null, 10, null, calculo1);
 		
 		
 		lista_carreras.add(new Carrera( "juan perez", "artes", "teatro"));
 		lista_carreras.add(new Carrera( "Patricio Correa", "artes", "coreografia"));
 		
+		
 		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+
+		
+		for (int i=0; i<6; i++){
+			Curso u = new Curso( 1, null, null, null, 10, null, calculo1);
+			lista_cursos.add(u);
+			historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
+		}
 		
 
 		
@@ -94,5 +93,21 @@ public class Universidad {
 		return null;
 	}
 	
-	
+	public Ramo GetRamo(String siglaRamo){
+		for(int i=0;i<lista_ramos.size();i++){
+			if(lista_ramos.get(i).getSigla()== siglaRamo){
+				return lista_ramos.get(i);
+			}
+		}
+		return null;
+	}
+
+	public List<String> GetSiglasRamos(){
+		List<String> listaRetorno = new ArrayList<String>();
+		for(Ramo ramo: lista_ramos){
+			listaRetorno.add(ramo.getSigla());
+			System.out.print(ramo.getSigla());
+		}
+		return listaRetorno;
+	}
 }
