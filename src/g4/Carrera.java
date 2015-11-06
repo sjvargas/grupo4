@@ -3,6 +3,8 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
+import fx.view.main;
+
 /*
  * 
  * Clase Carrera: Esta clase se asocia a instancias de las clases que heredan de la clase Usuario.
@@ -15,15 +17,15 @@ import java.util.List;
  * 
  */
 public class Carrera {
-	
+    private static int NextId = 0;
 	private int id_carrera;
 	private List<Malla_curricular> mallas_curriculares;
 	private String Decano;
 	private String facultad;
 	private String nombre;
 	
-	public Carrera(int id, String decano, String facultad,String nombre){
-		this.id_carrera = id;
+	public Carrera(String decano, String facultad,String nombre){
+		this.id_carrera = NextId++;
 		this.Decano= decano;
 		this.nombre= nombre;
 		this.facultad = facultad;
@@ -75,8 +77,10 @@ public class Carrera {
 	
 	
 	   @Override
-	   public String toString() {
-	       return nombre;
+	 public String toString() {
+		   return nombre;
 	   }
+	   
+	   
 
 }

@@ -10,117 +10,147 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button layoutX="28.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="volver al menu" />
-            <Button layoutX="141.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="cerrar sesion" />
-            <Pane layoutX="28.0" layoutY="314.0" prefHeight="196.0" prefWidth="161.0">
+            <Button fx:id="boton_menu" layoutX="28.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickVolverMenu" prefHeight="25.0" prefWidth="103.0" text="volver al menu" />
+            <Button fx:id="boton_cerrar_sesion" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickCerrarSesion" prefHeight="25.0" prefWidth="93.0" text="cerrar sesion" />
+            <Pane layoutX="16.0" layoutY="56.0" prefHeight="275.0" prefWidth="343.0">
                <children>
-                  <GridPane alignment="CENTER" prefHeight="195.0" prefWidth="161.0" style="-fx-background-color: #ccffff; -fx-border: 2px solid;">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="40.0" prefWidth="40.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
-                        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    	  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <Pane layoutX="169.0" layoutY="39.0" prefHeight="196.0" prefWidth="161.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                        
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                        
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-                        
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-                        
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
-                        
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-                        <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
-                        
-                        <Label text="8:30" GridPane.rowIndex="1" />
-                        <Label text="10:00" GridPane.rowIndex="2" />
-                        <Label text="11:30" GridPane.rowIndex="3" />
-                        <Label text="13:00" GridPane.rowIndex="4" />
-                        <Label text="14:00" GridPane.rowIndex="5" />
-                        <Label text="15:30" GridPane.rowIndex="6" />
-                        <Label text="17:00" GridPane.rowIndex="7" />
-                        <Label text="18:30" GridPane.rowIndex="8" />
-                        <Label text="20:00" GridPane.rowIndex="9" />
-                        <Label text="Lu" GridPane.columnIndex="1" />
-                        <Label text="Ma" GridPane.columnIndex="2" />
-                        <Label text="Mi" GridPane.columnIndex="3" />
-                        <Label text="Ju" GridPane.columnIndex="4" />
-                        <Label text="Vi" GridPane.columnIndex="5" />
-                        <Label text="Sa" GridPane.columnIndex="6" />
+                        <GridPane alignment="CENTER" prefHeight="195.0" prefWidth="161.0" style="-fx-background-color: #ccffff; -fx-border: 2px solid;">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="40.0" prefWidth="40.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          	  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <RadioButton fx:id="lu_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="lu_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="lu_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="lu_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="lu_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <RadioButton fx:id="lu_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <RadioButton fx:id="lu_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <RadioButton fx:id="lu_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              
+                              <RadioButton fx:id="ma_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="ma_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="ma_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="ma_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="ma_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <RadioButton fx:id="ma_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <RadioButton fx:id="ma_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                              <RadioButton fx:id="ma_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                              
+                              <RadioButton fx:id="mi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="mi_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="mi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="mi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="mi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <RadioButton fx:id="mi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                              <RadioButton fx:id="mi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                              <RadioButton fx:id="mi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                              
+                              <RadioButton fx:id="ju_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="ju_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="ju_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="ju_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="ju_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                              <RadioButton fx:id="ju_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                              <RadioButton fx:id="ju_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                              <RadioButton fx:id="ju_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                              
+                              <RadioButton fx:id="vi_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="vi_2" ="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="vi_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="vi_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="vi_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                              <RadioButton fx:id="vi_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                              <RadioButton fx:id="vi_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                              <RadioButton fx:id="vi_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+                              
+                              <RadioButton fx:id="sa_1" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="sa_2" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="sa_3" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="sa_4" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="sa_5" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+                              <RadioButton fx:id="sa_6" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                              <RadioButton fx:id="sa_7" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+                              <RadioButton fx:id="sa_8" mnemonicParsing="false" prefHeight="17.0" prefWidth="37.0" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+                              
+                              <Label text="8:30" GridPane.rowIndex="1" />
+                              <Label text="10:00" GridPane.rowIndex="2" />
+                              <Label text="11:30" GridPane.rowIndex="3" />
+                              <Label text="13:00" GridPane.rowIndex="4" />
+                              <Label text="14:00" GridPane.rowIndex="5" />
+                              <Label text="15:30" GridPane.rowIndex="6" />
+                              <Label text="17:00" GridPane.rowIndex="7" />
+                              <Label text="18:30" GridPane.rowIndex="8" />
+                              <Label text="20:00" GridPane.rowIndex="9" />
+                              <Label text="Lu" GridPane.columnIndex="1" />
+                              <Label text="Ma" GridPane.columnIndex="2" />
+                              <Label text="Mi" GridPane.columnIndex="3" />
+                              <Label text="Ju" GridPane.columnIndex="4" />
+                              <Label text="Vi" GridPane.columnIndex="5" />
+                              <Label text="Sa" GridPane.columnIndex="6" />
+                           </children>
+                        </GridPane>
+                        <Label layoutX="49.0" layoutY="78.0" prefHeight="17.0" prefWidth="103.0" text="A-L-M-U-E-R-Z-O" />
                      </children>
-                  </GridPane>
-                  <Label layoutX="49.0" layoutY="78.0" prefHeight="17.0" prefWidth="103.0" text="A-L-M-U-E-R-Z-O" />
+                  </Pane>
+                  <TextField fx:id="label_sigla" layoutX="14.0" layoutY="85.0" />
+                  <Label layoutX="14.0" layoutY="167.0" text="seleccionar carrera" />
+                  <Label layoutX="169.0" layoutY="14.0" text="filta por modulos" />
+                  <TextField fx:id="label_carrera" layoutX="14.0" layoutY="184.0" />
+                  <Label layoutX="14.0" layoutY="9.0" text="Filtros Para Cursos:" />
+                  <Label layoutX="14.0" layoutY="26.0" text="seleccionar periodo" />
+                  <Label layoutX="14.0" layoutY="68.0" text="seleccionar sigla" />
+                  <Label layoutX="14.0" layoutY="116.0" text="seleccionar profesor" />
+                  <TextField fx:id="label_profesor" layoutX="14.0" layoutY="133.0" />
+                  <TextField fx:id="label_periodo" layoutX="14.0" layoutY="43.0" />
                </children>
             </Pane>
-            <TextField layoutX="28.0" layoutY="115.0" />
-            <Label layoutX="28.0" layoutY="98.0" text="seleccionar periodo" />
-            <Label layoutX="28.0" layoutY="140.0" text="seleccionar periodo" />
-            <TextField layoutX="28.0" layoutY="157.0" />
-            <Label layoutX="28.0" layoutY="188.0" text="seleccionar periodo" />
-            <TextField layoutX="28.0" layoutY="205.0" />
-            <TextField layoutX="28.0" layoutY="256.0" />
-            <Label layoutX="28.0" layoutY="239.0" text="seleccionar periodo" />
-            <Label layoutX="28.0" layoutY="66.0" text="Filtros Para Cursos:" />
-            <Label layoutX="28.0" layoutY="289.0" text="filta por modulos" />
+            <TableView fx:id="tabla_seleccion" layoutX="371.0" layoutY="71.0" prefHeight="147.0" prefWidth="364.0">
+              <columns>
+                <TableColumn fx:id="sigla_seleccion" prefWidth="75.0" text="sigla" />
+                <TableColumn fx:id="secc_seleccion" prefWidth="39.0" text="secc" />
+                  <TableColumn fx:id="nombre_seleccion" prefWidth="111.0" text="nombre" />
+                  <TableColumn fx:id="profesor_seleccion" prefWidth="65.0" text="profesor" />
+                  <TableColumn fx:id="horario_seleccion" prefWidth="73.0" text="horario" />
+              </columns>
+            </TableView>
+            <Pane layoutX="16.0" layoutY="347.0" prefHeight="248.0" prefWidth="748.0">
+               <children>
+                  <Button fx:id="boton_agregar" layoutX="647.0" layoutY="210.0" mnemonicParsing="false" onAction="#ClickAgregar" prefHeight="31.0" prefWidth="72.0" text="Agregar" />
+                  <TableView fx:id="tabla_busqueda" layoutX="12.0" layoutY="8.0" prefHeight="195.0" prefWidth="707.0">
+                     <columns>
+                        <TableColumn fx:id="nombre_busqueda" prefWidth="179.0" text="Nombre" />
+                        <TableColumn fx:id="sigla_busqueda" minWidth="9.0" prefWidth="99.0" text="Sigla" />
+                        <TableColumn fx:id="secc_busqueda" prefWidth="33.0" text="secc" />
+                        <TableColumn fx:id="horario_busqueda" prefWidth="108.0" text="Horarios" />
+                        <TableColumn fx:id="profesor_busqueda" prefWidth="117.0" text="Profesor" />
+                        <TableColumn fx:id="carrera_busqueda" prefWidth="170.0" text="carrera" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Button fx:id="boton_eliminar" layoutX="663.0" layoutY="239.0" mnemonicParsing="false" onAction="#ClickEliminar" prefHeight="25.0" prefWidth="72.0" text="Eliminar" />
+            <Button fx:id="boton_buscar" layoutX="292.0" layoutY="300.0" mnemonicParsing="false" onAction="#ClickBuscar" text="buscar" />
          </children>
       </Pane>
    </children>

@@ -3,6 +3,8 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
+import fx.view.main;
+
 
 /*
  * Clase Curso: Clase que cuenta con identificador único, 
@@ -17,7 +19,8 @@ import java.util.List;
  * 
  */
 public class Curso {
-	
+
+    private static int NextId = 0;
 	public int id_curso;
 	public List<Profesor> profesores;
 	public int semestre;
@@ -28,8 +31,8 @@ public class Curso {
 	public Ramo ramo;
 	
 	
-	public Curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo){
-		this.id_curso = id;
+	public Curso(int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo){
+		this.id_curso =NextId++;
 		this.profesores = profesores;
 		this.semestre = semestre;
 		this.horario = horario;
@@ -96,7 +99,6 @@ public class Curso {
 		return this.id_curso;
 		// este metodo devudelve el atributo id_curso
 	}
-	
 	
 	
 

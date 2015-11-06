@@ -16,9 +16,9 @@ public class Programacion_Academica {
 	}
 	
 	// se le da toda la informacion, habia que revisar antes cual es el id_curso mas alto para darselo pero eso es otra cosa
-	public  void crear_curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo)
+	public  void crear_curso(int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo)
 	{
-		Curso curso_nuevo = new Curso (id,semestre,salas,horario,Alumnos,creditos, profesores, ramo);
+		Curso curso_nuevo = new Curso (semestre,salas,horario,Alumnos,creditos, profesores, ramo);
 		this.cursos_en_progreso.add(curso_nuevo);
 		this.buscador_de_cursos.todo_cursos.add(curso_nuevo);
 	}
@@ -62,33 +62,6 @@ public class Programacion_Academica {
 	}
 
    // nos da un id libre para crear un curso.
-	public int proximo_id()
-	{
 
-		int contador = 0;
-		while (true)
-		{
-			boolean aux = true;
-		
-			for (Curso j : this.cursos_en_progreso) {
-			
-				if (j.id_curso == contador)
-				{
-					aux = false;
-					break;
-				}
-			}
-		
-			if (aux)
-				{
-				return contador;
-				}
-			else
-			{
-				contador = contador + 1;
-			}
-		}
-		
-	}
 
 }

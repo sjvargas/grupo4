@@ -3,6 +3,8 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
+import fx.view.main;
+
 public class Universidad {
 
 	public List<Programacion_Academica> historial_de_progrmacion_academica;
@@ -23,12 +25,13 @@ public class Universidad {
 			
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		lista_carreras = new ArrayList<Carrera>();
+		int out = lista_carreras.size();
+		System.out.println(out);
 		lista_profesores = new ArrayList<Profesor>();
 		lista_ramos = new ArrayList<Ramo>();		
 		lista_alumnos = new ArrayList<Alumno>();
 		lista_administradores = new ArrayList<Administrador_academico>();
 		buscador = new Buscador_de_cursos();
-		
 		lista_cursos = new ArrayList<Curso>();
 		
 		alumno_actual = null;
@@ -39,34 +42,30 @@ public class Universidad {
 		lista_alumnos.add(new Alumno("max", "max", "garcia", "sanchez", "1", Sexo.Masculino, 21 ));
 		lista_administradores.add( new Administrador_academico("ana", "ana", "guzman", "alvarez","123",Sexo.Femenino, 40));
 
-		lista_administradores.get(0).agregar_carrera("juan perez", "ing", "ingeniera");
-		lista_administradores.get(0).agregar_carrera("juan perez", "artes", "teatro");
-		lista_administradores.get(0).agregar_carrera("juan perez", "artes", "coreografia");
-		
-		
-		
+		lista_carreras.add(new Carrera("decano","facultad", "carrera baisca"));
+	
 
 		lista_alumnos.get(0).Inscribir_carrera(2);
 		Malla_curricular malla1 = new Malla_curricular(0);
 		Malla_curricular malla2 = new Malla_curricular(1);
 		
-		lista_administradores.get(0).getListaCarrera().get(0).crear_malla_curricular(malla1);
-		lista_administradores.get(0).getListaCarrera().get(0).crear_malla_curricular(malla2);
+		lista_carreras.get(0).crear_malla_curricular(malla1);
+		lista_carreras.get(0).crear_malla_curricular(malla2);
 		
-		Ramo calculo1 = new Ramo("MAT1610", 10, lista_administradores.get(0).getListaCarrera().get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
+		Ramo calculo1 = new Ramo("MAT1610", 10, lista_carreras.get(0),"3", "derivadas,integrales", "desarrollar pensamiento");
 
 		//Curso calculo11 = new Curso(1, 1, "a1,a2", null, 10, null, calculo1);
 		
 		
-		lista_carreras.add(new Carrera(1, "juan perez", "artes", "teatro"));
-		lista_carreras.add(new Carrera(2, "juan perez", "artes", "coreografia"));
+		lista_carreras.add(new Carrera( "juan perez", "artes", "teatro"));
+		lista_carreras.add(new Carrera( "Patricio Correa", "artes", "coreografia"));
 		
-		lista_cursos.add(new Curso(1, 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso(2, 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso(3, 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso(4, 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso(5, 1, null, null, null, 10, null, calculo1));
-		lista_cursos.add(new Curso(6, 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
+		lista_cursos.add(new Curso( 1, null, null, null, 10, null, calculo1));
 		
 
 		
