@@ -5,7 +5,7 @@ import java.util.List;
 
 import fx.view.main;
 
-public class Universidad {
+public class Universidad implements java.io.Serializable {
 
 	public List<Programacion_Academica> historial_de_progrmacion_academica;
 	

@@ -20,7 +20,7 @@ import javafx.scene.control.TableColumn;
  * 
  * 
  */
-public class Curso {
+public class Curso implements java.io.Serializable {
 
     private static int NextId = 0;
 	public int id_curso;

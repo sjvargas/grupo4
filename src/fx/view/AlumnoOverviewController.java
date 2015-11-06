@@ -381,6 +381,10 @@ public class AlumnoOverviewController implements PrincipalController {
 		main.U.alumno_actual.Cerrar_sesion();
 		main.U.alumno_actual = null;
 		controlador.setScreen(main.InicioID);
+		
+		
+		Serializador.serializar(main.U);
+		
 	}
 
 	
@@ -570,6 +574,9 @@ public class AlumnoOverviewController implements PrincipalController {
 		int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
 		System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
 		mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
+		
+		
+		
 		// ((Alumno)Usuario_conectado).Inscribir_malla_curricular(((Malla_curricular)
 		// choice_malla.getValue()).getId_malla());
 

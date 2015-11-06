@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Programacion_Academica {
+public class Programacion_Academica implements java.io.Serializable {
 	public ArrayList<Curso> cursos_en_progreso;
 	public String periodo;  
 	public Buscador_de_cursos buscador_de_cursos;

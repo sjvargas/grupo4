@@ -123,6 +123,8 @@ public class AdminOverviewController implements PrincipalController {
 		main.U.administrador_actual.Cerrar_sesion();
 		main.U.administrador_actual = null;
 		controlador.setScreen(main.InicioID);
+		
+		Serializador.serializar(main.U);
 	}
 	
 	// MODULO INICIO:

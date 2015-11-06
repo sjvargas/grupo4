@@ -16,7 +16,7 @@ import fx.view.main;
  * 
  * 
  */
-public class Carrera {
+public class Carrera implements java.io.Serializable{
     private static int NextId = 0;
 	private int id_carrera;
 	private List<Malla_curricular> mallas_curriculares;

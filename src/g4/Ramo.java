@@ -10,7 +10,7 @@ import java.util.List;
  *    el semestre en el cual se imparte,
  *   los contenidos y los objetivos del curso. 
  */
-public class Ramo {
+public class Ramo implements java.io.Serializable{
 
 	
 	//

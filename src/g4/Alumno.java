@@ -2,7 +2,7 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Alumno extends Usuario {
+public class Alumno extends Usuario implements java.io.Serializable{
 	private Historial_Academico historial_academico;
 	// Lista de los id de las carreras a las que pertenece
 	private List<Integer> carreras;

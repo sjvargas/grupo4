@@ -11,7 +11,7 @@ import java.util.ArrayList;
 // de buscacursos y realizar un metodo que me entregue el curso al darle la sigla.
 
 
-public class Buscador_de_cursos {
+public class Buscador_de_cursos implements java.io.Serializable{
 	
 	public ArrayList<Curso> todo_cursos;
 	
