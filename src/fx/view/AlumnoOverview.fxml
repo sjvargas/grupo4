@@ -142,9 +142,9 @@
                </children></Pane>
             <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0">
                <children>
-                  <TitledPane layoutX="25.0" layoutY="200.0" prefHeight="114.0" prefWidth="64.0" text="Mallas de la carrera">
+                  <TitledPane fx:id="titlePaneMallasPorCarrera" layoutX="25.0" layoutY="200.0" prefHeight="114.0" prefWidth="64.0" text="Mallas de la carrera">
                      <content>
-                        <ListView fx:id="listViewMallasInscritas" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="listViewMallasPorCarrera" prefHeight="200.0" prefWidth="200.0" />
                      </content>
                   </TitledPane>
                   <Label layoutX="23.0" layoutY="28.0" text="Selecciona una de tus carreras inscritas" />

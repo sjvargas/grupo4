@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TitledPane;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
 import java.util.ArrayList;
@@ -124,14 +125,19 @@ public class AlumnoOverviewController implements PrincipalController {
 	// tabla
 	@FXML
 	ListView<String> listViewCarrerasInscritas;
-	@FXML
-	ListView<String> listViewMallasInscritas;
+
+	
+	
 	
 	////Elementos MALLA
+	@FXML
+	TitledPane titlePaneMallasPorCarrera;
 	@FXML
 	ComboBox<String> comboBoxCarrerasInscritas;
 	@FXML TextField mallaActual;
 	//// fin elementos de malla
+	@FXML
+	ListView<String> listViewMallasPorCarrera;
 	
 	 
 	// INICIO ELEMENTOS semestre ACTUAL textos de cursos y notas
@@ -574,6 +580,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
 		System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
 		mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
+		
+		titlePaneMallasPorCarrera.setText("Mallas de la Carrera "+comboBoxCarrerasInscritas.getValue());
 		
 		
 		
