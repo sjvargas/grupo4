@@ -83,7 +83,7 @@ public class Curso {
 		// este metodo recibe un indice que es un atributo del objeto de la case Profesor
 
 		for(int i=0; i< profesores.size();i++){
-			if((((Profesor)profesores.get(i)).id_profesor) == id_profesor){
+			if((((Profesor)profesores.get(i)).GetEdad()) == id_profesor){
 				profesores.remove(i);
 				break;
 			}

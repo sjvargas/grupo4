@@ -24,12 +24,8 @@ public class Administrador_academico extends Usuario {
 	private List<Alumno> lista_alumnos_restringidos;
 	
 	
-	public Administrador_academico(String nom, String cont, String sex, int ed){
-		
-		
-		super(nom, cont, sex, ed);
-		
-
+	public Administrador_academico(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad){
+		super(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad);
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		lista_carreras = new ArrayList<Carrera>();
 		lista_profesores = new ArrayList<Profesor>();
@@ -55,9 +51,8 @@ public class Administrador_academico extends Usuario {
 			
 	}
 	
-	public void agregar_profesor(String nombre, String apellidos, int sueldo, String facultad){
-		Profesor nuevoProfesor = new Profesor(lista_profesores.size()+1, nombre, apellidos, sueldo, facultad);
-		
+	public void agregar_profesor(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad, int sueldo, String facultad){
+		Profesor nuevoProfesor = new Profesor(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad, sueldo, facultad);
 		lista_profesores.add(nuevoProfesor);
 	}
 	

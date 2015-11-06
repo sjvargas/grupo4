@@ -12,10 +12,8 @@ public class Alumno extends Usuario {
 	private Semestre semestre_actual;
 	
 	// Constructor
-	public Alumno(String nom, String cont, String sex, int ed){
-		//	public Usuario(String nom, String cont, String sex, int ed){
-		super(nom, cont, sex, ed);
-
+	public Alumno(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad){
+		super(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad);
 		historial_academico = new Historial_Academico();
 		carreras = new ArrayList<Integer>();
 		mallas_curriculares = new ArrayList<Integer>();

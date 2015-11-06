@@ -26,11 +26,9 @@ public class AplicacionInicio {
 //		listaCarreras = new ArrayList<Carrera>();
 
 		// datos iniciales
-		
-		
-		listaAlumnos.add(new Alumno("juan", "123", "hombre", 20 ));
-		listaAlumnos.add(new Alumno("max", "1", "hombre", 21 ));
-		listaAdministradores.add( new Administrador_academico("ana","123","mujer", 40));
+		listaAlumnos.add(new Alumno("juan","juan", "perez", "lopez", "123", Sexo.Masculino, 20 ));
+		listaAlumnos.add(new Alumno("max", "max", "garcia", "sanchez", "1", Sexo.Masculino, 21 ));
+		listaAdministradores.add( new Administrador_academico("ana", "ana", "guzman", "alvarez","123",Sexo.Femenino, 40));
 
 		listaAdministradores.get(0).agregar_carrera("juan perez", "ing", "ingeniera");
 		listaAdministradores.get(0).agregar_carrera("juan perez", "artes", "teatro");

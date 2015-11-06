@@ -27,6 +27,7 @@ import g4.Universidad;
 import g4.Carrera;
 import g4.Curso;
 import g4.Malla_curricular;
+import g4.Sexo;
 import g4.Usuario;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -40,17 +41,23 @@ public class InicioController implements PrincipalController {
 // el siguiente boolean es para saber si esta en modo alumno (en true) o en modo Admin(en false)
 	boolean modoAlumnoSelecionado;
 	@FXML
-    private TextField tfNombre;
+    private TextField tFNombreUsuarioIngreso;
 	@FXML
-    private TextField tfCont;
+    private TextField tFContrasenaIngreso;
 	@FXML
-    private TextField tfSexo;
+    private TextField tfNombreUsuarioRegistro;
 	@FXML
-    private TextField tfEdad;
+    private TextField tFNombreRegistro;
 	@FXML
-    private TextField a_nombre;
+    private TextField tFApPatRegistro;
 	@FXML
-    private TextField a_clave;
+    private TextField tFApMatRegistro;
+	@FXML
+    private TextField tFContrasenaRegistro;
+	@FXML
+    private TextField tFSexoRegistro;
+	@FXML
+    private TextField tFEdadRegistro;
 	@FXML
 	private Button ingresar;
 	@FXML
@@ -60,13 +67,10 @@ public class InicioController implements PrincipalController {
 	@FXML
 	private Pane pantalla_inicio;
 
-	
-	
-	
 	public void IngresarUsuario(ActionEvent event){
 		List<Alumno> r = main.U.lista_alumnos;
-		String nombre = a_nombre.getText() ;
-		String clave = a_clave.getText();
+		String nombre = tFNombreUsuarioIngreso.getText() ;
+		String clave = tFContrasenaIngreso.getText();
 		System.out.println("1");
 		if (modoAlumnoSelecionado)
 		{
@@ -77,7 +81,7 @@ public class InicioController implements PrincipalController {
 			System.out.println("3b");
 			for (Alumno j : main.U.lista_alumnos)
 			{
-				if ( j.nombre.equals(nombre) && j.contraseña.equals(clave) )
+				if ( j.GetNombreUsuario().equals(nombre) && j.GetContrasena().equals(clave) )
 				{
 					aux = true;
 					if (j.acceso== true)
@@ -111,7 +115,7 @@ public class InicioController implements PrincipalController {
 					error_ingreso.setText("no existe ningun administrador");
 					break;
 				}
-				if ( a.nombre.equals(nombre) && a.contraseña.equals(clave)){
+				if ( a.GetNombreUsuario().equals(nombre) && a.GetContrasena().equals(clave)){
 					administrador = a;
 					existeElAdmin = true;
 				}
@@ -127,37 +131,30 @@ public class InicioController implements PrincipalController {
 			}			
 		}	
 	}
-	
-
 	public InicioController(){
 		U = main.getU();
 		modoAlumnoSelecionado = true;
 	}
-
-	
-	
-	
 	public void registrarse(){
 		
 		
-		if(modoAlumnoSelecionado){
-			
-			
-			System.out.println("nombre: "+tfNombre.getText());
-			Alumno a = new Alumno(tfNombre.getText(), tfCont.getText(), tfSexo.getText(), Integer.parseInt(tfEdad.getText()));
-			main.U.agregarAlumno(a);
-			a.Iniciar_sesion();
-			main.U.alumno_actual = a;
+		if(modoAlumnoSelecionado){	
+			System.out.println("nombre: "+tfNombreUsuarioRegistro.getText());
+			// arreglar el sexo
+			Alumno alumno = new Alumno(tfNombreUsuarioRegistro.getText(), tFNombreRegistro.getText(), tFApPatRegistro.getText(), tFApMatRegistro.getText(), tFContrasenaRegistro.getText(), Sexo.Masculino, Integer.parseInt(tFEdadRegistro.getText()));
+			main.U.agregarAlumno(alumno);
+			alumno.Iniciar_sesion();
+			main.U.alumno_actual = alumno;
 			controlador.setScreen(main.AlumnoID);
 
 		}
 		
 		else{
-			Administrador_academico a =new Administrador_academico(tfNombre.getText(), tfCont.getText(), tfSexo.getText(), Integer.parseInt(tfEdad.getText()));
-			main.U.agregarAdministrador(a);
+			Administrador_academico admin =new Administrador_academico(tfNombreUsuarioRegistro.getText(), tFNombreRegistro.getText(), tFApPatRegistro.getText(), tFApMatRegistro.getText(), tFContrasenaRegistro.getText(), Sexo.Masculino, Integer.parseInt(tFEdadRegistro.getText()));
+			main.U.agregarAdministrador(admin);
 			
-			a.Iniciar_sesion();
-			main.U.administrador_actual = a;
+			admin.Iniciar_sesion();
+			main.U.administrador_actual = admin;
 			controlador.setScreen(main.AdminID);
 
 		}
@@ -165,8 +162,6 @@ public class InicioController implements PrincipalController {
 		//if()
 		
 	}
-	
-	
 	public void seleccionarModoAlumno(){
 		modoAlumnoSelecionado = true;
 		//System.out.println("Modo alumno seleccionado");
@@ -176,9 +171,7 @@ public class InicioController implements PrincipalController {
 		//System.out.println("Modo Admin seleccionado");
 		
 	}
-	
-	
-	
+
 	/// metodo para realizar el cambio de paginas.
 	@Override
 	public void setScreenParent(ScreensController ScreenPage) {

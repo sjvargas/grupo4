@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.AdminOverviewController">
+<AnchorPane maxHeight="900.0" maxWidth="1200.0" minHeight="900.0" minWidth="1200.0" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.AdminOverviewController">
    <children>
-      <Pane fx:id="paneAdminBasico" prefHeight="600.0" prefWidth="800.0">
+      <Pane fx:id="paneAdminBasico" prefHeight="900.0" prefWidth="1200.0">
          <children>
             <GridPane layoutX="14.0" layoutY="150.0" prefHeight="231.0" prefWidth="155.0">
               <columnConstraints>
@@ -42,7 +42,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Pane fx:id="paneAdminInicio" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminInicio" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <GridPane hgap="2.0" layoutX="200.0" layoutY="200.0">
                     <columnConstraints>
@@ -80,36 +80,51 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Pane fx:id="paneAdminProfesores" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminProfesores" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0">
                <children>
                   <ListView fx:id="tablaAdminListaProfesores" layoutX="50.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" />
                   <Label layoutX="60.0" layoutY="25.0" text="Lista Profesores:" />
-                  <Label layoutX="50.0" layoutY="300.0" text="Agregar Profesor:" />
-                  <Label layoutX="50.0" layoutY="450.0" text="Eliminar Profesor:" />
-                  <GridPane layoutX="50.0" layoutY="330.0" prefHeight="103.0" prefWidth="275.0">
+                  <Label layoutX="50.0" layoutY="287.0" text="Agregar Profesor:" />
+                  <Label layoutX="50.0" layoutY="711.0" text="Eliminar Profesor:" />
+                  <GridPane layoutX="49.0" layoutY="327.0" prefHeight="333.0" prefWidth="473.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="72.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.0" minWidth="10.0" prefWidth="203.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="199.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="289.0" minWidth="10.0" prefWidth="273.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Nombre:" />
-                        <Label text="Apellidos:" GridPane.rowIndex="1" />
-                        <Label text="Sueldo:" GridPane.rowIndex="2" />
-                        <Label text="Facultad:" GridPane.rowIndex="3" />
+                        <Label text="Apellido Materno:" GridPane.rowIndex="2" />
+                        <Label text="Edad:" GridPane.rowIndex="6" />
+                        <Label text="Sueldo:" GridPane.rowIndex="7" />
+                        <Label text="Facultad:" GridPane.rowIndex="8" />
                         <TextField fx:id="campoANombreProfesor" GridPane.columnIndex="1" />
-                        <TextField fx:id="campoAApellidosProfesor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="campoASueldoProfesor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="campoAFacultadProfesor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="campoAEdadProfesor" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="campoASueldoProfesor" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextField fx:id="campoAFacultadProfesor" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label text="Apellido Paterno:" GridPane.rowIndex="1" />
+                        <Label text="Nombre:" />
+                        <Label prefHeight="21.0" prefWidth="157.0" text="Contraseña:" GridPane.rowIndex="4" />
+                        <TextField fx:id="campoANombreUsuarioProfesor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="campoAApPatProfesor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="campoAApMatProfesor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Sexo:" GridPane.rowIndex="5" />
+                        <Label text="Nombre Usuario:" GridPane.rowIndex="3" />
+                        <TextField fx:id="campoASexoProfesor" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="campoAContrasenaProfesor" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
-                  <Button fx:id="buttonAgregarProfesor" layoutX="400.0" layoutY="410.0" mnemonicParsing="false" onAction="#ApretarAgregarProfesor" text="Agregar" />
-                  <GridPane layoutX="50.0" layoutY="470.0" prefHeight="25.0" prefWidth="275.0">
+                  <Button fx:id="buttonAgregarProfesor" layoutX="598.0" layoutY="629.0" mnemonicParsing="false" onAction="#ApretarAgregarProfesor" text="Agregar" />
+                  <GridPane layoutX="50.0" layoutY="750.0" prefHeight="25.0" prefWidth="275.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="69.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="206.0" />
@@ -122,7 +137,7 @@
                         <Label text="Id" />
                      </children>
                   </GridPane>
-                  <Button layoutX="400.0" layoutY="470.0" mnemonicParsing="false" text="Eliminar" />
+                  <Button layoutX="400.0" layoutY="750.0" mnemonicParsing="false" text="Eliminar" />
                   <TableView fx:id="tabla2AdminListaProfesores" layoutX="287.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
                     <columns>
                       <TableColumn prefWidth="112.0" text="Nombre" />
@@ -132,7 +147,7 @@
                   <Label fx:id="labelAvisoProfesor" layoutX="415.0" layoutY="382.0" />
                </children>
             </Pane>
-            <Pane fx:id="paneAdminAlumnos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminAlumnos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <Label layoutX="50.0" layoutY="310.0" text="Restringir Acceso Alumno:" />
                   <GridPane layoutX="50.0" layoutY="330.0">
@@ -154,7 +169,7 @@
                   <Label fx:id="labelEstadoRestringirAlumno" layoutX="319.0" layoutY="302.0" />
                </children>
             </Pane>
-            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <ListView layoutX="50.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" />
                   <Label layoutX="50.0" layoutY="60.0" text="Lista de Ramos: " />
@@ -191,7 +206,7 @@
                   <Label fx:id="labelAgregarRamo" layoutX="428.0" layoutY="474.0" />
                </children>
             </Pane>
-            <Pane fx:id="paneAdminCarreras" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminCarreras" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <ListView layoutX="50.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" />
                   <Label layoutX="50.0" layoutY="50.0" text="Lista Carreras:" />
@@ -219,7 +234,7 @@
                   <Label fx:id="labelEstadoAgregarCarrera" layoutX="385.0" layoutY="356.0" />
                </children>
             </Pane>
-            <Pane fx:id="paneAdminProgramacionAcademica" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminProgramacionAcademica" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <Label layoutX="50.0" layoutY="60.0" text="Crear Programacion Academica:" />
                   <GridPane layoutX="50.0" layoutY="90.0">
@@ -244,7 +259,7 @@
                   <Label fx:id="LabelEstadoProgramacionAcademica" layoutX="312.0" layoutY="69.0" />
                </children>
             </Pane>
-            <Pane fx:id="paneAdminModificarDatos" layoutX="180.0" prefHeight="600.0" prefWidth="623.0" visible="false">
+            <Pane fx:id="paneAdminModificarDatos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <Label layoutX="50.0" layoutY="150.0" text="Datos del usuario" />
                   <GridPane layoutX="50.0" layoutY="200.0" prefHeight="147.0" prefWidth="315.0">

@@ -251,9 +251,9 @@ public class AlumnoOverviewController implements PrincipalController {
 	
 	public void clickinicio() {
 		//mostrar_panel(pane_semestres_alumno);
-		label_nombre_inicio_alumno.textProperty().setValue(main.U.alumno_actual.nombre);
-		label_edad_inicio_alumno.textProperty().set(main.U.alumno_actual.GetEdad());
-		label_sexo_inicio_alumno.textProperty().set(main.U.alumno_actual.GetSexo());
+		label_nombre_inicio_alumno.textProperty().setValue(main.U.alumno_actual.GetNombreUsuario());
+		label_edad_inicio_alumno.textProperty().set(main.U.alumno_actual.GetEdadString());
+		label_sexo_inicio_alumno.textProperty().set(main.U.alumno_actual.GetSexo().name());
 		
 		mostrar_panel(pane_inicio_alumno);
 
@@ -533,38 +533,25 @@ public class AlumnoOverviewController implements PrincipalController {
 				else{
 					// valor default si no hay nada ingresado en nota 
 					listaNotas.add((float)1);
-
 				}
 			}
-			
-			
 			// se actualiza el semesrtre del alumno
 			main.U.alumno_actual.setSemestreActual(semestreActual);
 			// se rellena el semestre en base a los cursos ingresados
 			for(int i=0;i<listaCursos.size();i++){
 				main.U.alumno_actual.GetSemestreActual().Agregar_Curso(listaCursos.get(i).getId_curso());
 				main.U.alumno_actual.GetSemestreActual().Poner_Nota(listaCursos.get(i).getId_curso(), listaNotas.get(i));
-			}
-			
-			// falta ver donde mas se agrega el semestre (hasta el momento solo esta en el alumno
-			
-			
+			}			
+			// falta ver donde mas se agrega el semestre (hasta el momento solo esta en el alumno		
 		//}
-		
-		
 	}
-	
 	public void eliminarCarrera(){
 		////System.out.println("Hay que eliminar carrera: "+listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
-		
 		Carrera carreraAEliminar =main.U.lista_administradores.get(0).GetCarrera(listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
-		
 		if(carreraAEliminar!=null){
 			main.U.alumno_actual.eliminar_carrera(carreraAEliminar.getId_carrera());
 			
 		}
-		
-		
 		this.actualizarTablaConCarrerasInscritas();
 	}
 
