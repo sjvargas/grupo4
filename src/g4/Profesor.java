@@ -1,6 +1,6 @@
 package g4;
 
-public class Profesor extends Usuario {
+public class Profesor extends Usuario implements java.io.Serializable{
 	private int id_profesor;
 	private int sueldo;
 	private String facultad;

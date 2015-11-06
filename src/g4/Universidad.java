@@ -5,7 +5,7 @@ import java.util.List;
 
 import fx.view.main;
 
-public class Universidad {
+public class Universidad implements java.io.Serializable {
 
 	public List<Programacion_Academica> historial_de_progrmacion_academica;
 	
@@ -61,14 +61,13 @@ public class Universidad {
 		lista_carreras.add(new Carrera( "juan perez", "artes", "teatro"));
 		lista_carreras.add(new Carrera( "Patricio Correa", "artes", "coreografia"));
 		
-		
+
+
 		for (int i=0; i<6; i++){
 			Curso u = new Curso( 1, null, null, null, 10, null, calculo1);
 			lista_cursos.add(u);
 			historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
 		}
-		
-		
 		
 
 		

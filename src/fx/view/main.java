@@ -41,8 +41,12 @@ public class main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		U = new Universidad();
+	//	U = new Universidad();
 		
+	//	Serializador.serializar(U);
+		
+		
+		U = Serializador.Deserializar();
 		
 		ScreensController Contenedor = new ScreensController();
 		Contenedor.loadScreen(main.AlumnoID, main.AlumnoFile);

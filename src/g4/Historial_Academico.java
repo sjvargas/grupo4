@@ -3,7 +3,7 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Historial_Academico {
+public class Historial_Academico implements java.io.Serializable{
 	
 	private Semestre semestreActual;
 	private List<Semestre> semestres;

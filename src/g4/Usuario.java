@@ -1,6 +1,6 @@
 package g4;
 
-public class Usuario {
+public class Usuario implements java.io.Serializable{
 	private String nombreUsuario;
 	private String nombre;
 	private String apellidoPaterno;

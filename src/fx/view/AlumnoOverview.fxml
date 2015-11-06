@@ -56,7 +56,7 @@
                   <Button fx:id="ver_mallas" mnemonicParsing="false" onAction="#clickMallas" prefHeight="25.0" prefWidth="113.0" text="Mallas" GridPane.rowIndex="3" />
                </children> 
             </GridPane>
-            <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0">
+            <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0" visible="false">
                <children>
                   <Label layoutX="27.0" layoutY="22.0" text="todas las carreras" />
                   <ChoiceBox fx:id="choise_carreras_alumno" layoutX="27.0" layoutY="60.0" prefWidth="150.0" />
@@ -140,13 +140,18 @@
                   <Label fx:id="label_curso7_semestre_actual" layoutX="319.0" layoutY="246.0" text="-" />
                   <Label fx:id="label_curso8_semestre_actual" layoutX="319.0" layoutY="279.0" text="-" />
                </children></Pane>
-            <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0" visible="false">
+            <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0">
                <children>
-                  <TitledPane layoutX="233.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" text="Carreras Inscritas">
+                  <TitledPane layoutX="25.0" layoutY="200.0" prefHeight="114.0" prefWidth="64.0" text="Mallas de la carrera">
                      <content>
-                        <ListView fx:id="listViewCarrerasInscritas1" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="listViewMallasInscritas" prefHeight="200.0" prefWidth="200.0" />
                      </content>
                   </TitledPane>
+                  <Label layoutX="23.0" layoutY="28.0" text="Selecciona una de tus carreras inscritas" />
+                  <Label layoutX="23.0" layoutY="183.0" text="Selecciona una malla" />
+                  <ComboBox fx:id="comboBoxCarrerasInscritas" layoutX="34.0" layoutY="78.0" onAction="#cambioEnComboCarrera" prefWidth="150.0" />
+                  <Label layoutX="34.0" layoutY="130.0" text="Malla inscrita:" />
+                  <TextField fx:id="mallaActual" layoutX="126.0" layoutY="126.0" />
                </children></Pane>
          </children>
       </Pane>

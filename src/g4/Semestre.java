@@ -3,7 +3,7 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Semestre {
+public class Semestre implements java.io.Serializable{
 	private String periodo;
 	// Lista de todos los id de los cursos del semestre
 	private List<Integer> cursos;

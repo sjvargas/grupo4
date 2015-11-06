@@ -2,7 +2,7 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Alumno extends Usuario {
+public class Alumno extends Usuario implements java.io.Serializable{
 	private Historial_Academico historial_academico;
 	// Lista de los id de las carreras a las que pertenece
 	private List<Integer> carreras;
@@ -34,6 +34,7 @@ public class Alumno extends Usuario {
 		if(carreraYaInscrita == false){
 			
 			carreras.add(id_carrera);
+			mallas_curriculares.add(-1);
 
 			
 		}
@@ -42,14 +43,28 @@ public class Alumno extends Usuario {
 		for(int i=0;i<carreras.size();i++){
 			if(carreras.get(i) == id_carrera){
 				carreras.remove(i);
+				
+				
+				//tambien hay que remover la malla asociada
+				mallas_curriculares.remove(i);
 				break;
 			}
 		}
 	}
-	
-	public void Inscribir_malla_curricular(int id_malla){
+	public int getIndiceCarrera(int id_carrera){
+		for(int i=0;i<carreras.size();i++){
+			if(carreras.get(i)== id_carrera){
+				return i;
+			}
+		}
+		return -1;
+	}
+	public int getMallaEnPosicion(int indice){
+		return mallas_curriculares.get(indice);
+	}
+	public void Inscribir_malla_curricular(int indice,int id_malla){
 		// agregar carrera por id
-		mallas_curriculares.add(id_malla);
+		mallas_curriculares.add(indice,id_malla);
 	}
 	
 	public void setSemestreActual(Semestre semestre){

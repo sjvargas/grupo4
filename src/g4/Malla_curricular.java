@@ -9,7 +9,7 @@ import java.util.List;
  *  Permite (mediante sus métodos) agregar y eliminar ramos de la malla curricular. 
  * 
  */
-public class Malla_curricular {
+public class Malla_curricular implements java.io.Serializable{
 	
 
 	

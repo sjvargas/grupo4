@@ -1,6 +1,5 @@
 package g4;
 
-
 public class CursoTabla {
 	private final String sigla;
 	private final String profesores;

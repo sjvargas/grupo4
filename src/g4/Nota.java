@@ -1,6 +1,6 @@
 package g4;
 
-public class Nota {
+public class Nota implements java.io.Serializable{
 	private Integer curso;
 	// es Float y no float para que acepte nulls
 	private Float valor;

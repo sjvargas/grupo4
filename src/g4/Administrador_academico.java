@@ -13,7 +13,7 @@ import fx.view.main;
  * 
  */
 
-public class Administrador_academico extends Usuario {
+public class Administrador_academico extends Usuario implements java.io.Serializable {
 	
 	//
 	
