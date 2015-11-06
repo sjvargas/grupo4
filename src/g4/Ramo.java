@@ -30,6 +30,9 @@ public class Ramo {
 	public Carrera getCarrera() {
 		return carrera;
 	}
+	public String getNombre() {
+		return nombreRamo;
+	}
 	public String getContenidos() {
 		return contenidos;
 	}
@@ -50,6 +53,7 @@ public class Ramo {
 	
 	public Ramo(String nombreRamo, String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
 		//this.id_ramo=id;
+		this.nombreRamo = nombreRamo;
 		this.sigla = sigla;
 		this.creditos = creditos;
 		this.carrera = carrera;

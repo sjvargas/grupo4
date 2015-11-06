@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import g4.Carrera;
 import g4.Curso;
+import g4.CursoTabla;
 import g4.Malla_curricular;
 import g4.Programacion_Academica;
 import javafx.collections.FXCollections;
@@ -36,7 +37,10 @@ import javafx.scene.control.TableView;
 public class BuscadorDeCursosController implements PrincipalController {
 	/// objeto para realizar el cambio de paginas
 	ScreensController controlador;
-
+	ArrayList<Curso> cursos_seleccionados;
+	
+	
+	
 	@FXML
 	private Pane pane_aceptar; 
 	@FXML
@@ -50,19 +54,21 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private TextField text_profesor;
 	@FXML
-	private TableView<Curso> tabla_seleccion;
+	private TableView<CursoTabla> tabla_seleccion,tabla_busqueda;
 	@FXML
-	private TableColumn<Curso,String> sigla_seleccion;
+	private TableColumn<CursoTabla,String> sigla_seleccion,sigla_busqueda;
 	@FXML
-	private TableColumn<Curso,String> secc_seleccion;
+	private TableColumn<CursoTabla,String> secc_seleccion,secc_busqueda;
 	@FXML
-	private TableColumn<Curso,String> profesor_seleccion;
+	private TableColumn<CursoTabla,String> profesor_seleccion,profesor_busqueda;
 	@FXML
-	private TableColumn<Curso,String> nombre_seleccion;
+	private TableColumn<CursoTabla,String> nombre_seleccion,nombre_busqueda;
 	@FXML
-	private TableColumn<Curso,String> horarios_seleccion;
+	private TableColumn<CursoTabla,String> horario_seleccion,horario_busqueda,carrera_busqueda;
 	@FXML
-	private ObservableList<Curso> data_seleccion = FXCollections.observableArrayList();
+	private ObservableList<CursoTabla> data_seleccion = FXCollections.observableArrayList();
+	@FXML
+	private ObservableList<CursoTabla> data_busqueda = FXCollections.observableArrayList();
 	@FXML
 	private String[] horarios_buscar;
 	@FXML
@@ -79,12 +85,13 @@ public class BuscadorDeCursosController implements PrincipalController {
 	private CheckBox sa_1,sa_2,sa_3, sa_4,sa_5,sa_6, sa_7,sa_8;
 	
 	public void ClickAceptar(ActionEvent e){
+		cursos_seleccionados = new ArrayList<Curso>();
+		
 		pane_aceptar.setVisible(false);
 		ObservableList<Carrera> ss = FXCollections
 				.observableList(main.U.lista_carreras);
 		
 		text_carrera.setItems(ss);
-		text_carrera.setValue(main.U.lista_carreras.get(0));
 		
 		
 		ArrayList<String> periodos = new ArrayList<String>();
@@ -96,13 +103,20 @@ public class BuscadorDeCursosController implements PrincipalController {
 		text_periodo.setValue(periodos.get(0));
 
 
-		sigla_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("sigla"));
-		secc_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("seccion"));
-		nombre_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("nombre"));
-		profesor_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("profesores"));
-		horarios_seleccion.setCellValueFactory(new PropertyValueFactory<Curso,String>("horarios"));
-		
+		sigla_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("sigla"));
+		secc_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("seccion"));
+		nombre_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("nombre"));
+		profesor_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("profesores"));
+		horario_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("horarios"));
 		tabla_seleccion.setItems(data_seleccion);
+		
+		sigla_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("sigla"));
+		secc_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("seccion"));
+		nombre_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("nombre"));
+		profesor_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("profesores"));
+		horario_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("horarios"));
+		nombre_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("nombre"));
+		tabla_busqueda.setItems(data_busqueda);
 		
 		lu_1 = new CheckBox("lu:1");
 		lu_2 = new CheckBox("lu:2");
@@ -232,17 +246,36 @@ public class BuscadorDeCursosController implements PrincipalController {
 		if(sa_7.isSelected()){horario_buscar.add(sa_7.getText());}
 		if(sa_8.isSelected()){horario_buscar.add(sa_8.getText());}
 
-		String prof = profesor_seleccion.getText();
-		String sigla = profesor_seleccion.getText();
-		int carrera = 0;//((Carrera) text_carrera.getValue()).getId_carrera);
-		String periodo = ""; //text_periodo.getValue();
+		String prof = text_profesor.getText();
+		String sigla = text_sigla.getText();
+		int carrera = -1;
+		if (text_carrera.getValue()!=null){
+			carrera = ((Carrera) text_carrera.getValue()).getId_carrera();
+		}
+		String periodo = text_periodo.getValue();
 		
 		
 		ArrayList<Curso> cursos = main.U.buscador.filtrar(horario_buscar, prof, carrera, sigla,periodo);
-		
+		ArrayList<CursoTabla> ct = new ArrayList<CursoTabla>();
+		for (Curso j : cursos){
+			System.out.println(j.getRamo().getSigla());
+			ct.add(new CursoTabla(j));
+		}
+		for (CursoTabla j : ct){
+			System.out.println(j.getNombre());
+			System.out.println(j.getSigla());
+			System.out.println(j.getProfesores());
+			System.out.println(j.getHorarios());
+			System.out.println(j.getSeccion());
+			System.out.println(j.getCarrera());
+		}
+		data_busqueda = FXCollections.observableArrayList(ct);
+		ActualizarBusqueda();
 	}
+	
+	
 	public void ClickAgregar(ActionEvent event) {
-		System.out.println(sa_1);
+		
 	}
 	
 	
@@ -253,7 +286,14 @@ public class BuscadorDeCursosController implements PrincipalController {
 	}
 
 	
+	public void ActualizarBusqueda(){
+		tabla_busqueda.setItems(data_busqueda);
+	}
 	
+	
+	public void ActualizarSeleccion(){
+		tabla_busqueda.setItems(data_seleccion);
+	}
 	
 	
 	
