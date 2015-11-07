@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="900.0" maxWidth="1200.0" minHeight="900.0" minWidth="1200.0" prefHeight="900.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="fx.view.c">
+<AnchorPane maxHeight="900.0" maxWidth="1200.0" minHeight="900.0" minWidth="1200.0" prefHeight="900.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"  fx:controller="fx.view.ProfesorOverviewController">
    <children>
       <Label layoutX="24.0" layoutY="37.0" prefHeight="37.0" prefWidth="155.0" text="Academic Manager">
          <font>
@@ -63,7 +63,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="boton_historial_ir" layoutX="263.0" layoutY="136.0" mnemonicParsing="false" text="ir" />
+            <Button fx:id="boton_historial_ir" onAction="#ClickHistorialIr"  layoutX="263.0" layoutY="136.0" mnemonicParsing="false" text="ir" />
             <TableView fx:id="tabla_historial_cursos" layoutX="58.0" layoutY="211.0" prefHeight="349.0" prefWidth="342.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn fx:id="columna_historial_sigla" prefWidth="91.0" text="sigla" />

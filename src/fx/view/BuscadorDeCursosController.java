@@ -180,6 +180,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	public void ClickCerrarSesion(ActionEvent event) {
 		controlador.setScreen(main.InicioID);
+		Serializador.serializar(main.U);
 	}
 	public void ClickVolverMenu(ActionEvent event) {
 		controlador.setScreen(main.AlumnoID);

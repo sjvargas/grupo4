@@ -18,7 +18,8 @@
                   <ToggleGroup fx:id="tg1" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="400.0" layoutY="100.0" mnemonicParsing="false" onAction="#seleccionarModoAdmin" text="Administrador Académico" toggleGroup="$tg1" />
+            <RadioButton layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#seleccionarModoAdmin" text="Administrador Académico" toggleGroup="$tg1" />
+            <RadioButton layoutX="500.0" layoutY="100.0" mnemonicParsing="false" onAction="#seleccionarModoProfesor" text="Profesor" toggleGroup="$tg1" />
             <Group layoutX="243.0" layoutY="178.0" />
             <Group layoutX="605.0" layoutY="228.0" />
             <Group layoutX="204.0" layoutY="170.0" />
