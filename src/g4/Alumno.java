@@ -34,7 +34,7 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		if(carreraYaInscrita == false){
 			
 			carreras.add(id_carrera);
-			mallas_curriculares.add(-1);
+			//mallas_curriculares.add(-1);
 
 			
 		}
@@ -70,6 +70,17 @@ public class Alumno extends Usuario implements java.io.Serializable{
 	public void setSemestreActual(Semestre semestre){
 		this.semestre_actual = semestre;
 	}
+	
+	public Semestre getSemestreActual(){
+		return this.semestre_actual;
+	}
+	public void finalizarSemestre(){
+		if(semestre_actual.semestreCerrado == true){
+			this.historial_academico.agregarSemestre(semestre_actual);
+		}
+	}
+	
+	
 	public Historial_Academico GetHistorialAcademico(){return historial_academico;}
 	public List<Integer> GetCarreras(){return carreras;}
 	public List<Integer> GetMallas(){return mallas_curriculares;}

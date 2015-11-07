@@ -25,8 +25,17 @@
             <Pane fx:id="pane_semestres_alumno" layoutX="117.0" layoutY="64.0" prefHeight="443.0" prefWidth="630.0" visible="false">
                <children>
                   <Label layoutX="41.0" layoutY="16.0" prefHeight="25.0" prefWidth="117.0" text="semestres anteriores" />
-                  <ChoiceBox layoutX="41.0" layoutY="83.0" prefHeight="25.0" prefWidth="150.0" />
                   <Label layoutX="361.0" layoutY="16.0" prefHeight="25.0" prefWidth="117.0" text="semestres anteriores" />
+                  <ComboBox fx:id="comboBoxSemestres" layoutX="41.0" layoutY="72.0" onAction="#cambioComboBoxSemestres" prefHeight="25.0" prefWidth="228.0" />
+                  <ListView fx:id="registrosDeUnSemestre" layoutX="41.0" layoutY="128.0" prefHeight="148.0" prefWidth="551.0" />
+                  <Label layoutX="41.0" layoutY="300.0" text="Promedio del Semestre" />
+                  <Label layoutX="41.0" layoutY="331.0" text="Total creditos del Semestre" />
+                  <Label layoutX="41.0" layoutY="364.0" text="Total creditos aprobados" />
+                  <Label layoutX="41.0" layoutY="397.0" text="Total creditos reprovados" />
+                  <TextField fx:id="textFieldPromedioPonderadoSemestre" layoutX="234.0" layoutY="296.0" />
+                  <TextField fx:id="textFieldTotalCreditosDelSemestre" layoutX="234.0" layoutY="327.0" />
+                  <TextField fx:id="textFieldCreditosAprobados" layoutX="234.0" layoutY="360.0" />
+                  <TextField fx:id="textFieldCreditosReprobados" layoutX="234.0" layoutY="393.0" />
                </children>
             </Pane>
             <GridPane layoutX="35.0" layoutY="96.0">
@@ -100,47 +109,49 @@
                   <Label fx:id="label_edad_inicio_alumno" layoutX="146.0" layoutY="137.0" text="Label" />
                </children>
             </Pane>
-            <Pane fx:id="pane_semestre_actual_alumno" layoutX="162.0" layoutY="58.0" prefHeight="424.0" prefWidth="479.0" visible="false">
+            <Pane fx:id="pane_semestre_actual_alumno" layoutX="199.0" layoutY="16.0" prefHeight="497.0" prefWidth="521.0" visible="false">
                <children>
-                  <Label layoutX="31.0" layoutY="43.0" text="Curso 1" />
-                  <Label layoutX="124.0" layoutY="14.0" text="ID del curso" />
-                  <Label layoutX="253.0" layoutY="14.0" text="Nota(1-7)" />
-                  <Label layoutX="31.0" layoutY="80.0" text="Curso 2" />
-                  <Label layoutX="31.0" layoutY="113.0" text="Curso 3" />
-                  <Label layoutX="31.0" layoutY="145.0" text="Curso 4" />
-                  <Label layoutX="31.0" layoutY="176.0" text="Curso 5" />
-                  <Label layoutX="31.0" layoutY="212.0" text="Curso 6" />
-                  <Label layoutX="31.0" layoutY="246.0" text="Curso 7" />
-                  <Label layoutX="31.0" layoutY="279.0" text="Curso 8" />
-                  <TextField fx:id="text_curso1_semestre_actual" layoutX="81.0" layoutY="39.0" />
-                  <TextField fx:id="text_curso2_semestre_actual" layoutX="81.0" layoutY="76.0" />
-                  <TextField fx:id="text_curso3_semestre_actual" layoutX="81.0" layoutY="109.0" />
-                  <TextField fx:id="text_curso4_semestre_actual" layoutX="81.0" layoutY="141.0" />
-                  <TextField fx:id="text_curso5_semestre_actual" layoutX="81.0" layoutY="172.0" />
-                  <TextField fx:id="text_curso6_semestre_actual" layoutX="81.0" layoutY="208.0" />
-                  <TextField fx:id="text_curso7_semestre_actual" layoutX="81.0" layoutY="242.0" />
-                  <TextField fx:id="text_curso8_semestre_actual" layoutX="81.0" layoutY="275.0" />
-                  <TextField fx:id="text_nota1_semestre_actual" layoutX="240.0" layoutY="39.0" prefHeight="25.0" prefWidth="63.0" />
-                  <TextField fx:id="text_nota2_semestre_actual" layoutX="240.0" layoutY="76.0" prefHeight="25.0" prefWidth="64.0" />
-                  <TextField fx:id="text_nota3_semestre_actual" layoutX="240.0" layoutY="109.0" prefHeight="25.0" prefWidth="63.0" />
-                  <TextField fx:id="text_nota4_semestre_actual" layoutX="240.0" layoutY="141.0" prefHeight="25.0" prefWidth="64.0" />
-                  <TextField fx:id="text_nota5_semestre_actual" layoutX="240.0" layoutY="172.0" prefHeight="25.0" prefWidth="64.0" />
-                  <TextField fx:id="text_nota6_semestre_actual" layoutX="240.0" layoutY="208.0" prefHeight="25.0" prefWidth="63.0" />
-                  <TextField fx:id="text_nota7_semestre_actual" layoutX="240.0" layoutY="242.0" prefHeight="25.0" prefWidth="64.0" />
-                  <TextField fx:id="text_nota8_semestre_actual" layoutX="240.0" layoutY="275.0" prefHeight="25.0" prefWidth="64.0" />
-                  <Button fx:id="boton_actualizar_semestre_actual" layoutX="156.0" layoutY="353.0" mnemonicParsing="false" onAction="#actualizarSemestreActual" prefHeight="50.0" prefWidth="125.0" text="Actualizar Semestre" />
-                  <Label layoutX="32.0" layoutY="314.0" text="Periodo Actual" />
-                  <TextField fx:id="text_periodo_semestre_actual" layoutX="141.0" layoutY="310.0" prefHeight="25.0" prefWidth="162.0" />
-                  <Label fx:id="label_curso1_semestre_actual" layoutX="319.0" layoutY="43.0" text="-" />
-                  <Label fx:id="label_curso2_semestre_actual" layoutX="319.0" layoutY="80.0" text="-" />
-                  <Label fx:id="label_curso3_semestre_actual" layoutX="319.0" layoutY="113.0" text="-" />
-                  <Label fx:id="label_curso4_semestre_actual" layoutX="319.0" layoutY="145.0" text="-" />
-                  <Label fx:id="label_curso5_semestre_actual" layoutX="319.0" layoutY="176.0" text="-" />
-                  <Label fx:id="label_curso6_semestre_actual" layoutX="319.0" layoutY="212.0" text="-" />
-                  <Label fx:id="label_curso7_semestre_actual" layoutX="319.0" layoutY="246.0" text="-" />
-                  <Label fx:id="label_curso8_semestre_actual" layoutX="319.0" layoutY="279.0" text="-" />
+                  <Label layoutX="25.0" layoutY="123.0" text="Curso 1" />
+                  <Label layoutX="118.0" layoutY="94.0" text="ID del curso" />
+                  <Label layoutX="247.0" layoutY="94.0" text="Nota(1-7)" />
+                  <Label layoutX="25.0" layoutY="160.0" text="Curso 2" />
+                  <Label layoutX="25.0" layoutY="193.0" text="Curso 3" />
+                  <Label layoutX="25.0" layoutY="225.0" text="Curso 4" />
+                  <Label layoutX="25.0" layoutY="256.0" text="Curso 5" />
+                  <Label layoutX="25.0" layoutY="292.0" text="Curso 6" />
+                  <Label layoutX="25.0" layoutY="326.0" text="Curso 7" />
+                  <Label layoutX="25.0" layoutY="359.0" text="Curso 8" />
+                  <TextField fx:id="text_curso1_semestre_actual" layoutX="75.0" layoutY="119.0" />
+                  <TextField fx:id="text_curso2_semestre_actual" layoutX="75.0" layoutY="156.0" />
+                  <TextField fx:id="text_curso3_semestre_actual" layoutX="75.0" layoutY="189.0" />
+                  <TextField fx:id="text_curso4_semestre_actual" layoutX="75.0" layoutY="221.0" />
+                  <TextField fx:id="text_curso5_semestre_actual" layoutX="75.0" layoutY="252.0" />
+                  <TextField fx:id="text_curso6_semestre_actual" layoutX="75.0" layoutY="288.0" />
+                  <TextField fx:id="text_curso7_semestre_actual" layoutX="75.0" layoutY="322.0" />
+                  <TextField fx:id="text_curso8_semestre_actual" layoutX="75.0" layoutY="355.0" />
+                  <TextField fx:id="text_nota1_semestre_actual" layoutX="234.0" layoutY="119.0" prefHeight="25.0" prefWidth="63.0" />
+                  <TextField fx:id="text_nota2_semestre_actual" layoutX="234.0" layoutY="156.0" prefHeight="25.0" prefWidth="64.0" />
+                  <TextField fx:id="text_nota3_semestre_actual" layoutX="234.0" layoutY="189.0" prefHeight="25.0" prefWidth="63.0" />
+                  <TextField fx:id="text_nota4_semestre_actual" layoutX="234.0" layoutY="221.0" prefHeight="25.0" prefWidth="64.0" />
+                  <TextField fx:id="text_nota5_semestre_actual" layoutX="234.0" layoutY="252.0" prefHeight="25.0" prefWidth="64.0" />
+                  <TextField fx:id="text_nota6_semestre_actual" layoutX="234.0" layoutY="288.0" prefHeight="25.0" prefWidth="63.0" />
+                  <TextField fx:id="text_nota7_semestre_actual" layoutX="234.0" layoutY="322.0" prefHeight="25.0" prefWidth="64.0" />
+                  <TextField fx:id="text_nota8_semestre_actual" layoutX="234.0" layoutY="355.0" prefHeight="25.0" prefWidth="64.0" />
+                  <Button fx:id="boton_actualizar_semestre_actual" layoutX="26.0" layoutY="433.0" mnemonicParsing="false" onAction="#actualizarSemestreActual" prefHeight="50.0" prefWidth="125.0" text="Actualizar Semestre" />
+                  <Label layoutX="26.0" layoutY="394.0" text="Periodo Actual" />
+                  <TextField fx:id="text_periodo_semestre_actual" layoutX="135.0" layoutY="390.0" prefHeight="25.0" prefWidth="162.0" />
+                  <Label fx:id="label_curso1_semestre_actual" layoutX="313.0" layoutY="123.0" text="-" />
+                  <Label fx:id="label_curso2_semestre_actual" layoutX="313.0" layoutY="160.0" text="-" />
+                  <Label fx:id="label_curso3_semestre_actual" layoutX="313.0" layoutY="193.0" text="-" />
+                  <Label fx:id="label_curso4_semestre_actual" layoutX="313.0" layoutY="225.0" text="-" />
+                  <Label fx:id="label_curso5_semestre_actual" layoutX="313.0" layoutY="256.0" text="-" />
+                  <Label fx:id="label_curso6_semestre_actual" layoutX="313.0" layoutY="292.0" text="-" />
+                  <Label fx:id="label_curso7_semestre_actual" layoutX="313.0" layoutY="326.0" text="-" />
+                  <Label fx:id="label_curso8_semestre_actual" layoutX="313.0" layoutY="359.0" text="-" />
+                  <Button fx:id="boton_finalizar_semestre_actual" layoutX="306.0" layoutY="433.0" mnemonicParsing="false" onAction="#finalizarSemestre" prefHeight="50.0" prefWidth="123.0" text="Finalizar Semestre" />
+                  <TextArea layoutX="26.0" layoutY="14.0" prefHeight="73.0" prefWidth="479.0" text="SEMESTRE ACTUAL&#10;Por medio de &quot;Actualizar Semestre&quot; puedes guardar los cursos y sus notas tentativas.&#10;Por medio de &quot;Finalizar Semestre&quot; finalizaras el semestre y podras acceder a uno nuevo.&#10;La información de los semestres ya finalizados se puede ver en &quot;Semestres&quot;" />
                </children></Pane>
-            <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0">
+            <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0" visible="false">
                <children>
                   <TitledPane fx:id="titlePaneMallasPorCarrera" layoutX="25.0" layoutY="200.0" prefHeight="114.0" prefWidth="257.0" text="Mallas de la carrera">
                      <content>
@@ -155,6 +166,7 @@
                   <Button fx:id="buttonAgregarMalla" layoutX="306.0" layoutY="245.0" mnemonicParsing="false" onAction="#clickAgregarMalla" prefHeight="25.0" prefWidth="136.0" text="Agregar Malla" />
                   <Button fx:id="buttonEliminarMalla" layoutX="308.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickEliminarMalla" text="Eliminar Malla inscrita" />
                </children></Pane>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
          </children>
       </Pane>
    </children>
