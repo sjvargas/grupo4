@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="900.0" maxWidth="1200.0" minHeight="900.0" minWidth="1200.0" prefHeight="900.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"  fx:controller="fx.view.ProfesorOverviewController">
+<AnchorPane maxHeight="900.0" maxWidth="1200.0" minHeight="900.0" minWidth="1200.0" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.ProfesorOverviewController">
    <children>
       <Label layoutX="24.0" layoutY="37.0" prefHeight="37.0" prefWidth="155.0" text="Academic Manager">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="74.0" prefHeight="25.0" prefWidth="155.0" text="Profesor">
+      <Label fx:id="nombre_profesor" layoutX="24.0" layoutY="74.0" prefHeight="25.0" prefWidth="155.0" text="Bienvenido">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <GridPane layoutX="24.0" layoutY="160.0" prefHeight="231.0" prefWidth="155.0">
+      <GridPane layoutX="24.0" layoutY="160.0" prefHeight="170.0" prefWidth="155.0">
          <children>
             <Button fx:id="boton_inicio" mnemonicParsing="false" onAction="#ClickInicio" prefHeight="25.0" prefWidth="155.0" text="Inicio" />
             <Button fx:id="boton_evaluar_cursos" mnemonicParsing="false" onAction="#ClickEvaluarCursos" prefHeight="25.0" prefWidth="155.0" text="Evaluar Cursos" GridPane.rowIndex="2" />
@@ -42,7 +43,7 @@
       </GridPane>
       <Pane fx:id="pane_inicio" layoutX="203.0" prefHeight="900.0" prefWidth="997.0" visible="false">
          <children>
-            <Pane fx:id="pane_info_profesor" layoutX="73.0" layoutY="164.0" prefHeight="231.0" prefWidth="253.0" style="-fx-background-color: #ffffff; -fx-border: 2px solid; -fx-border-color: #000000;"/>
+            <Pane fx:id="pane_info_profesor" layoutX="73.0" layoutY="164.0" prefHeight="231.0" prefWidth="253.0" style="-fx-background-color: #ffffff; -fx-border: 2px solid; -fx-border-color: #000000;" />
          </children>
       </Pane>
       <Pane fx:id="pane_historial" layoutX="213.0" prefHeight="900.0" prefWidth="997.0" visible="false">
@@ -63,7 +64,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="boton_historial_ir" onAction="#ClickHistorialIr"  layoutX="263.0" layoutY="136.0" mnemonicParsing="false" text="ir" />
+            <Button fx:id="boton_historial_ir" layoutX="263.0" layoutY="136.0" mnemonicParsing="false" onAction="#ClickHistorialIr" text="ir" />
             <TableView fx:id="tabla_historial_cursos" layoutX="58.0" layoutY="211.0" prefHeight="349.0" prefWidth="342.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn fx:id="columna_historial_sigla" prefWidth="91.0" text="sigla" />
@@ -74,14 +75,14 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="pane_evaluar" layoutX="213.0" layoutY="1.0" prefHeight="900.0" prefWidth="997.0" visible="false">
+      <Pane fx:id="pane_evaluar" layoutX="223.0" layoutY="1.0" prefHeight="900.0" prefWidth="997.0">
          <children>
             <Label layoutX="58.0" layoutY="37.0" prefHeight="37.0" prefWidth="170.0" text="Evaluar Cursos">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="boton_evaluar_ir" layoutX="263.0" layoutY="135.0" mnemonicParsing="false" text="ir" />
+            <Button fx:id="boton_evaluar_ir" layoutX="263.0" layoutY="135.0" mnemonicParsing="false" onAction="#ClickEvaluarIr" text="ir" />
             <Label layoutX="58.0" layoutY="135.0" prefHeight="25.0" prefWidth="64.0" text="cursos:">
                <font>
                   <Font size="13.0" />
@@ -100,17 +101,60 @@
               </columns>
             </TableView>
             <Button fx:id="boton_evaluar_seleccionar" layoutX="289.0" layoutY="210.0" mnemonicParsing="false" onAction="#ClickSelccionarAlumno" text="seleccionar" />
-            <Pane fx:id="pane_evaluar_alumno" layoutX="434.0" layoutY="210.0" prefHeight="183.0" prefWidth="155.0" style="-fx-background-color: #ffffff; -fx-border: 2px solid; -fx-border-color: #000000;">
+            <Pane fx:id="pane_evaluar_alumno" layoutX="381.0" layoutY="210.0" prefHeight="183.0" prefWidth="208.0" style="-fx-background-color: #ffffff; -fx-border: 2px solid; -fx-border-color: #000000;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" text="Alumno seleccionado:" />
-                  <Label fx:id="label_nombre_alumno" layoutX="14.0" layoutY="39.0" prefHeight="17.0" prefWidth="57.0" text="Ninguno" textFill="RED" />
+                  <Label fx:id="label_nombre_alumno" layoutX="14.0" layoutY="39.0" prefHeight="17.0" prefWidth="185.0" text="Ninguno" textFill="RED" />
                   <Label layoutX="13.0" layoutY="65.0" prefHeight="17.0" prefWidth="95.0" text="Nota del curso:" />
-                  <TextField layoutX="14.0" layoutY="92.0" prefHeight="25.0" prefWidth="106.0" />
-                  <Button fx:id="boton_evaluar_guardar_cambios" layoutX="13.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" text="Guardar cambios" />
+                  <TextField fx:id="text_field_nota" layoutX="14.0" layoutY="92.0" prefHeight="25.0" prefWidth="106.0" />
+                  <Button fx:id="boton_evaluar_guardar_cambios" layoutX="13.0" layoutY="138.0" mnemonicParsing="false" onAction="#ClickGuardarCambios" prefHeight="25.0" prefWidth="131.0" text="Guardar cambios" />
+                  <Label fx:id="mensaje_alerta" layoutX="13.0" layoutY="117.0" prefHeight="17.0" prefWidth="142.0" />
                </children>
             </Pane>
+            <Pane layoutX="378.0" layoutY="413.0" prefHeight="90.0" prefWidth="208.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="95.0" text="Resumen Curso:" />
+                  <Label fx:id="nombre_curso_info" layoutX="109.0" layoutY="6.0" text="Nombre curso" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numero_alumnos" layoutX="131.0" layoutY="23.0" text="#" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="23.0" prefHeight="17.0" prefWidth="116.0" text="numero de alumnos:" />
+                  <Label layoutX="14.0" layoutY="40.0" prefHeight="17.0" prefWidth="64.0" text="promedio:" />
+                  <Label fx:id="alumnos_promedio" layoutX="78.0" layoutY="40.0" text="#" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alumnos_aprobados" layoutX="81.0" layoutY="57.0" text="#" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" text="aprobados:" />
+                  <Label layoutX="112.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" text="reprobados:" />
+                  <Label fx:id="alumnos_reprobados" layoutX="179.0" layoutY="57.0" text="#" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="nombre_curso_tabla" layoutX="183.0" layoutY="186.0" text="Nombre curso" textFill="BLUE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="58.0" layoutY="186.0" prefHeight="17.0" prefWidth="106.0" text="Alumnos de curso:" />
          </children>
       </Pane>
       <Pane fx:id="pane_foros" layoutX="213.0" layoutY="1.0" prefHeight="900.0" prefWidth="997.0" visible="false" />
+      <Line endX="50.0" layoutX="125.0" layoutY="106.0" startX="-100.0" />
+      <Line endY="850.0" layoutX="204.0" layoutY="4.0" startY="20.0" />
    </children>
 </AnchorPane>

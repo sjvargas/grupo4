@@ -18,6 +18,7 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		carreras = new ArrayList<Integer>();
 		mallas_curriculares = new ArrayList<Integer>();
 		acceso = true;		
+		semestre_actual = new Semestre("2015-2");
 	}
 	
 	public void Inscribir_carrera(int id_carrera){
