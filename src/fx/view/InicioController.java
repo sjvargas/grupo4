@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -48,7 +49,7 @@ public class InicioController implements PrincipalController {
 	@FXML
     private TextField tFNombreUsuarioIngreso;
 	@FXML
-    private TextField tFContrasenaIngreso;
+    private PasswordField tFContrasenaIngreso;
 	@FXML
     private TextField tfNombreUsuarioRegistro;
 	@FXML

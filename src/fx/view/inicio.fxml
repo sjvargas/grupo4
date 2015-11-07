@@ -77,7 +77,7 @@
               </rowConstraints>
                <children>
                   <TextField fx:id="tFNombreUsuarioIngreso" GridPane.columnIndex="1" />
-                  <TextField fx:id="tFContrasenaIngreso" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="tFContrasenaIngreso" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Nombre Usuario" />
                   <Label text="Contraseña" GridPane.rowIndex="1" />
                   <Button fx:id="ingresar" mnemonicParsing="false" onAction="#IngresarUsuario" text="Ingresar" GridPane.columnIndex="3" GridPane.rowIndex="1" />

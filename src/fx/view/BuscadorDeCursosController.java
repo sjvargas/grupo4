@@ -180,10 +180,35 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	public void ClickCerrarSesion(ActionEvent event) {
 		controlador.setScreen(main.InicioID);
+		if (main.U.alumno_actual!=null){
+			main.U.alumno_actual.Cerrar_sesion();
+			main.U.alumno_actual=null;
+		}
+		if (main.U.administrador_actual!=null){
+			main.U.administrador_actual.Cerrar_sesion();
+			main.U.administrador_actual=null;
+		}		
+		if (main.U.profesor_actual!=null){
+			main.U.profesor_actual.Cerrar_sesion();
+			main.U.profesor_actual=null;
+		}
+		controlador.setScreen(main.InicioID);
 		Serializador.serializar(main.U);
 	}
 	public void ClickVolverMenu(ActionEvent event) {
-		controlador.setScreen(main.AlumnoID);
+		if (main.U.alumno_actual!=null){
+			controlador.setScreen(main.AlumnoID);
+		}
+		if (main.U.administrador_actual!=null){
+			controlador.setScreen(main.AdminID);
+		}		
+		if (main.U.profesor_actual!=null){
+			controlador.setScreen(main.ProfesorID);
+		}
+		else{
+			controlador.setScreen(main.InicioID);
+		}
+		
 	}
 	
 	public void ClickEliminar(ActionEvent event) {

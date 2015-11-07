@@ -30,7 +30,7 @@ public class ProfesorOverviewController implements PrincipalController {
 	@FXML
 	private TextField text_field_nota;
 	@FXML
-	private Label mensaje_alerta,nombre_profesor,nombre_curso_info,numero_alumnos,alumnos_promedio,alumnos_aprobados,alumnos_reprobados,nombre_curso_tabla,label_nombre_alumno;
+	private Label labelNombre,labelNombreUsuario,labelSexo,labelEdad,mensaje_alerta,nombre_profesor,nombre_curso_info,numero_alumnos,alumnos_promedio,alumnos_aprobados,alumnos_reprobados,nombre_curso_tabla,label_nombre_alumno;
 	@FXML
 	private Pane pane_inicio,pane_historial,pane_evaluar,pane_foros,pane_info_profesor,pane_evaluar_alumno; 
 	@FXML
@@ -56,9 +56,12 @@ public class ProfesorOverviewController implements PrincipalController {
 	
 	
 	// EVENTOS BOTONES DEL MENU LATERAL
-	
 	public void ClickInicio(ActionEvent event) {
 		nombre_profesor.setText(main.U.profesor_actual.GetNombre());
+		labelNombre.setText(main.U.profesor_actual.GetNombre());
+		labelNombreUsuario.setText(main.U.profesor_actual.GetNombreUsuario());
+		labelSexo.setText(main.U.profesor_actual.GetSexo().name());
+		labelEdad.setText(main.U.profesor_actual.GetEdadString());
 		CambiarAPanel(pane_inicio);
 	}	
 	public void ClickHistorialCursos(ActionEvent event) {
@@ -110,14 +113,15 @@ public class ProfesorOverviewController implements PrincipalController {
 		controlador.setScreen(main.InicioID);
 		Serializador.serializar(main.U);
 	}
-	
 	protected void CambiarAPanel(Pane paneDeseado){
+
 		pane_inicio.setVisible(false);
 		pane_historial.setVisible(false);
 		pane_evaluar.setVisible(false);
 		pane_foros.setVisible(false);
 		paneDeseado.setVisible(true);
 	}
+	
 	/// EVENTOS HISTORIAL CURSOS
 	public void ClickHistorialIr(ActionEvent event) {
 		String prof = main.U.profesor_actual.GetNombre();
@@ -130,10 +134,10 @@ public class ProfesorOverviewController implements PrincipalController {
 		data_historial = FXCollections.observableArrayList(ct);
 		ActualizarTablaHistorial();
 	}	
-	
 	public void ActualizarTablaHistorial(){
 		tabla_historial_cursos.setItems(data_historial);
 	}
+	
 	/// EVENTOS EVALUAR CURSOS
 	public void ClickEvaluarIr() {
 		String str = choicebox_evaluar_cursos.getValue();
@@ -162,13 +166,11 @@ public class ProfesorOverviewController implements PrincipalController {
 	public void ActualizarTablaAlumnos(){
 		tabla_evaluar_alumno.setItems(data_evaluar);
 	}
-	
 	public void ClickSelccionarAlumno(ActionEvent event) {
 		AlumnoTabla at = tabla_evaluar_alumno.getSelectionModel().getSelectedItem();
 		label_nombre_alumno.setText(at.getNombre());
 		text_field_nota.setText(at.getNota());
 	}
-
 	public void AtualizarInfoCurso(Curso c,ArrayList<AlumnoTabla> at ){
 		nombre_curso_tabla.setText(c.getRamo().getSigla());
 		nombre_curso_info.setText(c.getRamo().getSigla());
@@ -183,14 +185,14 @@ public class ProfesorOverviewController implements PrincipalController {
 			cantidad_al =+ 1;
 			if (!j.getNota().equals("--")){
 				float nota = Float.parseFloat(j.getNota());
-				suma_notas =+nota;
-				div_notas =+1;
-				if (nota>=39.5){
-					al_aprob =+1;
+				suma_notas =suma_notas + nota;
+				div_notas =div_notas+1;
+				if (nota>=3.95){
+					al_aprob = al_aprob + 1;
 				}
-				else{al_reprob =+1;}
+				else{al_reprob =al_reprob + 1;}
 			}
-			else{al_reprob =+1;}}
+			else{al_reprob = al_reprob + 1;}}
 		if (div_notas>0){
 			Float tt = (float) (suma_notas/div_notas);
 			alumnos_promedio.setText(tt.toString());
@@ -198,8 +200,6 @@ public class ProfesorOverviewController implements PrincipalController {
 		alumnos_reprobados.setText(al_reprob.toString());
 		alumnos_aprobados.setText(al_aprob.toString());
 	}
-	
-	
 	public void ClickGuardarCambios (ActionEvent event) {
 		if (isNumeric(text_field_nota.getText())){
 			Float fl = Float.parseFloat(text_field_nota.getText());
@@ -220,13 +220,13 @@ public class ProfesorOverviewController implements PrincipalController {
 		}
 	}
 	
-	
 	// evento para cambiar de paginas.
 	@Override
 	public void setScreenParent(ScreensController ScreenPage) {
 		controlador = ScreenPage;
 	}
 
+	// EXTRAS
 	public static boolean isNumeric(String str)  
 	{  
 	  try  
