@@ -42,6 +42,7 @@ import java.util.List;
 import g4.Alumno;
 import g4.Carrera;
 import g4.Curso;
+import g4.Historial_Academico;
 import g4.Malla_curricular;
 import g4.Nota;
 import g4.Semestre;
@@ -101,6 +102,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private Button boton_actualizar_semestre_actual;
 	@FXML
+	private Button boton_finalizar_semestre_actual;
+	@FXML
 	private Button boton_eliminar_carrera;
 	
 	
@@ -142,7 +145,29 @@ public class AlumnoOverviewController implements PrincipalController {
 	Button buttonAgregarMalla;
 	@FXML
 	Button buttonEliminarMalla;
-	 
+	 ////FIN elementos Malla
+
+	
+	
+	/////INICIO ELEMENTOS DE SEMESTRES
+	@FXML
+	ComboBox<Semestre> comboBoxSemestres;
+	@FXML
+	ListView<String> registrosDeUnSemestre;
+	@FXML
+	TextField textFieldTotalCreditosDelSemestre;
+	@FXML
+	TextField textFieldPromedioPonderadoSemestre;
+	@FXML
+	TextField textFieldCreditosAprobados;
+	@FXML
+	TextField textFieldCreditosReprobados;
+	
+	
+	
+	
+	
+	//// FIN DE ELEMENTOS DE SEMESTRES
 	
 	
 	
@@ -217,8 +242,62 @@ public class AlumnoOverviewController implements PrincipalController {
 
 	public void clicksemestres() {
 		mostrar_panel(pane_semestres_alumno);
+		/*
+		 * 
+		 * ObservableList<String> items = FXCollections.observableArrayList(nombresCarrerasInscritas);
+		listViewCarrerasInscritas.setItems(items);
+		
+		comboBoxCarrerasInscritas.setItems(items);
+		 * 
+		 */
+		
+		Historial_Academico historial = main.U.alumno_actual.GetHistorialAcademico();
+		ObservableList<Semestre> items = FXCollections.observableArrayList(historial.getSemestres());
+		comboBoxSemestres.setItems(items);
 	}
-	
+	public void cambioComboBoxSemestres(){
+		Semestre semestre_actual = comboBoxSemestres.getValue();
+		
+		if(semestre_actual!=null){
+			List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
+			List<Nota> notasDeCursos = semestre_actual.GetNotas();
+			List<Integer> idCursos = semestre_actual.GetCursos();
+			for(int i=0;i<idCursos.size();i++){
+				cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(i)));
+			}
+			
+			List<String> informacionCursos = new ArrayList<String>();
+			
+			float notaActual;
+			Curso curso_actual;
+			String stringActual;
+			for(int i=0;i<cursosDelSemestreActual.size();i++){
+				curso_actual = cursosDelSemestreActual.get(0);
+				notaActual = notasDeCursos.get(i).GetNota();
+				stringActual = ""+curso_actual.ramo.getSigla()+" - "+curso_actual.ramo.getNombre()+" - Creditos: "+curso_actual.ramo.getCreditos()+" - Nota:"+notaActual;
+				informacionCursos.add(stringActual);
+			}
+			
+			
+			
+			/*
+			 * ObservableList<String> items = FXCollections.observableArrayList(nombresCarrerasInscritas);
+			listViewCarrerasInscritas.setItems(items);
+			 * 
+			 */
+			ObservableList<String> items = FXCollections.observableArrayList(informacionCursos);
+			registrosDeUnSemestre.setItems(items);
+			
+			textFieldTotalCreditosDelSemestre.setText(""+semestre_actual.getCreditosTotales());
+			textFieldCreditosAprobados.setText(""+semestre_actual.getCreditosAprobados());
+			textFieldCreditosReprobados.setText(""+semestre_actual.getCreditosReprobados());
+			textFieldPromedioPonderadoSemestre.setText(""+semestre_actual.getPromedioPonderado());
+			
+		}
+		
+		
+		
+	}
 	public void clickcursos() {
 		mostrar_panel(pane_cursos_alumno);
 
@@ -415,6 +494,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	}
 	public void clickMallas(){
 		mostrar_panel(pane_mallas_alumno);
+		mallaActual.setEditable(false);
 	}
 
 	public void clickInscribirCarreraYMalla() {
@@ -463,8 +543,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		//else{
 			
 			
-			semestreActual = new Semestre(""+text_periodo_semestre_actual.textProperty());
-			
+			semestreActual = new Semestre(""+text_periodo_semestre_actual.getText());
+			System.out.println("TEXTO PERIODO "+text_periodo_semestre_actual.getText());
 			List<Curso> listaCursos = new ArrayList<Curso>();
 			List<Float> listaNotas = new ArrayList<Float>();
 
@@ -568,6 +648,87 @@ public class AlumnoOverviewController implements PrincipalController {
 			// falta ver donde mas se agrega el semestre (hasta el momento solo esta en el alumno		
 		//}
 	}
+	
+	public void finalizarSemestre(){
+		this.actualizarSemestreActual();
+		Semestre semestre_actual =main.U.alumno_actual.getSemestreActual();
+		
+		semestre_actual.CerrarSemestre();
+		if(semestre_actual.semestreCerrado){
+			List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
+			List<Nota> notasDeCursos = semestre_actual.GetNotas();
+			List<Integer> idCursos = semestre_actual.GetCursos();
+			for(int i=0;i<idCursos.size();i++){
+				cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(i)));
+			}
+			
+			
+			int creditosTotales=0;
+			int creditosAprobados=0;
+			int creditosReprobados=0;
+			float promedioPonderado=0;
+			
+			Curso cursoActual;
+			float notaActual;
+			for(int i=0;i<cursosDelSemestreActual.size();i++){
+				
+				cursoActual = cursosDelSemestreActual.get(i);
+				notaActual= notasDeCursos.get(i).GetNota();
+				
+				creditosTotales = creditosTotales+cursoActual.GetCreditos();
+				if(notaActual>=4){
+					creditosAprobados= creditosAprobados+cursoActual.GetCreditos();
+				}
+				else{
+					creditosReprobados = creditosReprobados + cursoActual.GetCreditos();
+				}
+				
+				promedioPonderado = promedioPonderado+notaActual;
+			}
+			promedioPonderado = promedioPonderado/cursosDelSemestreActual.size();
+			semestre_actual.setCreditosAprobados(creditosAprobados);
+			semestre_actual.setCreditosTotales(creditosTotales);
+			semestre_actual.setCreditosReprobados(creditosReprobados);
+			semestre_actual.setPromedioPonderado(promedioPonderado);
+			
+			main.U.alumno_actual.finalizarSemestre();
+			System.out.println("Semestre finalizado!");
+			
+			main.U.alumno_actual.setSemestreActual(null);
+			
+			text_curso1_semestre_actual.setText("");
+			text_curso2_semestre_actual.setText("");
+			text_curso3_semestre_actual.setText("");
+			text_curso4_semestre_actual.setText("");
+			text_curso5_semestre_actual.setText("");
+			text_curso6_semestre_actual.setText("");
+			text_curso7_semestre_actual.setText("");
+			text_curso8_semestre_actual.setText("");
+			
+			text_nota1_semestre_actual.setText("");
+			text_nota2_semestre_actual.setText("");
+			text_nota3_semestre_actual.setText("");
+			text_nota4_semestre_actual.setText("");
+			text_nota5_semestre_actual.setText("");
+			text_nota6_semestre_actual.setText("");
+			text_nota7_semestre_actual.setText("");
+			text_nota8_semestre_actual.setText("");
+			text_periodo_semestre_actual.setText("-");
+			label_curso1_semestre_actual.setText("-");
+			label_curso2_semestre_actual.setText("-");
+			label_curso3_semestre_actual.setText("-");
+			label_curso4_semestre_actual.setText("-");
+			label_curso5_semestre_actual.setText("-");
+			label_curso6_semestre_actual.setText("-");
+			label_curso7_semestre_actual.setText("-");
+			label_curso8_semestre_actual.setText("-");
+
+			
+		}
+	}
+	
+	
+	
 	public void eliminarCarrera(){
 		////System.out.println("Hay que eliminar carrera: "+listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
 		Carrera carreraAEliminar =main.U.lista_administradores.get(0).GetCarrera(listViewCarrerasInscritas.getSelectionModel().getSelectedItem());
@@ -587,8 +748,7 @@ public class AlumnoOverviewController implements PrincipalController {
 			int id_carreraSeleccionada = carreraSeleccionada.getId_carrera();
 			int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
 			//System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
-			mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
-			
+			this.setTextoMallaActual(indiceDeCarreraSeleccionadaEnAlumno);
 			titlePaneMallasPorCarrera.setText("Mallas de la Carrera "+comboBoxCarrerasInscritas.getValue());
 			
 			
@@ -621,7 +781,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		
 		if(mallaSeleccionada!=null){
 			main.U.alumno_actual.Inscribir_malla_curricular(indiceDeCarreraSeleccionadaEnAlumno, mallaSeleccionada.id_malla);
-			mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
+			this.setTextoMallaActual(indiceDeCarreraSeleccionadaEnAlumno);
 		}
 		
 		
@@ -637,11 +797,22 @@ public class AlumnoOverviewController implements PrincipalController {
 		
 		//// se agrega malla con id -1, lo cual significa que no hay malla.
 		main.U.alumno_actual.Inscribir_malla_curricular(indiceDeCarreraSeleccionadaEnAlumno, -1);
-		mallaActual.setText(""+main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno));
-		
+		this.setTextoMallaActual(indiceDeCarreraSeleccionadaEnAlumno);
 		
 		
 		titlePaneMallasPorCarrera.setText("Mallas de la Carrera "+comboBoxCarrerasInscritas.getValue());
+
+	}
+	private void setTextoMallaActual(int indiceDeCarreraSeleccionadaEnAlumno){
+		int idMallaActual = main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno);
+		String textoAColocar="";
+		if(idMallaActual == -1){
+			textoAColocar = "No se ha seleccionado un malla";
+		}
+		else{
+			textoAColocar = ""+idMallaActual;
+		}
+		mallaActual.setText(textoAColocar);
 
 	}
 
