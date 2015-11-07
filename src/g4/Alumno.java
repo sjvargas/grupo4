@@ -35,7 +35,7 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		if(carreraYaInscrita == false){
 			
 			carreras.add(id_carrera);
-			//mallas_curriculares.add(-1);
+			mallas_curriculares.add(-1);
 
 			
 		}
