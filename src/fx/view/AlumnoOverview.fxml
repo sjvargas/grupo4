@@ -26,7 +26,7 @@
                <children>
                   <Label layoutX="41.0" layoutY="16.0" prefHeight="25.0" prefWidth="117.0" text="semestres anteriores" />
                   <Label layoutX="361.0" layoutY="16.0" prefHeight="25.0" prefWidth="117.0" text="semestres anteriores" />
-                  <ComboBox fx:id="comboBoxSemestres" layoutX="41.0" layoutY="72.0" onAction="#cambioComboBoxSemestres" prefWidth="150.0" />
+                  <ComboBox fx:id="comboBoxSemestres" layoutX="41.0" layoutY="72.0" onAction="#cambioComboBoxSemestres" prefHeight="25.0" prefWidth="228.0" />
                   <ListView fx:id="registrosDeUnSemestre" layoutX="41.0" layoutY="128.0" prefHeight="148.0" prefWidth="551.0" />
                   <Label layoutX="41.0" layoutY="300.0" text="Promedio del Semestre" />
                   <Label layoutX="41.0" layoutY="331.0" text="Total creditos del Semestre" />
