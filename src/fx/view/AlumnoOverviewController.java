@@ -761,6 +761,7 @@ public class AlumnoOverviewController implements PrincipalController {
 			
 			ObservableList<Malla_curricular> items = FXCollections.observableArrayList(mallasPorCarrera);
 			listViewMallasPorCarrera.setItems(items);
+			
 		}
 	
 
