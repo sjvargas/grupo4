@@ -179,8 +179,6 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	
 	public void ClickCerrarSesion(ActionEvent event) {
-		main.U.alumno_actual.Cerrar_sesion();
-		main.U.alumno_actual = null;
 		controlador.setScreen(main.InicioID);
 	}
 	public void ClickVolverMenu(ActionEvent event) {

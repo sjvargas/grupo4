@@ -20,6 +20,7 @@ public class Universidad implements java.io.Serializable {
 	
 	public Administrador_academico administrador_actual;
 	public Alumno alumno_actual;
+	public Profesor profesor_actual;
 	
 	public Universidad(){
 		
@@ -31,8 +32,9 @@ public class Universidad implements java.io.Serializable {
 		lista_administradores = new ArrayList<Administrador_academico>();
 		buscador = new Buscador_de_cursos();
 		lista_cursos = new ArrayList<Curso>();
-		
+
 		alumno_actual = null;
+		profesor_actual = null;
 		administrador_actual = null;
 		
 		lista_profesores.add( new Profesor("sofia", "Sofia", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
