@@ -1,7 +1,7 @@
 package g4;
 
 public class Nota implements java.io.Serializable{
-	private Integer curso;
+	private Integer curso; // guadra el id
 	// es Float y no float para que acepte nulls
 	private Float valor;
 	

@@ -13,6 +13,12 @@ public class Semestre implements java.io.Serializable{
 	private int maximoCreditosPermitidos;
 	public boolean semestreCerrado;
 	
+	
+	private int creditosTotales;
+	private int creditosAprobados;
+	private int creditosReprobados;
+	private float promedioPonderado;
+	
 	public Semestre(String periodo){ //falta que el constructor tenga maximoCreditosPermitidos
 		this.periodo = periodo;
 		//this.maximoCreditosPermitidos = maximoCreditosPermitidos;
@@ -71,6 +77,9 @@ public class Semestre implements java.io.Serializable{
 		}
 		// si se puede cerrar se cierra
 		semestreCerrado = sePuedeCerrar;
+		
+		
+		
 	}
 	
 	public String GetPeriodo(){return periodo;}
@@ -78,5 +87,36 @@ public class Semestre implements java.io.Serializable{
 	public List<Integer> GetCursos(){return cursos;}
 	public List<Nota> GetNotas(){return notas;}
 	public int GetCreditos(){return creditosActuales;}
+	
+	public int getCreditosTotales() {
+		return creditosTotales;
+	}
+	public int getCreditosAprobados() {
+		return creditosAprobados;
+	}
+	public int getCreditosReprobados() {
+		return creditosReprobados;
+	}
+	public float getPromedioPonderado() {
+		return promedioPonderado;
+	}
+	public void setCreditosAprobados(int creditosAprobados) {
+		this.creditosAprobados = creditosAprobados;
+	}
+	public void setCreditosReprobados(int creditosReprobados) {
+		this.creditosReprobados = creditosReprobados;
+	}
+	public void setCreditosTotales(int creditosTotales) {
+		this.creditosTotales = creditosTotales;
+	}
+	public void setPromedioPonderado(float promedioPonderado) {
+		this.promedioPonderado = promedioPonderado;
+	}
+	
+	  @Override
+	  public String toString() {
+		   return "Semestre del periodo: "+this.periodo;
+	   }
+		   
 	
 }

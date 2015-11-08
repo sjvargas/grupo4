@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
@@ -30,6 +31,7 @@ import g4.Universidad;
 import g4.Carrera;
 import g4.Curso;
 import g4.Malla_curricular;
+import g4.Profesor;
 import g4.Sexo;
 import g4.Usuario;
 import javafx.beans.property.SimpleStringProperty;
@@ -43,10 +45,11 @@ public class InicioController implements PrincipalController {
 		
 // el siguiente boolean es para saber si esta en modo alumno (en true) o en modo Admin(en false)
 	boolean modoAlumnoSelecionado;
+	boolean modoProfesorSelecionado;
 	@FXML
     private TextField tFNombreUsuarioIngreso;
 	@FXML
-    private TextField tFContrasenaIngreso;
+    private PasswordField tFContrasenaIngreso;
 	@FXML
     private TextField tfNombreUsuarioRegistro;
 	@FXML
@@ -109,6 +112,31 @@ public class InicioController implements PrincipalController {
 				error_ingreso.setText("tu usuario o contraseña son incorrectas");
 				}
 		}
+		else if (modoProfesorSelecionado){
+			error_ingreso.setText("profeeesor");
+			Profesor profe = null;
+			boolean aux = false;
+			for(Profesor a : main.U.lista_profesores){
+				if (main.U.lista_administradores.isEmpty())
+				{
+					error_ingreso.setText("no existe ningun Profesor");
+					break;
+				}
+				if ( a.GetNombreUsuario().equals(nombre) && a.GetContrasena().equals(clave)){
+					profe = a;
+					aux = true;
+				}
+			}
+			if(aux){
+				
+				profe.Iniciar_sesion();
+				main.U.profesor_actual = profe;
+				controlador.setScreen(main.ProfesorID);
+			}
+			else{
+				error_ingreso.setText("no existe ese Profesor");
+			}
+		}
 		else
 		{
 			error_ingreso.setText("admiiin");
@@ -160,13 +188,19 @@ public class InicioController implements PrincipalController {
 		}
 	}
 	public void seleccionarModoAlumno(){
+		modoProfesorSelecionado = false;
 		modoAlumnoSelecionado = true;
 		//System.out.println("Modo alumno seleccionado");
 	}
 	public void seleccionarModoAdmin(){
+		modoProfesorSelecionado = false;
 		modoAlumnoSelecionado = false;
 		//System.out.println("Modo Admin seleccionado");
-		
+	}
+	public void seleccionarModoProfesor(){
+		modoProfesorSelecionado = true;
+		modoAlumnoSelecionado = false;
+		//System.out.println("Modo alumno seleccionado");
 	}
 
 	public void ActualizarChoiceBoxSexo(ActionEvent event){

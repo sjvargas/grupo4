@@ -36,57 +36,32 @@ public class main extends Application {
 	public static String AdminID = "Admin";
 	public static String BuscadorFile = "BuscadorDeCursos.fxml";
 	public static String BuscadorID = "Buscador";
+	public static String ProfesorFile = "ProfesorOverview.fxml";
+	public static String ProfesorID = "Profesor";
 	
 	public static Universidad U;
 	
 	@Override
 	public void start(Stage primaryStage) {
-		U = new Universidad();
-		Serializador.serializar(U);
-		
-		
+
+//		U = new Universidad();
+//		Serializador.serializar(U);
+
 		U = Serializador.Deserializar();
 		
 		ScreensController Contenedor = new ScreensController();
 		Contenedor.loadScreen(main.AlumnoID, main.AlumnoFile);
 		Contenedor.loadScreen(main.InicioID, main.InicioFile);
 		Contenedor.loadScreen(main.AdminID, main.AdminFile);
+		Contenedor.loadScreen(main.ProfesorID, main.ProfesorFile);
 		Contenedor.loadScreen(main.BuscadorID, main.BuscadorFile);
 		
 		Contenedor.setScreen(main.InicioID);
-		
 		Group root = new Group();
 		root.getChildren().addAll(Contenedor);
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
-		
-//		
-//		try {
-//			
-//			Parent root = FXMLLoader.load(getClass().getResource("inicio.fxml"));
-//			
-//			primaryStage.setTitle("titulo");
-//			primaryStage.setScene(new Scene(root,800,500));
-//			primaryStage.show();
-//			
-//			
-//			//Parent root2 = FXMLLoader.load(getClass().getResource("AdminOverview.fxml"));
-//			//primaryStage.setScene(new Scene(root2,800,500));
-//			//primaryStage.show();
-//			
-//
-//			
-//		
-//			
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}
-		
-		
-		
-		
 	}
 	
 	public static void main(String[] args) {

@@ -18,6 +18,7 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		carreras = new ArrayList<Integer>();
 		mallas_curriculares = new ArrayList<Integer>();
 		acceso = true;		
+		semestre_actual = new Semestre("2015-2");
 	}
 	
 	public void Inscribir_carrera(int id_carrera){
@@ -64,12 +65,25 @@ public class Alumno extends Usuario implements java.io.Serializable{
 	}
 	public void Inscribir_malla_curricular(int indice,int id_malla){
 		// agregar carrera por id
+		//primero se borra la malla actual, luego se agrega la nueva malla (por defecto tienen -1 en mallas no inscritas)
+		mallas_curriculares.remove(indice);
 		mallas_curriculares.add(indice,id_malla);
 	}
 	
 	public void setSemestreActual(Semestre semestre){
 		this.semestre_actual = semestre;
 	}
+	
+	public Semestre getSemestreActual(){
+		return this.semestre_actual;
+	}
+	public void finalizarSemestre(){
+		if(semestre_actual.semestreCerrado == true){
+			this.historial_academico.agregarSemestre(semestre_actual);
+		}
+	}
+	
+	
 	public Historial_Academico GetHistorialAcademico(){return historial_academico;}
 	public List<Integer> GetCarreras(){return carreras;}
 	public List<Integer> GetMallas(){return mallas_curriculares;}

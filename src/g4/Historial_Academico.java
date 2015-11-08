@@ -32,7 +32,7 @@ public class Historial_Academico implements java.io.Serializable{
 		List<Nota> listaNotas = semestreActual.GetNotas();
 		for(int i = 0; listaNotas.size() < i ; i++){
 			Nota n = listaNotas.get(i);
-			if(n.GetNota() <= 4.0){
+			if(n.GetNota() >= 4.0){
 				cantidad_cursos_aprovados += 1;
 				// Falta sumar lo creditos aprovados
 			}
@@ -40,6 +40,17 @@ public class Historial_Academico implements java.io.Serializable{
 				cantidad_cursos_reprobados += 1;
 			}
 		}		
+	}
+	
+	public void agregarSemestre(Semestre semestre){
+		this.semestreActual = semestre;
+		this.ActualizarEstadoCursos();
+		
+		semestres.add(semestre);
+	}
+	
+	public List<Semestre> getSemestres() {
+		return semestres;
 	}
 	
 }
