@@ -100,22 +100,20 @@ public class Universidad implements java.io.Serializable {
 		profesores4.add(lista_profesores.get(0));
 		profesores4.add(lista_profesores.get(2));
 				
-		
-		
 
-		Curso u = new Curso( 1,salas, horario, alumnos, 10, profesores, calculo1);
+		Curso u = new Curso( 1,salas, horario,  10, 1, lista_profesores.get(0), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
-		Curso u2 = new Curso( 1,salas1, horario1, alumnos, 10, profesores1, calculo1);
+		Curso u2 = new Curso( 1,salas1, horario1, 10, 2, lista_profesores.get(1), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u2);
-		Curso u3 = new Curso( 1,salas2, horario2, alumnos, 10, profesores2, calculo1);
+		Curso u3 = new Curso( 1,salas2, horario2, 10, 3, lista_profesores.get(0), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u3);
-		Curso u4 = new Curso( 1,salas3, horario3, alumnos, 10, profesores3, calculo1);
+		Curso u4 = new Curso( 1,salas3, horario3, 10, 4, lista_profesores.get(1), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u4);
-		Curso u5 = new Curso( 1,salas4, horario4, alumnos, 10, profesores4, calculo1);
+		Curso u5 = new Curso( 1,salas4, horario4, 10, 5, lista_profesores.get(2), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u5);
-		Curso u6 = new Curso( 1,salas, horario2, alumnos, 10, profesores, calculo1);
+		Curso u6 = new Curso( 1,salas, horario2, 10, 6, lista_profesores.get(3), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u6);
-		Curso u7 = new Curso( 1,salas1, horario4, alumnos, 10, profesores2, calculo1);
+		Curso u7 = new Curso( 1,salas1, horario4, 10, 7, lista_profesores.get(2), calculo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u7);
 
 		lista_cursos.add(u);
@@ -158,6 +156,15 @@ public class Universidad implements java.io.Serializable {
 		}
 		return null;
 	}
+	
+	public Programacion_Academica GetProgramacionAcademicaPeriodo(String periodo){
+		for(Programacion_Academica programacion: historial_de_progrmacion_academica){
+			if(programacion.periodo.equals(periodo)){
+				return programacion;
+			}
+		}
+		return null;
+	}
 
 	public List<String> GetSiglasRamos(){
 		List<String> listaRetorno = new ArrayList<String>();
@@ -167,4 +174,13 @@ public class Universidad implements java.io.Serializable {
 		}
 		return listaRetorno;
 	}
+
+	public List<String> GetNombresProfesores(){
+		List<String> listaRetorno = new ArrayList<String>();
+		for (Profesor p: lista_profesores){
+			listaRetorno.add(p.GetNombre()+" "+p.GetApellidoPaterno()+" "+p.GetApellidoPaterno());
+		}
+		return listaRetorno;
+	}
+
 }

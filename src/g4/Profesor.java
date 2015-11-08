@@ -17,4 +17,9 @@ public class Profesor extends Usuario implements java.io.Serializable{
 		
 	}
 	public int GetId(){ return id_profesor;}
+	
+	@Override
+	public String toString(){
+		return (GetNombre()+" "+GetApellidoPaterno()+" "+GetApellidoPaterno());
+	}
 }

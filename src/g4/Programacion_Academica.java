@@ -16,9 +16,9 @@ public class Programacion_Academica implements java.io.Serializable {
 	}
 	
 	// se le da toda la informacion, habia que revisar antes cual es el id_curso mas alto para darselo pero eso es otra cosa
-	public  void crear_curso(int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo)
+	public  void crear_curso(int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo)
 	{
-		Curso curso_nuevo = new Curso (semestre,salas,horario,Alumnos,creditos, profesores, ramo);
+		Curso curso_nuevo = new Curso (semestre,salas,horario,creditos ,seccion, profesor, ramo);
 		this.cursos_en_progreso.add(curso_nuevo);
 		this.buscador_de_cursos.todo_cursos.add(curso_nuevo);
 	}

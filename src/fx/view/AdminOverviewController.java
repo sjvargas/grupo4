@@ -16,11 +16,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import jdk.nashorn.internal.runtime.ListAdapter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import g4.Administrador_academico;
 import g4.Carrera;
 import g4.Profesor;
+import g4.Programacion_Academica;
 import g4.Sexo;
 
 public class AdminOverviewController implements PrincipalController {
@@ -124,6 +126,7 @@ public class AdminOverviewController implements PrincipalController {
 	public void ApretarBotonCursos(ActionEvent event){
 		CambiarAPanel(paneAdminCursos);
 		LabelPanelAdminEstado.setText("Cursos");
+		ActualizarChoiceBoxAgregarCurso();
 	}
 	public void ApretarBotonCerrarSesion(ActionEvent event){
 		main.U.administrador_actual.Cerrar_sesion();
@@ -258,7 +261,6 @@ public class AdminOverviewController implements PrincipalController {
 		}
 	}
 	public void ActualizarValoresChoiseBoxProf(){
-		System.out.print("se apreto Choice Box");
 		ObservableList<String> listaCargaRamos = FXCollections.observableList(main.getU().GetSiglasRamos());
 		cBAgPrerreqRamo.setItems(listaCargaRamos);
 		cBAgPrerreqRamo.setValue(listaCargaRamos);
@@ -283,8 +285,7 @@ public class AdminOverviewController implements PrincipalController {
 	@FXML
     private TextField textFieldDecanoCarrera;
 	@FXML
-    private Label labelEstadoAgregarCarrera;
-	
+    private Label labelEstadoAgregarCarrera;	
 	public void AgregarCarrera(){
 		String nombreCarrera = textFieldNombreCarrera.getText();
 		String facultadCarrera = textFieldFacultadCarrera.getText();
@@ -301,7 +302,51 @@ public class AdminOverviewController implements PrincipalController {
 	
 	// MODULO CURSOS
 	
+	@FXML
+	private TextField tFCursoSeccion, tFCursoHorario, tFCursoCreditos, tFCursoSala;
+	@FXML
+	private ChoiceBox cBCursoSiglaRamo, cBCursoPeriodo, cBCursoProfesor;
 	
+	public void ApretarAgregarCurso(ActionEvent event){
+		main.U.GetProgramacionAcademicaPeriodo(cBCursoPeriodo.getValue().toString()).crear_curso(
+				GetSemestre(cBCursoPeriodo.getValue().toString()), GenerarListaSalas(tFCursoSala.getText()), GenerarHorario(tFCursoHorario.getText()),
+				Integer.parseInt(tFCursoCreditos.getText()), Integer.parseInt(tFCursoSeccion.getText()), 
+				(Profesor) cBCursoProfesor.getValue(), main.U.GetRamo((String)cBCursoSiglaRamo.getValue()));		
+	}
+	
+	public void ActualizarChoiceBoxAgregarCurso(){
+		// listado de los ramos
+		ObservableList<String> listaCargaRamos = FXCollections.observableList(main.getU().GetSiglasRamos());
+		cBCursoSiglaRamo.setItems(listaCargaRamos);
+		cBCursoSiglaRamo.setValue(listaCargaRamos);
+		
+		// listado de periodos
+		List<String> periodos = new ArrayList<String>();
+		for (Programacion_Academica j : main.U.historial_de_progrmacion_academica){periodos.add(j.periodo);}
+		ObservableList<String> listaCargaPeriodo = FXCollections.observableList(periodos);
+		cBCursoPeriodo.setItems(listaCargaPeriodo);
+		cBCursoPeriodo.setValue(listaCargaPeriodo);
+		
+		// listado de profesores
+		ObservableList<Profesor> listaCargaProfesores = FXCollections.observableList(main.getU().lista_profesores);
+		cBCursoProfesor.setItems(listaCargaProfesores);
+		cBCursoProfesor.setValue(listaCargaProfesores);
+	}
+	
+	private List<String> GenerarHorario(String stringHorario){
+		String[] listaRetornoSeparado = stringHorario.split(",");
+		return Arrays.asList(listaRetornoSeparado);
+	}
+	
+	private Integer GetSemestre(String periodo){
+		String[] listaRetornoSeparado = periodo.split("-");
+		return Integer.parseInt(Arrays.asList(listaRetornoSeparado).get(1)); 
+	}
+	
+	private List<String> GenerarListaSalas(String stringSalas){
+		String[] listaRetornoSeparado = stringSalas.split(",");
+		return Arrays.asList(listaRetornoSeparado);
+	}
 	
 	// MODULO PROGRAMACION ACADEMICA
 	@FXML

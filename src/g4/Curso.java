@@ -25,6 +25,7 @@ public class Curso implements java.io.Serializable {
     private static int NextId = 0;
 	public int id_curso;
 	public List<Profesor> profesores;
+	public int seccionCurso;
 	public int semestre;
 	public int creditos;
 	public List<String> salas;
@@ -33,12 +34,14 @@ public class Curso implements java.io.Serializable {
 	public Ramo ramo;
 	
 	
-	public Curso(int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo){
+	public Curso(int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
 		this.id_curso =NextId++;
-		this.profesores = profesores;
+		this.profesores = new ArrayList<Profesor>();
+		profesores.add(profesor);
+		this.seccionCurso = seccion;
 		this.semestre = semestre;
 		this.horario = horario;
-		this.lista_alumnos = Alumnos;
+		this.lista_alumnos = new ArrayList<Alumno>();
 		this.creditos = creditos;
 		this.ramo = ramo;
 		
@@ -48,7 +51,7 @@ public class Curso implements java.io.Serializable {
 		
 	}
 	
-////////////////////////////////////
+
 //// GETTERS de atributos
 	public List<String> getHorario() {
 		return horario;
@@ -68,8 +71,8 @@ public class Curso implements java.io.Serializable {
 	public int getSemestre() {
 		return semestre;
 	}
-	public int GetCreditos(){ return creditos;}
-	
+	public int GetSeccion(){ return seccionCurso;}
+	public int GetCreditos(){ return creditos;}	
 	public void agregar_profesor(Profesor profesor){
 		// este metodo recibe un objeto de la case Profesor
 		this.profesores.add(profesor);
@@ -81,9 +84,10 @@ public class Curso implements java.io.Serializable {
 		return this.ramo;
 	}
 	
-	///////////////////////////////
-	//////////////////////////////
-	
+
+	public void AgregarAlumno(Alumno alumno){
+		lista_alumnos.add(alumno);
+	}
 	public void eliminar_profesor(int id_profesor){
 		// este metodo recibe un indice que es un atributo del objeto de la case Profesor
 
@@ -95,13 +99,7 @@ public class Curso implements java.io.Serializable {
 		}
 		
 		// este metodo elima al objeto de la clase profesor que tiene como atributo id el numero ingresado
-	}
-	
-	public int obtener_id(){
-		return this.id_curso;
-		// este metodo devudelve el atributo id_curso
-	}
-	
+	}	
 	public ArrayList<TableColumn<Curso,?>> getColumn(TableView tabla){
 		int i;
 		ArrayList<TableColumn<Curso,?>> columns = new ArrayList<TableColumn<Curso,?>>();
