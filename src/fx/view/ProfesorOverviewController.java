@@ -57,15 +57,15 @@ public class ProfesorOverviewController implements PrincipalController {
 	
 	// EVENTOS BOTONES DEL MENU LATERAL
 	public void ClickInicio(ActionEvent event) {
-		nombre_profesor.setText(main.U.profesor_actual.GetNombre());
-		labelNombre.setText(main.U.profesor_actual.GetNombre());
+		nombre_profesor.setText(main.U.profesor_actual.getNombre());
+		labelNombre.setText(main.U.profesor_actual.getNombre());
 		labelNombreUsuario.setText(main.U.profesor_actual.GetNombreUsuario());
 		labelSexo.setText(main.U.profesor_actual.GetSexo().name());
 		labelEdad.setText(main.U.profesor_actual.GetEdadString());
 		CambiarAPanel(pane_inicio);
 	}	
 	public void ClickHistorialCursos(ActionEvent event) {
-		nombre_profesor.setText(main.U.profesor_actual.GetNombre());
+		nombre_profesor.setText(main.U.profesor_actual.getNombre());
 		CambiarAPanel(pane_historial);
 		columna_historial_sigla.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("sigla"));
 		columna_historial_nombre.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("nombre"));
@@ -83,13 +83,13 @@ public class ProfesorOverviewController implements PrincipalController {
 
 	}	
 	public void ClickEvaluarCursos(ActionEvent event) {
-		nombre_profesor.setText(main.U.profesor_actual.GetNombre());
+		nombre_profesor.setText(main.U.profesor_actual.getNombre());
 		columna_evaluar_nota.setCellValueFactory(new PropertyValueFactory<AlumnoTabla,String>("nota"));
 		columna_evaluar_nombre.setCellValueFactory(new PropertyValueFactory<AlumnoTabla,String>("nombre"));
 		tabla_evaluar_alumno.setItems(data_evaluar);
 		
 		ArrayList<String> nombres_cursos = new ArrayList<String>();
-		ArrayList<Curso> cursos = main.U.buscador.filtrar(null,main.U.profesor_actual.GetNombre(), -1, null,main.U.periodo_actual);
+		ArrayList<Curso> cursos = main.U.buscador.filtrar(null,main.U.profesor_actual.getNombre(), -1, null,main.U.periodo_actual);
 		
 		for (Curso j : cursos){
 			nombres_cursos.add(j.getRamo().getSigla()+"-"+j.getId_curso());}
@@ -100,11 +100,11 @@ public class ProfesorOverviewController implements PrincipalController {
 		CambiarAPanel(pane_evaluar);
 	}	
 	public void ClickForoCursos(ActionEvent event) {
-		nombre_profesor.setText(main.U.profesor_actual.GetNombre());
+		nombre_profesor.setText(main.U.profesor_actual.getNombre());
 		CambiarAPanel(pane_foros);
 	}	
 	public void ClickBuscadorCursos(ActionEvent event) {
-		nombre_profesor.setText(main.U.profesor_actual.GetNombre());
+		nombre_profesor.setText(main.U.profesor_actual.getNombre());
 		controlador.setScreen(main.BuscadorID);
 	}	
 	public void ClickCerrarSesion(ActionEvent event) {
@@ -124,7 +124,7 @@ public class ProfesorOverviewController implements PrincipalController {
 	
 	/// EVENTOS HISTORIAL CURSOS
 	public void ClickHistorialIr(ActionEvent event) {
-		String prof = main.U.profesor_actual.GetNombre();
+		String prof = main.U.profesor_actual.getNombre();
 		String periodo = choicebox_historial_periodo.getValue();
 		ArrayList<Curso> cursos = main.U.buscador.filtrar(null, prof, -1, null,periodo);
 		ArrayList<CursoTabla> ct = new ArrayList<CursoTabla>();
@@ -205,7 +205,7 @@ public class ProfesorOverviewController implements PrincipalController {
 			Float fl = Float.parseFloat(text_field_nota.getText());
 			if (fl>=1 && fl<=7){
 				for (Alumno j : curso_seleccionado.getLista_alumnos()){
-					if (j.GetNombre().equals(label_nombre_alumno.getText())){
+					if (j.getNombre().equals(label_nombre_alumno.getText())){
 						for (Nota u : j.getSemestreActual().GetNotas()){
 							if (u.GetCurso()==curso_seleccionado.getId_curso()){
 								u.SetNota(Float.parseFloat(text_field_nota.getText()));}}}}

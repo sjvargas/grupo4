@@ -17,7 +17,7 @@ public class CursoTabla  implements java.io.Serializable {
 		else{
 			for (Profesor s : curso.getProfesores())
 			{
-			    list += s.GetNombre()+ " "+s.GetApellidoPaterno() + ", ";
+			    list += s.getNombre()+ " "+s.getApellidoPaterno() + ", ";
 			}
 			profesores =  new String(list.substring(0,list.length()-2));
 		}
@@ -32,9 +32,9 @@ public class CursoTabla  implements java.io.Serializable {
 			}
 			horarios = new String(list.substring(0,list.length()-1));
 		}
-		nombre = new String(curso.getRamo().getNombre());
+		nombre = new String(curso.getRamo().getNombreRamo());
 		seccion = new Integer(0);
-		carrera = new String(curso.getRamo().getCarrera().getnombre_carrera());
+		carrera = new String(curso.getRamo().getCarrera().getNombreCarrera());
 	}
 
 	public String getSigla() {

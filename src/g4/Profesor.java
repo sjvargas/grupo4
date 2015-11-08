@@ -16,10 +16,12 @@ public class Profesor extends Usuario implements java.io.Serializable{
 	public void CalificarAlumno(Curso curso, Alumno alumno ,Float nota){
 		
 	}
-	public int GetId(){ return id_profesor;}
+	public int getSueldo(){return sueldo;}
+	public int getId_profesor(){ return id_profesor;}
+	public String getFacultad(){ return facultad;}
 	
 	@Override
 	public String toString(){
-		return (GetNombre()+" "+GetApellidoPaterno()+" "+GetApellidoPaterno());
+		return (getNombre()+" "+getApellidoPaterno()+" "+getApellidoPaterno());
 	}
 }

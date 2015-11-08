@@ -16,9 +16,9 @@ public class Programacion_Academica implements java.io.Serializable {
 	}
 	
 	// se le da toda la informacion, habia que revisar antes cual es el id_curso mas alto para darselo pero eso es otra cosa
-	public  void crear_curso(int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo)
+	public  void crear_curso(String periodo,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo)
 	{
-		Curso curso_nuevo = new Curso (semestre,salas,horario,creditos ,seccion, profesor, ramo);
+		Curso curso_nuevo = new Curso (periodo,salas,horario,creditos ,seccion, profesor, ramo);
 		this.cursos_en_progreso.add(curso_nuevo);
 		this.buscador_de_cursos.todo_cursos.add(curso_nuevo);
 	}
@@ -37,7 +37,7 @@ public class Programacion_Academica implements java.io.Serializable {
 	}
 	
 	// se le entregamos el id de un curso y toda la informacion a cambiar, y si no se decea cambiar, se pone 0 o un null.
-	public  void modificar_curso(int id,int semestre,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo)
+	public  void modificar_curso(int id, String periodo,List<String> salas,List<String> horario, List<Alumno> Alumnos, int creditos , List<Profesor> profesores, Ramo ramo)
 	{
 		for(int i=0; i< this.cursos_en_progreso.size();i++){
 			if((((Curso)cursos_en_progreso.get(i)).id_curso) == id){
@@ -47,7 +47,7 @@ public class Programacion_Academica implements java.io.Serializable {
 
 				 if (profesores != null) {curso_modificado.profesores = profesores;}
 				 if (ramo != null) {curso_modificado.ramo = ramo;}
-				 if (semestre != 0) {curso_modificado.semestre = semestre;}
+				 if (periodo != null) {curso_modificado.periodo = periodo;}
 				 if (horario != null) {curso_modificado.horario = horario;}
 				 if (Alumnos != null) {curso_modificado.lista_alumnos = Alumnos;}
 				 if (creditos != 0) {curso_modificado.creditos = creditos;}

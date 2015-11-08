@@ -30,7 +30,8 @@ public class Ramo implements java.io.Serializable{
 	public Carrera getCarrera() {
 		return carrera;
 	}
-	public String getNombre() {
+	public String getNombreCarrera(){ return carrera.getNombreCarrera();}
+	public String getNombreRamo() {
 		return nombreRamo;
 	}
 	public String getContenidos() {
@@ -47,6 +48,18 @@ public class Ramo implements java.io.Serializable{
 	}
 	public String getSigla() {
 		return sigla;
+	}
+	public String getSemestreImpartidoString(){
+		switch(semestre_impartido){
+		case "1":
+			return "Primero";
+		case "2":
+			return "Segundo";
+		case "0":
+			return "Ambos";
+		default:
+			return "Ambos";
+		}
 	}
 	public List<String> GetPrerrequisitos(){return prerrequisitos;	}
 	////////////////////////////////////

@@ -274,7 +274,7 @@ public class AlumnoOverviewController implements PrincipalController {
 			for(int i=0;i<cursosDelSemestreActual.size();i++){
 				curso_actual = cursosDelSemestreActual.get(0);
 				notaActual = notasDeCursos.get(i).GetNota();
-				stringActual = ""+curso_actual.ramo.getSigla()+" - "+curso_actual.ramo.getNombre()+" - Creditos: "+curso_actual.ramo.getCreditos()+" - Nota:"+notaActual;
+				stringActual = ""+curso_actual.ramo.getSigla()+" - "+curso_actual.ramo.getNombreRamo()+" - Creditos: "+curso_actual.ramo.getCreditos()+" - Nota:"+notaActual;
 				informacionCursos.add(stringActual);
 			}
 			
@@ -483,7 +483,7 @@ public class AlumnoOverviewController implements PrincipalController {
 
 	public void clickvercarrera() {
 		Carrera c = (Carrera) choise_carreras_alumno.getValue();
-		label_nombre_carrera_alumno.setText(c.getnombre_carrera());
+		label_nombre_carrera_alumno.setText(c.getNombreCarrera());
 		label_decano_carrera_alumno.setText(c.getDecano());
 		label_facultad_carrera_alumno.setText(c.getFacultad());
 
@@ -516,7 +516,7 @@ public class AlumnoOverviewController implements PrincipalController {
 
 		for (int i = 0; i < main.U.alumno_actual.GetCarreras().size(); i++) {
 			nombresCarrerasInscritas.add(main.U.lista_administradores.get(0)
-					.GetCarrera(main.U.alumno_actual.GetCarreras().get(i)).getnombre_carrera());
+					.GetCarrera(main.U.alumno_actual.GetCarreras().get(i)).getNombreCarrera());
 
 		}
 
@@ -675,12 +675,12 @@ public class AlumnoOverviewController implements PrincipalController {
 				cursoActual = cursosDelSemestreActual.get(i);
 				notaActual= notasDeCursos.get(i).GetNota();
 				
-				creditosTotales = creditosTotales+cursoActual.GetCreditos();
+				creditosTotales = creditosTotales+cursoActual.getCreditos();
 				if(notaActual>=4){
-					creditosAprobados= creditosAprobados+cursoActual.GetCreditos();
+					creditosAprobados= creditosAprobados+cursoActual.getCreditos();
 				}
 				else{
-					creditosReprobados = creditosReprobados + cursoActual.GetCreditos();
+					creditosReprobados = creditosReprobados + cursoActual.getCreditos();
 				}
 				
 				promedioPonderado = promedioPonderado+notaActual;

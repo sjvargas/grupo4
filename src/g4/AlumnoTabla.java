@@ -7,7 +7,7 @@ public class AlumnoTabla  implements java.io.Serializable {
 	private String nota;
 	
 	public AlumnoTabla(Alumno alumno,int curso){
-		nombre = alumno.GetNombre();
+		nombre = alumno.getNombre();
 		List<Nota> notas = alumno.GetSemestreActual().GetNotas() ;
 		nota = "--";
 		if (!notas.isEmpty()){

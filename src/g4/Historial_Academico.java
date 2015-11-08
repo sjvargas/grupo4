@@ -3,20 +3,24 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
+import fx.view.main;
+
 public class Historial_Academico implements java.io.Serializable{
 	
 	private Semestre semestreActual;
 	private List<Semestre> semestres;
 	private int creditosAprobados;
-	private int cantidad_cursos_aprovados;
+	private int creditosReprobados;
+	private int cantidad_cursos_aprobados;
 	private int cantidad_cursos_reprobados;
 	public int creditosMaximos;
 	
 	public Historial_Academico(){
 		semestreActual = null;
 		semestres = new ArrayList<Semestre>();
-		int creditosAprobados = 0;
-		cantidad_cursos_aprovados = 0;
+		creditosAprobados = 0;
+		creditosReprobados = 0;
+		cantidad_cursos_aprobados = 0;
 		cantidad_cursos_reprobados = 0;
 	}
 	
@@ -33,15 +37,16 @@ public class Historial_Academico implements java.io.Serializable{
 		for(int i = 0; listaNotas.size() < i ; i++){
 			Nota n = listaNotas.get(i);
 			if(n.GetNota() >= 4.0){
-				cantidad_cursos_aprovados += 1;
+				cantidad_cursos_aprobados += 1;
 				// Falta sumar lo creditos aprovados
+				creditosAprobados+=main.U.getCursoConID(n.GetCurso()).getCreditos();
 			}
 			else{
 				cantidad_cursos_reprobados += 1;
+				creditosReprobados+=main.U.getCursoConID(n.GetCurso()).getCreditos();
 			}
 		}		
 	}
-	
 	public void agregarSemestre(Semestre semestre){
 		this.semestreActual = semestre;
 		this.ActualizarEstadoCursos();
@@ -52,5 +57,6 @@ public class Historial_Academico implements java.io.Serializable{
 	public List<Semestre> getSemestres() {
 		return semestres;
 	}
-	
+	public int getCreditosAprobados(){ return creditosAprobados;}
+	public int getCreditosReprobados() { return creditosReprobados;}
 }

@@ -10,10 +10,15 @@ public class Alumno extends Usuario implements java.io.Serializable{
 	private List<Integer> mallas_curriculares;
 	public boolean acceso;
 	private Semestre semestre_actual;
+	// para  el id del alumno
+    private static int NextId = 0;
+	private int idAlumno;
+	
 	
 	// Constructor
 	public Alumno(String nombreUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, Sexo sexo, int edad){
 		super(nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad);
+		this.idAlumno = NextId++;
 		historial_academico = new Historial_Academico();
 		carreras = new ArrayList<Integer>();
 		mallas_curriculares = new ArrayList<Integer>();
@@ -83,10 +88,12 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		}
 	}
 	
-	
+	public int getCreditosAprobados(){ return historial_academico.getCreditosAprobados();}
+	public int getCreditosReprobados() { return historial_academico.getCreditosReprobados();}
+	public int getIdAlumno(){ return idAlumno;}
 	public Historial_Academico GetHistorialAcademico(){return historial_academico;}
 	public List<Integer> GetCarreras(){return carreras;}
 	public List<Integer> GetMallas(){return mallas_curriculares;}
-	public boolean GetAcceso(){return acceso;}
+	public boolean getAcceso(){return acceso;}
 	public Semestre GetSemestreActual(){return semestre_actual;}
 }

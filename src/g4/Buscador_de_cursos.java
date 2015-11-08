@@ -66,7 +66,7 @@ public class Buscador_de_cursos implements java.io.Serializable{
 			boolean aux1 = false;
 			if (j.profesores!=null){
 				for (Profesor i : j.profesores) {
-					if (i.GetNombre().toLowerCase().contains(nombre_profesor.toLowerCase()))
+					if (i.getNombre().toLowerCase().contains(nombre_profesor.toLowerCase()))
 					{
 						aux1 = true;
 					}

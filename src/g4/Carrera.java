@@ -20,14 +20,14 @@ public class Carrera implements java.io.Serializable{
     private static int NextId = 0;
 	private int id_carrera;
 	private List<Malla_curricular> mallas_curriculares;
-	private String Decano;
+	private String decano;
 	private String facultad;
-	private String nombre;
+	private String nombreCarrera;
 	
-	public Carrera(String decano, String facultad,String nombre){
+	public Carrera(String decano, String facultad,String nombreCarrera){
 		this.id_carrera = NextId++;
-		this.Decano= decano;
-		this.nombre= nombre;
+		this.decano= decano;
+		this.nombreCarrera= nombreCarrera;
 		this.facultad = facultad;
 		
 		mallas_curriculares = new ArrayList<Malla_curricular>();
@@ -39,7 +39,7 @@ public class Carrera implements java.io.Serializable{
 //// GETTERS de atributos
 	
 	public String getDecano() {
-		return Decano;
+		return decano;
 	}
 	public String getFacultad() {
 		return facultad;
@@ -47,8 +47,8 @@ public class Carrera implements java.io.Serializable{
 	public int getId_carrera() {
 		return id_carrera;
 	}
-	public String getnombre_carrera() {
-		return nombre;
+	public String getNombreCarrera() {
+		return nombreCarrera;
 	}
 	public List<Malla_curricular> getMallas_curriculares() {
 		return mallas_curriculares;
@@ -78,7 +78,7 @@ public class Carrera implements java.io.Serializable{
 	
 	   @Override
 	 public String toString() {
-		   return nombre;
+		   return nombreCarrera;
 	   }
 	   
 	   

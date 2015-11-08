@@ -72,7 +72,7 @@ public class Administrador_academico extends Usuario implements java.io.Serializ
 	
 	public Carrera GetCarrera(String nombreCarrera){
 		for(Carrera c : main.U.lista_carreras){
-			if(c.getnombre_carrera() == nombreCarrera){
+			if(c.getNombreCarrera() == nombreCarrera){
 				return c;
 			}
 		}

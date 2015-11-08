@@ -26,7 +26,7 @@ public class Curso implements java.io.Serializable {
 	public int id_curso;
 	public List<Profesor> profesores;
 	public int seccionCurso;
-	public int semestre;
+	public String periodo;
 	public int creditos;
 	public List<String> salas;
 	public List<String> horario;
@@ -34,12 +34,12 @@ public class Curso implements java.io.Serializable {
 	public Ramo ramo;
 	
 	
-	public Curso(int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
+	public Curso(String periodo,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
 		this.id_curso =NextId++;
 		this.profesores = new ArrayList<Profesor>();
 		profesores.add(profesor);
 		this.seccionCurso = seccion;
-		this.semestre = semestre;
+		this.periodo = periodo;
 		this.horario = horario;
 		this.lista_alumnos = new ArrayList<Alumno>();
 		this.creditos = creditos;
@@ -68,11 +68,11 @@ public class Curso implements java.io.Serializable {
 	public List<String> getSalas() {
 		return salas;
 	}
-	public int getSemestre() {
-		return semestre;
+	public String getPeriodo() {
+		return periodo;
 	}
-	public int GetSeccion(){ return seccionCurso;}
-	public int GetCreditos(){ return creditos;}	
+	public int getSeccionCurso(){ return seccionCurso;}
+	public int getCreditos(){ return creditos;}	
 	public void agregar_profesor(Profesor profesor){
 		// este metodo recibe un objeto de la case Profesor
 		this.profesores.add(profesor);
@@ -83,8 +83,12 @@ public class Curso implements java.io.Serializable {
 	public Ramo getRamo(){
 		return this.ramo;
 	}
+	public String getNombreProfesorPrincipal(){
+		return profesores.get(0).toString();
+	}
+	public String getNombreCurso(){ return ramo.getNombreRamo();}
 	
-
+	
 	public void AgregarAlumno(Alumno alumno){
 		lista_alumnos.add(alumno);
 	}
