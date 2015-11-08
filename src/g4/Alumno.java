@@ -65,6 +65,8 @@ public class Alumno extends Usuario implements java.io.Serializable{
 	}
 	public void Inscribir_malla_curricular(int indice,int id_malla){
 		// agregar carrera por id
+		//primero se borra la malla actual, luego se agrega la nueva malla (por defecto tienen -1 en mallas no inscritas)
+		mallas_curriculares.remove(indice);
 		mallas_curriculares.add(indice,id_malla);
 	}
 	
