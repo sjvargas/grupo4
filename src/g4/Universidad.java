@@ -11,6 +11,9 @@ public class Universidad implements java.io.Serializable {
 	public List<Programacion_Academica> historial_de_progrmacion_academica;
     private Random rn;
 	
+    private List<String> periodosOcupados;
+    private List<String> periodosLibres;
+
 	public List<Carrera> lista_carreras;
 	public List<Ramo> lista_ramos;
 	public List<Profesor> lista_profesores;
@@ -28,6 +31,8 @@ public class Universidad implements java.io.Serializable {
 	public Universidad(){
 		
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
+		periodosOcupados = new ArrayList<String>();
+		periodosLibres = new ArrayList<String>();
 		lista_carreras = new ArrayList<Carrera>();
 		lista_profesores = new ArrayList<Profesor>();
 		lista_ramos = new ArrayList<Ramo>();		
@@ -79,6 +84,12 @@ public class Universidad implements java.io.Serializable {
 		}
 		
 		
+			periodosLibres.add("2015-2");
+		for(int i=2016; i<= 2022; i++){
+			periodosLibres.add(i+"-1");
+			periodosLibres.add(i+"-2");
+		}
+		
 		//carreras parten desde indice 1 nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad
 		lista_alumnos.add(new Alumno("juan","juan", "perez", "lopez", "123", Sexo.Masculino, 20 ));
 		lista_alumnos.add(new Alumno("max", "max", "garcia", "sanchez", "1", Sexo.Masculino, 21 ));
@@ -102,8 +113,10 @@ public class Universidad implements java.io.Serializable {
 		
 		
 		historial_de_progrmacion_academica.add(new Programacion_Academica("2015-2"));
+		UsarPeriodo("2015-2");
 		historial_de_progrmacion_academica.add(new Programacion_Academica("2016-1"));
-
+		UsarPeriodo("2016-1");
+		
 		lista_alumnos.get(0).Inscribir_carrera(2);
 		Malla_curricular malla1 = new Malla_curricular(0);
 		Malla_curricular malla2 = new Malla_curricular(1);
@@ -304,6 +317,11 @@ public class Universidad implements java.io.Serializable {
 		}
 		return listaRetorno;
 	}
+	
+	public void UsarPeriodo(String periodo){
+		periodosLibres.remove(periodo);
+		periodosOcupados.add(periodo);
+	}
 
 	public List<String> GetNombresProfesores(){
 		List<String> listaRetorno = new ArrayList<String>();
@@ -321,4 +339,15 @@ public class Universidad implements java.io.Serializable {
 		}
 	}
 
+	
+	public List<Curso> getCursosProgramacionAcademica(String periodo){
+		for(Programacion_Academica PA: historial_de_progrmacion_academica){
+			if(PA.periodo == periodo){
+				return PA.cursos_en_progreso;
+			}
+		}
+		return null;
+	}
+	public List<String> getPeriodosLibres(){ return periodosLibres;}
+	public List<String> getPeriodosOcupados(){ return periodosOcupados;}
 }
