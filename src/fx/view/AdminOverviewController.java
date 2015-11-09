@@ -353,6 +353,7 @@ public class AdminOverviewController implements PrincipalController {
 		String siglaPrerrequisito = cBAgPrerreqPrerrequisito.getValue().toString();
 		main.U.administrador_actual.AgregarPrerrequisito(siglaRamo, siglaPrerrequisito);
 		System.out.println("para"+ siglaRamo+"el prerrequisito es" + main.getU().GetRamo(siglaRamo).GetPrerrequisitos().get(0));
+		ActualizarVistasTablaRamos();
 	}
 	
 	public void ActualizarVistasTablaRamos(){
@@ -397,6 +398,7 @@ public class AdminOverviewController implements PrincipalController {
 		if(nombreCarrera!="" && facultadCarrera!="" && decanoCarrera!=""){
 			main.U.administrador_actual.agregar_carrera(decanoCarrera, facultadCarrera, nombreCarrera);
 			labelEstadoAgregarCarrera.setText("Carrera Agregada");
+			ActualizarVistasTablaCarreras();
 		}
 		else{
 			labelEstadoAgregarCarrera.setText("Campo Vacio");
