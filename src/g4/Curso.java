@@ -44,6 +44,7 @@ public class Curso implements java.io.Serializable {
 		this.lista_alumnos = new ArrayList<Alumno>();
 		this.creditos = creditos;
 		this.ramo = ramo;
+		this.salas = salas;
 		
 	//	profesores = new ArrayList<Profesor>();
 	//	salas = new ArrayList<String>();
