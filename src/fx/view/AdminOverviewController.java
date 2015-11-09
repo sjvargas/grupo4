@@ -100,10 +100,12 @@ public class AdminOverviewController implements PrincipalController {
 	public void ApretarBotonInicio(ActionEvent event){
 		CambiarAPanel(paneAdminInicio);
 		LabelPanelAdminEstado.setText("Inicio");
-		labelNombre.setText(main.U.administrador_actual.getNombre());
-		labelNombreUsuario.setText(main.U.administrador_actual.GetNombreUsuario());
-		labelSexo.setText(main.U.administrador_actual.GetSexo().name());
-		labelEdad.setText(main.U.administrador_actual.GetEdadString());
+		labelInicioNombre.setText(main.U.administrador_actual.getNombre());
+		labelInicioNombreUsuario.setText(main.U.administrador_actual.GetNombreUsuario());
+		labelInicioApPat.setText(main.U.administrador_actual.getApellidoPaterno());
+		labelInicioApMat.setText(main.U.administrador_actual.getApellidoMaterno());
+		labelInicioSexo.setText(main.U.administrador_actual.GetSexo().name());
+		labelInicioEdad.setText(main.U.administrador_actual.GetEdadString());
 	}
 	public void ApretarBotonProfesores(ActionEvent event){
 		CambiarAPanel(paneAdminProfesores);
@@ -129,6 +131,7 @@ public class AdminOverviewController implements PrincipalController {
 	public void ApretarBotonProgramacion(ActionEvent event){
 		CambiarAPanel(paneAdminProgramacionAcademica);
 		LabelPanelAdminEstado.setText("Programacion Academica");
+		ActualizarChoiceBoxProgramacionAcademica();
 	}
 	public void ApretarBotonModificarDatos(ActionEvent event){
 		CambiarAPanel(paneAdminModificarDatos);
@@ -150,13 +153,17 @@ public class AdminOverviewController implements PrincipalController {
 	
 	// MODULO INICIO:
 	@FXML
-    private Label labelNombre;
+    private Label labelInicioNombre;
 	@FXML
-    private Label labelNombreUsuario;
+    private Label labelInicioApPat;
 	@FXML
-    private Label labelSexo;
+    private Label labelInicioApMat;
 	@FXML
-    private Label labelEdad;
+    private Label labelInicioNombreUsuario;
+	@FXML
+    private Label labelInicioSexo;
+	@FXML
+    private Label labelInicioEdad;
 	
 	// MODULO PROFESORES:
 	@FXML
@@ -346,6 +353,7 @@ public class AdminOverviewController implements PrincipalController {
 		String siglaPrerrequisito = cBAgPrerreqPrerrequisito.getValue().toString();
 		main.U.administrador_actual.AgregarPrerrequisito(siglaRamo, siglaPrerrequisito);
 		System.out.println("para"+ siglaRamo+"el prerrequisito es" + main.getU().GetRamo(siglaRamo).GetPrerrequisitos().get(0));
+		ActualizarVistasTablaRamos();
 	}
 	
 	public void ActualizarVistasTablaRamos(){
@@ -390,6 +398,7 @@ public class AdminOverviewController implements PrincipalController {
 		if(nombreCarrera!="" && facultadCarrera!="" && decanoCarrera!=""){
 			main.U.administrador_actual.agregar_carrera(decanoCarrera, facultadCarrera, nombreCarrera);
 			labelEstadoAgregarCarrera.setText("Carrera Agregada");
+			ActualizarVistasTablaCarreras();
 		}
 		else{
 			labelEstadoAgregarCarrera.setText("Campo Vacio");
@@ -481,19 +490,54 @@ public class AdminOverviewController implements PrincipalController {
 	
 	// MODULO PROGRAMACION ACADEMICA
 	@FXML
-    private TextField textFieldSemestreProgramacionAcademica;
+    private ChoiceBox tBPeriodoCrearPA;
+	@FXML
+    private ChoiceBox cBPeriodoVerCursoPA;
 	@FXML
     private Label LabelEstadoProgramacionAcademica;
+	@FXML
+	private TableView<Curso> tViewCursosPA;
+	@FXML
+	private TableColumn<Curso,String> tCNombreCursoPA, tCProfesorCursoPA;
+	@FXML
+	private TableColumn<Curso,Integer> tCIdCursoPA, tCSeccionCursoPA, tCCreditosCursoPA;
+	@FXML
+	private ObservableList<Curso> datosCursosPA = FXCollections.observableArrayList();
+	
+	
+	
+	public void ActualizarVistasTablaCursosPA(ActionEvent event){
+		tCNombreCursoPA.setCellValueFactory(new PropertyValueFactory<Curso,String>("nombreCurso"));
+		tCProfesorCursoPA.setCellValueFactory(new PropertyValueFactory<Curso,String>("nombreProfesorPrincipal"));
+		tCIdCursoPA.setCellValueFactory(new PropertyValueFactory<Curso,Integer>("id_curso"));
+		tCSeccionCursoPA.setCellValueFactory(new PropertyValueFactory<Curso,Integer>("seccionCurso"));
+		tCCreditosCursoPA.setCellValueFactory(new PropertyValueFactory<Curso,Integer>("creditos"));
+		tViewCursosPA.setItems(datosCursosPA);
+		if(cBPeriodoVerCursoPA.getValue().toString()!=""){
+			List<Curso> cursosPA = main.U.getCursosProgramacionAcademica(cBPeriodoVerCursoPA.getValue().toString());
+			datosCursosPA = FXCollections.observableArrayList(cursosPA);
+			tViewCursosPA.setItems(datosCursosPA);
+		}
+	}
 	
 	public void AgregarProgramacionAcademica(){
-		String semestre = textFieldSemestreProgramacionAcademica.getText();
-		if(semestre != ""){
-			main.U.administrador_actual.crear_programacion_academica(semestre);
-			LabelEstadoProgramacionAcademica.setText("Agregado");
-		}
-		else{
-			LabelEstadoProgramacionAcademica.setText("Campo Vacio");
-		}
+		String periodo = tBPeriodoCrearPA.getValue().toString();
+		main.U.administrador_actual.crear_programacion_academica(periodo);
+		LabelEstadoProgramacionAcademica.setText("Agregado");
+		ActualizarChoiceBoxProgramacionAcademica();
+
+	}
+	
+	public void ActualizarChoiceBoxProgramacionAcademica(){
+
+		ObservableList<String> listaPeriodosDisponibles = FXCollections.observableList(main.getU().getPeriodosLibres());
+		tBPeriodoCrearPA.setItems(listaPeriodosDisponibles);
+		tBPeriodoCrearPA.setValue(listaPeriodosDisponibles);
+		
+
+		ObservableList<String> listaPeriodosOcupados = FXCollections.observableList(main.getU().getPeriodosOcupados());
+		cBPeriodoVerCursoPA.setItems(listaPeriodosOcupados);
+		cBPeriodoVerCursoPA.setValue(listaPeriodosOcupados);
 	}
 
 	/// metodo para realizar el cambio de paginas.
@@ -503,6 +547,29 @@ public class AdminOverviewController implements PrincipalController {
 	}
 	
 	// MODULO MODIFICAR DATOS
+	
+	@FXML
+    private TextField tBModificarNombre;
+	@FXML
+    private TextField tBModificarApPat;
+	@FXML
+    private TextField tBModificarApMat;
+	@FXML
+    private TextField tBModificarEdad;
+	@FXML
+    private TextField tBModificarContrasena;
+	
+	
+	public void ApretoModificarDatos(ActionEvent event){
+		String nombreNuevo = tBModificarNombre.getText();
+		String apPatNuevo = tBModificarApPat.getText();
+		String apMatNuevo = tBModificarApMat.getText();
+		String edadNueva = tBModificarEdad.getText();
+		String contrasenaNueva = tBModificarContrasena.getText();
+		if(nombreNuevo!=""&&apPatNuevo!=""&&apMatNuevo!=""&&edadNueva!=""&&contrasenaNueva!=""){
+			main.U.administrador_actual.ModificarDatos(nombreNuevo, apPatNuevo, apMatNuevo, contrasenaNueva, Integer.parseInt(edadNueva));
+		}
+	}
 	
 	
 	

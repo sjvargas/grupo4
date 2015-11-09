@@ -38,5 +38,12 @@ public class Usuario implements java.io.Serializable{
 	public Integer GetEdad(){return edad;}
 	public String GetEdadString(){return Integer.toString(edad);}
 	public Boolean GetConectado(){return conectado;}
+	public void ModificarDatos(String nombre, String apellidoPaterno, String apellidoMaterno, String contrasena, int edad){
+		this.nombre = nombre;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+		this.contrasena = contrasena;
+		this.edad = edad;
+	}
 
 }

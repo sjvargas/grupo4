@@ -26,6 +26,7 @@ public class Administrador_academico extends Usuario implements java.io.Serializ
 	}
 	
 	public void crear_programacion_academica(String periodo){
+		main.U.UsarPeriodo(periodo);
 		Programacion_Academica nueva_progra = new Programacion_Academica(periodo);
 	}
 	
