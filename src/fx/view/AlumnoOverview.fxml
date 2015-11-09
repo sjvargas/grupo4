@@ -18,8 +18,18 @@
             </Label>
             <Pane fx:id="pane_cursos_alumno" layoutX="107.0" layoutY="54.0" prefHeight="443.0" prefWidth="630.0" visible="false">
                <children>
-                  <ChoiceBox layoutX="27.0" layoutY="68.0" prefHeight="25.0" prefWidth="136.0" />
-                  <Label layoutX="28.0" layoutY="26.0" prefHeight="25.0" prefWidth="158.0" text="todos los ramos" />
+                  <Label layoutX="28.0" layoutY="26.0" prefHeight="25.0" prefWidth="158.0" text=" Cursos del Semestre Actual" />
+                  <ComboBox fx:id="comboBoxCursos" layoutX="57.0" layoutY="68.0" onAction="#cambioComboBoxCurso" prefWidth="150.0" />
+                  <Label layoutX="149.0" layoutY="143.0" text="Nombre" />
+                  <Label layoutX="149.0" layoutY="177.0" text="Sigla" />
+                  <Label layoutX="148.0" layoutY="213.0" text="Sección" />
+                  <Label layoutX="148.0" layoutY="247.0" text="Horario" />
+                  <Label layoutX="148.0" layoutY="280.0" text="Sala" />
+                  <TextField fx:id="textFieldNombreCurso" layoutX="207.0" layoutY="139.0" />
+                  <TextField fx:id="textFieldSiglaCurso" layoutX="207.0" layoutY="173.0" />
+                  <TextField fx:id="textFieldSeccionCurso" layoutX="207.0" layoutY="209.0" />
+                  <TextField fx:id="textFieldHorarioCurso" layoutX="207.0" layoutY="243.0" />
+                  <TextField fx:id="textFieldSalaCurso" layoutX="207.0" layoutY="276.0" />
                </children>
             </Pane>
             <Pane fx:id="pane_semestres_alumno" layoutX="117.0" layoutY="64.0" prefHeight="443.0" prefWidth="630.0" visible="false">

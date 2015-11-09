@@ -112,6 +112,10 @@ public class Curso implements java.io.Serializable {
 		return columns;
 	}
 	
+	 @Override
+	 public String toString() {
+		   return this.ramo.getNombreRamo()+"-"+this.seccionCurso;
+	  }
 	
 
 }

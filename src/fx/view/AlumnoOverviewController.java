@@ -147,7 +147,38 @@ public class AlumnoOverviewController implements PrincipalController {
 	Button buttonEliminarMalla;
 	 ////FIN elementos Malla
 
+	//// inicio Elementos MALLA
+	@FXML
+	TextField textFieldNombreCurso;
+	@FXML
+	TextField textFieldSiglaCurso;
+	@FXML
+	TextField textFieldSeccionCurso;
+	@FXML
+	TextField textFieldHorarioCurso;
+	@FXML
+	TextField textFieldSalaCurso;
+	@FXML
+	ComboBox<Curso> comboBoxCursos;
 	
+	public void cambioComboBoxCurso(){
+		Curso cursoActual= comboBoxCursos.getValue();
+		if(cursoActual!=null){
+			textFieldNombreCurso.setText(cursoActual.getRamo().getNombreRamo());
+			textFieldSiglaCurso.setText(cursoActual.getRamo().getSigla());
+			textFieldSeccionCurso.setText(""+cursoActual.getSeccionCurso());
+			if(cursoActual.getHorario()!=null && cursoActual.getHorario().size()>1){
+				textFieldHorarioCurso.setText(cursoActual.getHorario().get(0));
+				
+			}
+			if(cursoActual.getSalas()!=null && cursoActual.getSalas().size()>0){
+				textFieldSalaCurso.setText(cursoActual.getSalas().get(0));
+
+			}
+		}
+	}
+	
+	////fin Elementos MALLA
 	
 	/////INICIO ELEMENTOS DE SEMESTRES
 	@FXML
@@ -300,10 +331,25 @@ public class AlumnoOverviewController implements PrincipalController {
 	}
 	public void clickcursos() {
 		mostrar_panel(pane_cursos_alumno);
+		
+		
+		List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
+		
+		if(main.U.alumno_actual.getSemestreActual()!=null){
+			List<Integer> idCursos = main.U.alumno_actual.getSemestreActual().GetCursos();
+			for(int i=0;i<idCursos.size();i++){
+				cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(i)));
+			}
 
-		// ObservableList<Curso> ss =
-		// FXCollections.observableList(main.U.lista_administradores.get(0).getListaCarrera());
-		// choise_carreras_alumno.setItems(ss);
+			ObservableList<Curso> ss = FXCollections
+					.observableList(cursosDelSemestreActual);
+			comboBoxCursos.setItems(ss);
+			if(cursosDelSemestreActual.size()>0){
+				comboBoxCursos.setValue(cursosDelSemestreActual.get(0));
+			}
+		}
+
+		
 	}
 
 	public void clickcarreras() {
