@@ -199,10 +199,10 @@ public class BuscadorDeCursosController implements PrincipalController {
 		if (main.U.alumno_actual!=null){
 			controlador.setScreen(main.AlumnoID);
 		}
-		if (main.U.administrador_actual!=null){
+		else if (main.U.administrador_actual!=null){
 			controlador.setScreen(main.AdminID);
 		}		
-		if (main.U.profesor_actual!=null){
+		else if (main.U.profesor_actual!=null){
 			controlador.setScreen(main.ProfesorID);
 		}
 		else{
