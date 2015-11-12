@@ -32,6 +32,7 @@ public class Curso implements java.io.Serializable {
 	public List<String> horario;
 	public List<Alumno> lista_alumnos;
 	public Ramo ramo;
+	public List<Tema> temas;
 	
 	
 	public Curso(String periodo,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
@@ -45,6 +46,7 @@ public class Curso implements java.io.Serializable {
 		this.creditos = creditos;
 		this.ramo = ramo;
 		this.salas = salas;
+		this.temas = new ArrayList<Tema>();
 		
 	//	profesores = new ArrayList<Profesor>();
 	//	salas = new ArrayList<String>();
@@ -118,5 +120,13 @@ public class Curso implements java.io.Serializable {
 		   return this.ramo.getNombreRamo()+"-"+this.seccionCurso;
 	  }
 	
+	 public List<Tema> getTema(){
+		 return temas;
+	 }
+	 
+	 public String  AgregarTema(String titulo, String texto){
+		 temas.add(new Tema(titulo,texto));
+		 return "tema creado con exito!";
+	 }
 
 }
