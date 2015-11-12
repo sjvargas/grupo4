@@ -155,6 +155,51 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		
 	}
 	
+	public boolean cumpleTopesCursoPreviamenteInscritos(Curso curso){
+		
+		List<String> horariosNuevoCurso = curso.getHorario();
+		List<Curso> cursosYaInscritosSemestreActual = new ArrayList<Curso>();
+		List<Integer> idCursos = semestre_actual.GetCursos();
+		
+		/* Con el siguiente metodo se CONSIDERA TOPE CON EL MISMO CURSO SI YA ESTA INCRITO EL CURSO QUE QUEREMOS INSCRIBIR
+		for(int z=0;z<idCursos.size();z++){
+			cursosYaInscritosSemestreActual.add(main.U.getCursoConID(idCursos.get(z)));
+		}
+		*/
+		
+		// NO TIRA TOPE AL EVALUAR CON EL MISMO CURSO YA INSCRITO
+		for(int z=0;z<idCursos.size();z++){
+			if(idCursos.get(z).equals(curso.getId_curso())==false){
+				cursosYaInscritosSemestreActual.add(main.U.getCursoConID(idCursos.get(z)));
+
+			}
+		}
+		
+		//vamos uno por uno los horarios del nuevo curso		
+		for(int i=0;i<horariosNuevoCurso.size();i++){
+			
+			String horarioActual = horariosNuevoCurso.get(i);
+			
+			// recorremos todos los cursos ya inscritos
+			for(int j=0;j<cursosYaInscritosSemestreActual.size();j++){
+				List<String> horariosCursoYaInscritoActual = cursosYaInscritosSemestreActual.get(j).getHorario();
+				
+				
+				//recorremos todos los horarios de cada curso ya inscrito
+				for(int z=0;z<horariosCursoYaInscritoActual.size();z++){
+					if(horarioActual.equals(horariosCursoYaInscritoActual.get(z))){
+						return false;
+					}
+				}
+			}
+			
+		}
+		return true;
+		
+		
+		
+	}
+	
 	public int getCreditosAprobados(){ return historial_academico.getCreditosAprobados();}
 	public int getCreditosReprobados() { return historial_academico.getCreditosReprobados();}
 	public int getIdAlumno(){ return idAlumno;}

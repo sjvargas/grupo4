@@ -605,18 +605,26 @@ public class AlumnoOverviewController implements PrincipalController {
 
 			Curso cursoActual;
 			// Se revisan las casillas para los cursos, si no estan vacias, se agregan a la lista de cursos
-			
+			Alumno alumnoActual = main.U.alumno_actual;
 			if(text_curso1_semestre_actual.getText().isEmpty() == false){
 				
 				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso1_semestre_actual.getText()));
 				
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual) ){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso1_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso1_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso1_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso1_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						// caso de tope horario 
+						text_curso1_semestre_actual.setText("NO CUMPLE TOPE HORARIO");
+						text_curso1_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
 				}
 				
 				if(text_nota1_semestre_actual.getText().isEmpty() == false){
@@ -630,13 +638,22 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso2_semestre_actual.getText().isEmpty() == false){
 				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso2_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso2_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso2_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso2_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso2_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						// caso de tope horario 
+						text_curso2_semestre_actual.setText("NO CUMPLE TOPE HORARIO");
+						text_curso2_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
 				}
 				
 				if(text_nota2_semestre_actual.getText().isEmpty() == false){
@@ -650,13 +667,22 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso3_semestre_actual.getText().isEmpty() == false){
 				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso3_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso3_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso3_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso3_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso3_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						//caso no cumple tope horario
+						text_curso3_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso3_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
 				}
 				
 				if(text_nota3_semestre_actual.getText().isEmpty() == false){
@@ -670,13 +696,22 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso4_semestre_actual.getText().isEmpty() == false){
 				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso4_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso4_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso4_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso4_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso4_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						//caso no cumple tope horario
+						text_curso4_semestre_actual.setText("NO CUMPLE CON TOPE");
+						text_curso4_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
 				}
 				
 				if(text_nota4_semestre_actual.getText().isEmpty() == false){
@@ -690,13 +725,23 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso5_semestre_actual.getText().isEmpty() == false){
 				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso5_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso5_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso5_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso5_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso5_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						//caso no cumple tope horario
+						text_curso5_semestre_actual.setText("NO CUMPLE CON TOPE");
+						text_curso5_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
+					
 				}
 				if(text_nota5_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota5_semestre_actual.getText()));
@@ -709,13 +754,22 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso6_semestre_actual.getText().isEmpty() == false){
 				cursoActual= main.U.getCursoConID(Integer.parseInt(""+text_curso6_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso6_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso6_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso6_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso6_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						//caso no cumple tope horario
+						text_curso6_semestre_actual.setText("NO CUMPLE CON TOPE");
+						text_curso6_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
 				}
 				if(text_nota6_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota6_semestre_actual.getText()));
@@ -728,13 +782,22 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso7_semestre_actual.getText().isEmpty() == false){
 				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso7_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso7_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso7_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso7_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso7_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						//caso no cumple tope horario
+						text_curso7_semestre_actual.setText("NO CUMPLE CON TOPE");
+						text_curso7_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
 				}
 				
 				if(text_nota7_semestre_actual.getText().isEmpty() == false){
@@ -748,13 +811,22 @@ public class AlumnoOverviewController implements PrincipalController {
 			}
 			if(text_curso8_semestre_actual.getText().isEmpty() == false){
 				cursoActual= main.U.getCursoConID(Integer.parseInt(""+text_curso8_semestre_actual.getText()));
-				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual)){
 					listaCursos.add(cursoActual);
 				}
 				else{
-					text_curso8_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
-					text_curso8_semestre_actual.setStyle("-fx-text-fill: red;");
-					return false;
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						text_curso8_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+						text_curso8_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					else{
+						//caso no cumple tope horario
+						text_curso8_semestre_actual.setText("NO CUMPLE CON TOPE");
+						text_curso8_semestre_actual.setStyle("-fx-text-fill: red;");
+						return false;
+					}
+					
 				}
 				if(text_nota8_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota8_semestre_actual.getText()));
