@@ -132,7 +132,8 @@ public class Universidad implements java.io.Serializable {
 		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3", "redes y hacer sufrir a los alumnos", "desarrollar pensamiento");
 		lista_ramos.add(ramo1);lista_ramos.add(ramo2);lista_ramos.add(ramo3);lista_ramos.add(ramo4);lista_ramos.add(ramo5);lista_ramos.add(ramo6);
 		
-		
+		ramo2.AgregarPrerrequisito(ramo1.getSigla());
+		ramo3.AgregarPrerrequisito(ramo2.getSigla());
 
 		List<String> salas = new ArrayList<String>();
 		salas.add("A1"); salas.add("B16");

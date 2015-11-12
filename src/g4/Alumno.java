@@ -2,6 +2,8 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
+import fx.view.main;
+
 public class Alumno extends Usuario implements java.io.Serializable{
 	private Historial_Academico historial_academico;
 	// Lista de los id de las carreras a las que pertenece
@@ -86,6 +88,71 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		if(semestre_actual.semestreCerrado == true){
 			this.historial_academico.agregarSemestre(semestre_actual);
 		}
+	}
+	
+	
+	public boolean cumplePreRequisitos(Curso cursoTentativo){
+		
+		
+		
+		List<String> siglasRamosPreRequisitos = cursoTentativo.getRamo().GetPrerrequisitos();
+		
+		
+		//List<Boolean> cumpleRequisito = new ArrayList<Boolean>();
+		
+		//iteramos sobre cada uno de los pre requisitos
+		for(int i=0;i<siglasRamosPreRequisitos.size();i++){
+			
+			String siglaRamoRequisitoActual = siglasRamosPreRequisitos.get(i);
+			
+			boolean cumpleRequisitoActual = false;
+			
+			List<Semestre> semestres = historial_academico.getSemestres();
+			
+			//iteramos sobre cada uno de los semestres ya cursados
+			for(int j =0;j<semestres.size();j++){
+				
+				Semestre semestreActual = semestres.get(j);
+				List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
+				List<Integer> idCursos = semestreActual.GetCursos();
+				
+				
+				for(int z=0;z<idCursos.size();z++){
+					cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(z)));
+				}
+				
+				
+				for(int w =0;w<cursosDelSemestreActual.size();w++){
+					if(cursosDelSemestreActual.get(w).getRamo().getSigla().equals(siglaRamoRequisitoActual)){
+						cumpleRequisitoActual = true;
+						break;
+						
+					}
+				}
+				
+				
+				
+				if(cumpleRequisitoActual==true){
+					break;
+				}
+				
+				
+			}
+			
+			//cumpleRequisito.add(cumpleRequisitoActual);
+			
+			if(cumpleRequisitoActual==false){
+				return false;
+			}
+			
+			
+			
+			
+		}
+		return true;
+		
+		
+		
 	}
 	
 	public int getCreditosAprobados(){ return historial_academico.getCreditosAprobados();}

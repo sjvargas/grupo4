@@ -435,6 +435,15 @@ public class AlumnoOverviewController implements PrincipalController {
 			text_nota7_semestre_actual.setText("");
 			text_nota8_semestre_actual.setText("");
 		
+			text_curso1_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso2_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso3_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso4_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso5_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso6_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso7_semestre_actual.setStyle("-fx-text-fill: blue;");
+			text_curso8_semestre_actual.setStyle("-fx-text-fill: blue;");
+			
 
 			//borrar
 			
@@ -577,7 +586,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	
 	
 	// cambia el semestre actual del alumno, en base a la informacion que ingrese
-	public void actualizarSemestreActual(){
+	public boolean actualizarSemestreActual(){
 		
 		Semestre semestreActual;
 		/*
@@ -587,18 +596,29 @@ public class AlumnoOverviewController implements PrincipalController {
 		}
 		*/
 		//else{
-			
+			boolean cumplePreRequisitos = true;
 			
 			semestreActual = new Semestre(""+text_periodo_semestre_actual.getText());
 			System.out.println("TEXTO PERIODO "+text_periodo_semestre_actual.getText());
 			List<Curso> listaCursos = new ArrayList<Curso>();
 			List<Float> listaNotas = new ArrayList<Float>();
 
-			
+			Curso cursoActual;
 			// Se revisan las casillas para los cursos, si no estan vacias, se agregan a la lista de cursos
 			
 			if(text_curso1_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso1_semestre_actual.getText())));
+				
+				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso1_semestre_actual.getText()));
+				
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso1_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso1_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
+				
 				if(text_nota1_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota1_semestre_actual.getText()));
 				}
@@ -609,7 +629,16 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso2_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso2_semestre_actual.getText())));
+				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso2_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso2_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso2_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
+				
 				if(text_nota2_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota2_semestre_actual.getText()));
 				}
@@ -620,7 +649,16 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso3_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso3_semestre_actual.getText())));
+				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso3_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso3_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso3_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
+				
 				if(text_nota3_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota3_semestre_actual.getText()));
 				}
@@ -631,7 +669,16 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso4_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso4_semestre_actual.getText())));
+				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso4_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso4_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso4_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
+				
 				if(text_nota4_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota4_semestre_actual.getText()));
 				}
@@ -642,7 +689,15 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso5_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso5_semestre_actual.getText())));
+				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso5_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso5_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso5_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
 				if(text_nota5_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota5_semestre_actual.getText()));
 				}
@@ -653,7 +708,15 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso6_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso6_semestre_actual.getText())));
+				cursoActual= main.U.getCursoConID(Integer.parseInt(""+text_curso6_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso6_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso6_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
 				if(text_nota6_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota6_semestre_actual.getText()));
 				}
@@ -664,7 +727,16 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso7_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso7_semestre_actual.getText())));
+				cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso7_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso7_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso7_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
+				
 				if(text_nota7_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota7_semestre_actual.getText()));
 				}
@@ -675,7 +747,15 @@ public class AlumnoOverviewController implements PrincipalController {
 				}
 			}
 			if(text_curso8_semestre_actual.getText().isEmpty() == false){
-				listaCursos.add(main.U.getCursoConID(Integer.parseInt(""+text_curso8_semestre_actual.getText())));
+				cursoActual= main.U.getCursoConID(Integer.parseInt(""+text_curso8_semestre_actual.getText()));
+				if(main.U.alumno_actual.cumplePreRequisitos(cursoActual)){
+					listaCursos.add(cursoActual);
+				}
+				else{
+					text_curso8_semestre_actual.setText("NO CUMPLE CON REQUISITOS");
+					text_curso8_semestre_actual.setStyle("-fx-text-fill: red;");
+					return false;
+				}
 				if(text_nota8_semestre_actual.getText().isEmpty() == false){
 					listaNotas.add(Float.parseFloat(""+text_nota8_semestre_actual.getText()));
 				}
@@ -690,13 +770,17 @@ public class AlumnoOverviewController implements PrincipalController {
 			for(int i=0;i<listaCursos.size();i++){
 				main.U.alumno_actual.GetSemestreActual().Agregar_Curso(listaCursos.get(i).getId_curso());
 				main.U.alumno_actual.GetSemestreActual().Poner_Nota(listaCursos.get(i).getId_curso(), listaNotas.get(i));
-			}			
-			// falta ver donde mas se agrega el semestre (hasta el momento solo esta en el alumno		
+			}
+			
+			return true;
+			
 		//}
 	}
 	
 	public void finalizarSemestre(){
-		this.actualizarSemestreActual();
+		if(this.actualizarSemestreActual()==false){
+			return;
+		}
 		Semestre semestre_actual =main.U.alumno_actual.getSemestreActual();
 		
 		semestre_actual.CerrarSemestre();
