@@ -6,7 +6,7 @@ import java.util.List;
 
 import fx.view.main;
 
-public class Tema {
+public class Tema implements java.io.Serializable {
 	private Usuario usuario;
 	private String tipo_de_usuario; // entiendase como "alumno" o "profesor".
 	private String titulo;

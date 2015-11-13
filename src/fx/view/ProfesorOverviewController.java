@@ -1,5 +1,6 @@
 package fx.view;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -101,7 +102,8 @@ public class ProfesorOverviewController implements PrincipalController {
 	}	
 	public void ClickForoCursos(ActionEvent event) {
 		nombre_profesor.setText(main.U.profesor_actual.getNombre());
-		CambiarAPanel(pane_foros);
+		((ForosController) main.Contenedor.pantallas.get(5)).CambiarNombreMenu(main.U.profesor_actual.getNombre());
+		controlador.setScreen(main.ForosID);
 	}	
 	public void ClickBuscadorCursos(ActionEvent event) {
 		nombre_profesor.setText(main.U.profesor_actual.getNombre());
@@ -239,7 +241,5 @@ public class ProfesorOverviewController implements PrincipalController {
 	  }  
 	  return true;  
 	}
-	
-	
 	
 }

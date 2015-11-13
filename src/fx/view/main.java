@@ -34,10 +34,13 @@ public class main extends Application {
 	public static String AlumnoID = "Alumno";
 	public static String AdminFile = "AdminOverview.fxml";
 	public static String AdminID = "Admin";
+	public static String ForosFile = "Foros.fxml";
+	public static String ForosID = "Foros";
 	public static String BuscadorFile = "BuscadorDeCursos.fxml";
 	public static String BuscadorID = "Buscador";
 	public static String ProfesorFile = "ProfesorOverview.fxml";
 	public static String ProfesorID = "Profesor";
+	public static ScreensController Contenedor;
 	
 	public static Universidad U;
 	
@@ -49,12 +52,13 @@ public class main extends Application {
 
 		U = Serializador.Deserializar();
 		
-		ScreensController Contenedor = new ScreensController();
+		Contenedor = new ScreensController();
 		Contenedor.loadScreen(main.AlumnoID, main.AlumnoFile);
 		Contenedor.loadScreen(main.InicioID, main.InicioFile);
 		Contenedor.loadScreen(main.AdminID, main.AdminFile);
 		Contenedor.loadScreen(main.ProfesorID, main.ProfesorFile);
 		Contenedor.loadScreen(main.BuscadorID, main.BuscadorFile);
+		Contenedor.loadScreen(main.ForosID, main.ForosFile);
 		
 		Contenedor.setScreen(main.InicioID);
 		Group root = new Group();

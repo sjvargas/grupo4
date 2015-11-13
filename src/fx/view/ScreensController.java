@@ -1,7 +1,10 @@
 package fx.view;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -21,6 +24,7 @@ public class ScreensController extends StackPane{
 	
 	// nodo es el root a la pantalla particular.
 	private HashMap<String, Node> screens = new HashMap<>();
+	public List<PrincipalController> pantallas = new ArrayList<PrincipalController>();;
 
 	public ScreensController() {
 		super();
@@ -46,6 +50,7 @@ public class ScreensController extends StackPane{
 			pantalla.setScreenParent(this);
 			System.out.println("agregando a "+nombre+" :) ");
 			addScreen(nombre, proxima_pantalla);
+			pantallas.add(pantalla);
 			return true;
 		}
 		catch (Exception e){

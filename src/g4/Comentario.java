@@ -3,7 +3,7 @@ package g4;
 import java.util.Date;
 import fx.view.main;
 
-public class Comentario {
+public class Comentario implements java.io.Serializable  {
 	private Usuario usuario;
 	private String tipo_de_usuario; // entiendase como "alumno" o "profesor".
 	private String texto;

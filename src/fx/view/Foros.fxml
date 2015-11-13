@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="padre" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.ForosController">
+   <children>
+      <Button fx:id="boton_menu" layoutX="28.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickVolverMenu" prefHeight="31.0" prefWidth="117.0" text="volver al menu" />
+      <Button fx:id="boton_cerrar_sesion" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickCerrarSesion" prefHeight="31.0" prefWidth="86.0" text="cerrar sesion" />
+      <Line endX="840.0" layoutX="130.0" layoutY="62.0" startX="-100.0" />
+      <Label layoutX="427.0" layoutY="12.0" prefHeight="15.0" prefWidth="86.0" text="Foros">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="513.0" layoutY="22.0" text="Estas conectado como:" />
+      <Button fx:id="boton_todo_tema" layoutX="263.0" layoutY="17.0" mnemonicParsing="false" onAction="#ClickTodoTema" text="Todos los Temas" />
+      <Pane fx:id="pane_temas" layoutY="63.0" prefHeight="539.0" prefWidth="1000.0">
+         <children>
+            <TableView fx:id="tabla_temas" layoutX="20.0" layoutY="130.0" prefHeight="340.0" prefWidth="964.0" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn fx:id="columna_autor" prefWidth="132.33333587646484" text="Autor" />
+                <TableColumn fx:id="columna_status" minWidth="0.0" prefWidth="134.0" text="Status" />
+                  <TableColumn fx:id="columna_tema" minWidth="0.0" prefWidth="84.66668701171875" text="tema" />
+                  <TableColumn fx:id="columna_comentrio" minWidth="0.0" prefWidth="279.6666259765625" text="comentario" />
+                  <TableColumn fx:id="columna_respuestas" minWidth="0.0" prefWidth="129.66668701171875" text="respuestas" />
+                  <TableColumn fx:id="columna_fecha" minWidth="0.0" prefWidth="170.0" text="Fecha" />
+              </columns>
+            </TableView>
+            <Button fx:id="boton_temas_ir" layoutX="199.0" layoutY="71.0" mnemonicParsing="false" text="ir">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ChoiceBox fx:id="choice_box_cursos" layoutX="28.0" layoutY="71.0" prefWidth="150.0" />
+            <Button fx:id="boton_ir_tema2" layoutX="835.0" layoutY="490.0" mnemonicParsing="false" onAction="#SeleccionarTema" prefHeight="25.0" prefWidth="150.0" text="ir al tema seleccionado" />
+            <Button fx:id="boton_ir_tema1" layoutX="833.0" layoutY="99.0" mnemonicParsing="false" onAction="#SeleccionarTema" prefHeight="25.0" prefWidth="151.0" text="ir al tema seleccionado" />
+            <Label layoutX="28.0" layoutY="35.0" text="Seleccione el curso del que quiere ver los temas:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_comentarios" layoutY="63.0" prefHeight="537.0" prefWidth="1000.0" visible="false" />
+   </children>
+</AnchorPane>
