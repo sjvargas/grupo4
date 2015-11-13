@@ -102,7 +102,15 @@ public class ProfesorOverviewController implements PrincipalController {
 	}	
 	public void ClickForoCursos(ActionEvent event) {
 		nombre_profesor.setText(main.U.profesor_actual.getNombre());
-		((ForosController) main.Contenedor.pantallas.get(5)).CambiarNombreMenu(main.U.profesor_actual.getNombre());
+		ForosController.CambiarNombreMenu(main.U.profesor_actual.getNombre());
+		
+		ArrayList<String> nombres_cursos = new ArrayList<String>();
+		ArrayList<Curso> cursos = main.U.buscador.filtrar(null,main.U.profesor_actual.getNombre(), -1, null,main.U.periodo_actual);		
+		for (Curso j : cursos){
+			nombres_cursos.add(j.getRamo().getSigla()+"-"+j.getId_curso());}
+		ObservableList<String> uu = FXCollections
+				.observableList(nombres_cursos);
+		ForosController.CargarChoiceBox(uu);
 		controlador.setScreen(main.ForosID);
 	}	
 	public void ClickBuscadorCursos(ActionEvent event) {

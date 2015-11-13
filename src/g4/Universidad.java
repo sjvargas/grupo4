@@ -156,34 +156,9 @@ public class Universidad implements java.io.Serializable {
 		horario3.add("lu:5"); horario3.add("mi:5"); horario2.add("vi:1");
 		List<String> horario4 = new ArrayList<String>();
 		horario4.add("ma:2"); horario4.add("ju:2"); horario4.add("ju:3");
-		/*
-		List<Alumno> alumnos = new ArrayList<Alumno>();
-		List<Alumno> alumnos1 = new ArrayList<Alumno>();
-		List<Alumno> alumnos2 = new ArrayList<Alumno>();
-		List<Alumno> alumnos3 = new ArrayList<Alumno>();
-		List<Alumno> alumnos4 = new ArrayList<Alumno>();
-		List<Alumno> alumnos5 = new ArrayList<Alumno>();
-		List<Alumno> alumnos6 = new ArrayList<Alumno>();
-		List<Alumno> alumnos7 = new ArrayList<Alumno>();
-		List<Alumno> alumnos8 = new ArrayList<Alumno>();
-		List<Alumno> alumnos9 = new ArrayList<Alumno>();
-		List<Alumno> alumnos10 = new ArrayList<Alumno>();
-		List<Alumno> alumnos11 = new ArrayList<Alumno>();
-		List<Alumno> alumnos12 = new ArrayList<Alumno>();
-		List<Alumno> alumnos13 = new ArrayList<Alumno>();
-		List<Alumno> alumnos14 = new ArrayList<Alumno>();
-		List<Alumno> alumnos15 = new ArrayList<Alumno>();
-		List<Alumno> alumnos16 = new ArrayList<Alumno>();
-		List<Alumno> alumnos17 = new ArrayList<Alumno>();
-		List<Alumno> alumnos18 = new ArrayList<Alumno>();
-		List<Alumno> alumnos19 = new ArrayList<Alumno>();
-		List<Alumno> alumnos20 = new ArrayList<Alumno>();
-		*/
 
 		
-		//int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo
-		
-		
+		//int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo		
 		Curso u = new Curso( "2016-1",salas, horario, 10, 1, lista_profesores.get(0), ramo1);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
 		Curso u2 = new Curso( "2016-1",salas1, horario1, 10, 2, lista_profesores.get(1), ramo1);
@@ -226,27 +201,13 @@ public class Universidad implements java.io.Serializable {
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu7);
 		Curso uu8 = new Curso( "2016-1",salas, horario2, 10, 2, lista_profesores.get(rn.nextInt(40)), ramo6);
 		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu8);	
-		lista_cursos.add(u);
-		lista_cursos.add(u7);
-		lista_cursos.add(u2);
-		lista_cursos.add(u3);
-		lista_cursos.add(u4);
-		lista_cursos.add(u5);
-		lista_cursos.add(u6);
-		lista_cursos.add(u8);
-		lista_cursos.add(u9);
-		lista_cursos.add(uu);
-		lista_cursos.add(uu1);
-		lista_cursos.add(uu2);
-		lista_cursos.add(uu3);
-		lista_cursos.add(uu4);
-		lista_cursos.add(uu5);
-		lista_cursos.add(uu6);
-		lista_cursos.add(uu7);
-		lista_cursos.add(uu8);
-		lista_cursos.add(a1);
-		lista_cursos.add(a2);
-		lista_cursos.add(a3);
+		
+		
+		lista_cursos.add(u);lista_cursos.add(u2);lista_cursos.add(u3);lista_cursos.add(u4);lista_cursos.add(u5);
+		lista_cursos.add(u6);lista_cursos.add(u7);lista_cursos.add(u8);lista_cursos.add(u9);lista_cursos.add(uu);
+		lista_cursos.add(uu1);lista_cursos.add(uu2);lista_cursos.add(uu3);lista_cursos.add(uu4);
+		lista_cursos.add(uu5);lista_cursos.add(uu6);lista_cursos.add(uu7);lista_cursos.add(uu8);
+		lista_cursos.add(a1);lista_cursos.add(a2);lista_cursos.add(a3);
 		
 		for (int i=0;i<10;i++){
 			lista_cursos.get(0).lista_alumnos.add(lista_alumnos.get(i)); 
@@ -271,6 +232,11 @@ public class Universidad implements java.io.Serializable {
 		
 		System.out.println(lista_cursos.get(0).lista_alumnos);
 		System.out.println(lista_cursos.get(1).lista_alumnos);
+		
+		
+		lista_cursos.get(0).AgregarTema("duda contenido i1", "hola! \n Estaba revisando la materia y no se si entra todo de derivadas o no, ¿Alguien sabe? \n Gracias!",lista_alumnos.get(0),"alumno");
+		lista_cursos.get(0).AgregarTema("duda regla de la cadena","Disculpen pero no logro entender la regla de la cadena para derivar. ¿Podrian darme un link donde se explique bien",lista_alumnos.get(1),"alumno");
+		lista_cursos.get(0).AgregarTema("Se cansela la proxima clase", "Estimados, \n por temas personales, la proxima clase se cancela, avisenle a sus compañeros. \n Atte Mar Hidalgo",lista_profesores.get(0),"profesor");
 	}
 	
 	

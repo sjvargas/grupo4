@@ -124,8 +124,8 @@ public class Curso implements java.io.Serializable {
 		 return temas;
 	 }
 	 
-	 public String  AgregarTema(String titulo, String texto){
-		 temas.add(new Tema(titulo,texto));
+	 public String  AgregarTema(String titulo, String texto, Usuario usuario, String status){
+		 temas.add(new Tema(titulo,texto, usuario, status));
 		 return "tema creado con exito!";
 	 }
 
