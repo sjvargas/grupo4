@@ -308,9 +308,12 @@ public class AdminOverviewController implements PrincipalController {
 	@FXML
 	private ChoiceBox cBAgPrerreqRamo;
 	@FXML
+	private ChoiceBox cBAgRamoPrerrequisito;
+	@FXML
 	private ChoiceBox cBAgPrerreqPrerrequisito;
 	@FXML
-	private TableView<Ramo> tViewRamos;
+	private TableView<Ramo> tViewRamos, tViewPrerrequisitos;
+
 	@FXML
 	private TableColumn<Ramo,String> tCSiglaRamos, tCNombreRamos,tCCarreraRamos ,tCSemestreRamos ;
 	@FXML
@@ -346,6 +349,8 @@ public class AdminOverviewController implements PrincipalController {
 		cBAgPrerreqRamo.setValue(listaCargaRamos);
 		cBAgPrerreqPrerrequisito.setItems(listaCargaRamos);
 		cBAgPrerreqPrerrequisito.setValue(listaCargaRamos);
+		cBAgRamoPrerrequisito.setItems(listaCargaRamos);
+		cBAgRamoPrerrequisito.setValue(listaCargaRamos);
 	}	
 	
 	public void ApretarAgregarPrerrequisito(ActionEvent event){
@@ -371,6 +376,9 @@ public class AdminOverviewController implements PrincipalController {
 		tViewRamos.setItems(datosRamos);
 	}
 
+	public void ApretarVerPrerrequisitos(ActionEvent event){
+		
+	}
 	
 	// MODULO CARRERAS
 	@FXML
