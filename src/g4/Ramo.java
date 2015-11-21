@@ -24,6 +24,9 @@ public class Ramo implements java.io.Serializable{
 	private String contenidos;
 	private String objetivos;
 	private List<String> prerrequisitos;
+	private Double likes;
+	private List<Integer> dificultad;
+	private List<Integer> utilidad;
 	
 	////////////////////////////////////
 	//// GETTERS de atributos
@@ -48,6 +51,20 @@ public class Ramo implements java.io.Serializable{
 	}
 	public String getSigla() {
 		return sigla;
+	}
+
+	public Double getLikes() {return likes;}
+	public Double getDificultad() {
+		return calculateAverage(dificultad);
+	}
+	public Double getUtilidad() {
+		return calculateAverage(utilidad);
+	}
+	public void DarDificultad(Integer nota){
+		dificultad.add(nota);
+	}	
+	public void DarUtilidad(Integer nota){
+		utilidad.add(nota);
 	}
 	public String getSemestreImpartidoString(){
 		switch(semestre_impartido){
@@ -81,4 +98,15 @@ public class Ramo implements java.io.Serializable{
 		prerrequisitos.add(siglaPrerrequisito);
 	}
 	
+	// funcion de (http://stackoverflow.com/questions/10791568/calculating-average-of-an-array-list)
+	private double calculateAverage(List <Integer> marks) {
+		  Integer sum = 0;
+		  if(!marks.isEmpty()) {
+		    for (Integer mark : marks) {
+		        sum += mark;
+		    }
+		    return sum.doubleValue() / marks.size();
+		  }
+		  return sum;
+		}
 }

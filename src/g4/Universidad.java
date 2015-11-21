@@ -265,6 +265,14 @@ public class Universidad implements java.io.Serializable {
 			}
 		}
 		return null;
+	}	
+	public Profesor GetProfesor(int ID){
+		for (Profesor i : lista_profesores){
+			if(i.getId_profesor()== ID){
+				return i;
+			}
+		}
+		return null;
 	}
 	
 	public Programacion_Academica GetProgramacionAcademicaPeriodo(String periodo){
@@ -305,8 +313,6 @@ public class Universidad implements java.io.Serializable {
 			}
 		}
 	}
-
-	
 	public List<Curso> getCursosProgramacionAcademica(String periodo){
 		for(Programacion_Academica PA: historial_de_progrmacion_academica){
 			if(PA.periodo == periodo){
@@ -317,4 +323,26 @@ public class Universidad implements java.io.Serializable {
 	}
 	public List<String> getPeriodosLibres(){ return periodosLibres;}
 	public List<String> getPeriodosOcupados(){ return periodosOcupados;}
+	public List<Ramo> BuscarRamos (String texto){
+		List<Ramo> lista = new ArrayList<Ramo>();
+		for (Ramo i : lista_ramos){
+			if (i.getSigla().contains(texto) || i.getNombreRamo().contains(texto)){
+				lista.add(i);
+			}
+		}
+		return lista;
+	}	
+	public List<Profesor> BuscarProfesores (String texto){
+		List<Profesor> lista = new ArrayList<Profesor>();
+		for (Profesor i : lista_profesores){
+			if (i.toString().contains(texto)){
+				lista.add(i);
+			}
+		}
+		return lista;
+	}
+	
 }
+
+
+
