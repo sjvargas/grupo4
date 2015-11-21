@@ -16,20 +16,39 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Pane fx:id="pane_cursos_alumno" layoutX="107.0" layoutY="54.0" prefHeight="443.0" prefWidth="630.0" visible="false">
+            <Pane fx:id="pane_cursos_alumno" layoutX="107.0" layoutY="54.0" prefHeight="443.0" prefWidth="630.0">
                <children>
-                  <Label layoutX="28.0" layoutY="26.0" prefHeight="25.0" prefWidth="158.0" text=" Cursos del Semestre Actual" />
+                  <Label layoutX="57.0" layoutY="14.0" prefHeight="25.0" prefWidth="202.0" text=" Cursos del Semestre Actual" textFill="#0b3f9a">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                   <ComboBox fx:id="comboBoxCursos" layoutX="57.0" layoutY="68.0" onAction="#cambioComboBoxCurso" prefWidth="150.0" />
-                  <Label layoutX="149.0" layoutY="143.0" text="Nombre" />
-                  <Label layoutX="149.0" layoutY="177.0" text="Sigla" />
-                  <Label layoutX="148.0" layoutY="213.0" text="Sección" />
-                  <Label layoutX="148.0" layoutY="247.0" text="Horario" />
-                  <Label layoutX="148.0" layoutY="280.0" text="Sala" />
-                  <TextField fx:id="textFieldNombreCurso" layoutX="207.0" layoutY="139.0" />
-                  <TextField fx:id="textFieldSiglaCurso" layoutX="207.0" layoutY="173.0" />
-                  <TextField fx:id="textFieldSeccionCurso" layoutX="207.0" layoutY="209.0" />
-                  <TextField fx:id="textFieldHorarioCurso" layoutX="207.0" layoutY="243.0" />
-                  <TextField fx:id="textFieldSalaCurso" layoutX="207.0" layoutY="276.0" />
+                  <Label layoutX="300.0" layoutY="30.0" text="Nombre" />
+                  <Label layoutX="300.0" layoutY="60.0" text="Sigla" />
+                  <Label layoutX="301.0" layoutY="93.0" text="Sección" />
+                  <Label layoutX="301.0" layoutY="123.0" text="Horario" />
+                  <Label layoutX="302.0" layoutY="152.0" text="Sala" />
+                  <TextField fx:id="textFieldNombreCurso" layoutX="363.0" layoutY="26.0" />
+                  <TextField fx:id="textFieldSiglaCurso" layoutX="363.0" layoutY="56.0" />
+                  <TextField fx:id="textFieldSeccionCurso" layoutX="363.0" layoutY="89.0" />
+                  <TextField fx:id="textFieldHorarioCurso" layoutX="363.0" layoutY="119.0" />
+                  <TextField fx:id="textFieldSalaCurso" layoutX="363.0" layoutY="148.0" />
+                  <Label layoutX="67.0" layoutY="273.0" text="Agregar un  Curso Nuevo" textFill="#102383">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="316.0" text="Sigla Curso" />
+                  <Label layoutX="67.0" layoutY="354.0" text="Sección Curso" />
+                  <TextField fx:id="textFieldSiglaNueva" layoutX="166.0" layoutY="312.0" />
+                  <TextField fx:id="textFieldSeccionNueva" layoutX="166.0" layoutY="350.0" />
+                  <Button fx:id="buttonAgregarCurso" layoutX="363.0" layoutY="325.0" mnemonicParsing="false" onAction="#agregarNuevoCurso" text="Agregar Curso" />
+                  <Label fx:id="labelErroresAgregarCurso" layoutX="67.0" layoutY="397.0" text="-" textFill="#e40808">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonEliminarCurso" layoutX="57.0" layoutY="132.0" mnemonicParsing="false" onAction="#eliminarCurso" text="Eliminar Curso" />
                </children>
             </Pane>
             <Pane fx:id="pane_semestres_alumno" layoutX="117.0" layoutY="64.0" prefHeight="443.0" prefWidth="630.0" visible="false">

@@ -125,8 +125,8 @@ public class Universidad implements java.io.Serializable {
 		lista_carreras.get(0).crear_malla_curricular(malla2);
 		
 		Ramo ramo1 = new Ramo("Calculo 1","MAT1610", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo2 = new Ramo("Calculo 2","MAT1126", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo3 = new Ramo("Calculo 3","MAT1136", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
+		Ramo ramo2 = new Ramo("Calculo 2","MAT1620", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
+		Ramo ramo3 = new Ramo("Calculo 3","MAT1630", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
 		Ramo ramo4 = new Ramo("algebra lineal","MAT1299", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
 		Ramo ramo5 = new Ramo("Introducción a la Programación","IIC1103", 10, lista_carreras.get(0),"3", "programacion basica", "desarrollar pensamiento");
 		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3", "redes y hacer sufrir a los alumnos", "desarrollar pensamiento");
@@ -252,6 +252,18 @@ public class Universidad implements java.io.Serializable {
 	public Curso getCursoConID(int id){
 		for(int i=0;i<lista_cursos.size();i++){
 			if(lista_cursos.get(i).getId_curso()==id){
+				return lista_cursos.get(i);
+			}
+		}
+		return null;
+	}
+	
+	
+	public Curso getCursoConSiglaYSeccion(String sigla,int seccion ){
+		for(int i=0;i<lista_cursos.size();i++){
+			
+			System.out.println("sigla: "+lista_cursos.get(i).getRamo().getSigla()+"    Seccion: "+lista_cursos.get(i).getSeccionCurso());
+			if(lista_cursos.get(i).getRamo().getSigla().equalsIgnoreCase(sigla) && lista_cursos.get(i).getSeccionCurso() == seccion ){
 				return lista_cursos.get(i);
 			}
 		}
