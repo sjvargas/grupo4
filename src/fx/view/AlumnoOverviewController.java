@@ -59,7 +59,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private Pane pantalla_alumno;
 	@FXML
-	private Button boton_carreras_alumno,boton_foros_alumno;
+	private Button boton_carreras_alumno,boton_foros_alumno,boton_Red_alumno;
 	@FXML
 	private Button boton_inicio_alumno;
 	@FXML
@@ -76,6 +76,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	private Button cerrar_sesion;
 	@FXML
 	private Button ver_mallas;
+	
 
 	///
 	
@@ -523,6 +524,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		mostrar_panel(pane_semestres_alumno);
 	}	
 	
+	
+	
 	public void clickforos() {
 		ForosController.CambiarNombreMenu(main.U.alumno_actual.getNombre());
 		
@@ -539,6 +542,9 @@ public class AlumnoOverviewController implements PrincipalController {
 				.observableList(nombres_cursos);
 		ForosController.CargarChoiceBox(uu);
 		controlador.setScreen(main.ForosID);
+	}
+	public void clickRedOpiniones(){
+		controlador.setScreen(main.RedDeOpinionesID);
 	}
 	public void CerrarSesion(ActionEvent event) {
 		main.U.alumno_actual.Cerrar_sesion();

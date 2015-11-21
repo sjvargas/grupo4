@@ -82,6 +82,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Button fx:id="boton_inicio_alumno" mnemonicParsing="false" onAction="#clickinicio" prefHeight="25.0" prefWidth="155.0" text="Inicio" />
@@ -91,9 +92,10 @@
                   <Button fx:id="boton_semestre_actual_alumno" mnemonicParsing="false" onAction="#clicksemestreactual" prefHeight="25.0" prefWidth="155.0" text="Semestre Actual" GridPane.rowIndex="5" />
                   <Button fx:id="boton_buscador_alumno" mnemonicParsing="false" onAction="#clickbuscador" prefHeight="25.0" prefWidth="155.0" text="Buscador de cursos" GridPane.rowIndex="6" />
                   <Button fx:id="boton_avance_malla_alumno" mnemonicParsing="false" onAction="#clickavancemalla" prefHeight="25.0" prefWidth="155.0" text=" Avance curricular por malla" GridPane.rowIndex="7" />
-                  <Button fx:id="cerrar_sesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="155.0" text="Cerrar Sesion" GridPane.rowIndex="9" />
+                  <Button fx:id="cerrar_sesion" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="155.0" text="Cerrar Sesion" GridPane.rowIndex="10" />
                   <Button fx:id="ver_mallas" mnemonicParsing="false" onAction="#clickMallas" prefHeight="25.0" prefWidth="113.0" text="Mallas" GridPane.rowIndex="3" />
                	  <Button fx:id="boton_foros_alumno" mnemonicParsing="false" onAction="#clickforos" prefHeight="25.0" prefWidth="113.0" text="Foros" GridPane.rowIndex="8" />
+               	  <Button fx:id="boton_Red_alumno" mnemonicParsing="false" onAction="#clickRedOpiniones" prefHeight="25.0" prefWidth="113.0" text="Red de Opiniones" GridPane.rowIndex="9" />
                </children> 
             </GridPane>
             <Pane fx:id="pane_carreras_alumno" layoutX="140.0" layoutY="51.0" prefHeight="455.0" prefWidth="571.0" visible="false">

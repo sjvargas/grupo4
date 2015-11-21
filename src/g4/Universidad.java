@@ -335,25 +335,333 @@ public class Universidad implements java.io.Serializable {
 	}
 	public List<String> getPeriodosLibres(){ return periodosLibres;}
 	public List<String> getPeriodosOcupados(){ return periodosOcupados;}
-	public List<Ramo> BuscarRamos (String texto){
+	public List<Ramo> BuscarRamos (String texto1){
+		String texto= texto1.toLowerCase();
 		List<Ramo> lista = new ArrayList<Ramo>();
 		for (Ramo i : lista_ramos){
-			if (i.getSigla().contains(texto) || i.getNombreRamo().contains(texto)){
+			if ( i.getSigla().toLowerCase().contains(texto) || i.getNombreRamo().toLowerCase().contains(texto)){
 				lista.add(i);
 			}
 		}
 		return lista;
 	}	
-	public List<Profesor> BuscarProfesores (String texto){
+	public List<Profesor> BuscarProfesores (String texto1){
+		String texto= texto1.toLowerCase();
 		List<Profesor> lista = new ArrayList<Profesor>();
 		for (Profesor i : lista_profesores){
-			if (i.toString().contains(texto)){
+			if (i.toString().toLowerCase().contains(texto)){
 				lista.add(i);
 			}
 		}
 		return lista;
 	}
-	
+	public Ramo GetRandomRamo(){
+		return lista_ramos.get(rn.nextInt(lista_ramos.size()));
+	}
+	public Profesor GetRandomProfesor(){
+		return lista_profesores.get(rn.nextInt(lista_profesores.size()));
+	}
+	//sentido dice si es acendente o decreciente (1,0)
+	//tipo dice que atributo se compara (1=likes,2=dificultad)
+	public List<Profesor> Top5Profesores(int tipo,int sentido){
+		List<Profesor> lista = new ArrayList<Profesor>();
+		lista.add(null);lista.add(null);lista.add(null);lista.add(null);lista.add(null);
+		if (sentido==1){//acendente
+			if (tipo==1){ // likes
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()<p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}
+			}else{//dificultad
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()<p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}}
+		}else{// decreciente
+			if (tipo==1){ // likes
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()>=p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}
+			}else{//dificultad
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()>=p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}}}	
+		return lista;
+	}
+
+	//sentido dice si es acendente o decreciente (1,0)
+	//tipo dice que atributo se compara (1=likes,2=dificultad,3=utilidad)
+	public List<Ramo> Top5Ramos(int tipo,int sentido){
+		List<Ramo> lista = new ArrayList<Ramo>();
+		lista.add(null);lista.add(null);lista.add(null);lista.add(null);lista.add(null);
+		if (sentido==1){//acendente
+			if (tipo==1){ // likes
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()<p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else if (tipo==3){
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getUtilidad()<p.getUtilidad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else {//dificultad
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()<p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}}
+		}else{// decreciente
+			if (tipo==1){ // likes
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()>=p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else if (tipo==3){ // utilidad
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getUtilidad()>=p.getUtilidad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else {//dificultad
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()>=p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}}}	
+		return lista;
+	}
 }
 
 

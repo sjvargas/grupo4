@@ -61,7 +61,7 @@ public class main extends Application {
 		Contenedor.loadScreen(main.ProfesorID, main.ProfesorFile);
 		Contenedor.loadScreen(main.BuscadorID, main.BuscadorFile);
 		Contenedor.loadScreen(main.ForosID, main.ForosFile);
-	//	Contenedor.loadScreen(main.RedDeOpinionesID, main.RedDeOpinionesFile);
+		Contenedor.loadScreen(main.RedDeOpinionesID, main.RedDeOpinionesFile);
 		
 		Contenedor.setScreen(main.InicioID);
 		Group root = new Group();
