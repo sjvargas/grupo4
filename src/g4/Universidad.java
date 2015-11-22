@@ -51,11 +51,20 @@ public class Universidad implements java.io.Serializable {
 		profesor_actual = null;
 		administrador_actual = null;
 		
-		lista_profesores.add( new Profesor("mar","mar", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
-		lista_profesores.add( new Profesor("ian", "ian", "zapallo", "casuela", "123", Sexo.Masculino, 42, 2000000, "Ingenieria"));
+		lista_profesores.add( new Profesor("juana","juana", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
+		lista_profesores.add( new Profesor("ian", "ian", "sapallo", "casuela", "123", Sexo.Masculino, 42, 2000000, "Ingenieria"));
+
 		lista_profesores.add( new Profesor("jorge", "jorge", "zanahoria", "ensalada", "123", Sexo.Masculino, 45, 1000000, "Ingenieria"));
 		lista_profesores.add( new Profesor("jaime", "jaime", "vargas", "vargas", "123", Sexo.Femenino, 55, 2200000, "Ingenieria"));
 		
+		lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();
+		lista_profesores.get(1).DarLike();lista_profesores.get(1).DarLike();lista_profesores.get(1).DarLike();
+		lista_profesores.get(2).DarLike();lista_profesores.get(2).DarLike();lista_profesores.get(2).DarLike();lista_profesores.get(2).DarLike();
+		lista_profesores.get(3).DarLike();lista_profesores.get(3).DarLike();lista_profesores.get(3).DarLike();
+		lista_profesores.get(0).DarDificultad((double) 5);lista_profesores.get(0).DarDificultad((double) 5);lista_profesores.get(0).DarDificultad((double) 5);lista_profesores.get(0).DarDificultad((double) 5);
+		lista_profesores.get(1).DarDificultad((double) 4);lista_profesores.get(1).DarDificultad((double) 4);lista_profesores.get(1).DarDificultad((double) 4);lista_profesores.get(1).DarDificultad((double) 4);
+		lista_profesores.get(2).DarDificultad((double) 1);lista_profesores.get(2).DarDificultad((double) 1);lista_profesores.get(2).DarDificultad((double) 1);lista_profesores.get(2).DarDificultad((double) 1);
+		lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);
 		String[] user_names = {"oscar","alejandra","mario","felipe","luigi","miguel","laura","ines","carmen","elena","maria",
 		              "jose","ana","alex","clemente","domingo","tomas","raul","luis","elisa","tere","sofia","alex","jairo",
 		              "sam","mikey","piro","pascal","damian","tzo","vermont","pug","simon","farras","lola","almendra","manzana","tambor","bambi","negra","raimuno"};
@@ -151,15 +160,36 @@ public class Universidad implements java.io.Serializable {
 		lista_carreras.get(0).crear_malla_curricular(malla2);
 		
 		Ramo ramo1 = new Ramo("Calculo 1","MAT1610", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo2 = new Ramo("Calculo 2","MAT1126", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo3 = new Ramo("Calculo 3","MAT1136", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
+		Ramo ramo2 = new Ramo("Calculo 2","MAT1620", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
+		Ramo ramo3 = new Ramo("Calculo 3","MAT1630", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
 		Ramo ramo4 = new Ramo("algebra lineal","MAT1299", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
 		Ramo ramo5 = new Ramo("Introducción a la Programación","IIC1103", 10, lista_carreras.get(0),"3", "programacion basica", "desarrollar pensamiento");
 		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3", "redes y hacer sufrir a los alumnos", "desarrollar pensamiento");
 		lista_ramos.add(ramo1);lista_ramos.add(ramo2);lista_ramos.add(ramo3);lista_ramos.add(ramo4);lista_ramos.add(ramo5);lista_ramos.add(ramo6);
 		
+
 		malla1.agregar_ramo(ramo1);
 		malla1.agregar_ramo(ramo2);
+
+		ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();
+		ramo2.DarLike();ramo2.DarLike();ramo2.DarLike();ramo2.DarLike();ramo2.DarLike();
+		ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();
+		ramo4.DarLike();ramo4.DarLike();ramo4.DarLike();ramo4.DarLike();ramo4.DarLike();
+		ramo5.DarLike();ramo5.DarLike();ramo5.DarLike();
+		ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();
+		
+		ramo1.DarDificultad((double) 5);ramo1.DarDificultad((double) 5);ramo1.DarDificultad((double) 5);ramo1.DarDificultad((double) 5);
+		ramo2.DarDificultad((double) 1);ramo2.DarDificultad((double) 1);ramo2.DarDificultad((double) 1);ramo2.DarDificultad((double) 1);
+		ramo3.DarDificultad((double) 1);ramo3.DarDificultad((double) 1);ramo3.DarDificultad((double) 1);
+		ramo4.DarDificultad((double) 4);ramo4.DarDificultad((double) 4);ramo4.DarDificultad((double) 4);ramo4.DarDificultad((double) 4);
+		ramo5.DarDificultad((double) 2);ramo5.DarDificultad((double) 2);ramo5.DarDificultad((double) 2);ramo5.DarDificultad((double) 2);
+
+		ramo2.DarUtilidad((double) 5);ramo2.DarUtilidad((double) 5);ramo2.DarUtilidad((double) 5);ramo2.DarUtilidad((double) 5);
+		ramo4.DarUtilidad((double) 1);ramo4.DarUtilidad((double) 1);ramo4.DarUtilidad((double) 1);ramo4.DarUtilidad((double) 1);
+		ramo5.DarUtilidad((double) 1);ramo5.DarUtilidad((double) 1);ramo5.DarUtilidad((double) 1);
+		ramo1.DarUtilidad((double) 4);ramo1.DarUtilidad((double) 4);ramo1.DarUtilidad((double) 4);ramo1.DarUtilidad((double) 4);
+		ramo3.DarUtilidad((double) 2);ramo3.DarUtilidad((double) 2);ramo3.DarUtilidad((double) 2);ramo3.DarUtilidad((double) 2);
+
 		
 		ramo2.AgregarPrerrequisito(ramo1.getSigla());
 		ramo3.AgregarPrerrequisito(ramo2.getSigla());
@@ -287,10 +317,30 @@ public class Universidad implements java.io.Serializable {
 		return null;
 	}
 	
+	
+	public Curso getCursoConSiglaYSeccion(String sigla,int seccion ){
+		for(int i=0;i<lista_cursos.size();i++){
+			
+			System.out.println("sigla: "+lista_cursos.get(i).getRamo().getSigla()+"    Seccion: "+lista_cursos.get(i).getSeccionCurso());
+			if(lista_cursos.get(i).getRamo().getSigla().equalsIgnoreCase(sigla) && lista_cursos.get(i).getSeccionCurso() == seccion ){
+				return lista_cursos.get(i);
+			}
+		}
+		return null;
+	}
+	
 	public Ramo GetRamo(String siglaRamo){
 		for(int i=0;i<lista_ramos.size();i++){
 			if(lista_ramos.get(i).getSigla()== siglaRamo){
 				return lista_ramos.get(i);
+			}
+		}
+		return null;
+	}	
+	public Profesor GetProfesor(int ID){
+		for (Profesor i : lista_profesores){
+			if(i.getId_profesor()== ID){
+				return i;
 			}
 		}
 		return null;
@@ -352,7 +402,7 @@ public class Universidad implements java.io.Serializable {
 		}
 		return 0;
 	}
-	
+
 	public List<Curso> getCursosProgramacionAcademica(String periodo){
 		for(Programacion_Academica PA: historial_de_progrmacion_academica){
 			if(PA.periodo.equals(periodo)){
@@ -363,6 +413,7 @@ public class Universidad implements java.io.Serializable {
 	}
 	public List<String> getPeriodosLibres(){ return periodosLibres;}
 	public List<String> getPeriodosOcupados(){ return periodosOcupados;}
+
 	public boolean CursoSeAgregoALista(int idCurso){
 		for(Curso curso: lista_cursos){
 			if(curso.id_curso == idCurso){
@@ -395,4 +446,334 @@ public class Universidad implements java.io.Serializable {
 			}
 		}
 	}
+	public List<Ramo> BuscarRamos (String texto1){
+		String texto= texto1.toLowerCase();
+		List<Ramo> lista = new ArrayList<Ramo>();
+		for (Ramo i : lista_ramos){
+			if ( i.getSigla().toLowerCase().contains(texto) || i.getNombreRamo().toLowerCase().contains(texto)){
+				lista.add(i);
+			}
+		}
+		return lista;
+	}	
+	public List<Profesor> BuscarProfesores (String texto1){
+		String texto= texto1.toLowerCase();
+		List<Profesor> lista = new ArrayList<Profesor>();
+		for (Profesor i : lista_profesores){
+			if (i.toString().toLowerCase().contains(texto)){
+				lista.add(i);
+			}
+		}
+		return lista;
+	}
+	public Ramo GetRandomRamo(){
+		return lista_ramos.get(rn.nextInt(lista_ramos.size()));
+	}
+	public Profesor GetRandomProfesor(){
+		return lista_profesores.get(rn.nextInt(lista_profesores.size()));
+	}
+	//sentido dice si es acendente o decreciente (1,0)
+	//tipo dice que atributo se compara (1=likes,2=dificultad)
+	public List<Profesor> Top5Profesores(int sentido,int tipo){
+		List<Profesor> lista = new ArrayList<Profesor>();
+		lista.add(null);lista.add(null);lista.add(null);lista.add(null);lista.add(null);
+		if (sentido==1){//acendente
+			if (tipo==1){ // likes
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()<p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}
+			}else{//dificultad
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()<p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}}
+		}else{// decreciente
+			if (tipo==1){ // likes
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()>=p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}
+			}else{//dificultad
+				for(Profesor p : lista_profesores){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()>=p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{lista.set(i, p);}
+								break;}}}}}}	
+		return lista;
+	}
+
+	//sentido dice si es acendente o decreciente (1,0)
+	//tipo dice que atributo se compara (1=likes,2=dificultad,3=utilidad)
+	public List<Ramo> Top5Ramos(int sentido,int tipo){
+		List<Ramo> lista = new ArrayList<Ramo>();
+		lista.add(null);lista.add(null);lista.add(null);lista.add(null);lista.add(null);
+		if (sentido==1){//acendente
+			if (tipo==1){ // likes
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()<p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else if (tipo==3){
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getUtilidad()<p.getUtilidad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else {//dificultad
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()<p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}}
+		}else{// decreciente
+			if (tipo==1){ // likes
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getLikes()>=p.getLikes()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else if (tipo==3){ // utilidad
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getUtilidad()>=p.getUtilidad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}
+			}else {//dificultad
+				for(Ramo p : lista_ramos){
+					for (int i=0;i<5;i++){
+						if (lista.get(i)==null){
+							lista.set(i, p);
+						}else{
+							if (lista.get(i).getDificultad()>=p.getDificultad()){
+								if (i==0){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(1));
+									lista.set(1, lista.get(i));
+									lista.set(i, p);
+								}else if (i==1){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(2));
+									lista.set(2, lista.get(i));
+									lista.set(i, p);
+								}else if (i==2){
+									lista.set(4, lista.get(3));
+									lista.set(3, lista.get(i));
+									lista.set(i, p);
+								}else if (i==3){
+									lista.set(4, lista.get(i));
+									lista.set(i, p);
+								}else{
+									lista.set(i, p);
+								}
+								break;}}}}}}	
+		return lista;
+	}
 }
+
+
+

@@ -24,6 +24,9 @@ public class Ramo implements java.io.Serializable{
 	private String contenidos;
 	private String objetivos;
 	private List<String> prerrequisitos;
+	private Double likes;
+	private List<Double> dificultad;
+	private List<Double> utilidad;
 	
 	////////////////////////////////////
 	//// GETTERS de atributos
@@ -48,6 +51,23 @@ public class Ramo implements java.io.Serializable{
 	}
 	public String getSigla() {
 		return sigla;
+	}
+
+	public Double getLikes() {return likes;}
+	public Double getDificultad() {
+		return calculateAverage(dificultad);
+	}
+	public Double getUtilidad() {
+		return calculateAverage(utilidad);
+	}
+	public void DarDificultad(Double nota){
+		dificultad.add(nota);
+	}	
+	public void DarUtilidad(Double nota){
+		utilidad.add(nota);
+	}
+	public void DarLike(){
+		likes= likes +1;
 	}
 	public String getSemestreImpartidoString(){
 		switch(semestre_impartido){
@@ -74,6 +94,11 @@ public class Ramo implements java.io.Serializable{
 		this.contenidos = contenidos;
 		this.objetivos = objetivos;
 		this.prerrequisitos = new ArrayList<String>();
+		this.dificultad = new ArrayList<Double>();
+		this.dificultad.add((double) 3);
+		this.utilidad = new ArrayList<Double>();
+		this.utilidad.add((double) 3);
+		this.likes = (double) 0;
 		
 	}
 	
@@ -85,7 +110,6 @@ public class Ramo implements java.io.Serializable{
 		prerrequisitos.add(siglaPrerrequisito);
 		}
 	}
-	
 	private boolean existePrerrequisito(String siglaPrerrequisito){
 		for(String prerrequisito: prerrequisitos){
 			if(prerrequisito.equals(siglaPrerrequisito)){ return true;}
@@ -97,4 +121,15 @@ public class Ramo implements java.io.Serializable{
 	public String toString(){
 		return sigla;
 	}
+	// funcion de (http://stackoverflow.com/questions/10791568/calculating-average-of-an-array-list)
+	private double calculateAverage(List <Double> marks) {
+		Double sum = (double) 0;
+		  if(!marks.isEmpty()) {
+		    for (Double mark : marks) {
+		        sum += mark;
+		    }
+		    return sum.doubleValue() / marks.size();
+		  }
+		  return sum;
+		}
 }

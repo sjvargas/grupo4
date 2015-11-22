@@ -40,6 +40,8 @@ public class main extends Application {
 	public static String BuscadorID = "Buscador";
 	public static String ProfesorFile = "ProfesorOverview.fxml";
 	public static String ProfesorID = "Profesor";
+	public static String RedDeOpinionesFile = "RedDeOpiniones.fxml";
+	public static String RedDeOpinionesID = "RedDeOpiniones";
 	public static ScreensController Contenedor;
 	
 	public static Universidad U;
@@ -59,6 +61,7 @@ public class main extends Application {
 		Contenedor.loadScreen(main.ProfesorID, main.ProfesorFile);
 		Contenedor.loadScreen(main.BuscadorID, main.BuscadorFile);
 		Contenedor.loadScreen(main.ForosID, main.ForosFile);
+		Contenedor.loadScreen(main.RedDeOpinionesID, main.RedDeOpinionesFile);
 		
 		Contenedor.setScreen(main.InicioID);
 		Group root = new Group();

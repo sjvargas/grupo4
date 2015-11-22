@@ -59,7 +59,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	private Pane pantalla_alumno;
 	@FXML
-	private Button boton_carreras_alumno,boton_foros_alumno;
+	private Button boton_carreras_alumno,boton_foros_alumno,boton_Red_alumno;
 	@FXML
 	private Button boton_inicio_alumno;
 	@FXML
@@ -76,6 +76,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	private Button cerrar_sesion;
 	@FXML
 	private Button ver_mallas;
+	
 
 	///
 	
@@ -147,7 +148,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	Button buttonEliminarMalla;
 	 ////FIN elementos Malla
 
-	//// inicio Elementos MALLA
+	//// inicio Elementos Curso
 	@FXML
 	TextField textFieldNombreCurso;
 	@FXML
@@ -161,24 +162,18 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	ComboBox<Curso> comboBoxCursos;
 	
-	public void cambioComboBoxCurso(){
-		Curso cursoActual= comboBoxCursos.getValue();
-		if(cursoActual!=null){
-			textFieldNombreCurso.setText(cursoActual.getRamo().getNombreRamo());
-			textFieldSiglaCurso.setText(cursoActual.getRamo().getSigla());
-			textFieldSeccionCurso.setText(""+cursoActual.getSeccionCurso());
-			if(cursoActual.getHorario()!=null && cursoActual.getHorario().size()>1){
-				textFieldHorarioCurso.setText(cursoActual.getHorario().get(0));
-				
-			}
-			if(cursoActual.getSalas()!=null && cursoActual.getSalas().size()>0){
-				textFieldSalaCurso.setText(cursoActual.getSalas().get(0));
-
-			}
-		}
-	}
+	@FXML
+	TextField textFieldSiglaNueva;
+	@FXML
+	TextField textFieldSeccionNueva;
+	@FXML
+	Button buttonAgregarCurso;
+	@FXML
+	Label labelErroresAgregarCurso;
+	@FXML
+	Button buttonEliminarCurso;
 	
-	////fin Elementos MALLA
+	////fin Elementos Curso
 	
 	/////INICIO ELEMENTOS DE SEMESTRES
 	@FXML
@@ -329,28 +324,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		
 		
 	}
-	public void clickcursos() {
-		mostrar_panel(pane_cursos_alumno);
-		
-		
-		List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
-		
-		if(main.U.alumno_actual.getSemestreActual()!=null){
-			List<Integer> idCursos = main.U.alumno_actual.getSemestreActual().GetCursos();
-			for(int i=0;i<idCursos.size();i++){
-				cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(i)));
-			}
-
-			ObservableList<Curso> ss = FXCollections
-					.observableList(cursosDelSemestreActual);
-			comboBoxCursos.setItems(ss);
-			if(cursosDelSemestreActual.size()>0){
-				comboBoxCursos.setValue(cursosDelSemestreActual.get(0));
-			}
-		}
-
-		
-	}
+	
 
 	public void clickcarreras() {
 		mostrar_panel(pane_carreras_alumno);
@@ -426,6 +400,15 @@ public class AlumnoOverviewController implements PrincipalController {
 			text_curso7_semestre_actual.setText("");
 			text_curso8_semestre_actual.setText("");
 			
+			text_curso1_semestre_actual.setEditable(false);
+			text_curso2_semestre_actual.setEditable(false);
+			text_curso3_semestre_actual.setEditable(false);
+			text_curso4_semestre_actual.setEditable(false);
+			text_curso5_semestre_actual.setEditable(false);
+			text_curso6_semestre_actual.setEditable(false);
+			text_curso7_semestre_actual.setEditable(false);
+			text_curso8_semestre_actual.setEditable(false);
+			
 			text_nota1_semestre_actual.setText("");
 			text_nota2_semestre_actual.setText("");
 			text_nota3_semestre_actual.setText("");
@@ -434,6 +417,15 @@ public class AlumnoOverviewController implements PrincipalController {
 			text_nota6_semestre_actual.setText("");
 			text_nota7_semestre_actual.setText("");
 			text_nota8_semestre_actual.setText("");
+			
+			text_nota1_semestre_actual.setEditable(false);
+			text_nota2_semestre_actual.setEditable(false);
+			text_nota3_semestre_actual.setEditable(false);
+			text_nota4_semestre_actual.setEditable(false);
+			text_nota5_semestre_actual.setEditable(false);
+			text_nota6_semestre_actual.setEditable(false);
+			text_nota7_semestre_actual.setEditable(false);
+			text_nota8_semestre_actual.setEditable(false);
 		
 			text_curso1_semestre_actual.setStyle("-fx-text-fill: blue;");
 			text_curso2_semestre_actual.setStyle("-fx-text-fill: blue;");
@@ -443,6 +435,15 @@ public class AlumnoOverviewController implements PrincipalController {
 			text_curso6_semestre_actual.setStyle("-fx-text-fill: blue;");
 			text_curso7_semestre_actual.setStyle("-fx-text-fill: blue;");
 			text_curso8_semestre_actual.setStyle("-fx-text-fill: blue;");
+			
+			label_curso1_semestre_actual.setText("");
+			label_curso2_semestre_actual.setText("");
+			label_curso3_semestre_actual.setText("");
+			label_curso4_semestre_actual.setText("");
+			label_curso5_semestre_actual.setText("");
+			label_curso6_semestre_actual.setText("");
+			label_curso7_semestre_actual.setText("");
+			label_curso8_semestre_actual.setText("");
 			
 
 			//borrar
@@ -523,6 +524,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		mostrar_panel(pane_semestres_alumno);
 	}	
 	
+	
+	
 	public void clickforos() {
 		ForosController.CambiarNombreMenu(main.U.alumno_actual.getNombre());
 		
@@ -539,6 +542,9 @@ public class AlumnoOverviewController implements PrincipalController {
 				.observableList(nombres_cursos);
 		ForosController.CargarChoiceBox(uu);
 		controlador.setScreen(main.ForosID);
+	}
+	public void clickRedOpiniones(){
+		controlador.setScreen(main.RedDeOpinionesID);
 	}
 	public void CerrarSesion(ActionEvent event) {
 		main.U.alumno_actual.Cerrar_sesion();
@@ -1036,5 +1042,179 @@ public class AlumnoOverviewController implements PrincipalController {
 		mallaActual.setText(textoAColocar);
 
 	}
+	
+	
+	
+	
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	//////////////////////////CURSOS SEMESTRE ACTUAL///////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+
+	public void clickcursos() {
+		
+		mostrar_panel(pane_cursos_alumno);
+		
+		
+		List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
+		
+		if(main.U.alumno_actual.getSemestreActual()!=null){
+			List<Integer> idCursos = main.U.alumno_actual.getSemestreActual().GetCursos();
+			for(int i=0;i<idCursos.size();i++){
+				cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(i)));
+			}
+
+			ObservableList<Curso> ss = FXCollections
+					.observableList(cursosDelSemestreActual);
+			comboBoxCursos.setItems(ss);
+			if(cursosDelSemestreActual.size()>0){
+				comboBoxCursos.setValue(cursosDelSemestreActual.get(0));
+			}
+		}
+		
+		textFieldNombreCurso.setEditable(false);
+		textFieldSiglaCurso.setEditable(false);
+		textFieldSeccionCurso.setEditable(false);
+		textFieldHorarioCurso.setEditable(false);
+		textFieldSalaCurso.setEditable(false);
+		labelErroresAgregarCurso.setText("-");
+		
+		Curso cursoActual= comboBoxCursos.getValue();
+		if(cursoActual==null){
+			textFieldNombreCurso.setText("");
+			textFieldSiglaCurso.setText("");
+			textFieldSeccionCurso.setText("");
+			textFieldHorarioCurso.setText("");
+			textFieldSalaCurso.setText("");
+			
+		}
+		
+		
+	
+	}
+	public void cambioComboBoxCurso(){
+		Curso cursoActual= comboBoxCursos.getValue();
+		if(cursoActual!=null){
+			textFieldNombreCurso.setText(cursoActual.getRamo().getNombreRamo());
+			textFieldSiglaCurso.setText(cursoActual.getRamo().getSigla());
+			textFieldSeccionCurso.setText(""+cursoActual.getSeccionCurso());
+			if(cursoActual.getHorario()!=null && cursoActual.getHorario().size()>1){
+				textFieldHorarioCurso.setText(cursoActual.getHorario().get(0));
+				
+			}
+			if(cursoActual.getSalas()!=null && cursoActual.getSalas().size()>0){
+				textFieldSalaCurso.setText(cursoActual.getSalas().get(0));
+
+			}
+		}
+	}
+	
+	public void agregarNuevoCurso(){
+		////////////////////////////////////////
+		/////////////////////////////////////////
+		/////////////////////////////////////////
+		/////////////////////////////////////////
+		/////////////////////////////////////////
+		Alumno alumnoActual = main.U.alumno_actual;
+		Semestre semestreActual = alumnoActual.getSemestreActual();
+		
+		
+		
+
+		Curso cursoActual=null;
+		// Se revisan las casillas para los cursos, si no estan vacias, se agregan a la lista de cursos
+
+		if(textFieldSiglaNueva.getText().isEmpty() == false && textFieldSeccionNueva.getText().isEmpty() == false){
+			
+//			cursoActual = main.U.getCursoConID(Integer.parseInt(""+text_curso1_semestre_actual.getText()));
+			try{
+				cursoActual = main.U.getCursoConSiglaYSeccion(textFieldSiglaNueva.getText(), Integer.parseInt(""+textFieldSeccionNueva.getText()));
+
+			}
+			catch(Exception e) {
+				System.out.println("");
+				labelErroresAgregarCurso.setText("Curso o Sigla INVALIDOS");
+			}
+			
+			
+			if(cursoActual!=null){
+				
+				if(alumnoActual.cumplePreRequisitos(cursoActual) && alumnoActual.cumpleTopesCursoPreviamenteInscritos(cursoActual) ){
+					
+					
+					// verificar que este curso no este inscrito por el alumno en este semestre (2 veces)
+					boolean cursoYaInscrito = false;
+					List<Integer> cursosYaInscritos = semestreActual.GetCursos();
+					for(int i=0;i<cursosYaInscritos.size();i++){
+						if(cursosYaInscritos.get(i).equals(cursoActual.id_curso)){
+	
+						cursoYaInscrito = true;
+							break;
+						}
+					}
+					
+					if(cursoYaInscrito==true){
+						labelErroresAgregarCurso.setText("Este curso Ya fue inscrito, no se puede inscribir 2 veces");
+
+					}
+					else{
+						semestreActual.Agregar_Curso(cursoActual.getId_curso());
+						labelErroresAgregarCurso.setText("Curso Agregado");
+						this.clickcursos();
+					}
+					
+				}
+				else{
+					if(alumnoActual.cumplePreRequisitos(cursoActual)==false){
+						labelErroresAgregarCurso.setText("NO CUMPLE CON REQUISITOS");
+						//return false;
+					}
+					else{
+						// caso de tope horario 
+						labelErroresAgregarCurso.setText("NO CUMPLE TOPE HORARIO");
+
+						//return false;
+					}
+				}
+				
+				
+			}
+				
+				
+			else{
+				labelErroresAgregarCurso.setText("No se ha encontrado la sección: "+Integer.parseInt(""+textFieldSeccionNueva.getText())+", del curso con sigla: "+textFieldSiglaNueva.getText());
+
+			}	
+		}
+		else{
+			labelErroresAgregarCurso.setText("Debe ingresar la Sigla y seccion del curso a agregar");
+		}
+			
+		
+			
+		
+
+		/////////////////////////////////////////
+		/////////////////////////////////////////
+		/////////////////////////////////////////
+		/////////////////////////////////////////
+	}
+	
+	public void eliminarCurso(){
+		Alumno alumnoActual = main.U.alumno_actual;
+		Semestre semestreActual = alumnoActual.getSemestreActual();
+		Curso cursoActual= comboBoxCursos.getValue();
+		if(cursoActual!=null){
+			semestreActual.Eliminar_Curso(cursoActual.id_curso);
+			
+			
+			
+		
+		}
+		this.clickcursos();
+	}
+	
+	
 
 }
