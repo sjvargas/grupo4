@@ -33,6 +33,7 @@ public class Curso implements java.io.Serializable {
 	public List<Alumno> lista_alumnos;
 	public Ramo ramo;
 	public List<Tema> temas;
+	private List<ProgramacionHoraria> listaProgramacionHoraria;
 	
 	
 	public Curso(String periodo,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
@@ -48,12 +49,34 @@ public class Curso implements java.io.Serializable {
 		this.salas = salas;
 		this.temas = new ArrayList<Tema>();
 		
-	//	profesores = new ArrayList<Profesor>();
-	//	salas = new ArrayList<String>();
-	//	horario = new ArrayList<String>();
-		
+		listaProgramacionHoraria = new ArrayList<ProgramacionHoraria>();
+		int i = 0;
+		for(String sala: salas){
+			String[] divisionHorario = horario.get(i).split(":");
+			listaProgramacionHoraria.add(new ProgramacionHoraria(getDiaCompleto(divisionHorario[0]),
+																				Integer.parseInt(divisionHorario[1]),sala));
+			i++;
+		}
 	}
-	
+	private String getDiaCompleto(String diaIncompleto){
+		switch (diaIncompleto){
+		case "Lu":
+			return "Lunes";
+		case "Ma":
+			return "Martes";
+		case "Mi":
+			return "Miercoles";
+		case "Ju":
+			return "Jueves";
+		case "Vi":
+			return "Viernes";
+		case "Sa":
+			return "Sabado";
+		default:
+			return "Lunes";
+		
+		}
+	}
 
 //// GETTERS de atributos
 	public List<String> getHorario() {
@@ -123,10 +146,36 @@ public class Curso implements java.io.Serializable {
 	 public List<Tema> getTema(){
 		 return temas;
 	 }
-	 
 	 public String  AgregarTema(String titulo, String texto, Usuario usuario, String status){
 		 temas.add(new Tema(titulo,texto, usuario, status));
 		 return "tema creado con exito!";
 	 }
+	 public List<ProgramacionHoraria> getListaProgramacionHoraria(){ return listaProgramacionHoraria;}
+	 public boolean HaceClasesProfesor(int idProfesor){
+		 for(Profesor profesor: profesores){
+			 if(idProfesor==profesor.getId_profesor()){
+				 return true;
+			 }
+		 }
+		 return false;
+	 }
 
+	 public void ModificarDatosCurso(String periodo,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
+		profesores.set(0, profesor);
+		this.seccionCurso = seccion;
+		this.periodo = periodo;
+		this.horario = horario;
+		this.creditos = creditos;
+		this.ramo = ramo;
+		this.salas = salas;
+		
+		listaProgramacionHoraria = new ArrayList<ProgramacionHoraria>();
+		int i = 0;
+		for(String sala: salas){
+			String[] divisionHorario = horario.get(i).split(":");
+			listaProgramacionHoraria.add(new ProgramacionHoraria(getDiaCompleto(divisionHorario[0]),
+																				Integer.parseInt(divisionHorario[1]),sala));
+			i++;
+		}
+	 }
 }

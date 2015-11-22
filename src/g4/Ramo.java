@@ -103,12 +103,24 @@ public class Ramo implements java.io.Serializable{
 	}
 	
 	public void AgregarPrerrequisito(String siglaPrerrequisito){
+		if(existePrerrequisito(siglaPrerrequisito)){
+			
+		}
+		else{
 		prerrequisitos.add(siglaPrerrequisito);
+		}
+	}
+	private boolean existePrerrequisito(String siglaPrerrequisito){
+		for(String prerrequisito: prerrequisitos){
+			if(prerrequisito.equals(siglaPrerrequisito)){ return true;}
+		}
+		return false;
 	}
 	@Override
 	 public String toString() {
 		   return this.sigla+": "+this.nombreRamo;
 	  }
+	
 	
 	// funcion de (http://stackoverflow.com/questions/10791568/calculating-average-of-an-array-list)
 	private double calculateAverage(List <Double> marks) {
