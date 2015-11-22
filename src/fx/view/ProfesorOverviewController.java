@@ -91,7 +91,7 @@ public class ProfesorOverviewController implements PrincipalController {
 		
 		ArrayList<String> nombres_cursos = new ArrayList<String>();
 		ArrayList<Curso> cursos = main.U.buscador.filtrar(null,main.U.profesor_actual.getNombre(), -1, null,main.U.periodo_actual);
-		
+
 		for (Curso j : cursos){
 			nombres_cursos.add(j.getRamo().getSigla()+"-"+j.getId_curso());}
 		ObservableList<String> uu = FXCollections

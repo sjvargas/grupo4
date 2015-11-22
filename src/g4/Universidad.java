@@ -31,7 +31,7 @@ public class Universidad implements java.io.Serializable {
 	public Administrador_academico administrador_actual;
 	public Alumno alumno_actual;
 	public Profesor profesor_actual;
-	public String periodo_actual = "2015-2";
+	public String periodo_actual = "2016-1";
 	
 	public Universidad(){
 		

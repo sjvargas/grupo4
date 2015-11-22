@@ -1,5 +1,7 @@
 package g4;
 
+import fx.view.main;
+
 public class ProgramacionHoraria implements java.io.Serializable{
 	private String dia;
 	private Integer modulo;
