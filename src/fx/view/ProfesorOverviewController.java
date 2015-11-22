@@ -157,6 +157,7 @@ public class ProfesorOverviewController implements PrincipalController {
 		for (Curso j :main.U.lista_cursos){
 			if (j.getRamo().getSigla().toLowerCase().equals(sigla.toLowerCase()) && j.getSeccionCurso()==secc){
 				c=j;
+				curso_seleccionado=j;
 				break;
 			}
 		}

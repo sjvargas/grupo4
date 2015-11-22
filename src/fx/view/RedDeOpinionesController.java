@@ -389,23 +389,31 @@ public class RedDeOpinionesController implements PrincipalController  {
 	
 	public void ClickDescarga(ActionEvent e) throws IOException {
 		label_descarga.setText("Descargado!");
-		
-		File file = new File("/users/mkyong/filename.txt");
-		if (!file.exists()) {
-			file.createNewFile();
-		}
-		FileWriter fw = new FileWriter(file.getAbsoluteFile());
-		BufferedWriter bw = new BufferedWriter(fw);
-		bw.write("Programa Ramo: "+ramo_seleccionado.getNombreRamo()+"-"+ramo_seleccionado.getSigla());
-		bw.write("\n");
-		bw.write("Objetivos");
-		bw.write("\n");
-		bw.write(ramo_seleccionado.getObjetivos());
-		bw.write("\n");
-		bw.write("Contenidos");
-		bw.write("\n");
-		bw.write(ramo_seleccionado.getContenidos());
-		bw.close();
+        BufferedWriter output = null;
+        try {
+    		String nombre_archivo = "programa-"+ramo_seleccionado.getSigla()+".txt";
+    		File file = new File(nombre_archivo);
+            output = new BufferedWriter(new FileWriter(file));
+    		output.write("Programa\nRamo: "+ramo_seleccionado.getNombreRamo()+"-"+ramo_seleccionado.getSigla());
+    		output.write(System.getProperty("line.separator"));
+    		output.write(System.getProperty("line.separator"));
+    		output.write("Objetivos");
+    		output.write(System.getProperty("line.separator"));
+    		output.write(System.getProperty("line.separator"));
+    		output.write(ramo_seleccionado.getObjetivos());
+    		output.write(System.getProperty("line.separator"));
+    		output.write(System.getProperty("line.separator"));
+    		output.write(System.getProperty("line.separator"));
+    		output.write("Contenidos");
+    		output.write(System.getProperty("line.separator"));
+    		output.write(System.getProperty("line.separator"));
+    		output.write(ramo_seleccionado.getContenidos());
+    		output.close();
+        } catch ( IOException e1 ) {
+            e1.printStackTrace();
+        } finally {
+            if ( output != null ) output.close();
+        }
 	}
 	
 	//EVENTOS EXTRAS

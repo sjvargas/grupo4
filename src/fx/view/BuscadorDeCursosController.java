@@ -179,6 +179,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	
 	public void ClickCerrarSesion(ActionEvent event) {
+		VaciarTablas();
 		controlador.setScreen(main.InicioID);
 		if (main.U.alumno_actual!=null){
 			main.U.alumno_actual.Cerrar_sesion();
@@ -196,6 +197,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 		Serializador.serializar(main.U);
 	}
 	public void ClickVolverMenu(ActionEvent event) {
+		VaciarTablas();
 		if (main.U.alumno_actual!=null){
 			controlador.setScreen(main.AlumnoID);
 		}
@@ -247,6 +249,25 @@ public class BuscadorDeCursosController implements PrincipalController {
 		controlador = ScreenPage;
 	}
 
+	public void VaciarTablas(){
+		pane_aceptar.setVisible(true);
+		data_seleccion = FXCollections.observableArrayList(new ArrayList<CursoTabla>());
+		tabla_seleccion.setItems(data_seleccion);
+		tabla_busqueda.setItems(data_seleccion);
+		text_sigla.setText("");
+		text_profesor.setText("");
+		text_carrera.setValue(null);
+		lu_1.setSelected(false); ma_1.setSelected(false); mi_1.setSelected(false);  ju_1.setSelected(false);  vi_1.setSelected(false);  sa_1.setSelected(false); 
+		lu_2.setSelected(false); ma_2.setSelected(false); mi_2.setSelected(false);  ju_2.setSelected(false);  vi_2.setSelected(false);  sa_2.setSelected(false); 
+		lu_3.setSelected(false); ma_3.setSelected(false); mi_3.setSelected(false);  ju_3.setSelected(false);  vi_3.setSelected(false);  sa_3.setSelected(false); 
+		lu_4.setSelected(false); ma_4.setSelected(false); mi_4.setSelected(false);  ju_4.setSelected(false);  vi_4.setSelected(false);  sa_4.setSelected(false); 
+		lu_5.setSelected(false); ma_5.setSelected(false); mi_5.setSelected(false);  ju_5.setSelected(false);  vi_5.setSelected(false);  sa_5.setSelected(false); 
+		lu_6.setSelected(false); ma_6.setSelected(false); mi_6.setSelected(false);  ju_6.setSelected(false);  vi_6.setSelected(false);  sa_6.setSelected(false); 
+		lu_7.setSelected(false); ma_7.setSelected(false); mi_7.setSelected(false);  ju_7.setSelected(false);  vi_7.setSelected(false);  sa_7.setSelected(false); 
+		lu_8.setSelected(false); ma_8.setSelected(false); mi_8.setSelected(false);  ju_8.setSelected(false);  vi_8.setSelected(false);  sa_8.setSelected(false); 
+		horario_buscar.clear();
+	}
+	
 	
 	public void ActualizarBusqueda(){
 		tabla_busqueda.setItems(data_busqueda);
