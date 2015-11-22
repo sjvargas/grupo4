@@ -1234,6 +1234,7 @@ public class AlumnoOverviewController implements PrincipalController {
 					else{
 						semestreActual.Agregar_Curso(cursoActual.getId_curso());
 						labelErroresAgregarCurso.setText("Curso Agregado");
+						cursoActual.AgregarAlumno(alumnoActual);
 						this.clickcursos();
 					}
 					

@@ -91,7 +91,7 @@ public class ProfesorOverviewController implements PrincipalController {
 		
 		ArrayList<String> nombres_cursos = new ArrayList<String>();
 		ArrayList<Curso> cursos = main.U.buscador.filtrar(null,main.U.profesor_actual.getNombre(), -1, null,main.U.periodo_actual);
-
+		
 		for (Curso j : cursos){
 			nombres_cursos.add(j.getRamo().getSigla()+"-"+j.getSeccionCurso());}
 		ObservableList<String> uu = FXCollections
@@ -155,7 +155,7 @@ public class ProfesorOverviewController implements PrincipalController {
 		int secc = Integer.parseInt(Arrays.asList(str.split("-")).get(1));
 		Curso c = null;
 		for (Curso j :main.U.lista_cursos){
-			if (j.getRamo().getSigla()==sigla && j.getSeccionCurso()==secc){
+			if (j.getRamo().getSigla().toLowerCase().equals(sigla.toLowerCase()) && j.getSeccionCurso()==secc){
 				c=j;
 				break;
 			}
