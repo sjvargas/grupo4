@@ -93,7 +93,7 @@ public class ProfesorOverviewController implements PrincipalController {
 		ArrayList<Curso> cursos = main.U.buscador.filtrar(null,main.U.profesor_actual.getNombre(), -1, null,main.U.periodo_actual);
 
 		for (Curso j : cursos){
-			nombres_cursos.add(j.getRamo().getSigla()+"-"+j.getId_curso());}
+			nombres_cursos.add(j.getRamo().getSigla()+"-"+j.getSeccionCurso());}
 		ObservableList<String> uu = FXCollections
 				.observableList(nombres_cursos);
 		choicebox_evaluar_cursos.setItems(uu);
@@ -151,12 +151,12 @@ public class ProfesorOverviewController implements PrincipalController {
 	/// EVENTOS EVALUAR CURSOS
 	public void ClickEvaluarIr() {
 		String str = choicebox_evaluar_cursos.getValue();
-		int id_curso = Integer.parseInt(Arrays.asList(str.split("-")).get(1));
+		String sigla = Arrays.asList(str.split("-")).get(0);
+		int secc = Integer.parseInt(Arrays.asList(str.split("-")).get(1));
 		Curso c = null;
 		for (Curso j :main.U.lista_cursos){
-			if (j.id_curso==id_curso){
+			if (j.getRamo().getSigla()==sigla && j.getSeccionCurso()==secc){
 				c=j;
-				curso_seleccionado = j;
 				break;
 			}
 		}
