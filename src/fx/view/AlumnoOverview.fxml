@@ -142,7 +142,7 @@
                   <Label fx:id="label_edad_inicio_alumno" layoutX="146.0" layoutY="137.0" text="Label" />
                </children>
             </Pane>
-            <Pane fx:id="pane_semestre_actual_alumno" layoutX="199.0" layoutY="16.0" prefHeight="497.0" prefWidth="521.0" visible="false">
+            <Pane fx:id="pane_semestre_actual_alumno" layoutX="199.0" layoutY="16.0" prefHeight="497.0" prefWidth="521.0">
                <children>
                   <Label layoutX="25.0" layoutY="123.0" text="Curso 1" />
                   <Label layoutX="75.0" layoutY="94.0" text="ID del curso" />
@@ -171,7 +171,6 @@
                   <TextField fx:id="text_nota7_semestre_actual" layoutX="158.0" layoutY="322.0" prefHeight="25.0" prefWidth="64.0" />
                   <TextField fx:id="text_nota8_semestre_actual" layoutX="158.0" layoutY="355.0" prefHeight="25.0" prefWidth="64.0" />
                   <Label layoutX="26.0" layoutY="394.0" text="Periodo Actual" />
-                  <TextField fx:id="text_periodo_semestre_actual" layoutX="112.0" layoutY="390.0" prefHeight="25.0" prefWidth="110.0" />
                   <Label fx:id="label_curso1_semestre_actual" layoutX="233.0" layoutY="123.0" text="-" />
                   <Label fx:id="label_curso2_semestre_actual" layoutX="233.0" layoutY="160.0" text="-" />
                   <Label fx:id="label_curso3_semestre_actual" layoutX="233.0" layoutY="193.0" text="-" />
@@ -180,8 +179,8 @@
                   <Label fx:id="label_curso6_semestre_actual" layoutX="231.0" layoutY="292.0" text="-" />
                   <Label fx:id="label_curso7_semestre_actual" layoutX="233.0" layoutY="326.0" text="-" />
                   <Label fx:id="label_curso8_semestre_actual" layoutX="235.0" layoutY="359.0" text="-" />
-                  <Button fx:id="boton_finalizar_semestre_actual" layoutX="348.0" layoutY="227.0" mnemonicParsing="false" onAction="#finalizarSemestre" prefHeight="50.0" prefWidth="123.0" text="Finalizar Semestre" />
                   <TextArea layoutX="26.0" layoutY="14.0" prefHeight="73.0" prefWidth="479.0" text="NOTAS SEMESTRE ACTUAL&#10;Por medio de &quot;Finalizar Semestre&quot; finalizaras el semestre y podras acceder a uno nuevo.&#10;La información de los semestres ya finalizados se puede ver en &quot;Semestres&quot;" />
+                  <ComboBox fx:id="comboBoxPeriodosSemestres" layoutX="115.0" layoutY="390.0" onAction="#cambioComboBoxPeridos" prefWidth="150.0" />
                </children></Pane>
             <Pane fx:id="pane_mallas_alumno" layoutX="176.0" layoutY="76.0" prefHeight="334.0" prefWidth="479.0" visible="false">
                <children>
@@ -199,7 +198,7 @@
                   <Button fx:id="buttonEliminarMalla" layoutX="308.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickEliminarMalla" text="Eliminar Malla inscrita" />
                </children></Pane>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Pane fx:id="pane_avance_curricular" layoutX="148.0" layoutY="75.0" prefHeight="360.0" prefWidth="571.0">
+            <Pane fx:id="pane_avance_curricular" layoutX="148.0" layoutY="75.0" prefHeight="360.0" prefWidth="571.0" visible="false">
                <children>
                   <ComboBox fx:id="AvanceComboBoxCarrerasInscritas" layoutX="20.0" layoutY="73.0" onAction="#avanceCambioEnComboCarrera" prefWidth="150.0" />
                   <Label layoutX="26.0" layoutY="14.0" text="AVANCE CURRICULAR" textFill="#0f3580">

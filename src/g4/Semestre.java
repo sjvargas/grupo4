@@ -66,6 +66,11 @@ public class Semestre implements java.io.Serializable{
 	// Cierra el semestre
 	public void CerrarSemestre(){
 		boolean sePuedeCerrar = true;
+		
+		if(notas.size()<1 || cursos.size()<1){
+			sePuedeCerrar=false;
+			return;
+		}
 		// revisa que todos tengan nota
 		for(int i = 0; i < notas.size(); i++ ){
 			if(notas.get(i).GetNota()!= null){
@@ -117,6 +122,10 @@ public class Semestre implements java.io.Serializable{
 	  public String toString() {
 		   return "Semestre del periodo: "+this.periodo;
 	   }
+	  
+	 public void setPeriodo(String periodo){
+		 this.periodo= periodo;
+	 }
 		   
 	
 }

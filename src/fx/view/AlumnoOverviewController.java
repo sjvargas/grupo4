@@ -55,6 +55,8 @@ public class AlumnoOverviewController implements PrincipalController {
 
 
 	/// variables de Usuario
+	
+	Boolean primerBotonApretado = true;
 
 	// panel basico
 	@FXML
@@ -345,6 +347,14 @@ public class AlumnoOverviewController implements PrincipalController {
 	}
 
 	public void mostrar_panel(Pane a) {
+		
+		if(this.primerBotonApretado == true){
+			this.primerBotonApretado = false;
+			
+			this.finalizarSemestre();
+		}
+		
+		
 		if (pane_cursos_alumno.isVisible()) {
 			pane_cursos_alumno.setVisible(false);
 		}
@@ -385,6 +395,10 @@ public class AlumnoOverviewController implements PrincipalController {
 	}	
 	
 	public void clicksemestreactual() {
+		
+		if(this.listaPeriodos == null  || this.listaPeriodos.size()<1){
+			this.inicializarComboBoxPeriodos();
+		}
 		
 		Semestre semestreActual;
 		if(main.U.alumno_actual.GetSemestreActual()!= null){
@@ -886,14 +900,62 @@ public class AlumnoOverviewController implements PrincipalController {
 		//}
 	}
 	
-	public void finalizarSemestre(){
-		if(this.actualizarSemestreActual()==false){
-			return;
+	@FXML
+	ComboBox<String> comboBoxPeriodosSemestres;
+	List<String> listaPeriodos;
+	private void inicializarComboBoxPeriodos(){
+		listaPeriodos = new ArrayList<String>();
+		listaPeriodos.add("2015-1");
+		listaPeriodos.add("2015-2");
+		listaPeriodos.add("2016-1");
+		listaPeriodos.add("2016-2");
+		listaPeriodos.add("2017-1");
+		listaPeriodos.add("2017-2");
+		listaPeriodos.add("2018-1");
+		listaPeriodos.add("2018-2");
+		listaPeriodos.add("2019-1");
+		listaPeriodos.add("2019-2");
+		listaPeriodos.add("2020-1");
+		listaPeriodos.add("2020-2");
+		
+		
+		ObservableList<String> ss = FXCollections
+				.observableList(listaPeriodos);
+		comboBoxPeriodosSemestres.setItems(ss);
+		
+		if(main.U.alumno_actual.GetSemestreActual().GetPeriodo().length()>0){
+			comboBoxPeriodosSemestres.setValue(main.U.alumno_actual.GetSemestreActual().GetPeriodo());
 		}
+		else{
+			comboBoxPeriodosSemestres.setValue("2015-2");
+		}
+		
+		
+
+
+	}
+	public void cambioComboBoxPeridos(){
+		
+		String periodoActual = comboBoxPeriodosSemestres.getValue();
+		if(periodoActual!=null){
+			main.U.alumno_actual.GetSemestreActual().setPeriodo(periodoActual);
+	
+		}
+	}
+	
+	
+	private void finalizarSemestre(){
+		/*
+	//	if(this.actualizarSemestreActual()==false){
+	//		return;
+	//	}
+		*/
 		Semestre semestre_actual =main.U.alumno_actual.getSemestreActual();
 		
 		semestre_actual.CerrarSemestre();
 		if(semestre_actual.semestreCerrado){
+			
+			System.out.println("SEMESTRE FINALIZADO!!!!");
 			List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
 			List<Nota> notasDeCursos = semestre_actual.GetNotas();
 			List<Integer> idCursos = semestre_actual.GetCursos();
@@ -952,7 +1014,6 @@ public class AlumnoOverviewController implements PrincipalController {
 			text_nota6_semestre_actual.setText("");
 			text_nota7_semestre_actual.setText("");
 			text_nota8_semestre_actual.setText("");
-			text_periodo_semestre_actual.setText("-");
 			label_curso1_semestre_actual.setText("-");
 			label_curso2_semestre_actual.setText("-");
 			label_curso3_semestre_actual.setText("-");
@@ -1067,7 +1128,9 @@ public class AlumnoOverviewController implements PrincipalController {
 	////////////////////////////////////////////////////////////////////////////
 
 	public void clickcursos() {
-		
+		if(this.listaPeriodos == null  || this.listaPeriodos.size()<1){
+			this.inicializarComboBoxPeriodos();
+		}
 		mostrar_panel(pane_cursos_alumno);
 		
 		
