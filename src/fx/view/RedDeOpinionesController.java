@@ -210,6 +210,9 @@ public class RedDeOpinionesController implements PrincipalController  {
 	}
 	public void ClickVerTopRamo (ActionEvent e){
 		error_ver_top_ramo.setText("");
+		System.out.println("rd: "+modoDificultadSelecionado);
+		System.out.println("ru: "+modoUtilidadSelecionado);
+		System.out.println("rl: "+modoLikesSelecionado);
 		if (modoDificultadSelecionado ||modoUtilidadSelecionado ||modoLikesSelecionado){
 			List<Ramo> top_a = new ArrayList<Ramo>();
 			List<Ramo> top_d = new ArrayList<Ramo>();
@@ -262,6 +265,8 @@ public class RedDeOpinionesController implements PrincipalController  {
 	}
 	public void ClickVerTopProfesor (ActionEvent e){
 		error_ver_top_profesor.setText("");
+		System.out.println("pd: "+modoDificultadSelecionadoProfesor);
+		System.out.println("pl: "+modoLikesSelecionadoProfesor);
 		if (modoLikesSelecionadoProfesor || modoDificultadSelecionadoProfesor){
 			List<Profesor> top_a = new ArrayList<Profesor>();
 			List<Profesor> top_d = new ArrayList<Profesor>();

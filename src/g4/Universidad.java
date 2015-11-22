@@ -46,11 +46,19 @@ public class Universidad implements java.io.Serializable {
 		profesor_actual = null;
 		administrador_actual = null;
 		
-		lista_profesores.add( new Profesor("mar","mar", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
+		lista_profesores.add( new Profesor("juana","juana", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
 		lista_profesores.add( new Profesor("ian", "ian", "sapallo", "casuela", "123", Sexo.Masculino, 42, 2000000, "Ingenieria"));
 		lista_profesores.add( new Profesor("jorge", "jorge", "zanahoria", "ensalada", "123", Sexo.Masculino, 45, 1000000, "Ingenieria"));
 		lista_profesores.add( new Profesor("jaime", "jaime", "vargas", "vargas", "123", Sexo.Femenino, 55, 2200000, "Ingenieria"));
 		
+		lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();lista_profesores.get(0).DarLike();
+		lista_profesores.get(1).DarLike();lista_profesores.get(1).DarLike();lista_profesores.get(1).DarLike();
+		lista_profesores.get(2).DarLike();lista_profesores.get(2).DarLike();lista_profesores.get(2).DarLike();lista_profesores.get(2).DarLike();
+		lista_profesores.get(3).DarLike();lista_profesores.get(3).DarLike();lista_profesores.get(3).DarLike();
+		lista_profesores.get(0).DarDificultad((double) 5);lista_profesores.get(0).DarDificultad((double) 5);lista_profesores.get(0).DarDificultad((double) 5);lista_profesores.get(0).DarDificultad((double) 5);
+		lista_profesores.get(1).DarDificultad((double) 4);lista_profesores.get(1).DarDificultad((double) 4);lista_profesores.get(1).DarDificultad((double) 4);lista_profesores.get(1).DarDificultad((double) 4);
+		lista_profesores.get(2).DarDificultad((double) 1);lista_profesores.get(2).DarDificultad((double) 1);lista_profesores.get(2).DarDificultad((double) 1);lista_profesores.get(2).DarDificultad((double) 1);
+		lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);lista_profesores.get(3).DarDificultad((double) 1);
 		String[] user_names = {"oscar","alejandra","mario","felipe","luigi","miguel","laura","ines","carmen","elena","maria",
 		              "jose","ana","alex","clemente","domingo","tomas","raul","luis","elisa","tere","sofia","alex","jairo",
 		              "sam","mikey","piro","pascal","damian","tzo","vermont","pug","simon","farras","lola","almendra","manzana","tambor","bambi","negra","raimuno"};
@@ -131,6 +139,26 @@ public class Universidad implements java.io.Serializable {
 		Ramo ramo5 = new Ramo("Introducción a la Programación","IIC1103", 10, lista_carreras.get(0),"3", "programacion basica", "desarrollar pensamiento");
 		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3", "redes y hacer sufrir a los alumnos", "desarrollar pensamiento");
 		lista_ramos.add(ramo1);lista_ramos.add(ramo2);lista_ramos.add(ramo3);lista_ramos.add(ramo4);lista_ramos.add(ramo5);lista_ramos.add(ramo6);
+		
+		ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();ramo1.DarLike();
+		ramo2.DarLike();ramo2.DarLike();ramo2.DarLike();ramo2.DarLike();ramo2.DarLike();
+		ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();ramo3.DarLike();
+		ramo4.DarLike();ramo4.DarLike();ramo4.DarLike();ramo4.DarLike();ramo4.DarLike();
+		ramo5.DarLike();ramo5.DarLike();ramo5.DarLike();
+		ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();ramo6.DarLike();
+		
+		ramo1.DarDificultad((double) 5);ramo1.DarDificultad((double) 5);ramo1.DarDificultad((double) 5);ramo1.DarDificultad((double) 5);
+		ramo2.DarDificultad((double) 1);ramo2.DarDificultad((double) 1);ramo2.DarDificultad((double) 1);ramo2.DarDificultad((double) 1);
+		ramo3.DarDificultad((double) 1);ramo3.DarDificultad((double) 1);ramo3.DarDificultad((double) 1);
+		ramo4.DarDificultad((double) 4);ramo4.DarDificultad((double) 4);ramo4.DarDificultad((double) 4);ramo4.DarDificultad((double) 4);
+		ramo5.DarDificultad((double) 2);ramo5.DarDificultad((double) 2);ramo5.DarDificultad((double) 2);ramo5.DarDificultad((double) 2);
+
+		ramo2.DarUtilidad((double) 5);ramo2.DarUtilidad((double) 5);ramo2.DarUtilidad((double) 5);ramo2.DarUtilidad((double) 5);
+		ramo4.DarUtilidad((double) 1);ramo4.DarUtilidad((double) 1);ramo4.DarUtilidad((double) 1);ramo4.DarUtilidad((double) 1);
+		ramo5.DarUtilidad((double) 1);ramo5.DarUtilidad((double) 1);ramo5.DarUtilidad((double) 1);
+		ramo1.DarUtilidad((double) 4);ramo1.DarUtilidad((double) 4);ramo1.DarUtilidad((double) 4);ramo1.DarUtilidad((double) 4);
+		ramo3.DarUtilidad((double) 2);ramo3.DarUtilidad((double) 2);ramo3.DarUtilidad((double) 2);ramo3.DarUtilidad((double) 2);
+		
 		
 		ramo2.AgregarPrerrequisito(ramo1.getSigla());
 		ramo3.AgregarPrerrequisito(ramo2.getSigla());
