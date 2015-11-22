@@ -50,7 +50,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 	@FXML
 	public Label contador_likes_ramo,ramo_nombre_grande,contador_likes_profesor,profesor_nombre_grande,error_seleccion_profesor, error_seleccion_ramo,label_nombre_profesor,label_facultad_profesor;
 	@FXML
-	public Label label_carrera_ramo,label_semestre_ramo,label_creditos_ramo,label_sigla_ramo;
+	public Label label_carrera_ramo,label_semestre_ramo,label_creditos_ramo,label_sigla_ramo,error_ver_top_ramo,error_ver_top_profesor;
 	@FXML
 	private TableView<Profesor> tabla_busqueda_profesor;
 	@FXML
@@ -80,11 +80,11 @@ public class RedDeOpinionesController implements PrincipalController  {
 	@FXML
 	private ListView<String> list_view_historial_profesor,list_view_prerrequisitos;
 	
-	boolean modoDificultadSelecionado;
-	boolean modoLikesSelecionado;
-	boolean modoUtilidadSelecionado;
-	boolean modoLikesSelecionadoProfesor;
-	boolean modoDificultadSelecionadoProfesor;
+	boolean modoDificultadSelecionado= true;
+	boolean modoLikesSelecionado=false;
+	boolean modoUtilidadSelecionado=false;
+	boolean modoLikesSelecionadoProfesor=false;
+	boolean modoDificultadSelecionadoProfesor = true;
 	
 	Ramo ramo_seleccionado;
 	Profesor profesor_seleccionado;
@@ -94,7 +94,6 @@ public class RedDeOpinionesController implements PrincipalController  {
 	
 	// EVENTOS PANTALLA PRINCIPAL
 	public void ClickBuscar(ActionEvent event) {
-		
 		String texto = text_field_buscar.getText();
 		
 		if (texto.length()>0){
@@ -165,9 +164,11 @@ public class RedDeOpinionesController implements PrincipalController  {
 	
 	//EVENTOS PANTALLA INICIO
 	public void ClickTopRamos(ActionEvent event) {
+		error_ver_top_ramo.setText("");
 		CambiarAPanel(pane_top_ramos);
 	}
 	public void ClickTopProfesores(ActionEvent event) {
+		error_ver_top_profesor.setText("");
 		CambiarAPanel(pane_top_profesores);
 	}
 	public void ClickRandomRamo(ActionEvent event) {
@@ -199,6 +200,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 	}
 	
 	public void ClickBotonRamoTop(ActionEvent e){
+		error_ver_top_ramo.setText("");
 		if (e.getSource() instanceof Button) {
 			Button chk = (Button) e.getSource(); // getText es la sigla
 			ramo_seleccionado = main.U.GetRamo(chk.getText());
@@ -207,7 +209,36 @@ public class RedDeOpinionesController implements PrincipalController  {
 		}
 	}
 	public void ClickVerTopRamo (ActionEvent e){
-		
+		error_ver_top_ramo.setText("");
+		if (modoDificultadSelecionado ||modoUtilidadSelecionado ||modoLikesSelecionado){
+			List<Ramo> top_a = new ArrayList<Ramo>();
+			List<Ramo> top_d = new ArrayList<Ramo>();
+			if (modoDificultadSelecionado){
+				top_a = main.U.Top5Ramos(1, 2);
+				top_d = main.U.Top5Ramos(0, 2);
+			}
+			else if (modoLikesSelecionado){
+				top_a = main.U.Top5Ramos(1, 1);
+				top_d = main.U.Top5Ramos(0, 1);
+			}
+			else{
+				top_a = main.U.Top5Ramos(1, 3);
+				top_d = main.U.Top5Ramos(0, 3);
+			}
+			boton_ramo_a1.setText(top_a.get(0).getSigla());
+			boton_ramo_a2.setText(top_a.get(1).getSigla());
+			boton_ramo_a3.setText(top_a.get(2).getSigla());
+			boton_ramo_a4.setText(top_a.get(3).getSigla());
+			boton_ramo_a5.setText(top_a.get(4).getSigla());
+			boton_ramo_d1.setText(top_d.get(0).getSigla());
+			boton_ramo_d2.setText(top_d.get(1).getSigla());
+			boton_ramo_d3.setText(top_d.get(2).getSigla());
+			boton_ramo_d4.setText(top_d.get(3).getSigla());
+			boton_ramo_d5.setText(top_d.get(4).getSigla());
+		}
+		else{
+			error_ver_top_ramo.setText("ERROR: seleccione de nuevo");
+		}
 	}
 	
 	//EVENTOS PANTALLA TOP PROFESORES
@@ -219,18 +250,43 @@ public class RedDeOpinionesController implements PrincipalController  {
 		modoDificultadSelecionadoProfesor  = true;
 		modoLikesSelecionadoProfesor = false;
 	}
-	
+
 	public void ClickBotonProfesorTop(ActionEvent e){
 		if (e.getSource() instanceof Button) {
 			Button chk = (Button) e.getSource(); // getText es la sigla
-			String str = chk.getText().split("-")[0];
+			String str = chk.getText().split("--")[0];
 			profesor_seleccionado = main.U.GetProfesor(Integer.parseInt(str));
 			CambiarAProfesor();
 			CambiarAPanel(pane_profesor);
 		}
 	}
 	public void ClickVerTopProfesor (ActionEvent e){
-		
+		error_ver_top_profesor.setText("");
+		if (modoLikesSelecionadoProfesor || modoDificultadSelecionadoProfesor){
+			List<Profesor> top_a = new ArrayList<Profesor>();
+			List<Profesor> top_d = new ArrayList<Profesor>();
+			if (modoDificultadSelecionado){
+				top_a = main.U.Top5Profesores(1, 2);
+				top_d = main.U.Top5Profesores(0, 2);
+			}
+			else {
+				top_a = main.U.Top5Profesores(1, 1);
+				top_d = main.U.Top5Profesores(0, 1);
+			}
+			boton_profesor_a1.setText(top_a.get(0).getId_profesor()+"--"+top_a.get(0).getNombre());
+			boton_profesor_a2.setText(top_a.get(1).getId_profesor()+"--"+top_a.get(1).getNombre());
+			boton_profesor_a3.setText(top_a.get(2).getId_profesor()+"--"+top_a.get(2).getNombre());
+			boton_profesor_a4.setText(top_a.get(3).getId_profesor()+"--"+top_a.get(3).getNombre());
+			boton_profesor_a5.setText(top_a.get(4).getId_profesor()+"--"+top_a.get(4).getNombre());
+			boton_profesor_d1.setText(top_d.get(0).getId_profesor()+"--"+top_d.get(0).getNombre());
+			boton_profesor_d2.setText(top_d.get(1).getId_profesor()+"--"+top_d.get(1).getNombre());
+			boton_profesor_d3.setText(top_d.get(2).getId_profesor()+"--"+top_d.get(2).getNombre());
+			boton_profesor_d4.setText(top_d.get(3).getId_profesor()+"--"+top_d.get(3).getNombre());
+			boton_profesor_d5.setText(top_d.get(4).getId_profesor()+"--"+top_d.get(4).getNombre());
+		}
+		else{
+			error_ver_top_profesor.setText("ERROR: seleccione de nuevo");
+		}
 	}
 	
 	// EVENTOS PANTALLA BUSQUEDA
@@ -270,12 +326,20 @@ public class RedDeOpinionesController implements PrincipalController  {
 		profesor_seleccionado.DarLike();
 		contador_likes_profesor.setText(profesor_seleccionado.getLikes().toString());
 	}
-	//EVENTOS PANTALLA RAMO
 	
+	//EVENTOS PANTALLA RAMO
 	public void ClickClificarUtilidadRamo(ActionEvent e){
+		Double u = slider_utilidad_ramo.getValue();
+		ramo_seleccionado.DarDificultad(u);
+		CalcularUtilidadRamo();
+	}
+	public void ClickClificarDificultadRamo(ActionEvent e){
+
+		Double u = slider_dificultad_ramo.getValue();
+		ramo_seleccionado.DarDificultad(u);
+		CalcularDificultadRamo();
 		
 	}
-	public void ClickClificarDificultadRamo(ActionEvent e){}
 	public void ClickRamoLike(ActionEvent e){
 		ramo_seleccionado.DarLike();
 		contador_likes_ramo.setText(ramo_seleccionado.getLikes().toString());

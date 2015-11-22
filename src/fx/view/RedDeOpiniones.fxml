@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -63,7 +64,7 @@
       </Pane>
       <Pane fx:id="pane_top_ramos" layoutY="77.0" prefHeight="523.0" prefWidth="1001.0" visible="false">
          <children>
-            <Pane layoutX="20.0" layoutY="61.0" prefHeight="79.0" prefWidth="948.0">
+            <Pane layoutX="20.0" layoutY="61.0" prefHeight="79.0" prefWidth="948.0" style="-fx-border-color: black; -fx-border-radius: 30px;">
                <children>
                   <RadioButton fx:id="radio_boton_dificultad" layoutX="49.0" layoutY="31.0" mnemonicParsing="false" onAction="#SeleccionarModoDificultad" selected="true" text="Dificultad">
                      <font>
@@ -90,62 +91,62 @@
                   </Button>
                </children>
             </Pane>
-            <Label layoutX="126.0" layoutY="148.0" prefHeight="48.0" prefWidth="211.0" text="ascendente">
+            <Label layoutX="126.0" layoutY="148.0" prefHeight="48.0" prefWidth="211.0" text="tops :)">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="602.0" layoutY="148.0" prefHeight="50.0" prefWidth="209.0" text="descendente">
+            <Label layoutX="602.0" layoutY="148.0" prefHeight="50.0" prefWidth="209.0" text="bottom :(">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button fx:id="boton_ramo_a1" layoutX="126.0" layoutY="206.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="25.0" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_a1" layoutX="126.0" layoutY="206.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="25.0" prefWidth="313.0" style="-fx-background-color: #2fff44;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_a2" layoutX="126.0" layoutY="263.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_a2" layoutX="126.0" layoutY="263.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" style="-fx-background-color: #66ff3a;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_a3" layoutX="126.0" layoutY="320.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_a3" layoutX="126.0" layoutY="320.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" style="-fx-background-color: #97ff3d;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_a4" layoutX="126.0" layoutY="377.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_a4" layoutX="126.0" layoutY="377.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" style="-fx-background-color: #ceff3b;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_a5" layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_a5" layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" style="-fx-background-color: #eeff56;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_d5" layoutX="604.0" layoutY="436.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_d5" layoutX="604.0" layoutY="436.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" style="-fx-background-color: #ffb028;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_d4" layoutX="604.0" layoutY="379.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_d4" layoutX="604.0" layoutY="379.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefWidth="313.0" style="-fx-background-color: #ff7d28;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_d3" layoutX="604.0" layoutY="322.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="44.0" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_d3" layoutX="604.0" layoutY="322.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="44.0" prefWidth="313.0" style="-fx-background-color: #ff5328;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_d2" layoutX="604.0" layoutY="265.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="44.0" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_ramo_d2" layoutX="604.0" layoutY="265.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="44.0" prefWidth="313.0" style="-fx-background-color: #ff3328;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_ramo_d1" layoutX="604.0" layoutY="208.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="44.0" prefWidth="314.0" text="------------">
+            <Button fx:id="boton_ramo_d1" layoutX="604.0" layoutY="208.0" mnemonicParsing="false" onAction="#ClickBotonRamoTop" prefHeight="44.0" prefWidth="314.0" style="-fx-background-color: #ff3328;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
@@ -155,11 +156,16 @@
                   <Font size="30.0" />
                </font>
             </Label>
+            <Label fx:id="error_ver_top_ramo" layoutX="700.0" layoutY="28.0" prefHeight="17.0" prefWidth="268.0" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="pane_top_profesores" layoutY="77.0" prefHeight="523.0" prefWidth="1001.0" visible="false">
          <children>
-            <Pane layoutX="20.0" layoutY="61.0" prefHeight="79.0" prefWidth="948.0">
+            <Pane layoutX="20.0" layoutY="61.0" prefHeight="79.0" prefWidth="948.0" style="-fx-border-color: black; -fx-border-radius: 30px;">
                <children>
                   <RadioButton fx:id="radio_boton_dificultad_profesor" layoutX="225.0" layoutY="31.0" mnemonicParsing="false" onAction="#SeleccionarModoDificultadProfesor" selected="true" text="Dificultad">
 	                  <toggleGroup>
@@ -191,52 +197,52 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button fx:id="boton_profesor_a1" layoutX="126.0" layoutY="206.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="25.0" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_a1" layoutX="126.0" layoutY="206.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="25.0" prefWidth="313.0" style="-fx-background-color: #2fff44;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_a2" layoutX="126.0" layoutY="263.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_a2" layoutX="126.0" layoutY="263.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #66ff3a;"  text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_a3" layoutX="126.0" layoutY="320.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_a3" layoutX="126.0" layoutY="320.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #97ff3d;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_a4" layoutX="126.0" layoutY="377.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_a4" layoutX="126.0" layoutY="377.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #ceff3b;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_a5" layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_a5" layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #eeff56;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d5" layoutX="604.0" layoutY="436.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_d5" layoutX="604.0" layoutY="436.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #ffb028;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d4" layoutX="604.0" layoutY="379.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_d4" layoutX="604.0" layoutY="379.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #ff7d28;"  text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d3" layoutX="604.0" layoutY="322.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_d3" layoutX="604.0" layoutY="322.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="313.0" style="-fx-background-color: #ff5328;"  text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d2" layoutX="604.0" layoutY="265.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="313.0" text="------------">
+            <Button fx:id="boton_profesor_d2" layoutX="604.0" layoutY="265.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="313.0" style="-fx-background-color: #ff3328;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d1" layoutX="604.0" layoutY="208.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="314.0" text="------------">
+            <Button fx:id="boton_profesor_d1" layoutX="604.0" layoutY="208.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="314.0" style="-fx-background-color: #ff3328;"  text="------------">
                <font>
                   <Font size="20.0" />
                </font>
@@ -244,6 +250,11 @@
             <Label layoutX="364.0" layoutY="13.0" text="TOPS de Profesores" textFill="BLUE">
                <font>
                   <Font size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="error_ver_top_profesor" layoutX="651.0" layoutY="32.0" prefHeight="17.0" prefWidth="268.0" textFill="RED">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>

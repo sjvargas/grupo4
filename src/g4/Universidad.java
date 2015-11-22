@@ -363,7 +363,7 @@ public class Universidad implements java.io.Serializable {
 	}
 	//sentido dice si es acendente o decreciente (1,0)
 	//tipo dice que atributo se compara (1=likes,2=dificultad)
-	public List<Profesor> Top5Profesores(int tipo,int sentido){
+	public List<Profesor> Top5Profesores(int sentido,int tipo){
 		List<Profesor> lista = new ArrayList<Profesor>();
 		lista.add(null);lista.add(null);lista.add(null);lista.add(null);lista.add(null);
 		if (sentido==1){//acendente
@@ -481,7 +481,7 @@ public class Universidad implements java.io.Serializable {
 
 	//sentido dice si es acendente o decreciente (1,0)
 	//tipo dice que atributo se compara (1=likes,2=dificultad,3=utilidad)
-	public List<Ramo> Top5Ramos(int tipo,int sentido){
+	public List<Ramo> Top5Ramos(int sentido,int tipo){
 		List<Ramo> lista = new ArrayList<Ramo>();
 		lista.add(null);lista.add(null);lista.add(null);lista.add(null);lista.add(null);
 		if (sentido==1){//acendente
