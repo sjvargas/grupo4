@@ -563,6 +563,79 @@ public class AlumnoOverviewController implements PrincipalController {
 		controlador.setScreen(main.RedDeOpinionesID);
 	}
 	public void CerrarSesion(ActionEvent event) {
+		
+		
+		
+		// eliminar datos de tablas y combobox, etc
+		
+		listViewCarrerasInscritas.setItems(null);
+		listViewMallasPorCarrera.setItems(null);
+		AvanceListViewRamosListos.setItems(null);
+		AvanceListViewRamosPendientes.setItems(null);
+		AvanceListViewRamosPorMalla.setItems(null);
+		
+		comboBoxCarrerasInscritas.setItems(null);
+		comboBoxCursos.setItems(null);
+		comboBoxPeriodosSemestres.setItems(null);
+		comboBoxSemestres.setItems(null);
+		AvanceComboBoxCarrerasInscritas.setItems(null);
+	//	choice_curso.setItems(null);
+	//	choice_malla.setItems(null);
+		
+		//
+		
+		textFieldNombreCurso.setText("");
+		textFieldSiglaCurso.setText("");
+		textFieldSeccionCurso.setText("");
+		textFieldHorarioCurso.setText("");
+		textFieldSalaCurso.setText("");
+		
+		textFieldSiglaNueva.setText("");
+		textFieldSeccionNueva.setText("");
+		
+		label_nombre_carrera_alumno.setText("");
+		label_decano_carrera_alumno.setText("");
+		label_facultad_carrera_alumno.setText("");
+		
+		text_curso1_semestre_actual.setText("");
+		text_curso2_semestre_actual.setText("");
+		text_curso3_semestre_actual.setText("");
+		text_curso4_semestre_actual.setText("");
+		text_curso5_semestre_actual.setText("");
+		text_curso6_semestre_actual.setText("");
+		text_curso7_semestre_actual.setText("");
+		text_curso8_semestre_actual.setText("");
+		
+		text_nota1_semestre_actual.setText("");
+		text_nota2_semestre_actual.setText("");
+		text_nota3_semestre_actual.setText("");
+		text_nota4_semestre_actual.setText("");
+		text_nota5_semestre_actual.setText("");
+		text_nota6_semestre_actual.setText("");
+		text_nota7_semestre_actual.setText("");
+		text_nota8_semestre_actual.setText("");
+		label_curso1_semestre_actual.setText("-");
+		label_curso2_semestre_actual.setText("-");
+		label_curso3_semestre_actual.setText("-");
+		label_curso4_semestre_actual.setText("-");
+		label_curso5_semestre_actual.setText("-");
+		label_curso6_semestre_actual.setText("-");
+		label_curso7_semestre_actual.setText("-");
+		label_curso8_semestre_actual.setText("-");
+		textFieldCreditosAprobados.setText("");
+		textFieldCreditosAprobados.setText("");
+		textFieldCreditosReprobados.setText("");
+		
+		textFieldTotalCreditosDelSemestre.setText("");
+		
+		textFieldPromedioPonderadoSemestre.setText("");
+		
+		mallaActual.setText("");
+		labelErrorAvanceCurricular.setText("");
+	
+		//
+		
+		
 		main.U.alumno_actual.Cerrar_sesion();
 		main.U.alumno_actual = null;
 		controlador.setScreen(main.InicioID);
