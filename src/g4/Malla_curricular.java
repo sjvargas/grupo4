@@ -1,5 +1,6 @@
 package g4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -20,6 +21,7 @@ public class Malla_curricular implements java.io.Serializable{
 	public Malla_curricular(int id_malla){
 		//constructor
 		this.id_malla = id_malla;
+		ramos = new ArrayList<Ramo>();
 	}
 ////////////////////////////////////
 //// GETTERS de atributos

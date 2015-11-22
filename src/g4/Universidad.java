@@ -134,6 +134,22 @@ public class Universidad implements java.io.Serializable {
 		
 		ramo2.AgregarPrerrequisito(ramo1.getSigla());
 		ramo3.AgregarPrerrequisito(ramo2.getSigla());
+		ramo6.AgregarPrerrequisito(ramo5.getSigla());
+		
+		
+		malla1.agregar_ramo(ramo1);
+		malla1.agregar_ramo(ramo2);
+		malla1.agregar_ramo(ramo3);
+		malla1.agregar_ramo(ramo4);
+	
+		
+		malla2.agregar_ramo(ramo1);
+		malla2.agregar_ramo(ramo2);
+		malla2.agregar_ramo(ramo3);
+		malla2.agregar_ramo(ramo4);
+		malla2.agregar_ramo(ramo5);
+		malla2.agregar_ramo(ramo6);
+
 
 		List<String> salas = new ArrayList<String>();
 		salas.add("A1"); salas.add("B16");

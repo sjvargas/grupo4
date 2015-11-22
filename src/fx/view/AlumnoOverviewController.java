@@ -45,6 +45,7 @@ import g4.Curso;
 import g4.Historial_Academico;
 import g4.Malla_curricular;
 import g4.Nota;
+import g4.Ramo;
 import g4.Semestre;
 import g4.Usuario;
 
@@ -362,6 +363,9 @@ public class AlumnoOverviewController implements PrincipalController {
 		if(pane_mallas_alumno.isVisible()){
 			pane_mallas_alumno.setVisible(false);
 		}
+		if(pane_avance_curricular.isVisible()){
+			pane_avance_curricular.setVisible(false);
+		}
 
 		a.setVisible(true);
 	}
@@ -520,9 +524,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		mostrar_panel(pane_semestre_actual_alumno);
 	}	
 	
-	public void clickavancemalla() {
-		mostrar_panel(pane_semestres_alumno);
-	}	
+	
 	
 	
 	
@@ -573,6 +575,16 @@ public class AlumnoOverviewController implements PrincipalController {
 	public void clickMallas(){
 		mostrar_panel(pane_mallas_alumno);
 		mallaActual.setEditable(false);
+		
+		comboBoxCarrerasInscritas.getSelectionModel().clearSelection();
+		
+		listViewMallasPorCarrera.setItems(null);
+		
+		//
+		
+		
+		//
+		
 	}
 
 	public void clickInscribirCarreraYMalla() {
@@ -602,6 +614,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		listViewCarrerasInscritas.setItems(items);
 		
 		comboBoxCarrerasInscritas.setItems(items);
+		//
+		AvanceComboBoxCarrerasInscritas.setItems(items);
 
 		//
 	}
@@ -1111,11 +1125,7 @@ public class AlumnoOverviewController implements PrincipalController {
 	}
 	
 	public void agregarNuevoCurso(){
-		////////////////////////////////////////
-		/////////////////////////////////////////
-		/////////////////////////////////////////
-		/////////////////////////////////////////
-		/////////////////////////////////////////
+		
 		Alumno alumnoActual = main.U.alumno_actual;
 		Semestre semestreActual = alumnoActual.getSemestreActual();
 		
@@ -1192,12 +1202,6 @@ public class AlumnoOverviewController implements PrincipalController {
 		}
 			
 		
-			
-		
-
-		/////////////////////////////////////////
-		/////////////////////////////////////////
-		/////////////////////////////////////////
 		/////////////////////////////////////////
 	}
 	
@@ -1216,5 +1220,106 @@ public class AlumnoOverviewController implements PrincipalController {
 	}
 	
 	
+	
+	
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	//////////////////////////SEGUIMIENTO CURRICULAR///////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
+	@FXML
+	ComboBox<String> AvanceComboBoxCarrerasInscritas;
+	@FXML
+	private Pane pane_avance_curricular;
+	@FXML
+	private Label labelErrorAvanceCurricular;
+	@FXML
+	ListView<Ramo> AvanceListViewRamosPorMalla;
+	@FXML
+	ListView<Ramo> AvanceListViewRamosListos;
+	@FXML
+	ListView<Ramo> AvanceListViewRamosPendientes;
+	public void clickavancemalla() {
+		mostrar_panel(pane_avance_curricular);
+		
+
+		AvanceComboBoxCarrerasInscritas.getSelectionModel().clearSelection();
+		labelErrorAvanceCurricular.setText("-");
+		AvanceListViewRamosPorMalla.setItems(null);
+		AvanceListViewRamosListos.setItems(null);
+		AvanceListViewRamosPendientes.setItems(null);
+	}	
+	
+	
+	public void avanceCambioEnComboCarrera(){
+		//System.out.println("meeetal");
+		Carrera carreraSeleccionada = main.U.lista_administradores.get(0).GetCarrera(AvanceComboBoxCarrerasInscritas.getValue());
+		labelErrorAvanceCurricular.setText("-");
+		AvanceListViewRamosPorMalla.setItems(null);
+		AvanceListViewRamosListos.setItems(null);
+		AvanceListViewRamosPendientes.setItems(null);
+		if(carreraSeleccionada!=null){
+			int id_carreraSeleccionada = carreraSeleccionada.getId_carrera();
+			int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
+			System.out.println("indiceDeCarreraSeleccionadaEnAlumno"+indiceDeCarreraSeleccionadaEnAlumno);
+			//this.labelErrorAvanceCurricular.setText(""+indiceDeCarreraSeleccionadaEnAlumno);
+			/////titlePaneMallasPorCarrera.setText("Mallas de la Carrera "+comboBoxCarrerasInscritas.getValue());
+			
+			
+			
+			//// actualizar lista con mallas disponibles.
+			
+			
+			List<Malla_curricular> mallasPorCarrera= carreraSeleccionada.getMallas_curriculares();
+
+			
+			
+			int mallaSeleccionadaID = main.U.alumno_actual.getMallaEnPosicion(indiceDeCarreraSeleccionadaEnAlumno);
+			System.out.println("ID MALLA SELECCIONADA"+mallaSeleccionadaID);
+			if(mallaSeleccionadaID == -1){
+				labelErrorAvanceCurricular.setText("No hay malla inscrita para esta carrera, debes inscribir una malla para hacer el seguimiento");
+			}
+			else{
+				
+				Malla_curricular mallaSeleccionada =  mallasPorCarrera.get(mallaSeleccionadaID);
+				
+				if(mallaSeleccionada!=null){
+					System.out.println("Malla seleccionada:"+mallaSeleccionada.toString());
+					
+					List<Ramo> listaRamosMalla = mallaSeleccionada.getRamos();
+					List<Ramo> listaRamosListos = new ArrayList<Ramo>();
+					List<Ramo> listaRamosPendientes = new ArrayList<Ramo>();
+
+					for(int i=0;i<listaRamosMalla.size();i++){
+						if(main.U.alumno_actual.haCursadoEsteRamo(listaRamosMalla.get(i))){
+							listaRamosListos.add(listaRamosMalla.get(i));
+						}
+						else{
+							listaRamosPendientes.add(listaRamosMalla.get(i));
+						}
+					}
+										
+					
+					ObservableList<Ramo> itemsRamos = FXCollections.observableArrayList(listaRamosMalla);
+					AvanceListViewRamosPorMalla.setItems(itemsRamos);
+				
+					ObservableList<Ramo> itemsListos = FXCollections.observableArrayList(listaRamosListos);
+					AvanceListViewRamosListos.setItems(itemsListos);
+					
+					ObservableList<Ramo> itemsPendientes = FXCollections.observableArrayList(listaRamosPendientes);
+					AvanceListViewRamosPendientes.setItems(itemsPendientes);
+
+				}
+				else{
+					System.out.println("No hay malla inscrita");
+				}
+			}
+			
+			
+			
+		}
+	
+
+	}
 
 }

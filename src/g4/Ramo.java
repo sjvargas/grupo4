@@ -105,6 +105,10 @@ public class Ramo implements java.io.Serializable{
 	public void AgregarPrerrequisito(String siglaPrerrequisito){
 		prerrequisitos.add(siglaPrerrequisito);
 	}
+	@Override
+	 public String toString() {
+		   return this.sigla+": "+this.nombreRamo;
+	  }
 	
 	// funcion de (http://stackoverflow.com/questions/10791568/calculating-average-of-an-array-list)
 	private double calculateAverage(List <Double> marks) {
