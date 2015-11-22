@@ -2,6 +2,8 @@ package g4;
 import java.util.ArrayList;
 import java.util.List;
 
+import fx.view.main;
+
 
 public class Programacion_Academica implements java.io.Serializable {
 	public ArrayList<Curso> cursos_en_progreso;
@@ -21,6 +23,9 @@ public class Programacion_Academica implements java.io.Serializable {
 		Curso curso_nuevo = new Curso (periodo,salas,horario,creditos ,seccion, profesor, ramo);
 		this.cursos_en_progreso.add(curso_nuevo);
 		this.buscador_de_cursos.todo_cursos.add(curso_nuevo);
+		if(!main.U.CursoSeAgregoALista(curso_nuevo.getId_curso())){
+			main.U.lista_cursos.add(curso_nuevo);
+		}
 	}
 	
 	// se le entrega un id del curso y con ese se va a buscar el curso y se remueve

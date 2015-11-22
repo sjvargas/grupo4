@@ -114,9 +114,9 @@
                         <Label text="Sueldo:" GridPane.rowIndex="7" />
                         <Label text="Facultad:" GridPane.rowIndex="8" />
                         <TextField fx:id="campoANombreProfesor" GridPane.columnIndex="1" />
-                        <TextField fx:id="campoAEdadProfesor" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="campoAEdadProfesor" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <TextField fx:id="campoASueldoProfesor" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <TextField fx:id="campoAFacultadProfesor" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextField fx:id="campoAFacultadProfesor" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                         <Label text="Apellido Paterno:" GridPane.rowIndex="1" />
                         <Label text="Nombre:" />
                         <Label prefHeight="21.0" prefWidth="157.0" text="Contraseña:" GridPane.rowIndex="4" />
@@ -125,8 +125,11 @@
                         <TextField fx:id="campoAApMatProfesor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Sexo:" GridPane.rowIndex="5" />
                         <Label text="Nombre Usuario:" GridPane.rowIndex="3" />
-                        <TextField fx:id="campoASexoProfesor" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="campoASexoProfesor" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <TextField fx:id="campoAContrasenaProfesor" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ChoiceBox fx:id="cBProfesorFacultad" prefHeight="31.0" prefWidth="319.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <ChoiceBox fx:id="cBProfesorSexo" prefHeight="31.0" prefWidth="327.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ChoiceBox fx:id="cBProfesorEdad" prefHeight="31.0" prefWidth="281.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                   <Button fx:id="buttonAgregarProfesor" layoutX="598.0" layoutY="629.0" mnemonicParsing="false" onAction="#ApretarAgregarProfesor" text="Agregar" />
@@ -143,7 +146,7 @@
                         <Label text="Id" />
                      </children>
                   </GridPane>
-                  <Button layoutX="400.0" layoutY="750.0" mnemonicParsing="false" text="Eliminar" />
+                  <Button layoutX="400.0" layoutY="750.0" mnemonicParsing="false" onAction="#ApretarEliminarProfesor" text="Eliminar" />
                   <TableView fx:id="tabla2AdminListaProfesores" layoutX="50.0" layoutY="50.0" prefHeight="200.0" prefWidth="649.0">
                     <columns>
                       <TableColumn fx:id="tCIdProfesor" prefWidth="88.0" text="Id" />
@@ -154,7 +157,7 @@
                         <TableColumn fx:id="tCISueldoProfesor" prefWidth="112.0" text="Sueldo" />
                     </columns>
                   </TableView>
-                  <Label fx:id="labelAvisoProfesor" layoutX="415.0" layoutY="382.0" />
+                  <Label fx:id="labelAvisoProfesor" layoutX="600.0" layoutY="600.0" />
                </children>
             </Pane>
             <Pane fx:id="paneAdminAlumnos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
@@ -189,44 +192,49 @@
                   </TableView>
                </children>
             </Pane>
-            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
+            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0">
                <children>
                   <Label layoutX="50.0" layoutY="48.0" text="Lista de Ramos: " />
-                  <GridPane layoutX="50.0" layoutY="340.0" prefHeight="231.0" prefWidth="325.0">
+                  <GridPane layoutX="50.0" layoutY="354.0" prefHeight="373.0" prefWidth="351.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="121.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="121.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="143.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="201.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="72.0" minHeight="9.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="164.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Sigla:" GridPane.rowIndex="1" />
                         <Label text="Carrera:" GridPane.rowIndex="2" />
                         <Label text="Creditos:" GridPane.rowIndex="3" />
-                        <Label text="Sesmestre Impartido:" GridPane.rowIndex="4" />
+                        <Label prefHeight="21.0" prefWidth="149.0" text="Sesmestre Impartido:" GridPane.rowIndex="4" />
                         <Label text="Objetivos:" GridPane.rowIndex="6" />
                         <TextField fx:id="textFieldSiglaRamo" prefHeight="25.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="textFieldCarreraRamo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="textFieldCreditosRamo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="textFieldSemestreImpartidoRamo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="textFieldObjetivosRamo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="textFieldCarreraRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="textFieldCreditosRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="textFieldSemestreImpartidoRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="textFieldObjetivosRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Label text="Contenido:" GridPane.rowIndex="5" />
-                        <TextField fx:id="textFieldContenidoRamo" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="textFieldContenidoRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="Nombre Ramo:" />
                         <TextField fx:id="textFieldNombreRamo" prefHeight="25.0" prefWidth="182.0" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="cBRamoCarrera" prefHeight="31.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="cBRamoCreditos" prefHeight="31.0" prefWidth="215.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ChoiceBox fx:id="cBRamoSemestre" prefHeight="31.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextArea fx:id="tARamoContendio" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextArea fx:id="tAObjetivos" prefHeight="89.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                   <Label layoutX="50.0" layoutY="309.0" text="Agregar Ramo:" />
-                  <Button layoutX="413.0" layoutY="540.0" mnemonicParsing="false" onAction="#AgregarRamo" text="Agregar" />
-                  <Label fx:id="labelAgregarRamo" layoutX="428.0" layoutY="474.0" />
-                  <GridPane layoutX="50.0" layoutY="655.0" prefHeight="98.0" prefWidth="345.0">
+                  <Button layoutX="428.0" layoutY="586.0" mnemonicParsing="false" onAction="#AgregarRamo" text="Agregar" />
+                  <Label fx:id="labelAgregarRamo" layoutX="430.0" layoutY="530.0" />
+                  <GridPane layoutX="560.0" layoutY="309.0" prefHeight="98.0" prefWidth="345.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="156.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="189.0" />
@@ -244,7 +252,7 @@
                         <ChoiceBox fx:id="cBAgPrerreqPrerrequisito" prefHeight="31.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Button fx:id="butttonAgregarPrrerrequisito" layoutX="437.0" layoutY="722.0" mnemonicParsing="false" onAction="#ApretarAgregarPrerrequisito" text="Agregar" />
+                  <Button fx:id="butttonAgregarPrrerrequisito" layoutX="926.0" layoutY="376.0" mnemonicParsing="false" onAction="#ApretarAgregarPrerrequisito" text="Agregar" />
                   <TableView fx:id="tViewRamos" layoutX="49.0" layoutY="76.0" prefHeight="200.0" prefWidth="666.0">
                     <columns>
                       <TableColumn fx:id="tCSiglaRamos" prefWidth="92.0" text="Sigla" />
@@ -254,12 +262,36 @@
                         <TableColumn fx:id="tCSemestreRamos" prefWidth="150.0" text="Semestre Impartido" />
                     </columns>
                   </TableView>
+                  <GridPane layoutX="53.0" layoutY="743.0" prefHeight="69.0" prefWidth="345.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="122.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="216.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Ver Prerrequisitos" />
+                        <Label text="Sigla Ramo" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="cBAgRamoPrerrequisito" onDragDetected="#ActualizarValoresChoiseBoxProf" prefHeight="31.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="407.0" layoutY="778.0" mnemonicParsing="false" onAction="#ApretarVerPrerrequisitos" text="Ver" />
+                  <TableView fx:id="tViewPrerrequisitos" layoutX="567.0" layoutY="641.0" prefHeight="190.0" prefWidth="396.0">
+                    <columns>
+                      <TableColumn fx:id="tCSiglaPrerrequisito" prefWidth="120.0" text="Sigla" />
+                      <TableColumn fx:id="tCNombrePrerrequisito" prefWidth="275.0" text="Nombre Ramo" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="567.0" layoutY="601.0" text="Prerrequisitos:" />
+                  <Label fx:id="labelRamoPreReq" layoutX="687.0" layoutY="601.0" />
                </children>
             </Pane>
             <Pane fx:id="paneAdminCarreras" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <Label layoutX="50.0" layoutY="50.0" text="Lista Carreras:" />
-                  <GridPane layoutX="50.0" layoutY="318.0" prefHeight="92.0" prefWidth="275.0">
+                  <GridPane layoutX="611.0" layoutY="96.0" prefHeight="104.0" prefWidth="318.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="89.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
@@ -275,19 +307,60 @@
                         <TextField fx:id="textFieldDecanoCarrera" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="textFieldFacultadCarrera" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Decano:" GridPane.rowIndex="2" />
-                        <TextField fx:id="textFieldNombreCarrera" GridPane.columnIndex="1" />
+                        <TextField fx:id="textFieldNombreCarrera" prefHeight="34.0" prefWidth="206.0" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
-                  <Label layoutX="50.0" layoutY="290.0" text="Agregar Carrera:" />
-                  <Button layoutX="370.0" layoutY="380.0" mnemonicParsing="false" onAction="#AgregarCarrera" text="Agregar" />
-                  <Label fx:id="labelEstadoAgregarCarrera" layoutX="385.0" layoutY="356.0" />
-                  <TableView fx:id="tViewCarrera" layoutX="50.0" layoutY="80.0" prefHeight="200.0" prefWidth="507.0">
+                  <Label layoutX="611.0" layoutY="61.0" text="Agregar Carrera:" />
+                  <Button layoutX="611.0" layoutY="212.0" mnemonicParsing="false" onAction="#AgregarCarrera" text="Agregar" />
+                  <Label fx:id="labelEstadoAgregarCarrera" layoutX="750.0" layoutY="220.0" />
+                  <TableView fx:id="tViewCarrera" layoutX="50.0" layoutY="80.0" prefHeight="200.0" prefWidth="480.0">
                     <columns>
                       <TableColumn fx:id="tCNombreCarrera" prefWidth="152.0" text="Nombre Carrera" />
                       <TableColumn fx:id="tCFacultadCarrera" prefWidth="170.0" text="Facultad" />
                         <TableColumn fx:id="tCDecanoCarrera" prefWidth="184.0" text="Decano" />
                     </columns>
                   </TableView>
+                  <Button layoutX="51.0" layoutY="294.0" mnemonicParsing="false" onAction="#ApretoSeleccionarCarrera" text="Seleccionar" />
+                  <ChoiceBox fx:id="cBMallasCarrera" layoutX="51.0" layoutY="341.0" prefHeight="31.0" prefWidth="186.0" />
+                  <Button layoutX="249.0" layoutY="341.0" mnemonicParsing="false" onAction="#ApretoVerMalla" text="Ver Malla" />
+                  <TableView fx:id="tViewRamoCarrera" layoutX="50.0" layoutY="396.0" prefHeight="443.0" prefWidth="480.0">
+                    <columns>
+                      <TableColumn fx:id="tCSiglaRamoMalla" prefWidth="106.0" text="Sigla Ramo" />
+                        <TableColumn fx:id="tCNombreRamoMalla" prefWidth="248.0" text="Nombre Ramo" />
+                      <TableColumn fx:id="tCCreditosRamoMalla" prefWidth="125.0" text="Creditos Ramo" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="tVPrerreqRamoMalla" layoutX="607.0" layoutY="639.0" prefHeight="200.0" prefWidth="318.0">
+                    <columns>
+                      <TableColumn fx:id="tCSiglaRamoPreMalla" prefWidth="117.0" text="Sigla Ramo" />
+                      <TableColumn fx:id="tCNombreRamoPreMalla" prefWidth="200.0" text="Nombre Ramo" />
+                    </columns>
+                  </TableView>
+                  <GridPane layoutX="607.0" layoutY="390.0" prefHeight="121.0" prefWidth="325.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Agregar Ramo:" />
+                        <ChoiceBox fx:id="cBAgregarRamoMalla" prefWidth="150.0" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#ApretoAgregarRamoMalla" text="Agregar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Eliminar Ramo:" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="cBEliminarRamoMalla" prefWidth="150.0" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#ApretoEliminarRamoMalla" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelAgregarRamoMalla" GridPane.columnIndex="1" />
+                        <Label fx:id="labelEliminarRamoMalla" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Button layoutX="607.0" layoutY="573.0" mnemonicParsing="false" onAction="#ApretoVerPrerrequisitosRamoMalla" text="Ver Prerrequisitos" />
+                  <Button layoutX="346.0" layoutY="341.0" mnemonicParsing="false" onAction="#ApretoCrearNuevaMalla" text="Crear Nueva Malla" />
+                  <Label fx:id="labelCrearMalla" layoutX="346.0" layoutY="315.0" />
                </children>
             </Pane>
             <Pane fx:id="paneAdminProgramacionAcademica" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
@@ -357,7 +430,7 @@
             </Pane>
             <Pane fx:id="paneAdminCursos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
-                  <TableView fx:id="tViewCursos" layoutX="40.0" layoutY="40.0" prefHeight="200.0" prefWidth="809.0">
+                  <TableView fx:id="tViewCursos" layoutX="40.0" layoutY="103.0" prefHeight="261.0" prefWidth="815.0">
                     <columns>
                       <TableColumn fx:id="tCIdCursos" prefWidth="75.0" text="Id" />
                       <TableColumn fx:id="tCNombreCursos" prefWidth="199.0" text="Nombre Ramo" />
@@ -367,16 +440,17 @@
                         <TableColumn fx:id="tCPeriodoCurso" prefWidth="146.0" text="Periodo" />
                     </columns>
                   </TableView>
-                  <GridPane layoutX="40.0" layoutY="310.0" prefHeight="300.0" prefWidth="456.0">
+                  <GridPane layoutX="40.0" layoutY="456.0" prefHeight="324.0" prefWidth="507.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="142.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="196.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -384,26 +458,55 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Profesor" GridPane.rowIndex="7" />
-                        <Label text="Seccion" GridPane.rowIndex="3" />
-                        <Label text="Horario" GridPane.rowIndex="4" />
-                        <Label text="Sala" GridPane.rowIndex="5" />
-                        <Label text="Creditos" GridPane.rowIndex="6" />
+                        <Label text="Profesor" GridPane.rowIndex="3" />
+                        <Label text="Seccion" GridPane.rowIndex="4" />
+                        <Label text="Dia" GridPane.rowIndex="5" />
+                        <Label text="Sala" GridPane.rowIndex="7" />
+                        <Label text="Creditos" GridPane.rowIndex="8" />
                         <Label text="Periodo" GridPane.rowIndex="2" />
                         <Label text="Sigla Ramo" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" onAction="#ApretarAgregarCurso" prefHeight="32.0" prefWidth="166.0" text="Agregar" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <Button fx:id="buttonCrearCurso" mnemonicParsing="false" onAction="#ApretarAgregarCurso" prefHeight="32.0" prefWidth="136.0" text="Crear Curso" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                         <ChoiceBox fx:id="cBCursoSiglaRamo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ChoiceBox fx:id="cBCursoPeriodo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <ChoiceBox fx:id="cBCursoProfesor" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <TextField fx:id="tFCursoCreditos" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField fx:id="tFCursoHorario" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="tFCursoSeccion" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Crear Curso:" />
-                        <TextField fx:id="tFCursoSala" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ChoiceBox fx:id="cBCursoProfesor" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="labelEstadoCrearCurso" text="Crear Curso:" />
+                        <ChoiceBox fx:id="cBCursoDia" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ChoiceBox fx:id="cBCursoSala" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <ChoiceBox fx:id="cBCursoSeccion" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ChoiceBox fx:id="cBCursoCreditos" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label text="Modulo" GridPane.rowIndex="6" />
+                        <ChoiceBox fx:id="cBCursoModulo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button mnemonicParsing="false" onAction="#ApretarAgregarProgramacionHoraria" prefHeight="32.0" prefWidth="137.0" text="Agregar Modulo" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <Label fx:id="labelEstadoAgregarModulo" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <Button fx:id="buttonModificarCurso" mnemonicParsing="false" onAction="#ApretarModificarCurso" prefHeight="31.0" prefWidth="137.0" text="Modificar" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="8" />
                      </children>
                   </GridPane>
-                  <Label layoutX="360.0" layoutY="470.0" prefHeight="25.0" prefWidth="456.0" text="Ej: Para Miercoles Modulo 1 y Jueves Modulo 2. Ingresar: Mi1;Ju2;" />
-                  <Label layoutX="360.0" layoutY="505.0" prefHeight="25.0" prefWidth="456.0" text="Ej: Para Sala B21 y Sala CS102. Ingresar: B21;CS102.;" />
+                  <TableView fx:id="tViewProgramacionHoraria" layoutX="574.0" layoutY="534.0" prefHeight="168.0" prefWidth="275.0">
+                    <columns>
+                      <TableColumn fx:id="tCDia" prefWidth="75.0" text="Dia" />
+                      <TableColumn fx:id="tCModulo" prefWidth="92.0" text="Modulo" />
+                        <TableColumn fx:id="tCSala" prefWidth="107.0" text="Sala" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="574.0" layoutY="493.0" text="Programacion Horaria:" />
+                  <Button layoutX="712.0" layoutY="379.0" mnemonicParsing="false" onAction="#ApretarModificarCursoSeleccionado" text="Modificar Curso" />
+                  <Button layoutX="675.0" layoutY="723.0" mnemonicParsing="false" onAction="#ApretarEliminarProgramacion" prefHeight="31.0" prefWidth="173.0" text="Eliminar Programacion" />
+                  <Button layoutX="492.0" layoutY="379.0" mnemonicParsing="false" onAction="#ApretarVerProgramacionHoraria" text="Ver Programacion Horaria" />
+                  <GridPane layoutX="40.0" layoutY="39.0" prefHeight="30.0" prefWidth="439.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Seleccionar Periodo:" />
+                        <ChoiceBox fx:id="cBSeleccionarPeriodo" prefHeight="31.0" prefWidth="136.0" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#ApretarVerCursosPeriodo" text="Seleccionar" GridPane.columnIndex="2" />
+                     </children>
+                  </GridPane>
                </children>
             </Pane>
          </children>

@@ -75,7 +75,6 @@ public class Carrera implements java.io.Serializable{
 		// si ese id corresponde a alguno de los id de las mallas que estan en la lista, entonces se elimina 
 	}
 	
-	
 	   @Override
 	 public String toString() {
 		   return nombreCarrera;

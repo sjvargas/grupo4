@@ -78,7 +78,23 @@ public class Ramo implements java.io.Serializable{
 	}
 	
 	public void AgregarPrerrequisito(String siglaPrerrequisito){
+		if(existePrerrequisito(siglaPrerrequisito)){
+			
+		}
+		else{
 		prerrequisitos.add(siglaPrerrequisito);
+		}
 	}
 	
+	private boolean existePrerrequisito(String siglaPrerrequisito){
+		for(String prerrequisito: prerrequisitos){
+			if(prerrequisito.equals(siglaPrerrequisito)){ return true;}
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString(){
+		return sigla;
+	}
 }

@@ -1,5 +1,6 @@
 package g4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -12,14 +13,15 @@ import java.util.List;
 public class Malla_curricular implements java.io.Serializable{
 	
 
-	
+	private static int NextId = 0;
 	public int id_malla;
 	private List<Ramo> ramos;
 	
 	
-	public Malla_curricular(int id_malla){
+	public Malla_curricular(){
 		//constructor
-		this.id_malla = id_malla;
+		this.id_malla = NextId++;
+		ramos = new ArrayList<Ramo>();
 	}
 ////////////////////////////////////
 //// GETTERS de atributos
@@ -39,6 +41,10 @@ public class Malla_curricular implements java.io.Serializable{
 		// agrega el objeto recibido a la lista de ramos
 	}
 	
+	public void eliminarRamo(Ramo ramo){
+		this.ramos.remove(ramo);
+	}
+	
 	public void eliminar_ramo(String sigla){
 		// metodo que recibe un identificador de una instancia de ramo
 				for(int i=0; i< ramos.size();i++){
@@ -48,6 +54,15 @@ public class Malla_curricular implements java.io.Serializable{
 					}
 				}
 		// si ese id corresponde a alguno de los id de los ramos que estan en la lista, entonces se elimina 
+	}
+	
+	public boolean ExisteRamo(Ramo ramo){
+		for(Ramo ramoExistente: ramos){
+			if(ramoExistente.getSigla().equals(ramo.getSigla())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@Override

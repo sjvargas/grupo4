@@ -14,6 +14,11 @@ public class Universidad implements java.io.Serializable {
     private List<String> periodosOcupados;
     private List<String> periodosLibres;
 
+    public List<String> dias;
+    public List<String> listaSalas;
+    public List<Integer> listaModulos;
+    public List<Integer> listaCreditos;
+    
 	public List<Carrera> lista_carreras;
 	public List<Ramo> lista_ramos;
 	public List<Profesor> lista_profesores;
@@ -47,7 +52,7 @@ public class Universidad implements java.io.Serializable {
 		administrador_actual = null;
 		
 		lista_profesores.add( new Profesor("mar","mar", "Hidalgo", "Jullian", "123", Sexo.Femenino, 62, 2200000, "Ingenieria"));
-		lista_profesores.add( new Profesor("ian", "ian", "sapallo", "casuela", "123", Sexo.Masculino, 42, 2000000, "Ingenieria"));
+		lista_profesores.add( new Profesor("ian", "ian", "zapallo", "casuela", "123", Sexo.Masculino, 42, 2000000, "Ingenieria"));
 		lista_profesores.add( new Profesor("jorge", "jorge", "zanahoria", "ensalada", "123", Sexo.Masculino, 45, 1000000, "Ingenieria"));
 		lista_profesores.add( new Profesor("jaime", "jaime", "vargas", "vargas", "123", Sexo.Femenino, 55, 2200000, "Ingenieria"));
 		
@@ -90,6 +95,13 @@ public class Universidad implements java.io.Serializable {
 			periodosLibres.add(i+"-2");
 		}
 		
+		listaSalas = new ArrayList<String>();
+		for(Integer i=1; i<27; i++){
+			listaSalas.add("A".concat(i.toString()));
+			listaSalas.add("B".concat(i.toString()));
+			listaSalas.add("N".concat(i.toString()));
+		}
+		
 		//carreras parten desde indice 1 nombreUsuario, nombre, apellidoPaterno, apellidoMaterno, contrasena, sexo, edad
 		lista_alumnos.add(new Alumno("juan","juan", "perez", "lopez", "123", Sexo.Masculino, 20 ));
 		lista_alumnos.add(new Alumno("max", "max", "garcia", "sanchez", "1", Sexo.Masculino, 21 ));
@@ -99,7 +111,7 @@ public class Universidad implements java.io.Serializable {
 		lista_administradores.add( new Administrador_academico("ana", "ana", "guzman", "alvarez","123",Sexo.Femenino, 40));
 
 		lista_carreras.add(new Carrera("Juan Carlos","Ingenieria", "Ingenieria"));
-		lista_carreras.add(new Carrera("Juan Carlos","Ingenieria", "Cnstruccion civil"));
+		lista_carreras.add(new Carrera("Juan Carlos","Ingenieria", "Construccion civil"));
 		lista_carreras.add(new Carrera("Martin Chuaqui Farrú","Matemáticas", "Matemáticas"));
 		lista_carreras.add(new Carrera("Luis Ibáñez Anríque","Medicina", "Medicina"));
 		lista_carreras.add(new Carrera("Luis Ibáñez Anríque","Medicina", "Enfermeria"));
@@ -110,7 +122,21 @@ public class Universidad implements java.io.Serializable {
 		lista_carreras.add(new Carrera("Patricio Correa", "Artes", "Teatro"));
 		lista_carreras.add(new Carrera("Patricio Correa", "Artes", "Coreografia"));
 		
-		
+		dias = new ArrayList<String>();
+		dias.add("Lunes");
+		dias.add("Martes");
+		dias.add("Miercoles");
+		dias.add("Jueves");
+		dias.add("Viernes");
+		dias.add("Sabado");
+		listaModulos = new ArrayList<Integer>();
+		for(Integer i=1; i<9;i++){
+			listaModulos.add(i);
+		}
+		listaCreditos = new ArrayList<Integer>();
+		for(Integer i=1; i<51;i++){
+			listaCreditos.add(i);
+		}
 		
 		historial_de_progrmacion_academica.add(new Programacion_Academica("2015-2"));
 		UsarPeriodo("2015-2");
@@ -118,8 +144,8 @@ public class Universidad implements java.io.Serializable {
 		UsarPeriodo("2016-1");
 		
 		lista_alumnos.get(0).Inscribir_carrera(2);
-		Malla_curricular malla1 = new Malla_curricular(0);
-		Malla_curricular malla2 = new Malla_curricular(1);
+		Malla_curricular malla1 = new Malla_curricular();
+		Malla_curricular malla2 = new Malla_curricular();
 		
 		lista_carreras.get(0).crear_malla_curricular(malla1);
 		lista_carreras.get(0).crear_malla_curricular(malla2);
@@ -131,6 +157,9 @@ public class Universidad implements java.io.Serializable {
 		Ramo ramo5 = new Ramo("Introducción a la Programación","IIC1103", 10, lista_carreras.get(0),"3", "programacion basica", "desarrollar pensamiento");
 		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3", "redes y hacer sufrir a los alumnos", "desarrollar pensamiento");
 		lista_ramos.add(ramo1);lista_ramos.add(ramo2);lista_ramos.add(ramo3);lista_ramos.add(ramo4);lista_ramos.add(ramo5);lista_ramos.add(ramo6);
+		
+		malla1.agregar_ramo(ramo1);
+		malla1.agregar_ramo(ramo2);
 		
 		ramo2.AgregarPrerrequisito(ramo1.getSigla());
 		ramo3.AgregarPrerrequisito(ramo2.getSigla());
@@ -160,47 +189,47 @@ public class Universidad implements java.io.Serializable {
 		
 		//int semestre,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo		
 		Curso u = new Curso( "2016-1",salas, horario, 10, 1, lista_profesores.get(0), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u);
 		Curso u2 = new Curso( "2016-1",salas1, horario1, 10, 2, lista_profesores.get(1), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u2);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u2);
 		Curso u3 = new Curso( "2016-1",salas2, horario2, 10, 3, lista_profesores.get(2), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u3);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u3);
 		Curso u4 = new Curso( "2016-1",salas3, horario3, 10, 4, lista_profesores.get(3), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u4);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u4);
 		Curso u5 = new Curso( "2016-1",salas4, horario4, 10, 5, lista_profesores.get(0), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u5);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u5);
 		Curso u6 = new Curso( "2016-1",salas, horario2, 10, 6, lista_profesores.get(0), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u6);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u6);
 		Curso u7 = new Curso( "2016-1",salas1, horario4, 10, 7, lista_profesores.get(2), ramo1);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u7);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u7);
 		Curso u8 = new Curso( "2016-1",salas4, horario4, 10, 1, lista_profesores.get(rn.nextInt(40)), ramo2);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u8);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u8);
 		Curso u9 = new Curso( "2016-1",salas, horario2, 10, 2, lista_profesores.get(rn.nextInt(40)), ramo2);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(u9);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(u9);
 		Curso uu = new Curso( "2016-1",salas1, horario4, 10, 3, lista_profesores.get(rn.nextInt(40)), ramo2);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu);
 		Curso uu1 = new Curso( "2016-1",salas4, horario4, 10, 1, lista_profesores.get(rn.nextInt(40)), ramo3);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu1);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu1);
 		Curso uu2 = new Curso( "2016-1",salas, horario2, 10, 2, lista_profesores.get(rn.nextInt(40)), ramo3);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu2);	
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu2);	
 		Curso a1 = new Curso( "2016-1",salas4, horario4, 10, 1, lista_profesores.get(rn.nextInt(40)), ramo4);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(a1);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(a1);
 		Curso a2 = new Curso( "2016-1",salas, horario2, 10, 2, lista_profesores.get(rn.nextInt(40)), ramo4);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(a2);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(a2);
 		Curso a3 = new Curso( "2016-1",salas, horario2, 10, 3, lista_profesores.get(rn.nextInt(40)), ramo4);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(a3);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(a3);
 		Curso uu3 = new Curso( "2016-1",salas4, horario4, 10, 1, lista_profesores.get(rn.nextInt(40)), ramo5);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu3);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu3);
 		Curso uu4 = new Curso( "2016-1",salas, horario2, 10, 2, lista_profesores.get(rn.nextInt(40)), ramo5);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu4);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu4);
 		Curso uu5 = new Curso( "2016-1",salas, horario2, 10, 3, lista_profesores.get(rn.nextInt(40)), ramo5);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu5);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu5);
 		Curso uu6 = new Curso( "2016-1",salas, horario2, 10, 4, lista_profesores.get(rn.nextInt(40)), ramo5);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu6);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu6);
 		Curso uu7 = new Curso( "2016-1",salas4, horario4, 10, 1, lista_profesores.get(rn.nextInt(40)), ramo6);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu7);
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu7);
 		Curso uu8 = new Curso( "2016-1",salas, horario2, 10, 2, lista_profesores.get(rn.nextInt(40)), ramo6);
-		historial_de_progrmacion_academica.get(0).cursos_en_progreso.add(uu8);	
+		historial_de_progrmacion_academica.get(1).cursos_en_progreso.add(uu8);	
 		
 		
 		lista_cursos.add(u);lista_cursos.add(u2);lista_cursos.add(u3);lista_cursos.add(u4);lista_cursos.add(u5);
@@ -306,10 +335,27 @@ public class Universidad implements java.io.Serializable {
 		}
 	}
 
+	public Integer EstaDisponibleHorario(ProgramacionHoraria programacionHoraria, int idProfesor){
+		// revisa si esta disponible el profesor y la sala. Retorna 0 si esta disponible, 1 si el sala no lo esta y 2 si la profesor no lo esta
+		for(Curso curso: lista_cursos){
+			for(ProgramacionHoraria pH: curso.getListaProgramacionHoraria()){
+				if(pH.getDia().equals(programacionHoraria.getDia()) && 
+						pH.getModulo().equals(programacionHoraria.getModulo())){
+					if(curso.HaceClasesProfesor(idProfesor)){
+						return 2;
+					}
+					if(pH.getSala().equals(programacionHoraria.getSala())){
+						return 1;
+					}
+				}
+			}
+		}
+		return 0;
+	}
 	
 	public List<Curso> getCursosProgramacionAcademica(String periodo){
 		for(Programacion_Academica PA: historial_de_progrmacion_academica){
-			if(PA.periodo == periodo){
+			if(PA.periodo.equals(periodo)){
 				return PA.cursos_en_progreso;
 			}
 		}
@@ -317,4 +363,36 @@ public class Universidad implements java.io.Serializable {
 	}
 	public List<String> getPeriodosLibres(){ return periodosLibres;}
 	public List<String> getPeriodosOcupados(){ return periodosOcupados;}
+	public boolean CursoSeAgregoALista(int idCurso){
+		for(Curso curso: lista_cursos){
+			if(curso.id_curso == idCurso){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public List<String> getFacultades(){
+		List<String> listaRetorno = new ArrayList<String>();
+		boolean seAgrego = false;
+		for(Carrera carrera: lista_carreras){
+			for(String nombreFacultad: listaRetorno){
+				if(nombreFacultad.equals(carrera.getFacultad())){
+					seAgrego = true;
+				}
+			}
+			if(!seAgrego){
+				listaRetorno.add(carrera.getFacultad());
+			}
+			seAgrego = false;
+		}
+		return listaRetorno;
+	}
+	public void EliminarProfesor(int idProfesor){
+		for(Profesor profesor: lista_profesores){
+			if(profesor.getId_profesor()==idProfesor){
+				lista_profesores.remove(profesor);
+			}
+		}
+	}
 }
