@@ -1,5 +1,12 @@
 package fx.view;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +57,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 	@FXML
 	public Label contador_likes_ramo,ramo_nombre_grande,contador_likes_profesor,profesor_nombre_grande,error_seleccion_profesor, error_seleccion_ramo,label_nombre_profesor,label_facultad_profesor;
 	@FXML
-	public Label label_carrera_ramo,label_semestre_ramo,label_creditos_ramo,label_sigla_ramo,error_ver_top_ramo,error_ver_top_profesor;
+	public Label label_descarga,label_carrera_ramo,label_semestre_ramo,label_creditos_ramo,label_sigla_ramo,error_ver_top_ramo,error_ver_top_profesor;
 	@FXML
 	private TableView<Profesor> tabla_busqueda_profesor;
 	@FXML
@@ -70,7 +77,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 	@FXML
 	private Button boton_buscar,boton_calificar_ramo2,boton_calificar,boton_volver_cuenta,boton_inicio, boton_cerrar_sesion,boton_rn_profesor,boton_rn_ramo,boton_top_profesores,boton_top_ramos,boton_ver_ramo,boton_ver_profesor;
 	@FXML
-	private Button boton_like_ramo,boton_ver_top_ramo,boton_ramo_a1,boton_ramo_a2,boton_ramo_a3,boton_ramo_a4,boton_ramo_a5, boton_ramo_d1,boton_ramo_d2,boton_ramo_d3,boton_ramo_d4,boton_ramo_d5;
+	private Button boton_descargar_contenido,boton_like_ramo,boton_ver_top_ramo,boton_ramo_a1,boton_ramo_a2,boton_ramo_a3,boton_ramo_a4,boton_ramo_a5, boton_ramo_d1,boton_ramo_d2,boton_ramo_d3,boton_ramo_d4,boton_ramo_d5;
 	@FXML
 	private Button boton_ver_top_profesor,boton_profesor_a1,boton_profesor_a2,boton_profesor_a3,boton_profesor_a4,boton_profesor_a5, boton_profesor_d1,boton_profesor_d2,boton_profesor_d3,boton_profesor_d4,boton_profesor_d5;
 	@FXML
@@ -165,10 +172,31 @@ public class RedDeOpinionesController implements PrincipalController  {
 	//EVENTOS PANTALLA INICIO
 	public void ClickTopRamos(ActionEvent event) {
 		error_ver_top_ramo.setText("");
+		boton_ramo_a1.setText("---");
+		boton_ramo_a2.setText("---");
+		boton_ramo_a3.setText("---");
+		boton_ramo_a4.setText("---");
+		boton_ramo_a5.setText("---");
+		boton_ramo_d1.setText("---");
+		boton_ramo_d2.setText("---");
+		boton_ramo_d3.setText("---");
+		boton_ramo_d4.setText("---");
+		boton_ramo_d5.setText("---");
 		CambiarAPanel(pane_top_ramos);
 	}
 	public void ClickTopProfesores(ActionEvent event) {
 		error_ver_top_profesor.setText("");
+
+		boton_profesor_a1.setText("---");
+		boton_profesor_a2.setText("---");
+		boton_profesor_a3.setText("---");
+		boton_profesor_a4.setText("---");
+		boton_profesor_a5.setText("---");
+		boton_profesor_d1.setText("---");
+		boton_profesor_d2.setText("---");
+		boton_profesor_d3.setText("---");
+		boton_profesor_d4.setText("---");
+		boton_profesor_d5.setText("---");
 		CambiarAPanel(pane_top_profesores);
 	}
 	public void ClickRandomRamo(ActionEvent event) {
@@ -203,9 +231,13 @@ public class RedDeOpinionesController implements PrincipalController  {
 		error_ver_top_ramo.setText("");
 		if (e.getSource() instanceof Button) {
 			Button chk = (Button) e.getSource(); // getText es la sigla
+			if (!chk.getText().contains("---")){
 			ramo_seleccionado = main.U.GetRamo(chk.getText());
 			CambiarARamo();
 			CambiarAPanel(pane_ramo);
+			}else{
+				error_ver_top_ramo.setText("ERROR: seleccione algun top");
+			}
 		}
 	}
 	public void ClickVerTopRamo (ActionEvent e){
@@ -256,11 +288,16 @@ public class RedDeOpinionesController implements PrincipalController  {
 
 	public void ClickBotonProfesorTop(ActionEvent e){
 		if (e.getSource() instanceof Button) {
+			error_ver_top_profesor.setText("");
 			Button chk = (Button) e.getSource(); // getText es la sigla
-			String str = chk.getText().split("--")[0];
-			profesor_seleccionado = main.U.GetProfesor(Integer.parseInt(str));
-			CambiarAProfesor();
-			CambiarAPanel(pane_profesor);
+			if (!chk.getText().contains("---")){
+				String str = chk.getText().split("--")[0];
+				profesor_seleccionado = main.U.GetProfesor(Integer.parseInt(str));
+				CambiarAProfesor();
+				CambiarAPanel(pane_profesor);
+			}else {
+				error_ver_top_profesor.setText("ERROR: seleccione algun top");
+			}
 		}
 	}
 	public void ClickVerTopProfesor (ActionEvent e){
@@ -350,6 +387,26 @@ public class RedDeOpinionesController implements PrincipalController  {
 		contador_likes_ramo.setText(ramo_seleccionado.getLikes().toString());
 	}
 	
+	public void ClickDescarga(ActionEvent e) throws IOException {
+		label_descarga.setText("Descargado!");
+		
+		File file = new File("/users/mkyong/filename.txt");
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+		FileWriter fw = new FileWriter(file.getAbsoluteFile());
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write("Programa Ramo: "+ramo_seleccionado.getNombreRamo()+"-"+ramo_seleccionado.getSigla());
+		bw.write("\n");
+		bw.write("Objetivos");
+		bw.write("\n");
+		bw.write(ramo_seleccionado.getObjetivos());
+		bw.write("\n");
+		bw.write("Contenidos");
+		bw.write("\n");
+		bw.write(ramo_seleccionado.getContenidos());
+		bw.close();
+	}
 	
 	//EVENTOS EXTRAS
 	// evento para cambiar de paginas.
@@ -380,6 +437,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 	public void CambiarARamo(){
 		ObservableList<String> items = FXCollections.observableArrayList(ramo_seleccionado.GetPrerrequisitos());
 		list_view_prerrequisitos.setItems(items);
+		label_descarga.setText("");
 		ramo_nombre_grande.setText(ramo_seleccionado.getNombreRamo());
 		label_sigla_ramo.setText(ramo_seleccionado.getSigla());
 		label_creditos_ramo.setText(String.valueOf(ramo_seleccionado.getCreditos()));

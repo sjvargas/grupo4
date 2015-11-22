@@ -202,7 +202,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_a2" layoutX="126.0" layoutY="263.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #66ff3a;"  text="------------">
+            <Button fx:id="boton_profesor_a2" layoutX="126.0" layoutY="263.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #66ff3a;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
@@ -227,12 +227,12 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d4" layoutX="604.0" layoutY="379.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #ff7d28;"  text="------------">
+            <Button fx:id="boton_profesor_d4" layoutX="604.0" layoutY="379.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefWidth="313.0" style="-fx-background-color: #ff7d28;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d3" layoutX="604.0" layoutY="322.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="313.0" style="-fx-background-color: #ff5328;"  text="------------">
+            <Button fx:id="boton_profesor_d3" layoutX="604.0" layoutY="322.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="313.0" style="-fx-background-color: #ff5328;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
@@ -242,7 +242,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="boton_profesor_d1" layoutX="604.0" layoutY="208.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="314.0" style="-fx-background-color: #ff3328;"  text="------------">
+            <Button fx:id="boton_profesor_d1" layoutX="604.0" layoutY="208.0" mnemonicParsing="false" onAction="#ClickBotonProfesorTop" prefHeight="44.0" prefWidth="314.0" style="-fx-background-color: #ff3328;" text="------------">
                <font>
                   <Font size="20.0" />
                </font>
@@ -518,6 +518,12 @@
                      </font>
                   </Label>
                   <ListView fx:id="list_view_prerrequisitos" layoutX="282.0" layoutY="82.0" prefHeight="173.0" prefWidth="275.0" />
+                  <Button fx:id="boton_descargar_contenido" layoutX="35.0" layoutY="243.0" mnemonicParsing="false" onAction="#ClickDescarga" prefHeight="38.0" prefWidth="175.0" style="-fx-border-color: #683700; -fx-border-width: 4px; -fx-background-color: orange;" text="descargar programa" textFill="#683700">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="label_descarga" layoutX="224.0" layoutY="262.0" textFill="RED" />
                </children>
             </Pane>
             <Pane fx:id="pane_resultados_ramo" layoutX="25.0" layoutY="409.0" prefHeight="79.0" prefWidth="599.0" style="-fx-border-color: black; -fx-background-color: white; -fx-border-radius: 10%;">

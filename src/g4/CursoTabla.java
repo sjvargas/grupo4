@@ -33,7 +33,7 @@ public class CursoTabla  implements java.io.Serializable {
 			horarios = new String(list.substring(0,list.length()-1));
 		}
 		nombre = new String(curso.getRamo().getNombreRamo());
-		seccion = new Integer(0);
+		seccion = curso.seccionCurso;
 		carrera = new String(curso.getRamo().getCarrera().getNombreCarrera());
 	}
 
