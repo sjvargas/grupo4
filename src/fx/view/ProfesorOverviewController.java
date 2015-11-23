@@ -47,7 +47,7 @@ public class ProfesorOverviewController implements PrincipalController {
 	@FXML
 	private ObservableList<CursoTabla> data_historial = FXCollections.observableArrayList();
 	@FXML
-	private TableView<AlumnoTabla> tabla_evaluar_alumno;
+	private TableView<AlumnoTabla> tabla_evaluar_alumno; 
 	@FXML
 	private TableColumn<AlumnoTabla,String> columna_evaluar_nombre,columna_evaluar_nota;
 	@FXML
@@ -118,6 +118,7 @@ public class ProfesorOverviewController implements PrincipalController {
 		controlador.setScreen(main.BuscadorID);
 	}	
 	public void ClickCerrarSesion(ActionEvent event) {
+		LimpiarProfesor();
 		main.U.profesor_actual.Cerrar_sesion();
 		main.U.profesor_actual = null;
 		controlador.setScreen(main.InicioID);
@@ -238,6 +239,15 @@ public class ProfesorOverviewController implements PrincipalController {
 	}
 
 	// EXTRAS
+	
+	public void LimpiarProfesor(){
+		labelNombre.setText("");
+		CambiarAPanel(pane_historial);
+		pane_historial.setVisible(false);
+		tabla_historial_cursos.setItems(null); 
+		tabla_evaluar_alumno.setItems(null); 
+	}
+	
 	public static boolean isNumeric(String str)  
 	{  
 	  try  
