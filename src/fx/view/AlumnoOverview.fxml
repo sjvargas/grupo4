@@ -142,7 +142,7 @@
                   <Label fx:id="label_edad_inicio_alumno" layoutX="146.0" layoutY="137.0" text="Label" />
                </children>
             </Pane>
-            <Pane fx:id="pane_semestre_actual_alumno" layoutX="199.0" layoutY="16.0" prefHeight="497.0" prefWidth="521.0">
+            <Pane fx:id="pane_semestre_actual_alumno" layoutX="199.0" layoutY="16.0" prefHeight="497.0" prefWidth="521.0" visible="false">
                <children>
                   <Label layoutX="25.0" layoutY="123.0" text="Curso 1" />
                   <Label layoutX="75.0" layoutY="94.0" text="ID del curso" />
