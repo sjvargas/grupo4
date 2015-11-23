@@ -198,7 +198,7 @@
                   <Button fx:id="buttonEliminarMalla" layoutX="308.0" layoutY="126.0" mnemonicParsing="false" onAction="#clickEliminarMalla" text="Eliminar Malla inscrita" />
                </children></Pane>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Pane fx:id="pane_avance_curricular" layoutX="148.0" layoutY="75.0" prefHeight="360.0" prefWidth="571.0" visible="false">
+            <Pane fx:id="pane_avance_curricular" layoutX="148.0" layoutY="75.0" prefHeight="420.0" prefWidth="551.0" visible="false">
                <children>
                   <ComboBox fx:id="AvanceComboBoxCarrerasInscritas" layoutX="20.0" layoutY="73.0" onAction="#avanceCambioEnComboCarrera" prefWidth="150.0" />
                   <Label layoutX="26.0" layoutY="14.0" text="AVANCE CURRICULAR" textFill="#0f3580">
@@ -207,8 +207,8 @@
                      </font>
                   </Label>
                   <Label layoutX="20.0" layoutY="49.0" text="Seleccione una carrera inscrita" />
-                  <Label fx:id="labelErrorAvanceCurricular" layoutX="180.0" layoutY="77.0" text="-" textFill="#c91818" />
-                  <TitledPane animated="false" layoutX="20.0" layoutY="125.0" prefHeight="233.0" prefWidth="202.0" text="Cursos de la Malla Inscrita">
+                  <Label fx:id="labelErrorAvanceCurricular" layoutX="24.0" layoutY="98.0" text="-" textFill="#c91818" />
+                  <TitledPane animated="false" layoutX="20.0" layoutY="131.0" prefHeight="233.0" prefWidth="202.0" text="Cursos de la Malla Inscrita">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -217,20 +217,29 @@
                         </AnchorPane>
                     </content>
                   </TitledPane>
-                  <TitledPane animated="false" layoutX="301.0" layoutY="125.0" prefHeight="114.0" prefWidth="202.0" text="Cursos Completados">
+                  <TitledPane animated="false" layoutX="313.0" layoutY="29.0" prefHeight="114.0" prefWidth="202.0" text="Cursos ya Cursados">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ListView fx:id="AvanceListViewRamosListos" prefHeight="87.0" prefWidth="200.0" />
+                              <ListView fx:id="AvanceListViewRamosCursados" layoutX="6.0" layoutY="1.0" prefHeight="86.0" prefWidth="187.0" />
                            </children></AnchorPane>
                     </content>
                   </TitledPane>
-                  <TitledPane animated="false" layoutX="301.0" layoutY="250.0" prefHeight="104.0" prefWidth="202.0" text="Cursos Pendientes">
+                  <TitledPane animated="false" layoutX="313.0" layoutY="302.0" prefHeight="104.0" prefWidth="202.0" text="Cursos Pendientes">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <ListView fx:id="AvanceListViewRamosPendientes" layoutY="-1.0" prefHeight="79.0" prefWidth="200.0" />
                            </children></AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane animated="false" layoutX="313.0" layoutY="157.0" prefHeight="123.0" prefWidth="202.0" text="Cursos Aprobados">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="AvanceListViewRamosListos" layoutX="3.0" layoutY="-1.0" prefHeight="95.0" prefWidth="194.0" />
+                           </children>
+                        </AnchorPane>
                     </content>
                   </TitledPane>
                </children></Pane>

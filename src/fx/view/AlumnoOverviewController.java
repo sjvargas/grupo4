@@ -265,6 +265,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	@Override
 	public void setScreenParent(ScreensController ScreenPage) {
 		controlador = ScreenPage;
+		//System.out.println("hola");
+		
 	}
 
 	//// eventos paneles de usuario
@@ -632,7 +634,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		
 		mallaActual.setText("");
 		labelErrorAvanceCurricular.setText("");
-	
+		this.listaPeriodos = null;
 		//
 		
 		
@@ -640,7 +642,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		main.U.alumno_actual = null;
 		controlador.setScreen(main.InicioID);
 		
-		
+		this.primerBotonApretado=true;
 		Serializador.serializar(main.U);
 		
 	}
@@ -1068,7 +1070,7 @@ public class AlumnoOverviewController implements PrincipalController {
 			main.U.alumno_actual.finalizarSemestre();
 			System.out.println("Semestre finalizado!");
 			
-			main.U.alumno_actual.setSemestreActual(null);
+			main.U.alumno_actual.setSemestreActual(new Semestre(""));
 			
 			text_curso1_semestre_actual.setText("");
 			text_curso2_semestre_actual.setText("");
@@ -1375,6 +1377,8 @@ public class AlumnoOverviewController implements PrincipalController {
 	@FXML
 	ListView<Ramo> AvanceListViewRamosListos;
 	@FXML
+	ListView<Ramo> AvanceListViewRamosCursados;
+	@FXML
 	ListView<Ramo> AvanceListViewRamosPendientes;
 	public void clickavancemalla() {
 		mostrar_panel(pane_avance_curricular);
@@ -1385,6 +1389,7 @@ public class AlumnoOverviewController implements PrincipalController {
 		AvanceListViewRamosPorMalla.setItems(null);
 		AvanceListViewRamosListos.setItems(null);
 		AvanceListViewRamosPendientes.setItems(null);
+		AvanceListViewRamosCursados.setItems(null);
 	}	
 	
 	
@@ -1395,6 +1400,8 @@ public class AlumnoOverviewController implements PrincipalController {
 		AvanceListViewRamosPorMalla.setItems(null);
 		AvanceListViewRamosListos.setItems(null);
 		AvanceListViewRamosPendientes.setItems(null);
+		AvanceListViewRamosCursados.setItems(null);
+
 		if(carreraSeleccionada!=null){
 			int id_carreraSeleccionada = carreraSeleccionada.getId_carrera();
 			int indiceDeCarreraSeleccionadaEnAlumno = main.U.alumno_actual.getIndiceCarrera(id_carreraSeleccionada);
@@ -1426,10 +1433,14 @@ public class AlumnoOverviewController implements PrincipalController {
 					List<Ramo> listaRamosMalla = mallaSeleccionada.getRamos();
 					List<Ramo> listaRamosListos = new ArrayList<Ramo>();
 					List<Ramo> listaRamosPendientes = new ArrayList<Ramo>();
+					List<Ramo> listaRamosCursados = new ArrayList<Ramo>();
 
 					for(int i=0;i<listaRamosMalla.size();i++){
 						if(main.U.alumno_actual.haCursadoEsteRamo(listaRamosMalla.get(i))){
-							listaRamosListos.add(listaRamosMalla.get(i));
+							listaRamosCursados.add(listaRamosMalla.get(i));
+							if(main.U.alumno_actual.haAprovadoEsteRamo(listaRamosMalla.get(i))){
+								listaRamosListos.add(listaRamosMalla.get(i));
+							}
 						}
 						else{
 							listaRamosPendientes.add(listaRamosMalla.get(i));
@@ -1445,6 +1456,11 @@ public class AlumnoOverviewController implements PrincipalController {
 					
 					ObservableList<Ramo> itemsPendientes = FXCollections.observableArrayList(listaRamosPendientes);
 					AvanceListViewRamosPendientes.setItems(itemsPendientes);
+					
+					ObservableList<Ramo> itemsCursados = FXCollections.observableArrayList(listaRamosCursados);
+					AvanceListViewRamosCursados.setItems(itemsCursados);
+					
+					
 
 				}
 				else{

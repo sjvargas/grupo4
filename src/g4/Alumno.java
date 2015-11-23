@@ -239,6 +239,49 @@ public class Alumno extends Usuario implements java.io.Serializable{
 		
 		
 	}
+	public boolean haAprovadoEsteRamo(Ramo ramo){
+		String siglaRamoAEvaluar= ramo.getSigla();
+		
+		
+		List<Semestre> semestres = historial_academico.getSemestres();
+		
+		//iteramos sobre cada uno de los semestres ya cursados
+		for(int j =0;j<semestres.size();j++){
+			
+			Semestre semestreActual = semestres.get(j);
+			List<Curso> cursosDelSemestreActual = new ArrayList<Curso>();
+			List<Nota> notasDelSemestreActual = semestreActual.GetNotas();
+			List<Integer> idCursos = semestreActual.GetCursos();
+			
+			
+			for(int z=0;z<idCursos.size();z++){
+				cursosDelSemestreActual.add(main.U.getCursoConID(idCursos.get(z)));
+			}
+			
+			
+			for(int w =0;w<cursosDelSemestreActual.size();w++){
+				if(cursosDelSemestreActual.get(w).getRamo().getSigla().equals(siglaRamoAEvaluar)){
+					
+					if(notasDelSemestreActual.get(w).GetNota()>4){
+						return true;
+					}
+					
+					
+				}
+			}
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+		return false;
+		
+		
+	}
 	
 	public int getCreditosAprobados(){ return historial_academico.getCreditosAprobados();}
 	public int getCreditosReprobados() { return historial_academico.getCreditosReprobados();}

@@ -67,12 +67,18 @@ public class Semestre implements java.io.Serializable{
 	public void CerrarSemestre(){
 		boolean sePuedeCerrar = true;
 		
+		
+		System.out.println("notas size: "+notas.size());
+		System.out.println("cursos size: "+cursos.size());
+
 		if(notas.size()<1 || cursos.size()<1){
 			sePuedeCerrar=false;
 			return;
 		}
 		// revisa que todos tengan nota
-		for(int i = 0; i < notas.size(); i++ ){
+	//	for(int i = 0; i < notas.size(); i++ ){
+		for(int i = 0; i < cursos.size() && i < notas.size(); i++ ){
+
 			if(notas.get(i).GetNota()!= null){
 				sePuedeCerrar = sePuedeCerrar && true;
 			}
