@@ -92,8 +92,8 @@ public class BuscadorDeCursosController implements PrincipalController {
 				.observableList(main.U.lista_carreras);
 		
 		text_carrera.setItems(ss);
-		
-		
+		data_seleccion = FXCollections.observableArrayList();
+		data_busqueda = FXCollections.observableArrayList();
 		ArrayList<String> periodos = new ArrayList<String>();
 		for (Programacion_Academica j : main.U.historial_de_progrmacion_academica){
 			periodos.add(j.periodo);}
@@ -238,6 +238,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	
 	public void ClickAgregar(ActionEvent event) {
+		
 		data_seleccion.add(tabla_busqueda.getSelectionModel().getSelectedItem());
 		ActualizarSeleccion();
 	}
@@ -257,6 +258,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 		text_sigla.setText("");
 		text_profesor.setText("");
 		text_carrera.setValue(null);
+		cursos_seleccionados = new ArrayList<Curso>();
 		lu_1.setSelected(false); ma_1.setSelected(false); mi_1.setSelected(false);  ju_1.setSelected(false);  vi_1.setSelected(false);  sa_1.setSelected(false); 
 		lu_2.setSelected(false); ma_2.setSelected(false); mi_2.setSelected(false);  ju_2.setSelected(false);  vi_2.setSelected(false);  sa_2.setSelected(false); 
 		lu_3.setSelected(false); ma_3.setSelected(false); mi_3.setSelected(false);  ju_3.setSelected(false);  vi_3.setSelected(false);  sa_3.setSelected(false); 
