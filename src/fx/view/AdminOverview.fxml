@@ -192,7 +192,7 @@
                   </TableView>
                </children>
             </Pane>
-            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
+            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0">
                <children>
                   <Label layoutX="50.0" layoutY="48.0" text="Lista de Ramos: " />
                   <GridPane layoutX="50.0" layoutY="354.0" prefHeight="200.0" prefWidth="351.0">
@@ -229,7 +229,7 @@
                   </GridPane>
                   <Label layoutX="50.0" layoutY="309.0" text="Agregar Ramo:" />
                   <Button layoutX="430.0" layoutY="526.0" mnemonicParsing="false" onAction="#AgregarRamo" text="Agregar" />
-                  <Label fx:id="labelAgregarRamo" layoutX="430.0" layoutY="530.0" />
+                  <Label fx:id="labelAgregarRamo" layoutX="430.0" layoutY="555.0" />
                   <GridPane layoutX="50.0" layoutY="594.0" prefHeight="98.0" prefWidth="351.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="156.0" />
@@ -281,7 +281,7 @@
                     </columns>
                   </TableView>
                   <Label layoutX="561.0" layoutY="464.0" text="Prerrequisitos:" />
-                  <Label fx:id="labelRamoPreReq" layoutX="687.0" layoutY="601.0" />
+                  <Label fx:id="labelRamoPreReq" layoutX="687.0" layoutY="464.0" />
                   <Label fx:id="labelArchivo" layoutX="258.0" layoutY="530.0" prefHeight="17.0" prefWidth="157.0" text="ningun archivo seleccionado" textAlignment="RIGHT" />
                </children>
             </Pane>
