@@ -463,11 +463,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCCreditosRamos.setCellValueFactory(new PropertyValueFactory<Ramo,Integer>("creditos"));
 			tViewRamos.setItems(datosRamos);
 		}
-//		tViewRamos.refresh();
+		tViewRamos.refresh();
 		List<Ramo> ramos = main.U.lista_ramos;
 		datosRamos = FXCollections.observableArrayList(ramos);
 		tViewRamos.setItems(datosRamos);
-	//	tViewRamos.refresh();
+		tViewRamos.refresh();
 	}
 
 	public void ApretarVerPrerrequisitos(ActionEvent event){
