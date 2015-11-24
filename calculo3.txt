@@ -1,0 +1,119 @@
+
+CURSO               :      CALCULO III
+TRADUCCIÓN          :      CALCULUS III
+SIGLA               :      MAT1630
+CRÉDITOS            :      10
+MÓDULOS             :      05
+REQUISITOS          :      MAT1620 CÁLCULO II Y MAT1203 ÁLGEBRA LINEAL
+CARÁCTER            :      MÍNIMO
+DISCIPLINA          :      MATEMÁTICA
+
+
+I.   DESCRIPCIÓN
+
+     Proporcionar al alumno los conocimientos básicos de cálculo diferencial de funciones escalares y vectoriales
+     de varias variables, de integrales múltiples sobre regiones más generales, y los conceptos y métodos de
+     integrales de línea y superficie.
+
+
+II.  OBJETIVOS
+
+     Al finalizar el curso el alumno será capaz de:
+
+     1.     Calcular integrales dobles y triples en regiones más generales, y manejar cambio de orden de
+            integración.
+     2.     Aplicar el concepto de integral múltiple para evaluar volúmenes y centros de masa.
+     3.     Aplicar los cambios de variable a coordenadas polares y esféricas.
+     4.     Representar, expresar e interpretar gráficamente funciones de dos variables como superficies en el
+            espacio, y saber reconocer superficies básicas (planos, conos, paraboloides, etc.).
+     5.     Reconocer y explicar el concepto de "curvas de nivel" y calcularlas.
+     6.     Calcular derivadas direccionales.
+     7.     Explicar el significado geométrico y analítico del gradiente y aplicarlo en la resolución de problemas.
+     8.     Plantear problemas aplicados de máximos y mínimos, reconociendo la naturaleza del dominio (interior
+            más frontera).
+     9.     Analizar restricciones en problemas dados y reconocer si un problema posee restricciones.
+     10.    Explicar los conceptos de integral de línea y de superficie y aplicarlos en la resolución de Problemas.
+     11.    Representar gráficamente campos vectoriales, explicar el concepto de flujo a través de una curva en el
+            plano o superficie en el espacio y aplicarlos en la resolución de problemas.
+     12.    Relacionar el teorema fundamental del cálculo, con la regla telescópica de la suma y los teoremas de
+            Green, Gauss y Stokes, aplicar estos teoremas en la resolución de problemas.
+
+
+III. CONTENIDOS
+
+     1. Cálculo diferencial de funciones escalares en varias variables.
+            1.1.    Nociones topológicas en plano y espacio: distancia, bolas, conjuntos abiertos y cerrados,
+                    frontera.
+            1.2.    Límite, continuidad y diferenciabilidad de funciones de R en Rn , derivadas parciales y
+                    direccionales, interpretación geométrica del gradiente.
+            1.3.    Regla de la cadena, derivadas de orden superior, lema de Schwarz.
+
+     2.     Aplicaciones.
+            2.1.    Teorema de Taylor para funciones de R en Rn .
+            2.2.    Máximos y mínimos para funciones de R en Rn ; matriz hessiana y criterios para extremos
+                    locales.
+            2.3.    Multiplicadores de Lagrange.
+
+     3.     Cálculo diferencial de funciones vectoriales en varias variables.
+            3.1.    Límites, continuidad, diferenciabilidad; matriz jacobiana.
+            3.2.    Cambios de coordenadas; coordenadas cilíndricas y esféricas.
+           3.3.   Teoremas de la Función Implícita e Inversa.
+
+    4.     Integrales Múltiples.
+           4.1.   Integrales dobles en rectángulos y en regiones más generales; teorema de Fubini y cambio de
+                  orden de integración
+           4.2.   Teorema de cambio de variables, integrales en polares.
+           4.3.   Aplicaciones de las integrales dobles a cálculo de volúmenes, centros de masa y momentos.
+           4.4.   Integrales triples en cajas y en regiones más generales, teorema de Fubini y cambio de orden de
+                  integración.
+           4.5.   Teorema de cambio de variables, integrales en cilíndricas y esféricas.
+
+    5.     Integrales de línea y superficie.
+           5.1.   Integrales de línea de funciones escalares.
+           5.2.   Campos vectoriales (de fuerza, eléctricos, de velocidades, campo gradiente); trabajo como
+                  integral de línea.
+           5.3.   Campos conservativos, potencial.
+           5.4.   Teorema de Green en el plano, aplicaciones; flujo normal exterior, divergencia en dos
+                  dimensiones, criterio de las derivadas cruzadas en dominios simplemente conexos para campos
+                  conservativos.
+           5.5.   Elementos de la teoría de superficie: parametrizaciones y superficies regulares.
+           5.6.   Integrales de superficie.
+
+
+IV. METODOLOGÍA
+
+    Módulos semanales:
+    -     Cátedras: 3
+    -     Laboratorios: 1
+    -     Ayudantías: 1
+
+    El curso se realizará utilizando metodologías de enseñanza centradas en el alumno que permitan a los
+    estudiantes desarrollar las competencias definidas en los objetivos del curso.
+
+    Este curso está diseñado de forma tal que el alumno dedique al estudio personal un promedio de 3 hrs. a la
+    semana.
+
+
+V.  EVALUACIÓN
+
+    Las evaluaciones pueden ser por medio de pruebas, proyectos y/o tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+
+    Claudio Pita Ruiz                           Cálculo Vectorial. Ed. Prenctice Hall, 1996.
+
+    James Stewart                               Cálculo, trascendentes tempranas, 4th Edition. Ed. Thomson.
+
+    Textos Complementarios
+
+    Apóstol                                     Calculus. Ed. Reverté, 1965.
+
+    Courant & John                              Introducción al Cálculo y al Análisis Matemático. Ed. Limusa,
+                                                1971.
+
+    Edwards & Penney                Cálculo con Geometría Analítica. Ed. Prentice Hall.
+
+    Spiegel                         Cálculo Superior. Shaum, 1963.

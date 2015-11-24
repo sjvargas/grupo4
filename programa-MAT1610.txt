@@ -1,0 +1,654 @@
+Programa
+Ramo: Calculo 1-MAT1610
+
+
+CURSO               :      CÁLCULO I
+TRADUCCIÓN          :      CALCULUS I
+SIGLA               :      MAT1610
+CRÉDITOS            :      10
+MÓDULOS             :      05
+REQUISITOS          :      MAT1600 INTRODUCCIÓN AL CÁLCULO
+                           REQUISITO ESPECIAL:
+                           UA03: SIN REQUISITOS y
+                           UA04 (DESDE ADMISIÓN 2013): SIN REQUISITOS
+CARÁCTER            :      MÍNIMO
+DISCIPLINA          :      MATEMÁTICA
+
+
+I.   DESCRIPCIÓN
+
+     El curso se orienta a entregar los conceptos básicos de límites y continuidad de funciones, de la derivada de
+     una función y su interpretación geométrica, en conjunto con los mecanismos y técnicas de derivación, las
+     aplicaciones más relevantes de la derivada a problemas diversos de las matemáticas y la física, la obtención
+     de puntos críticos de una función, la definición de la Integral, el cálculo de integrales mediante primitivas, y
+     las técnicas de integración.
+
+
+II.  OBJETIVOS
+
+     1.     Identificar gráficos de funciones básicas, exponenciales, logarítmicas.
+     2.     Comprender el concepto de límite de una función.
+     3.     Interpretar la derivada en distintas situaciones, como una pendiente, tasa de crecimiento, o velocidad.
+     4.     Calcular derivadas de funciones obtenidas por álgebra de funciones elementales.
+     5.     Plantear en términos matemáticos problemas aplicados de máximos y mínimos.
+     6.     Reconocer gráfica y analíticamente propiedades de los gráficos de funciones, como crecimiento,
+            concavidad, máximos y mínimos locales, asíntotas.
+     7.     Reconocer y calcular desarrollos de Taylor.
+     8.     Identificar sumas de Riemann y correspondientes integrales.
+     9.     Conocer el cálculo de primitivas de funciones básicas.
+     10.    Saber aplicar las técnicas de integración fundamentales.
+
+
+III. CONTENIDOS
+
+     1. Repaso de Funciones Reales.
+            1.1.    Funciones reales: dominio, recorrido, representación gráfica y numérica, operaciones de
+                    traslación y re-escalamiento, simetrías, composición, inversa.
+            1.2.    Funciones de N en R: representación y definición por recurrencia, progresiones aritméticas y
+                    geométricas; principio de inducción.
+            1.3.    Trigonometría: funciones trigonométricas en el círculo y sus gráficos (propiedades de
+                    periodicidad y simetrías); senos y cosenos de la suma de ángulos y ecuaciones de prostaféresis;
+                    ecuaciones trigonométricas e inversas; teoremas del seno y coseno.
+            1.4.    Función exponencial y logaritmo: propiedades básicas y sus gráficos; funciones hiperbólicas.
+            1.5.    Capítulos texto guía: 1.
+
+     2.     Límites y Continuidad.
+            2.1.    Límites de funciones en un punto y en infinito; asíntotas; límites de sucesiones (axioma del
+                    supremo); el número e como límite de sucesión.
+            2.2.    Continuidad: definición, ejemplos.
+            2.3.    Teoremas del Valor Intermedio y de Acotación en intervalos cerrados y acotados.
+            2.4.    Capítulos texto guía: Capítulo 2.
+
+    3.    La Derivada.
+          3.1.   Definición, interpretación gráfica y cinemática, ecuación de la recta tangente.
+          3.2.   Relación entre continuidad y diferenciabilidad.
+          3.3.   Derivadas de polinomios, potencias, exponenciales, y funciones trigonométricas.
+          3.4.   Reglas de derivación: suma, producto, cuociente, composición.
+          3.5.   Derivada de la inversa y derivación implícita.
+          3.6.   Derivadas de orden superior.
+          3.7.   Teorema del Valor Medio.
+          3.8.   Capítulos texto guía: 2 y 3.
+
+    4.    Aplicaciones de la Derivada.
+          4.1.   Gráficos de funciones: crecimiento y decrecimiento, concavidad, asíntotas.
+          4.2.   Puntos críticos, extremos locales y globales, problemas de máximos y mínimos.
+          4.3.   Regla de L' Hôpital.
+          4.4.   Aproximación de Taylor.
+          4.5.   Capítulos texto guía: 4.
+
+    5.    La Integral.
+          5.1.   Motivación, notación de sumatoria y propiedades básicas.
+          5.2.   Definición de integral definida, teorema de existencia, ejemplos.
+          5.3.   Teorema Fundamental del Cálculo.
+          5.4.   Cálculo de integrales mediante primitivas.
+          5.5.   Técnicas de integración: integración por partes y por sustitución, fracciones parciales, integrales
+                 trigonométricas.
+          5.6.   Integrales impropias.
+
+
+IV. METODOLOGÍA
+
+    -    Cátedras.
+    -    Laboratorios.
+    -    Ayudantías.
+
+
+V.  EVALUACIÓN
+
+    -    Pruebas;
+    -    Proyectos y/o
+    -    Tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+    James Stewart                            Cálculo, trascendentes tempranas, 4th Edition. Ed. Thomson.
+
+    Textos Complementarios
+    Apostol                                  Calculus. Ed. Reverté, 1965.
+
+    Courant & John                           Introducción al Cálculo y al Análisis Matemático. Ed. Limusa,
+                                              1971.
+
+    Edwards & Penney                         Cálculo con Geometría Analítica. Ed. Prentice Hall.
+
+    Freyhoffer & Maturana                    Cálculo Diferencial e Integral. Ed. Universitaria U.C.
+
+    Kitchen                                  Cálculo de una variable. Ed. Addison Wesley.
+
+CURSO               :       CALCULO II
+TRADUCCIÓN          :       CALCULUS II
+SIGLA               :       MAT1620
+CRÉDITOS            :       10
+MÓDULOS             :       05
+REQUISITOS          :       MAT1610
+                            REQUISITO ESPECIAL: UA04 (DESDE ADMISIÓN 2013): MAT1610 y MAT0000
+CARÁCTER            :       MÍNIMO
+DISCIPLINA          :       MATEMÁTICA
+
+
+I.   DESCRIPCIÓN
+
+     El curso proporciona los conceptos fundamentales de las aplicaciones de la integral a diversos problemas de
+     ingeniería, del análisis y cálculo de series y sucesiones, de geometría vectorial, y del análisis de curvas planas
+     y en el espacio.
+
+
+II.  OBJETIVOS
+
+     1.      Aplicar las técnicas de integración por partes y por sustitución en casos de complejidad mediana.
+     2.      Relacionar los conceptos de derivada e integral a través del teorema fundamental.
+     3.      Aplicar el concepto de integral definida para calcular áreas y momentos de regiones del plano.
+     4.      Evaluar volúmenes de revolución o de sólidos por secciones transversales mediante integrales.
+     5.      Aplicar los criterios básicos de convergencia de series e integrales impropias.
+     6.      Entender el concepto y saber calcular el radio de convergencia de una serie de potencias.
+     7.      Comprender geométricamente y analíticamente el concepto de dependencia e independencia lineal en
+             el plano y el espacio.
+     8.      Conocer las ecuaciones paramétricas, vectoriales y cartesianas de restas y planos en el espacio.
+     9.      Saber operar y conocer las propiedades del producto punto y el producto cruz.
+     10.     Entender el concepto de proyección vectorial y saber cómo calcularla.
+     11.     Manejar los conceptos básicos de las parametrizaciones de curvas en el espacio, cambios de
+             parámetros y arcoparámetro.
+
+
+III. CONTENIDOS
+
+     1. Aplicaciones de la Integral.
+             1.1.   Cálculo de áreas.
+             1.2.   Cálculo de volúmenes de rotación y por secciones transversales.
+             1.3.   Cálculo de momentos y de centroídes.
+             1.4.   Coordenadas polares, representación de curvas en polares, área en polares.
+             1.5.   Integración aproximada.
+
+     2.      Sucesiones y Series.
+             2.1.   Series numéricas y definición de convergencia.
+             2.2.   Criterios de comparación para series de términos positivos, criterio de la integral, criterios de la
+                    razón, criterio del cuociente; series alternantes.
+             2.3.   Series de potencia, radio de convergencia, reglas de derivación e integración, ejemplos.
+             2.4.   Series de Taylor.
+
+     3.      Geometría Vectorial.
+             3.1.   Vectores, representación geométrica, paralelismo, suma y ponderación.
+             3.2.   Ecuaciones paramétricas de rectas y planos
+             3.3.   Concepto de combinaciones lineales.
+             3.4.   Ecuaciones cartesianas de planos y rectas.
+             3.5.   Producto punto en R2, R3.
+             3.6.   Producto cruz.
+          3.7.   Propiedades elementales.
+          3.8.   Perpendicularidad.
+          3.9.   Producto caja.
+          3.10. Caracterización de dependencia lineal de 3 vectores.
+          3.11. Ecuaciones de rectas y planos en forma normal.
+          3.12. Proyecciones.
+
+    4.    Curvas.
+          4.1.   Definición, parametrizaciones, vector tangente, ejemplos.
+          4.2.   Cambio de parametrización y arcoparámetro.
+          4.3.   Curvas planas: vector normal, curvatura, aceleraciones tangencial y normal (ecuaciones de la
+                 cinemática), ejemplos.
+          4.4.   Curvas en coordenadas polares.
+          4.5.   Curvas en el espacio: curvatura y torsión, ejemplos, ecuaciones de Frenet-Serret.
+
+
+IV. METODOLOGÍA
+
+    -    Cátedras.
+    -    Laboratorios.
+    -    Ayudantías.
+
+
+V.  EVALUACIÓN
+
+    -    Pruebas;
+    -    Proyectos y/o
+    -    Tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+    James Stewart                            Cálculo, trascendentes tempranas, 4th Edition. Ed. Thomson.
+
+    Textos Complementarios
+    Apóstol                                  Calculus. Ed. Reverté, 1965.
+
+    Courant & John                           Introducción al Cálculo y al Análisis Matemático. Ed. Limusa,
+                                             1971.
+
+    Edwards & Penney                         Cálculo con Geometría Analítica. Ed. Prentice Hall.
+
+    Freyhoffer & Maturana                    Cálculo Diferencial e Integral. Ed. Universitaria U.C.
+
+    Spiegel                                  Cálculo Superior. Shaum,1963.
+
+CURSO               :      CALCULO III
+TRADUCCIÓN          :      CALCULUS III
+SIGLA               :      MAT1630
+CRÉDITOS            :      10
+MÓDULOS             :      05
+REQUISITOS          :      MAT1620 CÁLCULO II Y MAT1203 ÁLGEBRA LINEAL
+CARÁCTER            :      MÍNIMO
+DISCIPLINA          :      MATEMÁTICA
+
+
+I.   DESCRIPCIÓN
+
+     Proporcionar al alumno los conocimientos básicos de cálculo diferencial de funciones escalares y vectoriales
+     de varias variables, de integrales múltiples sobre regiones más generales, y los conceptos y métodos de
+     integrales de línea y superficie.
+
+
+II.  OBJETIVOS
+
+     Al finalizar el curso el alumno será capaz de:
+
+     1.     Calcular integrales dobles y triples en regiones más generales, y manejar cambio de orden de
+            integración.
+     2.     Aplicar el concepto de integral múltiple para evaluar volúmenes y centros de masa.
+     3.     Aplicar los cambios de variable a coordenadas polares y esféricas.
+     4.     Representar, expresar e interpretar gráficamente funciones de dos variables como superficies en el
+            espacio, y saber reconocer superficies básicas (planos, conos, paraboloides, etc.).
+     5.     Reconocer y explicar el concepto de "curvas de nivel" y calcularlas.
+     6.     Calcular derivadas direccionales.
+     7.     Explicar el significado geométrico y analítico del gradiente y aplicarlo en la resolución de problemas.
+     8.     Plantear problemas aplicados de máximos y mínimos, reconociendo la naturaleza del dominio (interior
+            más frontera).
+     9.     Analizar restricciones en problemas dados y reconocer si un problema posee restricciones.
+     10.    Explicar los conceptos de integral de línea y de superficie y aplicarlos en la resolución de Problemas.
+     11.    Representar gráficamente campos vectoriales, explicar el concepto de flujo a través de una curva en el
+            plano o superficie en el espacio y aplicarlos en la resolución de problemas.
+     12.    Relacionar el teorema fundamental del cálculo, con la regla telescópica de la suma y los teoremas de
+            Green, Gauss y Stokes, aplicar estos teoremas en la resolución de problemas.
+
+
+III. CONTENIDOS
+
+     1. Cálculo diferencial de funciones escalares en varias variables.
+            1.1.    Nociones topológicas en plano y espacio: distancia, bolas, conjuntos abiertos y cerrados,
+                    frontera.
+            1.2.    Límite, continuidad y diferenciabilidad de funciones de R en Rn , derivadas parciales y
+                    direccionales, interpretación geométrica del gradiente.
+            1.3.    Regla de la cadena, derivadas de orden superior, lema de Schwarz.
+
+     2.     Aplicaciones.
+            2.1.    Teorema de Taylor para funciones de R en Rn .
+            2.2.    Máximos y mínimos para funciones de R en Rn ; matriz hessiana y criterios para extremos
+                    locales.
+            2.3.    Multiplicadores de Lagrange.
+
+     3.     Cálculo diferencial de funciones vectoriales en varias variables.
+            3.1.    Límites, continuidad, diferenciabilidad; matriz jacobiana.
+            3.2.    Cambios de coordenadas; coordenadas cilíndricas y esféricas.
+           3.3.   Teoremas de la Función Implícita e Inversa.
+
+    4.     Integrales Múltiples.
+           4.1.   Integrales dobles en rectángulos y en regiones más generales; teorema de Fubini y cambio de
+                  orden de integración
+           4.2.   Teorema de cambio de variables, integrales en polares.
+           4.3.   Aplicaciones de las integrales dobles a cálculo de volúmenes, centros de masa y momentos.
+           4.4.   Integrales triples en cajas y en regiones más generales, teorema de Fubini y cambio de orden de
+                  integración.
+           4.5.   Teorema de cambio de variables, integrales en cilíndricas y esféricas.
+
+    5.     Integrales de línea y superficie.
+           5.1.   Integrales de línea de funciones escalares.
+           5.2.   Campos vectoriales (de fuerza, eléctricos, de velocidades, campo gradiente); trabajo como
+                  integral de línea.
+           5.3.   Campos conservativos, potencial.
+           5.4.   Teorema de Green en el plano, aplicaciones; flujo normal exterior, divergencia en dos
+                  dimensiones, criterio de las derivadas cruzadas en dominios simplemente conexos para campos
+                  conservativos.
+           5.5.   Elementos de la teoría de superficie: parametrizaciones y superficies regulares.
+           5.6.   Integrales de superficie.
+
+
+IV. METODOLOGÍA
+
+    Módulos semanales:
+    -     Cátedras: 3
+    -     Laboratorios: 1
+    -     Ayudantías: 1
+
+    El curso se realizará utilizando metodologías de enseñanza centradas en el alumno que permitan a los
+    estudiantes desarrollar las competencias definidas en los objetivos del curso.
+
+    Este curso está diseñado de forma tal que el alumno dedique al estudio personal un promedio de 3 hrs. a la
+    semana.
+
+
+V.  EVALUACIÓN
+
+    Las evaluaciones pueden ser por medio de pruebas, proyectos y/o tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+
+    Claudio Pita Ruiz                           Cálculo Vectorial. Ed. Prenctice Hall, 1996.
+
+    James Stewart                               Cálculo, trascendentes tempranas, 4th Edition. Ed. Thomson.
+
+    Textos Complementarios
+
+    Apóstol                                     Calculus. Ed. Reverté, 1965.
+
+    Courant & John                              Introducción al Cálculo y al Análisis Matemático. Ed. Limusa,
+                                                1971.
+
+    Edwards & Penney                Cálculo con Geometría Analítica. Ed. Prentice Hall.
+
+    Spiegel                         Cálculo Superior. Shaum, 1963.
+Imprimir
+Programa
+
+CURSO			: ÁLGEBRA LINEAL
+TRADUCCIÓN		: LINEAR ALGEBRA
+SIGLA			: MAT1203
+CRÉDITOS		: 06 SCT-Chile / 10 UC
+MÓDULOS			: 05
+REQUISITOS		: MAT1600
+RESTRICCIONES		: CARRERAS: INEGNIERÍA o LIC. en FÍSICA o LIC. en ASTRONOMÍA
+TIPO DE ASIGNATURA	: CÁTEDRA
+CALIFICACIÓN		: ESTÁNDAR
+DISCIPLINA		: MATEMÁTICA
+
+
+I. DESCRIPCIÓN
+
+El curso desarrolla los conceptos principales y la terminología del álgebra lineal que permitan al alumno plantear, resolver y analizar mediante técnicas vectoriales y matriciales problemas que surgen en el ámbito de la ingeniería, como por ejemplo en diseño de estructuras, análisis de señales, sistemas de control, robótica, computación gráfica, física, análisis estadístico y simulaciones.
+
+
+II. OBJETIVOS
+
+Generales:
+
+1. Conocer conceptos, nociones y principios de vectores geométricos, su generalización a Rn, matrices, conceptos métricos y ortogonalidad de vectores.
+
+2. Interpretar geométricamente los conceptos anteriores, nociones y principios.
+
+3. Aplicar estos conceptos, nociones y principios vectoriales y matriciales en el planteamiento, resolución y análisis de problemas que surgen en el ámbito de la ingeniería.
+
+Específicos:
+
+1. Determinar la escalonada reducida de una matriz y utilizarla para estudiar la dependencia lineal de vectores, resolver una sistema Ax=b, resolver la ecuación matricial AX=B, calcular inversas de matrices y bases de subespacios de Rn.
+
+2. Interpretar geométricamente los conceptos de dependencia-independencia lineal, combinaciones convexas, complemento ortogonal, sistemas de ecuaciones lineales.
+
+3. Explicar y aplicar las propiedades de las matrices desde el punto de vista de transformaciones lineales.
+
+4. Explicar las propiedades de las operaciones matriciales y utilizarlas para simplificar y evaluar expresiones matriciales.
+
+5. Calcular las factorizaciones PA=LU, Cholesky y QR de matrices ya sea manualmente o con la ayuda de un software y utilizarlas para la resolución eficiente de problemas matriciales.
+
+6. Explicar y utilizar las propiedades de las matrices elementales, triangulares, simétricas, hermitianas, simétricas positivas definidas, ortogonales, unitarias.
+
+7. Explicar las propiedades de determinante y utilizarlas para calcular determinantes, resolver sistemas y evaluar inversas.
+
+8. Identificar un espacio vectorial de dimensión finita y determinar una base y su dimensión, explicar y utilizar las relaciones entre los cuatro subespacios asociados a una matriz y sus dimensiones.
+
+9. Determinar la matriz que representa a una Transformación Lineal entre espacios vectoriales finito dimensionales y explicar la relación entre cambio de base y la matriz que la representa.
+
+10. Calcular proyecciones en R^n y aplicar esto a la resolución por mínimos cuadrados de sistemas de ecuaciones ya sea mediante la resolución de ecuaciones normales o el cálculo de bases ortogonales por Gram-Schmidt.
+
+11. Clasificar una forma cuadrática por los criterios de determinante, Cholesky o valores y vectores propios.
+
+12. Explicar las propiedades de valores, vectores propios y polinomio característico de una matriz y aplicar esto a determinar si una matriz es diagonalizable y al cálculo de funciones elementales de matrices. Explicar y utilizar la estructura de valores y vectores propios de matrices simétricas y sus aplicaciones.
+
+
+III. CONTENIDOS
+
+1. Vectores en Rn.
+
+1.1 Vectores en R2, R3. Ecuaciones cartesianas y paramétricas de rectas y planos.
+
+1.2 Producto punto en R2, R3. Perpendicularidad. Ecuación normal de un plano.
+
+1.3 Vectores en Rn .Operaciones vectoriales, producto punto canónico.
+
+1.4 Combinaciones lineales. y = Ax.
+
+1.5 Conjunto generado.
+
+1.6 Combinaciones convexas, positivas.
+
+1.7 Hiperplanos.
+
+1.8 Dependencia e independencia lineal.
+
+
+2. Solución de Sistemas Lineales de Ecuaciones.
+
+2.1 Eliminación Gaussiana. Matriz escalonada reducida.
+
+2.2 Rango Gaussiano.
+
+2.3 Solución general de Ax = b.
+
+2.4 Solución de Axi = bi, i =1, . . . , k.
+
+2.5 Aplicaciones de sistemas lineales.
+
+
+3. Matrices.
+
+3.1 Transformaciones lineales de Rn en Rm.
+
+3.2 Operaciones matriciales, suma, producto, transpuestas. Derivadas de matrices.
+
+3.3 Ker(A), Im(A), 1 - 1, sobre.
+
+3.4 Solución general de Ax = b.
+
+3.5 Inversas por la derecha, izquierda, inversas, matrices elementales.
+
+3.6 Matrices especiales: diagonales, triangulares, permutación, simétricas y antisimétricas.
+
+3.7 Aplicaciones a los gráficos por computadora.
+
+3.8 Factorización PA = LU. Aplicaciones.
+
+3.9 Factorización de Cholesky.
+
+3.10 Máximos y mínimos de formas cuadráticas, matrices positivas definidas.
+
+3.11 Aplicaciones.
+
+
+4. Determinantes.
+
+4.1 Propiedades, permutaciones y cofactores.
+
+4.2 Inversas.
+
+4.3 Regla de Cramer, matrices positivas definidas. La derivada de un determinante.
+
+4.4 Área, Volumen.
+
+
+5. Subespacios y Dimensión.
+
+5.1 Subespacios, base y dimensión en Rn.
+
+5.2 Rango y nulidad de A, propiedades.
+
+5.3 Dimensión de los cuatro subespacios de A.
+
+5.4 Sistemas de Coordenadas.
+
+5.5 Matriz de cambio de base.
+
+5.6 Representación de una matriz como una transformación lineal con respecto a diferentes bases.
+
+5.7 Generalización de los conceptos de base y dimensión a espacios abstractos. Independencia y dependencia lineal de funciones. Wronskiano.
+
+
+6. Valores y Vectores Propios.
+
+6.1 Valores y vectores propios.
+
+6.2 Multiplicidad geométrica y algebraica.
+
+6.3 Diagonalización.
+
+6.4 Similitud y algunos invariantes.
+
+6.5 Estudio de la iteración Estimaciones iterativas para valores propios.
+
+6.6 Funciones de matrices: potencias, polinomios, la serie geométrica.
+
+6.7 Aplicaciones: solución de ecuaciones de diferencias, cadenas de Markov, modelo de Leontiev.
+
+
+7. Ortogonalidad.
+
+7.1 Producto interior canónico, longitud, distancia.
+
+7.2 Ortogonalidad, Pitágoras. Ángulo entre vectores.
+
+7.3 Complementos ortogonales. Ortogonalidad de los cuatro subespacios de matrices.
+
+7.4 Estudio de las matrices de la forma A^TA
+
+7.5 Proyecciones ortogonales, ecuaciones normales.
+
+7.6 Reflexiones.
+
+7.7 Problema de mínimos cuadrados.
+
+7.8 Bases ortogonales y proceso de Gram-Schmidt.
+
+7.9 Matrices ortogonales, Reflexiones de Householder, Rotaciones de Givens.
+
+7.10 Factorización QR.
+
+7.11 Aplicaciones a modelos lineales.
+
+7.12 Espacios con producto interior.
+
+7.13 Aplicaciones de los espacios con producto interior.
+
+
+8. Valores y Vectores Propios de Matrices Simétricas.
+
+8.1 Números complejos.
+
+8.2 Conjugados, valor absoluto, forma Cis.
+
+8.3 Diagonalización de matrices simétricas.
+
+8.4 Clasificación de formas cuadráticas por valores propios.
+
+8.5 Descomposición de valores singulares.
+
+8.6 Inversa Generalizada.
+
+8.7 Aplicaciones.
+
+
+IV. METODOLOGÍA
+
+- Clases expositivas.
+- Laboratorios prácticos.
+- Ayudantías.
+
+
+V. EVALUACIÓN
+
+- Pruebas.
+- Proyectos.
+- Tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+Mínima:
+
+Lay, David. Algebra Lineal y sus Aplicaciones. 3° Ed. Pearson Educación, 2007.
+
+Strang, Gilbert. Introduction to Linear Algebra. Wellesley-Cambridge Press, 1993.
+
+Complementaria:
+
+Hill, Richard. Álgebra lineal elemental con aplicaciones. Prentice-Hall, Hispanoamericana, 1997.
+
+Noble, Ben y James Daniel. Applied Linear Algebra. 2° Ed. Prentice Hall, 1977.
+
+Strang, Gilbert. Algebra lineal y sus Aplicaciones. Fondo Educativo Interamericano, 1982.
+CURSO              :       PROGRAMACIÓN AVANZADA
+TRADUCCIÓN         :       ADVANCED COMPUTER PROGRAMMING
+SIGLA              :       IIC2233
+CRÉDITOS           :       10
+MÓDULOS            :       03
+REQUISITOS         :       IIC1103
+CARÁCTER           :       MÍNIMO
+DISCIPLINA         :       INGENIERÍA
+
+
+I.   DESCRIPCIÓN
+
+     Este curso enseña técnicas para el diseñar, códificar, probar y evaluar programas que resuelven problemas
+     algorítmicos a partir de las especificaciones detalladas. En particular, el curso enseña algunas construcciones
+     avanzadas de programación orientada a objetos no incluidas en el curso introductorio, algunas estructuras de
+     datos fundamentales, diseño básico de algoritmos y técnicas de análisis. Los estudiantes deben usar una serie
+     de herramientas de programación para desarrollar sus programas.
+
+
+II.  OBJETIVOS
+
+     Al finalizar el curso el alumno será capaz de:
+
+     1.     Descomponer problemas grandes para diseñar y estructurar sus soluciones.
+     2.     Crear "buenos" diseños orientados a objetos para problemas simples y comunicar estos diseños a
+            través de documentación externa y comentarios en el código.
+     3.     Aplicar conceptos de orientación a objetos (herencia, polimorfismo, interfaces) y estructuras de datos
+            fundamentales (listas ligadas, stacks, colas, árboles binarios y tablas de hash), para diseñar y escribir
+            programas complejos en lenguajes tales como Java y C#.
+     4.     Escribir programas basados en modelos de programación particulares; por ejemplo, programación de
+            múltiples hebras y programación dirigida por eventos.
+     5.     Usar herramientas de programación comunes (debuggers, profilers, linkers, y sistemas de control de
+            versiones); técnicas de programación (bibliotecas de programación orientada a objetos y pruebas
+            unitarias); y un entorno de desarrollo de software para editar, compilar, y depurar programas.
+     6.     Construir desde cero una aplicación con una interfaz gráfica de usuario significativa y totalmente
+            funcional.
+
+
+III. CONTENIDOS
+
+     1.     Introducción a C#: Aspectos básicos del framework .NET y elementos nuevos del lenguaje.
+     2.     Elementos avanzados de OOP: Elementos avanzados de los lenguajes orientados a objetos que facilitan
+            la modelación y programación; en especial, herencia y polimorfismo.
+     3.     El framework .NET: Aspectos avanzados que abren nuevas posibilidades en la programación.
+     4.     Programación multithread: Cómo funciona la CPU y cómo aprovechar mejor su funcionamiento.
+     5.     Programación dirigida por eventos (winforms): Herramientas para realizar programas con interfaz
+            gráfica de usuario utilizando el modelo del framework .NET.
+     6.     Patrones: Soluciones predefinidas a problemas comunes en programación utilizando los elementos
+            avanzados de orientación a objetos.
+     7.     Vuelta a Java: Cómo realizar todo lo aprendido, pero ahora utilizando Java.
+
+
+IV.  METODOLOGÍA
+
+     Módulos semanales:
+     -      Cátedras: 2
+     -      Ayudantías: 1
+
+    El curso se realiza utilizando metodologías de enseñanza centradas en el alumno que permitan a los
+    estudiantes desarrollar las competencias definidas en los objetivos del curso.
+    Este curso está diseñado de forma tal que el alumno dedique al estudio personal un promedio de 6 hrs. a la
+    semana.
+
+
+V.  EVALUACIÓN
+
+    Las evaluaciones pueden ser por medio de pruebas, proyectos y/o tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+
+    Sierra, Kathy and Bates, Bert             Head First Java, 2nd Edition. Paperback, Feb 9, 2005.
+
+    Bloch, Joshua                             Effective Java, 2nd Edition. Java Series, Paperback, May 28, 2008.

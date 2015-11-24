@@ -1,6 +1,7 @@
 package fx.view;
 	
 
+import java.io.IOException;
 import java.util.List;
 
 import g4.Profesor;
@@ -78,6 +79,5 @@ public class main extends Application {
 	public static Universidad getU(){
 		return U;
 	};
-	
 	
 }

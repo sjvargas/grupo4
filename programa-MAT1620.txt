@@ -1,5 +1,0 @@
-Programa Ramo: Calculo 2-MAT1620
-Objetivos
-desarrollar pensamiento
-Contenidos
-derivadas,integrales

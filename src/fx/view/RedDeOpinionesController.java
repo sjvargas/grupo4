@@ -395,19 +395,17 @@ public class RedDeOpinionesController implements PrincipalController  {
     		File file = new File(nombre_archivo);
             output = new BufferedWriter(new FileWriter(file));
     		output.write("Programa\nRamo: "+ramo_seleccionado.getNombreRamo()+"-"+ramo_seleccionado.getSigla());
-    		output.write(System.getProperty("line.separator"));
-    		output.write(System.getProperty("line.separator"));
-    		output.write("Objetivos");
-    		output.write(System.getProperty("line.separator"));
-    		output.write(System.getProperty("line.separator"));
-    		output.write(ramo_seleccionado.getObjetivos());
-    		output.write(System.getProperty("line.separator"));
-    		output.write(System.getProperty("line.separator"));
-    		output.write(System.getProperty("line.separator"));
-    		output.write("Contenidos");
-    		output.write(System.getProperty("line.separator"));
-    		output.write(System.getProperty("line.separator"));
-    		output.write(ramo_seleccionado.getContenidos());
+			output.newLine();
+			output.newLine();
+			if (ramo_seleccionado.getPrograma().size()>0){
+	    		for (String line : ramo_seleccionado.getPrograma()){
+	    			output.write(line);
+	    			output.newLine();
+	    		}
+			}else{
+    			output.write("Programa No Disponible.");
+    			output.newLine();				
+			}
     		output.close();
         } catch ( IOException e1 ) {
             e1.printStackTrace();

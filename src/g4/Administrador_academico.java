@@ -34,10 +34,11 @@ public class Administrador_academico extends Usuario implements java.io.Serializ
 		main.U.lista_carreras.add(new Carrera(decano,facultad, nombre));
 	}
 	
-	public void agregar_ramo(String nombreRamo, String sigla,Carrera carrera, int creditos, String semestre_impartido,String contenidos,String objetivos){
+	public void agregar_ramo(String nombreRamo, String sigla,Carrera carrera, int creditos, String semestre_impartido,List<String> programa){
 		
 
-			Ramo nuevoRamo = new Ramo(nombreRamo, sigla, creditos, carrera, semestre_impartido, contenidos, objetivos);
+			Ramo nuevoRamo = new Ramo(nombreRamo, sigla, creditos, carrera, semestre_impartido);
+			nuevoRamo.agregarPrograma(programa);
 			main.U.lista_ramos.add(nuevoRamo);
 			
 	}

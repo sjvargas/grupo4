@@ -1,0 +1,115 @@
+
+CURSO               :      CÁLCULO I
+TRADUCCIÓN          :      CALCULUS I
+SIGLA               :      MAT1610
+CRÉDITOS            :      10
+MÓDULOS             :      05
+REQUISITOS          :      MAT1600 INTRODUCCIÓN AL CÁLCULO
+                           REQUISITO ESPECIAL:
+                           UA03: SIN REQUISITOS y
+                           UA04 (DESDE ADMISIÓN 2013): SIN REQUISITOS
+CARÁCTER            :      MÍNIMO
+DISCIPLINA          :      MATEMÁTICA
+
+
+I.   DESCRIPCIÓN
+
+     El curso se orienta a entregar los conceptos básicos de límites y continuidad de funciones, de la derivada de
+     una función y su interpretación geométrica, en conjunto con los mecanismos y técnicas de derivación, las
+     aplicaciones más relevantes de la derivada a problemas diversos de las matemáticas y la física, la obtención
+     de puntos críticos de una función, la definición de la Integral, el cálculo de integrales mediante primitivas, y
+     las técnicas de integración.
+
+
+II.  OBJETIVOS
+
+     1.     Identificar gráficos de funciones básicas, exponenciales, logarítmicas.
+     2.     Comprender el concepto de límite de una función.
+     3.     Interpretar la derivada en distintas situaciones, como una pendiente, tasa de crecimiento, o velocidad.
+     4.     Calcular derivadas de funciones obtenidas por álgebra de funciones elementales.
+     5.     Plantear en términos matemáticos problemas aplicados de máximos y mínimos.
+     6.     Reconocer gráfica y analíticamente propiedades de los gráficos de funciones, como crecimiento,
+            concavidad, máximos y mínimos locales, asíntotas.
+     7.     Reconocer y calcular desarrollos de Taylor.
+     8.     Identificar sumas de Riemann y correspondientes integrales.
+     9.     Conocer el cálculo de primitivas de funciones básicas.
+     10.    Saber aplicar las técnicas de integración fundamentales.
+
+
+III. CONTENIDOS
+
+     1. Repaso de Funciones Reales.
+            1.1.    Funciones reales: dominio, recorrido, representación gráfica y numérica, operaciones de
+                    traslación y re-escalamiento, simetrías, composición, inversa.
+            1.2.    Funciones de N en R: representación y definición por recurrencia, progresiones aritméticas y
+                    geométricas; principio de inducción.
+            1.3.    Trigonometría: funciones trigonométricas en el círculo y sus gráficos (propiedades de
+                    periodicidad y simetrías); senos y cosenos de la suma de ángulos y ecuaciones de prostaféresis;
+                    ecuaciones trigonométricas e inversas; teoremas del seno y coseno.
+            1.4.    Función exponencial y logaritmo: propiedades básicas y sus gráficos; funciones hiperbólicas.
+            1.5.    Capítulos texto guía: 1.
+
+     2.     Límites y Continuidad.
+            2.1.    Límites de funciones en un punto y en infinito; asíntotas; límites de sucesiones (axioma del
+                    supremo); el número e como límite de sucesión.
+            2.2.    Continuidad: definición, ejemplos.
+            2.3.    Teoremas del Valor Intermedio y de Acotación en intervalos cerrados y acotados.
+            2.4.    Capítulos texto guía: Capítulo 2.
+
+    3.    La Derivada.
+          3.1.   Definición, interpretación gráfica y cinemática, ecuación de la recta tangente.
+          3.2.   Relación entre continuidad y diferenciabilidad.
+          3.3.   Derivadas de polinomios, potencias, exponenciales, y funciones trigonométricas.
+          3.4.   Reglas de derivación: suma, producto, cuociente, composición.
+          3.5.   Derivada de la inversa y derivación implícita.
+          3.6.   Derivadas de orden superior.
+          3.7.   Teorema del Valor Medio.
+          3.8.   Capítulos texto guía: 2 y 3.
+
+    4.    Aplicaciones de la Derivada.
+          4.1.   Gráficos de funciones: crecimiento y decrecimiento, concavidad, asíntotas.
+          4.2.   Puntos críticos, extremos locales y globales, problemas de máximos y mínimos.
+          4.3.   Regla de L' Hôpital.
+          4.4.   Aproximación de Taylor.
+          4.5.   Capítulos texto guía: 4.
+
+    5.    La Integral.
+          5.1.   Motivación, notación de sumatoria y propiedades básicas.
+          5.2.   Definición de integral definida, teorema de existencia, ejemplos.
+          5.3.   Teorema Fundamental del Cálculo.
+          5.4.   Cálculo de integrales mediante primitivas.
+          5.5.   Técnicas de integración: integración por partes y por sustitución, fracciones parciales, integrales
+                 trigonométricas.
+          5.6.   Integrales impropias.
+
+
+IV. METODOLOGÍA
+
+    -    Cátedras.
+    -    Laboratorios.
+    -    Ayudantías.
+
+
+V.  EVALUACIÓN
+
+    -    Pruebas;
+    -    Proyectos y/o
+    -    Tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+    James Stewart                            Cálculo, trascendentes tempranas, 4th Edition. Ed. Thomson.
+
+    Textos Complementarios
+    Apostol                                  Calculus. Ed. Reverté, 1965.
+
+    Courant & John                           Introducción al Cálculo y al Análisis Matemático. Ed. Limusa,
+                                              1971.
+
+    Edwards & Penney                         Cálculo con Geometría Analítica. Ed. Prentice Hall.
+
+    Freyhoffer & Maturana                    Cálculo Diferencial e Integral. Ed. Universitaria U.C.
+
+    Kitchen                                  Cálculo de una variable. Ed. Addison Wesley.

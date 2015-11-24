@@ -1,0 +1,76 @@
+CURSO              :       PROGRAMACIÓN AVANZADA
+TRADUCCIÓN         :       ADVANCED COMPUTER PROGRAMMING
+SIGLA              :       IIC2233
+CRÉDITOS           :       10
+MÓDULOS            :       03
+REQUISITOS         :       IIC1103
+CARÁCTER           :       MÍNIMO
+DISCIPLINA         :       INGENIERÍA
+
+
+I.   DESCRIPCIÓN
+
+     Este curso enseña técnicas para el diseñar, códificar, probar y evaluar programas que resuelven problemas
+     algorítmicos a partir de las especificaciones detalladas. En particular, el curso enseña algunas construcciones
+     avanzadas de programación orientada a objetos no incluidas en el curso introductorio, algunas estructuras de
+     datos fundamentales, diseño básico de algoritmos y técnicas de análisis. Los estudiantes deben usar una serie
+     de herramientas de programación para desarrollar sus programas.
+
+
+II.  OBJETIVOS
+
+     Al finalizar el curso el alumno será capaz de:
+
+     1.     Descomponer problemas grandes para diseñar y estructurar sus soluciones.
+     2.     Crear "buenos" diseños orientados a objetos para problemas simples y comunicar estos diseños a
+            través de documentación externa y comentarios en el código.
+     3.     Aplicar conceptos de orientación a objetos (herencia, polimorfismo, interfaces) y estructuras de datos
+            fundamentales (listas ligadas, stacks, colas, árboles binarios y tablas de hash), para diseñar y escribir
+            programas complejos en lenguajes tales como Java y C#.
+     4.     Escribir programas basados en modelos de programación particulares; por ejemplo, programación de
+            múltiples hebras y programación dirigida por eventos.
+     5.     Usar herramientas de programación comunes (debuggers, profilers, linkers, y sistemas de control de
+            versiones); técnicas de programación (bibliotecas de programación orientada a objetos y pruebas
+            unitarias); y un entorno de desarrollo de software para editar, compilar, y depurar programas.
+     6.     Construir desde cero una aplicación con una interfaz gráfica de usuario significativa y totalmente
+            funcional.
+
+
+III. CONTENIDOS
+
+     1.     Introducción a C#: Aspectos básicos del framework .NET y elementos nuevos del lenguaje.
+     2.     Elementos avanzados de OOP: Elementos avanzados de los lenguajes orientados a objetos que facilitan
+            la modelación y programación; en especial, herencia y polimorfismo.
+     3.     El framework .NET: Aspectos avanzados que abren nuevas posibilidades en la programación.
+     4.     Programación multithread: Cómo funciona la CPU y cómo aprovechar mejor su funcionamiento.
+     5.     Programación dirigida por eventos (winforms): Herramientas para realizar programas con interfaz
+            gráfica de usuario utilizando el modelo del framework .NET.
+     6.     Patrones: Soluciones predefinidas a problemas comunes en programación utilizando los elementos
+            avanzados de orientación a objetos.
+     7.     Vuelta a Java: Cómo realizar todo lo aprendido, pero ahora utilizando Java.
+
+
+IV.  METODOLOGÍA
+
+     Módulos semanales:
+     -      Cátedras: 2
+     -      Ayudantías: 1
+
+    El curso se realiza utilizando metodologías de enseñanza centradas en el alumno que permitan a los
+    estudiantes desarrollar las competencias definidas en los objetivos del curso.
+    Este curso está diseñado de forma tal que el alumno dedique al estudio personal un promedio de 6 hrs. a la
+    semana.
+
+
+V.  EVALUACIÓN
+
+    Las evaluaciones pueden ser por medio de pruebas, proyectos y/o tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+    Textos Mínimos
+
+    Sierra, Kathy and Bates, Bert             Head First Java, 2nd Edition. Paperback, Feb 9, 2005.
+
+    Bloch, Joshua                             Effective Java, 2nd Edition. Java Series, Paperback, May 28, 2008.

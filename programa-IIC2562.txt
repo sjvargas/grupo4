@@ -1,0 +1,33 @@
+Programa
+Ramo: taller de programacion-IIC2562
+
+CURSO               :   Taller de Programación II
+SIGLA               :   IIC2562
+CRÉDITOS            :   5
+REQUISITOS          :   IIC1102 Introducción a la Programación
+SEMESTRE            :   II
+
+
+1. OBJETIVOS
+   El objetivo de este curso es que los alumno desarrollen y apliquen los conocimientos
+   aprendidos en los cursos de programación. El énfasis es en la práctica de la programación.
+   Al finalizar el curso, el alumno habrá adquirido la destreza necesaria para resolver en un
+   tiempo corto problemas de programación, aplicando algunas técnicas estándares.
+   Adicionalmente, se espera preparar y escoger a un equipo para participar en el concurso de
+   programación que organiza anualmente la ACM.
+
+2. CONTENIDO
+   -  Técnicas de diseño de algoritmos: backtracking, programación dinámica, algoritmos
+      codiciosos, división y conquista.
+   -  Estructuras de datos: listas, árboles, grafos, arreglos multidimensionales.
+   -  Técnicas de programación:       entrada y salid de datos, utilización de bibliotecas
+      estándares.
+   -  Algunos algoritmos de uso frecuente.
+
+3. BIBLIOGRAFIA
+   Complementaria:
+        KERNIGHAN, B.W., AND RITCHIE, D.M. The C programming language. Prentice
+            Hall, Englewood Cliffs, NJ.,1988.
+        PLAUGER, P.J. The standard C library. Prentice Hall, Englewood Cliffs, NJ., 1992.
+        STROUSTRUP, B. The C++ programming language, third edition. Addison Wesley,
+            Reading, MA., 1997.

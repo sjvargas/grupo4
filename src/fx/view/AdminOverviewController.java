@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,6 +21,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -363,21 +370,43 @@ public class AdminOverviewController implements PrincipalController {
 	@FXML
 	private ChoiceBox cBRamoSemestre, cBRamoCreditos, cBRamoCarrera;
 	@FXML
-	private TextArea tARamoContendio, tAObjetivos;
+	private Button buscarArchivo;
+	public final FileChooser fileChooser = new FileChooser();
+	@FXML
+    private Label labelArchivo;
+	private List<String> programaRamo = new ArrayList<String>();
 	
+	public void AgregarArchivo() throws IOException{
+		fileChooser.setTitle("Open Resource File");
+		fileChooser.getExtensionFilters().addAll(
+		         new ExtensionFilter("Text Files", "*.txt"));
+		File file = fileChooser.showOpenDialog(null);
+		if (file != null) {
+			labelArchivo.setText(file.getName());
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				programaRamo.add(line);
+			}
+			fileReader.close();
+		}else {
+			
+		}
+	}
 	public void AgregarRamo(){
 		String nombreRamo = textFieldNombreRamo.getText();
 		String siglaRamo = textFieldSiglaRamo.getText();
 		Carrera carreraRamo = (Carrera)cBRamoCarrera.getValue();
 		Integer creditosRamo = (Integer)cBRamoCreditos.getValue();
 		String semestreImpartidoRamo = cBRamoSemestre.getValue().toString();
-		String contenidoRamo = tARamoContendio.getText();
-		String objetivosRamo = tAObjetivos.getText();
-		if(nombreRamo != "" && siglaRamo != "" &&semestreImpartidoRamo!= "" && contenidoRamo!= "" && objetivosRamo!= "" ){
-			main.U.administrador_actual.agregar_ramo(nombreRamo ,siglaRamo, carreraRamo, creditosRamo, semestreImpartidoRamo, contenidoRamo, objetivosRamo);
+		if(nombreRamo != "" && siglaRamo != "" &&semestreImpartidoRamo!= "" && programaRamo.size()>0){
+			main.U.administrador_actual.agregar_ramo(nombreRamo ,siglaRamo, carreraRamo, creditosRamo, semestreImpartidoRamo,programaRamo);
 			labelAgregarRamo.setText("Ramo Agregado");
 			ActualizarValoresChoiseBoxProf();
 			ActualizarVistasTablaRamos();
+			programaRamo = new ArrayList<String>();
+			labelArchivo.setText("ningun archivo selec.");
 		}
 		else{
 			labelAgregarRamo.setText("Error al agregar Ramo");

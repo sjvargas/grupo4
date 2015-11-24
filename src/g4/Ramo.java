@@ -21,8 +21,8 @@ public class Ramo implements java.io.Serializable{
 	private int creditos;
 	private Carrera carrera;
 	private String semestre_impartido;
-	private String contenidos;
-	private String objetivos;
+	private List<String> programa;
+
 	private List<String> prerrequisitos;
 	private Double likes;
 	private List<Double> dificultad;
@@ -37,14 +37,11 @@ public class Ramo implements java.io.Serializable{
 	public String getNombreRamo() {
 		return nombreRamo;
 	}
-	public String getContenidos() {
-		return contenidos;
+	public List<String> getPrograma() {
+		return programa;
 	}
 	public int getCreditos() {
 		return creditos;
-	}
-	public String getObjetivos() {
-		return objetivos;
 	}
 	public String getSemestre_impartido() {
 		return semestre_impartido;
@@ -81,24 +78,26 @@ public class Ramo implements java.io.Serializable{
 			return "Ambos";
 		}
 	}
+	public void agregarPrograma(List<String> lista){
+		this.programa= lista;
+	}
 	public List<String> GetPrerrequisitos(){return prerrequisitos;	}
 	////////////////////////////////////
 	
-	public Ramo(String nombreRamo, String sigla, int creditos, Carrera carrera, String semestre_impartido, String contenidos, String objetivos){
+	public Ramo(String nombreRamo, String sigla, int creditos, Carrera carrera, String semestre_impartido){
 		//this.id_ramo=id;
 		this.nombreRamo = nombreRamo;
 		this.sigla = sigla;
 		this.creditos = creditos;
 		this.carrera = carrera;
 		this.semestre_impartido = semestre_impartido;
-		this.contenidos = contenidos;
-		this.objetivos = objetivos;
 		this.prerrequisitos = new ArrayList<String>();
 		this.dificultad = new ArrayList<Double>();
 		this.dificultad.add((double) 3);
 		this.utilidad = new ArrayList<Double>();
 		this.utilidad.add((double) 3);
 		this.likes = (double) 0;
+		this.programa = new ArrayList<String>();
 		
 	}
 	

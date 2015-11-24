@@ -192,10 +192,10 @@
                   </TableView>
                </children>
             </Pane>
-            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0">
+            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <Label layoutX="50.0" layoutY="48.0" text="Lista de Ramos: " />
-                  <GridPane layoutX="50.0" layoutY="354.0" prefHeight="373.0" prefWidth="351.0">
+                  <GridPane layoutX="50.0" layoutY="354.0" prefHeight="200.0" prefWidth="351.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="143.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="201.0" />
@@ -206,35 +206,31 @@
                       <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="164.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Sigla:" GridPane.rowIndex="1" />
                         <Label text="Carrera:" GridPane.rowIndex="2" />
                         <Label text="Creditos:" GridPane.rowIndex="3" />
                         <Label prefHeight="21.0" prefWidth="149.0" text="Sesmestre Impartido:" GridPane.rowIndex="4" />
-                        <Label text="Objetivos:" GridPane.rowIndex="6" />
                         <TextField fx:id="textFieldSiglaRamo" prefHeight="25.0" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="textFieldCarreraRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="textFieldCreditosRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <TextField fx:id="textFieldSemestreImpartidoRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="textFieldObjetivosRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label text="Contenido:" GridPane.rowIndex="5" />
+                        <Label text="Subir Programa:" GridPane.rowIndex="5" />
                         <TextField fx:id="textFieldContenidoRamo" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="Nombre Ramo:" />
                         <TextField fx:id="textFieldNombreRamo" prefHeight="25.0" prefWidth="182.0" GridPane.columnIndex="1" />
                         <ChoiceBox fx:id="cBRamoCarrera" prefHeight="31.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ChoiceBox fx:id="cBRamoCreditos" prefHeight="31.0" prefWidth="215.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <ChoiceBox fx:id="cBRamoSemestre" prefHeight="31.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextArea fx:id="tARamoContendio" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextArea fx:id="tAObjetivos" prefHeight="89.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button fx:id="buscarArchivo" mnemonicParsing="false" onAction="#AgregarArchivo" text="buscar" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <Label layoutX="50.0" layoutY="309.0" text="Agregar Ramo:" />
-                  <Button layoutX="428.0" layoutY="586.0" mnemonicParsing="false" onAction="#AgregarRamo" text="Agregar" />
+                  <Button layoutX="430.0" layoutY="526.0" mnemonicParsing="false" onAction="#AgregarRamo" text="Agregar" />
                   <Label fx:id="labelAgregarRamo" layoutX="430.0" layoutY="530.0" />
-                  <GridPane layoutX="560.0" layoutY="309.0" prefHeight="98.0" prefWidth="345.0">
+                  <GridPane layoutX="50.0" layoutY="594.0" prefHeight="98.0" prefWidth="351.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="156.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="189.0" />
@@ -252,7 +248,7 @@
                         <ChoiceBox fx:id="cBAgPrerreqPrerrequisito" prefHeight="31.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Button fx:id="butttonAgregarPrrerrequisito" layoutX="926.0" layoutY="376.0" mnemonicParsing="false" onAction="#ApretarAgregarPrerrequisito" text="Agregar" />
+                  <Button fx:id="butttonAgregarPrrerrequisito" layoutX="430.0" layoutY="661.0" mnemonicParsing="false" onAction="#ApretarAgregarPrerrequisito" text="Agregar" />
                   <TableView fx:id="tViewRamos" layoutX="49.0" layoutY="76.0" prefHeight="200.0" prefWidth="666.0">
                     <columns>
                       <TableColumn fx:id="tCSiglaRamos" prefWidth="92.0" text="Sigla" />
@@ -262,7 +258,7 @@
                         <TableColumn fx:id="tCSemestreRamos" prefWidth="150.0" text="Semestre Impartido" />
                     </columns>
                   </TableView>
-                  <GridPane layoutX="53.0" layoutY="743.0" prefHeight="69.0" prefWidth="345.0">
+                  <GridPane layoutX="556.0" layoutY="305.0" prefHeight="69.0" prefWidth="345.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="122.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="216.0" />
@@ -277,15 +273,16 @@
                         <ChoiceBox fx:id="cBAgRamoPrerrequisito" onDragDetected="#ActualizarValoresChoiseBoxProf" prefHeight="31.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Button layoutX="407.0" layoutY="778.0" mnemonicParsing="false" onAction="#ApretarVerPrerrequisitos" text="Ver" />
-                  <TableView fx:id="tViewPrerrequisitos" layoutX="567.0" layoutY="641.0" prefHeight="190.0" prefWidth="396.0">
+                  <Button layoutX="910.0" layoutY="344.0" mnemonicParsing="false" onAction="#ApretarVerPrerrequisitos" text="Ver" />
+                  <TableView fx:id="tViewPrerrequisitos" layoutX="561.0" layoutY="504.0" prefHeight="190.0" prefWidth="396.0">
                     <columns>
                       <TableColumn fx:id="tCSiglaPrerrequisito" prefWidth="120.0" text="Sigla" />
                       <TableColumn fx:id="tCNombrePrerrequisito" prefWidth="275.0" text="Nombre Ramo" />
                     </columns>
                   </TableView>
-                  <Label layoutX="567.0" layoutY="601.0" text="Prerrequisitos:" />
+                  <Label layoutX="561.0" layoutY="464.0" text="Prerrequisitos:" />
                   <Label fx:id="labelRamoPreReq" layoutX="687.0" layoutY="601.0" />
+                  <Label fx:id="labelArchivo" layoutX="258.0" layoutY="530.0" prefHeight="17.0" prefWidth="157.0" text="ningun archivo seleccionado" textAlignment="RIGHT" />
                </children>
             </Pane>
             <Pane fx:id="paneAdminCarreras" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">

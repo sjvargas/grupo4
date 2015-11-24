@@ -1,0 +1,236 @@
+Imprimir
+Programa
+
+CURSO			: ÁLGEBRA LINEAL
+TRADUCCIÓN		: LINEAR ALGEBRA
+SIGLA			: MAT1203
+CRÉDITOS		: 06 SCT-Chile / 10 UC
+MÓDULOS			: 05
+REQUISITOS		: MAT1600
+RESTRICCIONES		: CARRERAS: INEGNIERÍA o LIC. en FÍSICA o LIC. en ASTRONOMÍA
+TIPO DE ASIGNATURA	: CÁTEDRA
+CALIFICACIÓN		: ESTÁNDAR
+DISCIPLINA		: MATEMÁTICA
+
+
+I. DESCRIPCIÓN
+
+El curso desarrolla los conceptos principales y la terminología del álgebra lineal que permitan al alumno plantear, resolver y analizar mediante técnicas vectoriales y matriciales problemas que surgen en el ámbito de la ingeniería, como por ejemplo en diseño de estructuras, análisis de señales, sistemas de control, robótica, computación gráfica, física, análisis estadístico y simulaciones.
+
+
+II. OBJETIVOS
+
+Generales:
+
+1. Conocer conceptos, nociones y principios de vectores geométricos, su generalización a Rn, matrices, conceptos métricos y ortogonalidad de vectores.
+
+2. Interpretar geométricamente los conceptos anteriores, nociones y principios.
+
+3. Aplicar estos conceptos, nociones y principios vectoriales y matriciales en el planteamiento, resolución y análisis de problemas que surgen en el ámbito de la ingeniería.
+
+Específicos:
+
+1. Determinar la escalonada reducida de una matriz y utilizarla para estudiar la dependencia lineal de vectores, resolver una sistema Ax=b, resolver la ecuación matricial AX=B, calcular inversas de matrices y bases de subespacios de Rn.
+
+2. Interpretar geométricamente los conceptos de dependencia-independencia lineal, combinaciones convexas, complemento ortogonal, sistemas de ecuaciones lineales.
+
+3. Explicar y aplicar las propiedades de las matrices desde el punto de vista de transformaciones lineales.
+
+4. Explicar las propiedades de las operaciones matriciales y utilizarlas para simplificar y evaluar expresiones matriciales.
+
+5. Calcular las factorizaciones PA=LU, Cholesky y QR de matrices ya sea manualmente o con la ayuda de un software y utilizarlas para la resolución eficiente de problemas matriciales.
+
+6. Explicar y utilizar las propiedades de las matrices elementales, triangulares, simétricas, hermitianas, simétricas positivas definidas, ortogonales, unitarias.
+
+7. Explicar las propiedades de determinante y utilizarlas para calcular determinantes, resolver sistemas y evaluar inversas.
+
+8. Identificar un espacio vectorial de dimensión finita y determinar una base y su dimensión, explicar y utilizar las relaciones entre los cuatro subespacios asociados a una matriz y sus dimensiones.
+
+9. Determinar la matriz que representa a una Transformación Lineal entre espacios vectoriales finito dimensionales y explicar la relación entre cambio de base y la matriz que la representa.
+
+10. Calcular proyecciones en R^n y aplicar esto a la resolución por mínimos cuadrados de sistemas de ecuaciones ya sea mediante la resolución de ecuaciones normales o el cálculo de bases ortogonales por Gram-Schmidt.
+
+11. Clasificar una forma cuadrática por los criterios de determinante, Cholesky o valores y vectores propios.
+
+12. Explicar las propiedades de valores, vectores propios y polinomio característico de una matriz y aplicar esto a determinar si una matriz es diagonalizable y al cálculo de funciones elementales de matrices. Explicar y utilizar la estructura de valores y vectores propios de matrices simétricas y sus aplicaciones.
+
+
+III. CONTENIDOS
+
+1. Vectores en Rn.
+
+1.1 Vectores en R2, R3. Ecuaciones cartesianas y paramétricas de rectas y planos.
+
+1.2 Producto punto en R2, R3. Perpendicularidad. Ecuación normal de un plano.
+
+1.3 Vectores en Rn .Operaciones vectoriales, producto punto canónico.
+
+1.4 Combinaciones lineales. y = Ax.
+
+1.5 Conjunto generado.
+
+1.6 Combinaciones convexas, positivas.
+
+1.7 Hiperplanos.
+
+1.8 Dependencia e independencia lineal.
+
+
+2. Solución de Sistemas Lineales de Ecuaciones.
+
+2.1 Eliminación Gaussiana. Matriz escalonada reducida.
+
+2.2 Rango Gaussiano.
+
+2.3 Solución general de Ax = b.
+
+2.4 Solución de Axi = bi, i =1, . . . , k.
+
+2.5 Aplicaciones de sistemas lineales.
+
+
+3. Matrices.
+
+3.1 Transformaciones lineales de Rn en Rm.
+
+3.2 Operaciones matriciales, suma, producto, transpuestas. Derivadas de matrices.
+
+3.3 Ker(A), Im(A), 1 - 1, sobre.
+
+3.4 Solución general de Ax = b.
+
+3.5 Inversas por la derecha, izquierda, inversas, matrices elementales.
+
+3.6 Matrices especiales: diagonales, triangulares, permutación, simétricas y antisimétricas.
+
+3.7 Aplicaciones a los gráficos por computadora.
+
+3.8 Factorización PA = LU. Aplicaciones.
+
+3.9 Factorización de Cholesky.
+
+3.10 Máximos y mínimos de formas cuadráticas, matrices positivas definidas.
+
+3.11 Aplicaciones.
+
+
+4. Determinantes.
+
+4.1 Propiedades, permutaciones y cofactores.
+
+4.2 Inversas.
+
+4.3 Regla de Cramer, matrices positivas definidas. La derivada de un determinante.
+
+4.4 Área, Volumen.
+
+
+5. Subespacios y Dimensión.
+
+5.1 Subespacios, base y dimensión en Rn.
+
+5.2 Rango y nulidad de A, propiedades.
+
+5.3 Dimensión de los cuatro subespacios de A.
+
+5.4 Sistemas de Coordenadas.
+
+5.5 Matriz de cambio de base.
+
+5.6 Representación de una matriz como una transformación lineal con respecto a diferentes bases.
+
+5.7 Generalización de los conceptos de base y dimensión a espacios abstractos. Independencia y dependencia lineal de funciones. Wronskiano.
+
+
+6. Valores y Vectores Propios.
+
+6.1 Valores y vectores propios.
+
+6.2 Multiplicidad geométrica y algebraica.
+
+6.3 Diagonalización.
+
+6.4 Similitud y algunos invariantes.
+
+6.5 Estudio de la iteración Estimaciones iterativas para valores propios.
+
+6.6 Funciones de matrices: potencias, polinomios, la serie geométrica.
+
+6.7 Aplicaciones: solución de ecuaciones de diferencias, cadenas de Markov, modelo de Leontiev.
+
+
+7. Ortogonalidad.
+
+7.1 Producto interior canónico, longitud, distancia.
+
+7.2 Ortogonalidad, Pitágoras. Ángulo entre vectores.
+
+7.3 Complementos ortogonales. Ortogonalidad de los cuatro subespacios de matrices.
+
+7.4 Estudio de las matrices de la forma A^TA
+
+7.5 Proyecciones ortogonales, ecuaciones normales.
+
+7.6 Reflexiones.
+
+7.7 Problema de mínimos cuadrados.
+
+7.8 Bases ortogonales y proceso de Gram-Schmidt.
+
+7.9 Matrices ortogonales, Reflexiones de Householder, Rotaciones de Givens.
+
+7.10 Factorización QR.
+
+7.11 Aplicaciones a modelos lineales.
+
+7.12 Espacios con producto interior.
+
+7.13 Aplicaciones de los espacios con producto interior.
+
+
+8. Valores y Vectores Propios de Matrices Simétricas.
+
+8.1 Números complejos.
+
+8.2 Conjugados, valor absoluto, forma Cis.
+
+8.3 Diagonalización de matrices simétricas.
+
+8.4 Clasificación de formas cuadráticas por valores propios.
+
+8.5 Descomposición de valores singulares.
+
+8.6 Inversa Generalizada.
+
+8.7 Aplicaciones.
+
+
+IV. METODOLOGÍA
+
+- Clases expositivas.
+- Laboratorios prácticos.
+- Ayudantías.
+
+
+V. EVALUACIÓN
+
+- Pruebas.
+- Proyectos.
+- Tareas.
+
+
+VI. BIBLIOGRAFÍA
+
+Mínima:
+
+Lay, David. Algebra Lineal y sus Aplicaciones. 3° Ed. Pearson Educación, 2007.
+
+Strang, Gilbert. Introduction to Linear Algebra. Wellesley-Cambridge Press, 1993.
+
+Complementaria:
+
+Hill, Richard. Álgebra lineal elemental con aplicaciones. Prentice-Hall, Hispanoamericana, 1997.
+
+Noble, Ben y James Daniel. Applied Linear Algebra. 2° Ed. Prentice Hall, 1977.
+
+Strang, Gilbert. Algebra lineal y sus Aplicaciones. Fondo Educativo Interamericano, 1982.

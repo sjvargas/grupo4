@@ -1,5 +1,6 @@
 package g4;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,6 +46,14 @@ public class Universidad implements java.io.Serializable {
 		lista_administradores = new ArrayList<Administrador_academico>();
 		buscador = new Buscador_de_cursos();
 		lista_cursos = new ArrayList<Curso>();
+		Programa programas;
+		programas= null;
+		try {
+			programas = new Programa();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		rn = new Random();
 
 		alumno_actual = null;
@@ -159,14 +168,20 @@ public class Universidad implements java.io.Serializable {
 		lista_carreras.get(0).crear_malla_curricular(malla1);
 		lista_carreras.get(0).crear_malla_curricular(malla2);
 		
-		Ramo ramo1 = new Ramo("Calculo 1","MAT1610", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo2 = new Ramo("Calculo 2","MAT1620", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo3 = new Ramo("Calculo 3","MAT1630", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo4 = new Ramo("algebra lineal","MAT1299", 10, lista_carreras.get(2),"3", "derivadas,integrales", "desarrollar pensamiento");
-		Ramo ramo5 = new Ramo("Introducción a la Programación","IIC1103", 10, lista_carreras.get(0),"3", "programacion basica", "desarrollar pensamiento");
-		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3", "redes y hacer sufrir a los alumnos", "desarrollar pensamiento");
+		Ramo ramo1 = new Ramo("Calculo 1","MAT1610", 10, lista_carreras.get(2),"3");
+		Ramo ramo2 = new Ramo("Calculo 2","MAT1620", 10, lista_carreras.get(2),"3");
+		Ramo ramo3 = new Ramo("Calculo 3","MAT1630", 10, lista_carreras.get(2),"3");
+		Ramo ramo4 = new Ramo("algebra lineal","MAT1299", 10, lista_carreras.get(2),"3");
+		Ramo ramo5 = new Ramo("Introducción a la Programación","IIC1103", 10, lista_carreras.get(0),"3");
+		Ramo ramo6 = new Ramo("Programación Avanzada","IIC2233", 10, lista_carreras.get(0),"3");
 		lista_ramos.add(ramo1);lista_ramos.add(ramo2);lista_ramos.add(ramo3);lista_ramos.add(ramo4);lista_ramos.add(ramo5);lista_ramos.add(ramo6);
-		
+
+		System.out.println(programas.lista_programas.size());
+		ramo1.agregarPrograma(programas.lista_programas.get(0));
+		ramo2.agregarPrograma(programas.lista_programas.get(1));
+		ramo3.agregarPrograma(programas.lista_programas.get(2));
+		ramo4.agregarPrograma(programas.lista_programas.get(3));
+		ramo6.agregarPrograma(programas.lista_programas.get(4));
 
 		malla1.agregar_ramo(ramo1);
 		malla1.agregar_ramo(ramo2);
