@@ -192,7 +192,7 @@
                   </TableView>
                </children>
             </Pane>
-            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0">
+            <Pane fx:id="paneAdminRamos" layoutX="180.0" prefHeight="900.0" prefWidth="1020.0" visible="false">
                <children>
                   <Label layoutX="50.0" layoutY="48.0" text="Lista de Ramos: " />
                   <GridPane layoutX="50.0" layoutY="354.0" prefHeight="200.0" prefWidth="351.0">

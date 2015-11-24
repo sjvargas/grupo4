@@ -60,17 +60,17 @@ public class Curso implements java.io.Serializable {
 	}
 	private String getDiaCompleto(String diaIncompleto){
 		switch (diaIncompleto){
-		case "Lu":
+		case "lu":
 			return "Lunes";
-		case "Ma":
+		case "ma":
 			return "Martes";
-		case "Mi":
+		case "mi":
 			return "Miercoles";
-		case "Ju":
+		case "ju":
 			return "Jueves";
-		case "Vi":
+		case "vi":
 			return "Viernes";
-		case "Sa":
+		case "sa":
 			return "Sabado";
 		default:
 			return "Lunes";

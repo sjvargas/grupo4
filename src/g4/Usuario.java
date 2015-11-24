@@ -30,7 +30,7 @@ public class Usuario implements java.io.Serializable{
 	}
 	
 	public String GetNombreUsuario(){ return nombreUsuario;}
-	public String getNombre(){ return nombre+" "+apellidoPaterno;}
+	public String getNombre(){ return nombre;}
 	public String getApellidoPaterno(){return apellidoPaterno;}
 	public String getApellidoMaterno(){return apellidoMaterno;}
 	public String GetContrasena(){return contrasena;}
