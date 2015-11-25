@@ -44,6 +44,38 @@ import g4.Sexo;
 
 public class AdminOverviewController implements PrincipalController {
 	
+	// funcion para ver si string es un int
+	public boolean EsInteger( String input ) {
+	    try {
+	        Integer.parseInt( input );
+	        return true;
+	    }
+	    catch( Exception e ) {
+	        return false;
+	    }
+	}
+	
+	public boolean TieneEspacio(String input){
+		if (input.indexOf(" ") !=-1) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean TieneNumeros(String input){
+		if(input.matches(".*\\d+.*")){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean EsValidoString(String input){
+		if(!TieneNumeros(input)&&!TieneEspacio(input)){
+			return true;
+		}
+		return false;
+	}
+	
 	/// para realizar el cambio de paginas
 	ScreensController controlador;
 	
@@ -211,33 +243,71 @@ public class AdminOverviewController implements PrincipalController {
 	private boolean seCreoTablaProfesores = false;
 	@FXML
 	private ChoiceBox cBProfesorFacultad, cBProfesorSexo, cBProfesorEdad;
-	
+	@FXML
+	private Label labelProfesorSueldo, labelProfesorContrasena, labelProfesorNombreUsuario, labelProfesorApMat,
+				labelProfesorApPat, labelProfesorNombre, labelIdProfesor;
 	// Tabla Lista Profesores:
 	
 	// Agregar Nuevo Profesor:
 	public void ApretarAgregarProfesor(ActionEvent event){
+		boolean correcto = true;
 		String nombreProfesor = campoANombreProfesor.getText();
+		if(!EsValidoString(nombreProfesor) ||   nombreProfesor==""){
+			correcto = false;
+			labelProfesorNombre.setText("Campo invalido");
+		}
 		String apellidoPatProfesor = campoAApPatProfesor.getText();
+		if(!EsValidoString(apellidoPatProfesor) ||   apellidoPatProfesor==""){
+			correcto = false;
+			labelProfesorApPat.setText("Campo invalido");
+		}
 		String apellidoMatProfesor = campoAApMatProfesor.getText();
+		if(!EsValidoString(apellidoMatProfesor) ||  apellidoMatProfesor==""){
+			correcto = false;
+			labelProfesorApMat.setText("Campo invalido");
+		}
 		String nombreUsuarioProfesor = campoANombreUsuarioProfesor.getText();
+		if(TieneEspacio(nombreUsuarioProfesor) ||   nombreUsuarioProfesor==""){
+			correcto = false;
+			labelProfesorNombreUsuario.setText("Campo invalido");
+		}
 		String contrasenaProfesor = campoAContrasenaProfesor.getText();
+		if(TieneEspacio(contrasenaProfesor) ||  contrasenaProfesor==""){
+			correcto = false;
+			labelProfesorContrasena.setText("Campo invalido");
+		}
 		Sexo sexoProfesor = (Sexo)cBProfesorSexo.getValue();
 		Integer edadProfesor = Integer.parseInt(cBProfesorEdad.getValue().toString());
 		String sueldoProfesor = campoASueldoProfesor.getText();
+		if(!EsInteger(sueldoProfesor) ||  sueldoProfesor==""){
+			correcto = false;
+			labelProfesorSueldo.setText("Campo invalido");
+		}
 		int sueldoProfesor2 = Integer.parseInt(sueldoProfesor);
 		String facultadProfesor = cBProfesorFacultad.getValue().toString();
-		if(nombreProfesor != "" && apellidoPatProfesor!= "" && apellidoMatProfesor!= "" &&
-				nombreUsuarioProfesor != "" && contrasenaProfesor!= "" && sueldoProfesor!= "" )
+		if(correcto)
 		{
 			main.U.administrador_actual.agregar_profesor(nombreUsuarioProfesor, nombreProfesor, apellidoPatProfesor, apellidoMatProfesor, contrasenaProfesor, sexoProfesor, edadProfesor , sueldoProfesor2, facultadProfesor);
 			labelAvisoProfesor.setText("Agregado");
+			LimpiarLabelsErrorProfesor();
+			BorrarFormularioProfesor();
+			CargarValoresFormularioProfesor();
 		}
 		else{
 			labelAvisoProfesor.setText("Completar");
 		}
 		ActualizarVistasTablaProfesor();
 	}
-
+	
+	public void LimpiarLabelsErrorProfesor(){
+		labelProfesorSueldo.setText("");
+		labelProfesorContrasena.setText("");
+		labelProfesorNombreUsuario.setText("");
+		labelProfesorApMat.setText("");
+		labelProfesorApPat.setText("");
+		labelProfesorNombre.setText("");
+	}
+	
 	public void ActualizarVistasTablaProfesor(){
 		if(!seCreoTablaProfesores){
 			tCIdProfesor.setCellValueFactory(new PropertyValueFactory<Profesor,Integer>("id_profesor"));
@@ -273,20 +343,40 @@ public class AdminOverviewController implements PrincipalController {
 		cBProfesorEdad.setValue(listaCargaEdades);
 	}
 	
+	private void BorrarFormularioProfesor(){
+		campoANombreProfesor.setText("");
+		campoAApPatProfesor.setText("");
+		campoAApMatProfesor.setText("");
+		campoANombreUsuarioProfesor.setText("");
+		campoAContrasenaProfesor.setText("");
+		campoASueldoProfesor.setText("");
+	}
+	
+	
 	// Eliminar Profesor
 	public void ApretarEliminarProfesor(ActionEvent event){
 		String respuestaIdProfesor = campoEliminarProfID.getText();
-		if(respuestaIdProfesor!=""){
-			main.U.EliminarProfesor(Integer.parseInt(respuestaIdProfesor));
+		if(respuestaIdProfesor!="" && EsInteger(respuestaIdProfesor)){
+			Integer idProfesor = Integer.parseInt(respuestaIdProfesor);
+			if(main.U.IdProfesorExiste(idProfesor)){
+				main.U.EliminarProfesor(Integer.parseInt(respuestaIdProfesor));
+				labelIdProfesor.setText("Eliminado");
+				ActualizarVistasTablaProfesor();
+			}
+			else{
+				labelIdProfesor.setText("No existe id");
+			}
 		}
-		ActualizarVistasTablaProfesor();
+		else{
+			labelIdProfesor.setText("Campo invalido");
+		}
 	}
 	
 	// MODULO ALUMNOS
 	@FXML
-    private TextField textFieldIdAlumno;
+    private TextField textFieldIdAlumno, textFieldIdAlumnoDarAcceso;
 	@FXML
-    private Label labelEstadoRestringirAlumno;
+    private Label labelEstadoRestringirAlumno, labelDarAccesoAlumno;
 	@FXML
 	private TableView<Alumno> tViewnAlumnos;
 	@FXML
@@ -299,12 +389,43 @@ public class AdminOverviewController implements PrincipalController {
 	
 	public void ApretarRestringirAlumno(ActionEvent event){
 		String idAlumno = textFieldIdAlumno.getText();
-		if(idAlumno != ""){
-			main.U.RestringirAccesoAlumno(Integer.parseInt(idAlumno));
-			//main.U.administrador_actual.restringir_acceso_alumno(idAlumno);
+		if(idAlumno != "" && EsInteger(idAlumno)){
+			Integer id = Integer.parseInt(idAlumno);
+			if(main.U.IdAlumnoExiste(id)){
+				main.U.RestringirAccesoAlumno(id);
+				ActualizarVistasTablaAlumnos();
+				labelEstadoRestringirAlumno.setText("Acceso restringido");
+				LimpiarFormularioAlumno();
+			}
+			else{
+				labelEstadoRestringirAlumno.setText("Alumno no existe");
+			}
 		}
 		else{
-			labelEstadoRestringirAlumno.setText("Campo Vacio");
+			labelEstadoRestringirAlumno.setText("Campo invalido");
+		}
+	}
+	
+	public void LimpiarFormularioAlumno(){
+		textFieldIdAlumno.setText("");
+		textFieldIdAlumnoDarAcceso.setText("");
+	}
+	
+	public void ApretarDarAccesoAlumno(ActionEvent event){
+		String idAlumno = textFieldIdAlumnoDarAcceso.getText();
+		if(idAlumno != "" && EsInteger(idAlumno)){
+			Integer id = Integer.parseInt(idAlumno);
+			if(main.U.IdAlumnoExiste(id)){
+				main.U.DarAccesoAlumno(id);
+				labelDarAccesoAlumno.setText("Acceso entregado");
+				LimpiarFormularioAlumno();
+			}
+			else{
+				labelDarAccesoAlumno.setText("Alumno no existe");
+			}
+		}
+		else{
+			labelDarAccesoAlumno.setText("Campo invalido");
 		}
 		ActualizarVistasTablaAlumnos();
 	}
@@ -319,11 +440,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCAccesoAlumnos.setCellValueFactory(new PropertyValueFactory<Alumno,String>("acceso"));
 			tViewnAlumnos.setItems(datosAlumnos);
 		}
-	//	tViewnAlumnos.refresh();
+		tViewnAlumnos.refresh();
 		List<Alumno> alumnos = main.U.lista_alumnos;
 		datosAlumnos = FXCollections.observableArrayList(alumnos);
 		tViewnAlumnos.setItems(datosAlumnos);
-		//tViewnAlumnos.refresh();
+		tViewnAlumnos.refresh();
 	}
 	
 	
@@ -364,6 +485,7 @@ public class AdminOverviewController implements PrincipalController {
 	private TableColumn<Ramo,String> tCSiglaPrerrequisito, tCNombrePrerrequisito;
 	@FXML
 	private ObservableList<Ramo> datosRamos = FXCollections.observableArrayList();
+	@FXML
 	private ObservableList<Ramo> datosPrerrequisitos = FXCollections.observableArrayList();	
 	private boolean seCreoTablaRamos = false;
 	private boolean seCreoTablaPrerrequisitos = false;
@@ -375,6 +497,12 @@ public class AdminOverviewController implements PrincipalController {
 	@FXML
     private Label labelArchivo;
 	private List<String> programaRamo = new ArrayList<String>();
+	
+	private void LimpiarFormularioRamo(){
+		textFieldNombreRamo.setText("");
+		textFieldSiglaRamo.setText("");
+	}
+	
 	
 	public void AgregarArchivo() throws IOException{
 		fileChooser.setTitle("Open Resource File");
@@ -394,22 +522,30 @@ public class AdminOverviewController implements PrincipalController {
 			
 		}
 	}
+	
 	public void AgregarRamo(){
 		String nombreRamo = textFieldNombreRamo.getText();
 		String siglaRamo = textFieldSiglaRamo.getText();
 		Carrera carreraRamo = (Carrera)cBRamoCarrera.getValue();
 		Integer creditosRamo = (Integer)cBRamoCreditos.getValue();
 		String semestreImpartidoRamo = cBRamoSemestre.getValue().toString();
-		if(nombreRamo != "" && siglaRamo != "" &&semestreImpartidoRamo!= "" && programaRamo.size()>0){
+		if(nombreRamo != "" && !main.U.ExisteRamo(siglaRamo) && siglaRamo != "" &&semestreImpartidoRamo!= "" && programaRamo.size()>0){
 			main.U.administrador_actual.agregar_ramo(nombreRamo ,siglaRamo, carreraRamo, creditosRamo, semestreImpartidoRamo,programaRamo);
 			labelAgregarRamo.setText("Ramo Agregado");
 			ActualizarValoresChoiseBoxProf();
 			ActualizarVistasTablaRamos();
 			programaRamo = new ArrayList<String>();
 			labelArchivo.setText("ningun archivo selec.");
+			LimpiarFormularioRamo();
 		}
 		else{
-			labelAgregarRamo.setText("Error al agregar Ramo");
+			if(main.U.ExisteRamo(siglaRamo))
+			{
+				labelAgregarRamo.setText("Sigla ya existe");
+			}
+			else{
+				labelAgregarRamo.setText("Error al agregar Ramo");
+			}
 		}
 		ActualizarVistasTablaRamos();
 	}
@@ -463,11 +599,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCCreditosRamos.setCellValueFactory(new PropertyValueFactory<Ramo,Integer>("creditos"));
 			tViewRamos.setItems(datosRamos);
 		}
-		tViewRamos.refresh();
+		//tViewRamos.refresh();
 		List<Ramo> ramos = main.U.lista_ramos;
 		datosRamos = FXCollections.observableArrayList(ramos);
 		tViewRamos.setItems(datosRamos);
-		tViewRamos.refresh();
+		//tViewRamos.refresh();
 	}
 
 	public void ApretarVerPrerrequisitos(ActionEvent event){
@@ -533,6 +669,11 @@ public class AdminOverviewController implements PrincipalController {
 	@FXML
 	private ObservableList<Ramo> listaCargaRamosEliminar = FXCollections.observableArrayList();
 	
+	private void LimpiarFormularioCarreras(){
+		textFieldNombreCarrera.setText("");
+		textFieldFacultadCarrera.setText("");
+		textFieldDecanoCarrera.setText("");
+	}
 	
 	public void AgregarCarrera(){
 		String nombreCarrera = textFieldNombreCarrera.getText();
@@ -542,6 +683,7 @@ public class AdminOverviewController implements PrincipalController {
 			main.U.administrador_actual.agregar_carrera(decanoCarrera, facultadCarrera, nombreCarrera);
 			labelEstadoAgregarCarrera.setText("Carrera Agregada");
 			ActualizarVistasTablaCarreras();
+			LimpiarFormularioCarreras();
 		}
 		else{
 			labelEstadoAgregarCarrera.setText("Campo Vacio");

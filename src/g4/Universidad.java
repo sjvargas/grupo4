@@ -14,7 +14,7 @@ public class Universidad implements java.io.Serializable {
 	
     private List<String> periodosOcupados;
     private List<String> periodosLibres;
-
+    
     public List<String> dias;
     public List<String> listaSalas;
     public List<Integer> listaModulos;
@@ -503,6 +503,41 @@ public class Universidad implements java.io.Serializable {
 	public Profesor GetRandomProfesor(){
 		return lista_profesores.get(rn.nextInt(lista_profesores.size()));
 	}
+	public void DarAccesoAlumno(int idAlumnAcceso){
+		for(Alumno alumno: lista_alumnos){
+			if(alumno.getIdAlumno() == idAlumnAcceso){
+				alumno.acceso = true;
+			}
+		}
+	}
+	
+	public boolean IdProfesorExiste(int idProfesor){
+		for(Profesor profesor: lista_profesores){
+			if(profesor.getId_profesor()==idProfesor){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean IdAlumnoExiste(Integer idAlumno){
+		for(Alumno alumno: lista_alumnos){
+			if(alumno.getIdAlumno() == idAlumno){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean ExisteRamo(String siglaRamo){
+		for(Ramo ramo: lista_ramos){
+			if(ramo.getSigla().equals(siglaRamo)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	//sentido dice si es acendente o decreciente (1,0)
 	//tipo dice que atributo se compara (1=likes,2=dificultad)
 	public List<Profesor> Top5Profesores(int sentido,int tipo){
