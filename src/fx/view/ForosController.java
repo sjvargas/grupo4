@@ -238,10 +238,7 @@ public class ForosController  implements PrincipalController , Initializable{
 	   }else{
 			error_descarga.setText("seleccione un curso");
 	   }
-	}
-	
-	
-	
+	}	
 	public void ClickSubir (){
 		error_subir.setText("");
 		if (curso_seleccionado!=null){

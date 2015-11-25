@@ -302,7 +302,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 		if (modoLikesSelecionadoProfesor || modoDificultadSelecionadoProfesor){
 			List<Profesor> top_a = new ArrayList<Profesor>();
 			List<Profesor> top_d = new ArrayList<Profesor>();
-			if (modoDificultadSelecionado){
+			if (modoDificultadSelecionadoProfesor){
 				top_a = main.U.Top5Profesores(1, 2);
 				top_d = main.U.Top5Profesores(0, 2);
 			}
