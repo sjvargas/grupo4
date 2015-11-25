@@ -147,8 +147,8 @@ public class ForosController  implements PrincipalController , Initializable{
 	//EVENTOS PANEL TEMAS!!
 	public void ClickIr(ActionEvent event){
 
-		columna_autor_archivo.setCellValueFactory(new PropertyValueFactory<Archivo,String>("nombre"));
-		columna_nombre_archivo.setCellValueFactory(new PropertyValueFactory<Archivo,String>("autor"));
+		columna_autor_archivo.setCellValueFactory(new PropertyValueFactory<Archivo,String>("autor"));
+		columna_nombre_archivo.setCellValueFactory(new PropertyValueFactory<Archivo,String>("nombre"));
 		tabla_archivos.setItems(data_archivos);
 		
 		
