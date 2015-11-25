@@ -13,9 +13,10 @@
          <children>
             <Button fx:id="boton_menu" layoutX="28.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickVolverMenu" prefHeight="25.0" prefWidth="103.0" text="volver al menu" />
             <Button fx:id="boton_cerrar_sesion" layoutX="141.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickCerrarSesion" prefHeight="25.0" prefWidth="93.0" text="cerrar sesion" />
-            <Pane layoutX="16.0" layoutY="56.0" prefHeight="275.0" prefWidth="343.0">
+            <Label fx:id="error_seleccion" layoutX="414.0" layoutY="243.0" prefHeight="17.0" prefWidth="226.0" textFill="RED" />
+            <Pane layoutX="16.0" layoutY="56.0" prefHeight="275.0" prefWidth="343.0" style="-fx-border-color: black;">
                <children>
-                  <Pane layoutX="169.0" layoutY="39.0" prefHeight="196.0" prefWidth="161.0">
+                  <Pane layoutX="169.0" layoutY="39.0" prefHeight="196.0" prefWidth="161.0" style="-fx-border-color: black;">
                      <children>
                         <GridPane alignment="CENTER" prefHeight="195.0" prefWidth="161.0" style="-fx-background-color: #ccffff; -fx-border: 2px solid;">
                           <columnConstraints>
@@ -135,7 +136,7 @@
                   <TableColumn fx:id="horario_seleccion" prefWidth="73.0" text="horario" />
               </columns>
             </TableView>
-            <Pane layoutX="16.0" layoutY="347.0" prefHeight="248.0" prefWidth="748.0">
+            <Pane layoutX="16.0" layoutY="347.0" prefHeight="248.0" prefWidth="748.0" style="-fx-border-color: black;">
                <children>
                   <Button fx:id="boton_agregar" layoutX="647.0" layoutY="210.0" mnemonicParsing="false" onAction="#ClickAgregar" prefHeight="31.0" prefWidth="72.0" text="Agregar" />
                   <TableView fx:id="tabla_busqueda" layoutX="12.0" layoutY="8.0" prefHeight="195.0" prefWidth="707.0" tableMenuButtonVisible="true">
@@ -144,10 +145,12 @@
                         <TableColumn fx:id="sigla_busqueda" minWidth="9.0" prefWidth="99.0" text="Sigla" />
                         <TableColumn fx:id="secc_busqueda" prefWidth="33.0" text="secc" />
                         <TableColumn fx:id="horario_busqueda" prefWidth="108.0" text="Horarios" />
-                        <TableColumn fx:id="profesor_busqueda" prefWidth="117.0" text="Profesor" />
-                        <TableColumn fx:id="carrera_busqueda" prefWidth="170.0" text="carrera" />
+                        <TableColumn fx:id="profesor_busqueda" prefWidth="90.0" text="Profesor" />
+                        <TableColumn fx:id="carrera_busqueda" prefWidth="92.0" text="carrera" />
+                        <TableColumn fx:id="prerequisitos_busqueda" prefWidth="96.0" text="prerequisitos" />
                      </columns>
                   </TableView>
+                  <Label fx:id="error_busqueda" layoutX="47.0" layoutY="218.0" prefHeight="17.0" prefWidth="592.0" textFill="RED" />
                </children>
             </Pane>
             <Button fx:id="boton_eliminar" layoutX="663.0" layoutY="239.0" mnemonicParsing="false" onAction="#ClickEliminar" prefHeight="25.0" prefWidth="72.0" text="Eliminar" />

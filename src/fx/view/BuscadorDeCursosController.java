@@ -2,6 +2,7 @@ package fx.view;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import g4.Carrera;
 import g4.Curso;
@@ -37,10 +38,11 @@ import javafx.scene.control.TableView;
 public class BuscadorDeCursosController implements PrincipalController {
 	/// objeto para realizar el cambio de paginas
 	ScreensController controlador;
-	ArrayList<Curso> cursos_seleccionados;
+	ArrayList<CursoTabla> cursos_seleccionados;
 	
 	
-	
+	@FXML
+	private Label error_busqueda,error_seleccion;
 	@FXML
 	private Pane pane_aceptar; 
 	@FXML
@@ -64,7 +66,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 	@FXML
 	private TableColumn<CursoTabla,String> nombre_seleccion,nombre_busqueda;
 	@FXML
-	private TableColumn<CursoTabla,String> horario_seleccion,horario_busqueda,carrera_busqueda;
+	private TableColumn<CursoTabla,String> horario_seleccion,horario_busqueda,carrera_busqueda,prerequisitos_busqueda;
 	@FXML
 	private ObservableList<CursoTabla> data_seleccion = FXCollections.observableArrayList();
 	@FXML
@@ -85,7 +87,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 	private CheckBox sa_1,sa_2,sa_3, sa_4,sa_5,sa_6, sa_7,sa_8;
 	
 	public void ClickAceptar(ActionEvent e){
-		cursos_seleccionados = new ArrayList<Curso>();
+		cursos_seleccionados = new ArrayList<CursoTabla>();
 		
 		pane_aceptar.setVisible(false);
 		ObservableList<Carrera> ss = FXCollections
@@ -103,6 +105,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 		text_periodo.setValue(periodos.get(0));
 
 
+		prerequisitos_busqueda.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("prerrequisitos"));
 		sigla_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("sigla"));
 		secc_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("seccion"));
 		nombre_seleccion.setCellValueFactory(new PropertyValueFactory<CursoTabla,String>("nombre"));
@@ -214,13 +217,20 @@ public class BuscadorDeCursosController implements PrincipalController {
 	}
 	
 	public void ClickEliminar(ActionEvent event) {
-		CursoTabla curso = tabla_busqueda.getSelectionModel().getSelectedItem();
+		error_seleccion.setText("");
+		error_busqueda.setText("");
+		CursoTabla curso = tabla_seleccion.getSelectionModel().getSelectedItem();
 		if (curso!=null){
 			data_seleccion.remove(curso);
+			cursos_seleccionados.remove(curso);
 			ActualizarSeleccion();
+		}else{
+			error_seleccion.setText("seleccione un curso");
 		}
 	}	
 	public void ClickBuscar(ActionEvent event) {
+		error_seleccion.setText("");
+		error_busqueda.setText("");
 		String prof = text_profesor.getText();
 		String sigla = text_sigla.getText();
 		int carrera = -1;
@@ -241,12 +251,19 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	
 	public void ClickAgregar(ActionEvent event) {
+		error_seleccion.setText("");
+		error_busqueda.setText("");
 		CursoTabla curso =tabla_busqueda.getSelectionModel().getSelectedItem();
 		if (curso!=null){
-			data_seleccion.add(curso);
-			ActualizarSeleccion();
+			if (!TopeDeHorario(curso)){
+				data_seleccion.add(curso);
+				cursos_seleccionados.add(curso);
+				ActualizarSeleccion();
+			}else{
+				error_busqueda.setText("hay tope de horarios con tus cursos ya seleccionados");
+			}
 		}else{
-			
+			error_busqueda.setText("seleccione algun curso.");
 		}
 	}
 	
@@ -265,7 +282,7 @@ public class BuscadorDeCursosController implements PrincipalController {
 		text_sigla.setText("");
 		text_profesor.setText("");
 		text_carrera.setValue(null);
-		cursos_seleccionados = new ArrayList<Curso>();
+		cursos_seleccionados = new ArrayList<CursoTabla>();
 		lu_1.setSelected(false); ma_1.setSelected(false); mi_1.setSelected(false);  ju_1.setSelected(false);  vi_1.setSelected(false);  sa_1.setSelected(false); 
 		lu_2.setSelected(false); ma_2.setSelected(false); mi_2.setSelected(false);  ju_2.setSelected(false);  vi_2.setSelected(false);  sa_2.setSelected(false); 
 		lu_3.setSelected(false); ma_3.setSelected(false); mi_3.setSelected(false);  ju_3.setSelected(false);  vi_3.setSelected(false);  sa_3.setSelected(false); 
@@ -275,6 +292,8 @@ public class BuscadorDeCursosController implements PrincipalController {
 		lu_7.setSelected(false); ma_7.setSelected(false); mi_7.setSelected(false);  ju_7.setSelected(false);  vi_7.setSelected(false);  sa_7.setSelected(false); 
 		lu_8.setSelected(false); ma_8.setSelected(false); mi_8.setSelected(false);  ju_8.setSelected(false);  vi_8.setSelected(false);  sa_8.setSelected(false); 
 		horario_buscar.clear();
+		error_seleccion.setText("");
+		error_busqueda.setText("");
 	}
 	
 	
@@ -296,6 +315,17 @@ public class BuscadorDeCursosController implements PrincipalController {
             	horario_buscar.add(chk.getText());
             }
 		}
+	}
+	
+	public boolean TopeDeHorario(CursoTabla curso){
+		boolean aux = false;
+		String[] horarios = curso.getHorarios().split(",");
+		if (cursos_seleccionados.size()>0){
+			for (CursoTabla j : cursos_seleccionados){
+				for (String h: horarios){
+					if (j.getHorarios().toLowerCase().contains(h.toLowerCase())){
+						aux =true;}}}}
+		return aux;
 	}
 
 }

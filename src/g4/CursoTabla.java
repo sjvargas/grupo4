@@ -7,6 +7,7 @@ public class CursoTabla  implements java.io.Serializable {
 	private final String nombre;
 	private final Integer seccion;
 	private final String carrera;
+	private final String prerrequisitos;
 	
 	public CursoTabla(Curso curso){
 		sigla = new String(curso.getRamo().getSigla());
@@ -32,6 +33,17 @@ public class CursoTabla  implements java.io.Serializable {
 			}
 			horarios = new String(list.substring(0,list.length()-1));
 		}
+		list = "";
+		if (curso.getRamo().GetPrerrequisitos()== null || curso.getRamo().GetPrerrequisitos().size()<1){
+			prerrequisitos = new String("no tiene");
+		}
+		else{
+			for (String s : curso.getRamo().GetPrerrequisitos())
+			{
+			    list += s+",";
+			}
+			prerrequisitos = new String(list.substring(0,list.length()-1));
+		}
 		nombre = new String(curso.getRamo().getNombreRamo());
 		seccion = curso.seccionCurso;
 		carrera = new String(curso.getRamo().getCarrera().getNombreCarrera());
@@ -39,6 +51,9 @@ public class CursoTabla  implements java.io.Serializable {
 
 	public String getSigla() {
 		return sigla;
+	}	
+	public String getPrerrequisitos() {
+		return prerrequisitos;
 	}	
 	public String getNombre() {
 		return nombre;
