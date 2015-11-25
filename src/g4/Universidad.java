@@ -549,8 +549,9 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
-							if (lista.get(i).getLikes()<=p.getLikes()){
+							if (lista.get(i).getLikes()<p.getLikes()){
 								if (i==0){
 									lista.set(4, lista.get(3));
 									lista.set(3, lista.get(2));
@@ -576,8 +577,9 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
-							if (lista.get(i).getDificultad()<=p.getDificultad()){
+							if (lista.get(i).getDificultad()<p.getDificultad()){
 								if (i==0){
 									lista.set(4, lista.get(3));
 									lista.set(3, lista.get(2));
@@ -604,6 +606,7 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
 							if (lista.get(i).getLikes()>=p.getLikes()){
 								if (i==0){
@@ -631,6 +634,7 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
 							if (lista.get(i).getDificultad()>=p.getDificultad()){
 								if (i==0){
@@ -667,8 +671,9 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
-							if (lista.get(i).getLikes()<=p.getLikes()){
+							if (lista.get(i).getLikes()<p.getLikes()){
 								if (i==0){
 									lista.set(4, lista.get(3));
 									lista.set(3, lista.get(2));
@@ -696,8 +701,9 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
-							if (lista.get(i).getUtilidad()<=p.getUtilidad()){
+							if (lista.get(i).getUtilidad()<p.getUtilidad()){
 								if (i==0){
 									lista.set(4, lista.get(3));
 									lista.set(3, lista.get(2));
@@ -725,8 +731,9 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
-							if (lista.get(i).getDificultad()<=p.getDificultad()){
+							if (lista.get(i).getDificultad()<p.getDificultad()){
 								if (i==0){
 									lista.set(4, lista.get(3));
 									lista.set(3, lista.get(2));
@@ -755,6 +762,7 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
 							if (lista.get(i).getLikes()>=p.getLikes()){
 								if (i==0){
@@ -784,6 +792,7 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
 							if (lista.get(i).getUtilidad()>=p.getUtilidad()){
 								if (i==0){
@@ -813,6 +822,7 @@ public class Universidad implements java.io.Serializable {
 					for (int i=0;i<5;i++){
 						if (lista.get(i)==null){
 							lista.set(i, p);
+							break;
 						}else{
 							if (lista.get(i).getDificultad()>=p.getDificultad()){
 								if (i==0){

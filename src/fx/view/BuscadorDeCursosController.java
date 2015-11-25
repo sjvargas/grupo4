@@ -214,8 +214,11 @@ public class BuscadorDeCursosController implements PrincipalController {
 	}
 	
 	public void ClickEliminar(ActionEvent event) {
-		data_seleccion.remove(tabla_busqueda.getSelectionModel().getSelectedItem());
-		ActualizarSeleccion();
+		CursoTabla curso = tabla_busqueda.getSelectionModel().getSelectedItem();
+		if (curso!=null){
+			data_seleccion.remove(curso);
+			ActualizarSeleccion();
+		}
 	}	
 	public void ClickBuscar(ActionEvent event) {
 		String prof = text_profesor.getText();
@@ -238,9 +241,13 @@ public class BuscadorDeCursosController implements PrincipalController {
 	
 	
 	public void ClickAgregar(ActionEvent event) {
-		
-		data_seleccion.add(tabla_busqueda.getSelectionModel().getSelectedItem());
-		ActualizarSeleccion();
+		CursoTabla curso =tabla_busqueda.getSelectionModel().getSelectedItem();
+		if (curso!=null){
+			data_seleccion.add(curso);
+			ActualizarSeleccion();
+		}else{
+			
+		}
 	}
 	
 	
