@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="padre" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.ForosController">
+<AnchorPane fx:id="padre" maxHeight="600.0" maxWidth="1200.0" minHeight="600.0" minWidth="1200.0" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.view.ForosController">
    <children>
       <Button fx:id="boton_menu" layoutX="28.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickVolverMenu" prefHeight="31.0" prefWidth="117.0" text="volver al menu" />
       <Button fx:id="boton_cerrar_sesion" layoutX="164.0" layoutY="14.0" mnemonicParsing="false" onAction="#ClickCerrarSesion" prefHeight="31.0" prefWidth="86.0" text="cerrar sesion" />
-      <Line endX="840.0" layoutX="130.0" layoutY="62.0" startX="-100.0" />
+      <Line endX="1040.0" layoutX="130.0" layoutY="62.0" startX="-100.0" />
       <Label layoutX="427.0" layoutY="12.0" prefHeight="15.0" prefWidth="86.0" text="Foros">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -19,7 +19,7 @@
       </Label>
       <Label layoutX="513.0" layoutY="22.0" text="Estas conectado como:" />
       <Button fx:id="boton_todo_tema" layoutX="263.0" layoutY="17.0" mnemonicParsing="false" onAction="#ClickTodoTema" text="Todos los Temas" />
-      <Pane fx:id="pane_temas" layoutY="63.0" prefHeight="539.0" prefWidth="1000.0">
+      <Pane fx:id="pane_temas" layoutY="63.0" prefHeight="539.0" prefWidth="1200.0">
          <children>
             <TableView fx:id="tabla_temas" layoutX="20.0" layoutY="84.0" prefHeight="191.0" prefWidth="964.0" tableMenuButtonVisible="true">
               <columns>
@@ -31,13 +31,13 @@
                   <TableColumn fx:id="columna_fecha" minWidth="0.0" prefWidth="173.0" text="Fecha" />
               </columns>
             </TableView>
-            <Button fx:id="boton_temas_ir" layoutX="946.0" layoutY="41.0" mnemonicParsing="false" onAction="#ClickIr" text="Ir">
+            <Button fx:id="boton_temas_ir" layoutX="1146.0" layoutY="42.0" mnemonicParsing="false" onAction="#ClickIr" text="Ir">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
             <Button fx:id="boton_ir_tema1" layoutX="833.0" layoutY="284.0" mnemonicParsing="false" onAction="#ClickSeleccionarTema" prefHeight="25.0" prefWidth="151.0" text="Ir al tema seleccionado" />
-            <Label layoutX="661.0" layoutY="16.0" text="Seleccione el curso del que quiere ver los temas:">
+            <Label layoutX="861.0" layoutY="16.0" text="Seleccione el curso del que quiere ver los temas:">
                <font>
                   <Font size="14.0" />
                </font>
@@ -64,15 +64,39 @@
                   </Label>
                </children>
             </Pane>
+            <Pane layoutX="998.0" layoutY="82.0" prefHeight="442.0" prefWidth="188.0" style="-fx-border-color: black;">
+               <children>
+                  <Line endX="60.0" layoutX="115.0" layoutY="283.0" startX="-100.0" />
+                  <Label fx:id="error_descarga" layoutX="15.0" layoutY="247.0" prefHeight="17.0" prefWidth="86.0" textFill="RED" />
+                  <Label fx:id="error_subir" layoutX="15.0" layoutY="411.0" prefHeight="17.0" prefWidth="86.0" textFill="RED" />
+               </children>
+            </Pane>
             <Label layoutX="22.0" layoutY="27.0" text="Temas del Curso:" />
             <Label fx:id="label_curso_seleccionado" layoutX="121.0" layoutY="16.0" prefHeight="34.0" prefWidth="493.0" text="ningun curso seleccionado.">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+            <Label layoutX="1010.0" layoutY="88.0" prefHeight="17.0" prefWidth="142.0" text="archivos del curso:" />
+            <TableView fx:id="tabla_archivos" layoutX="1009.0" layoutY="115.0" prefHeight="200.0" prefWidth="164.0">
+              <columns>
+                <TableColumn fx:id="columna_autor_archivo" prefWidth="79.0" text="autor" />
+                <TableColumn fx:id="columna_nombre_archivo" prefWidth="84.0" text="archivo" />
+              </columns>
+            </TableView>
+            <Button fx:id="boton_bajar_archivo" layoutX="1104.0" layoutY="325.0" mnemonicParsing="false" onAction="#ClickDescargar" text="descargar" />
+            <Button fx:id="buscar_archivo" layoutX="1009.0" layoutY="421.0" mnemonicParsing="false" onAction="#AgregarArchivo" text="Buscar!" />
+            <Label fx:id="label_nombre_archivo" layoutX="1012.0" layoutY="454.0" prefHeight="17.0" prefWidth="105.0" text="---" />
+            <Label layoutX="1009.0" layoutY="375.0" text="Sube un archivo:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="1009.0" layoutY="397.0" text="selecciona el archivo:" />
+            <Button fx:id="boton_subir_archivo" layoutX="1104.0" layoutY="489.0" mnemonicParsing="false" onAction="#ClickSubir" prefHeight="25.0" prefWidth="68.0" text="Subir" />
          </children>
       </Pane>
-      <Pane fx:id="pane_comentarios" layoutY="63.0" prefHeight="537.0" prefWidth="1000.0" visible="false">
+      <Pane fx:id="pane_comentarios" layoutY="63.0" prefHeight="537.0" prefWidth="1200.0" visible="false">
          <children>
             <Pane fx:id="pane_nuevo_comentario" layoutX="19.0" layoutY="378.0" prefHeight="154.0" prefWidth="965.0" style="-fx-border: 2px solid;">
                <children>

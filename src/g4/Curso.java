@@ -34,6 +34,7 @@ public class Curso implements java.io.Serializable {
 	public Ramo ramo;
 	public List<Tema> temas;
 	private List<ProgramacionHoraria> listaProgramacionHoraria;
+	private List<Archivo> apuntes;
 	
 	
 	public Curso(String periodo,List<String> salas,List<String> horario, int creditos, int seccion , Profesor profesor, Ramo ramo){
@@ -44,6 +45,7 @@ public class Curso implements java.io.Serializable {
 		this.periodo = periodo;
 		this.horario = horario;
 		this.lista_alumnos = new ArrayList<Alumno>();
+		this.apuntes = new ArrayList<Archivo>();
 		this.creditos = creditos;
 		this.ramo = ramo;
 		this.salas = salas;
@@ -79,6 +81,12 @@ public class Curso implements java.io.Serializable {
 	}
 
 //// GETTERS de atributos
+	public List<Archivo> getApuntes(){
+		return apuntes;
+	}
+	public void agregarApunte(Archivo arch){
+		apuntes.add(arch);
+	}	
 	public List<String> getHorario() {
 		return horario;
 	}

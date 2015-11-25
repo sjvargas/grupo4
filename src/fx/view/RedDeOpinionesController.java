@@ -408,7 +408,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 			}
     		output.close();
         } catch ( IOException e1 ) {
-            e1.printStackTrace();
+    		label_descarga.setText("error en la descarga");
         } finally {
             if ( output != null ) output.close();
         }
