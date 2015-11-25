@@ -116,7 +116,7 @@ public class RedDeOpinionesController implements PrincipalController  {
 		data_ver_ramo = FXCollections.observableArrayList(ramo_buscados);
 		
 		columna_ramo_sigla.setCellValueFactory(new PropertyValueFactory<Ramo,String>("sigla"));
-		columna_ramo_nombre.setCellValueFactory(new PropertyValueFactory<Ramo,String>("nombre"));
+		columna_ramo_nombre.setCellValueFactory(new PropertyValueFactory<Ramo,String>("nombreRamo"));
 		columna_ramo_likes.setCellValueFactory(new PropertyValueFactory<Ramo,Double>("likes"));
 		columna_ramo_utilidad.setCellValueFactory(new PropertyValueFactory<Ramo,Double>("utilidad"));
 		columna_ramo_dificultad.setCellValueFactory(new PropertyValueFactory<Ramo,Double>("dificultad"));

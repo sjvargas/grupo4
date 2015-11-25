@@ -45,17 +45,17 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="boton_rn_ramo" layoutX="27.0" layoutY="317.0" mnemonicParsing="false" onAction="#ClickRandomRamo" prefHeight="133.0" prefWidth="400.0" style="-fx-background-color: #ff6464;" text="Random Ramo">
+            <Button fx:id="boton_rn_ramo" layoutX="27.0" layoutY="317.0" mnemonicParsing="false" onAction="#ClickRandomRamo" prefHeight="133.0" prefWidth="400.0" style="-fx-background-color: #4a86ee;" text="Random Ramo">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="boton_rn_profesor" layoutX="540.0" layoutY="317.0" mnemonicParsing="false" onAction="#ClickRandomProfesor" prefHeight="133.0" prefWidth="400.0" style="-fx-background-color: #fcff58;" text="Random Profesor">
+            <Button fx:id="boton_rn_profesor" layoutX="540.0" layoutY="317.0" mnemonicParsing="false" onAction="#ClickRandomProfesor" prefHeight="133.0" prefWidth="400.0" style="-fx-background-color: #4a86ee;" text="Random Profesor">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="boton_top_profesores" layoutX="541.0" layoutY="96.0" mnemonicParsing="false" onAction="#ClickTopProfesores" prefHeight="133.0" prefWidth="400.0" style="-fx-background-color: #86ee86;" text="top profesores">
+            <Button fx:id="boton_top_profesores" layoutX="541.0" layoutY="96.0" mnemonicParsing="false" onAction="#ClickTopProfesores" prefHeight="133.0" prefWidth="400.0" style="-fx-background-color: #4a86ee;" text="top profesores">
                <font>
                   <Font size="30.0" />
                </font>
@@ -283,8 +283,8 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button fx:id="boton_ver_profesor" layoutX="314.0" layoutY="468.0" mnemonicParsing="false" onAction="#ClickVerProfesor" text="ver profesor" />
-            <Button fx:id="boton_ver_ramo" layoutX="884.0" layoutY="468.0" mnemonicParsing="false" onAction="#ClickVerRamo" text="ver ramo" />
+            <Button fx:id="boton_ver_profesor" layoutX="314.0" layoutY="468.0" mnemonicParsing="false" onAction="#ClickVerProfesor" style="-fx-background-color: #4a86ee;" text="ver profesor" />
+            <Button fx:id="boton_ver_ramo" layoutX="884.0" layoutY="468.0" mnemonicParsing="false" onAction="#ClickVerRamo" style="-fx-background-color: #4a86ee;" text="ver ramo" />
             <TableView fx:id="tabla_busqueda_ramo" layoutX="516.0" layoutY="109.0" prefHeight="348.0" prefWidth="432.0" tableMenuButtonVisible="true">
                <columns>
                   <TableColumn fx:id="columna_ramo_sigla" prefWidth="69.0" text="sigla" />
@@ -442,17 +442,17 @@
                      </font>
                   </Label>
                   <Slider fx:id="slider_dificultad_ramo" blockIncrement="1.0" layoutX="24.0" layoutY="174.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="15.0" prefWidth="294.0" showTickLabels="true" value="3.0" />
-                  <Button fx:id="boton_calificar_ramo1" layoutX="107.0" layoutY="210.0" mnemonicParsing="false" onAction="#ClickClificarDificultadRamo" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #42f85d; -fx-border-radius: 30%;" text="calificar!">
+                  <Button fx:id="boton_calificar_ramo1" layoutX="107.0" layoutY="210.0" mnemonicParsing="false" onAction="#ClickClificarDificultadRamo" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #4a86ee; -fx-border-radius: 30%;" text="calificar!">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="boton_like_ramo" layoutX="107.0" layoutY="83.0" mnemonicParsing="false" onAction="#ClickRamoLike" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #38a1f7; -fx-border-radius: 30%;" text="Dar Like!">
+                  <Button fx:id="boton_like_ramo" layoutX="107.0" layoutY="83.0" mnemonicParsing="false" onAction="#ClickRamoLike" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #4a86ee; -fx-border-radius: 30%;" text="Dar Like!">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="boton_calificar_ramo2" layoutX="107.0" layoutY="342.0" mnemonicParsing="false" onAction="#ClickClificarUtilidadRamo" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #ee5151; -fx-border-radius: 30%;" text="calificar!">
+                  <Button fx:id="boton_calificar_ramo2" layoutX="107.0" layoutY="342.0" mnemonicParsing="false" onAction="#ClickClificarUtilidadRamo" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #4a86ee; -fx-border-radius: 30%;" text="calificar!">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -517,7 +517,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="boton_descargar_contenido" layoutX="35.0" layoutY="243.0" mnemonicParsing="false" onAction="#ClickDescarga" prefHeight="38.0" prefWidth="175.0" style="-fx-border-color: #683700; -fx-border-width: 4px; -fx-background-color: orange;" text="descargar programa" textFill="#683700">
+                  <Button fx:id="boton_descargar_contenido" layoutX="35.0" layoutY="256.0" mnemonicParsing="false" onAction="#ClickDescarga" prefHeight="25.0" prefWidth="175.0" text="descargar programa">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
