@@ -50,8 +50,8 @@ public class main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
-		U = new Universidad();
-		Serializador.serializar(U);
+		// U = Universidad.Instance();
+		//Serializador.serializar(U);
 
 		U = Serializador.Deserializar();
 		

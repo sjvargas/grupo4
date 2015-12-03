@@ -318,11 +318,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCISueldoProfesor.setCellValueFactory(new PropertyValueFactory<Profesor,Integer>("sueldo"));
 			tabla2AdminListaProfesores.setItems(datosProfesores);
 		}
-	//	tabla2AdminListaProfesores.refresh();
+		tabla2AdminListaProfesores.refresh();
 		List<Profesor> profesores = main.U.lista_profesores;
 		datosProfesores = FXCollections.observableArrayList(profesores);
 		tabla2AdminListaProfesores.setItems(datosProfesores);
-	//	tabla2AdminListaProfesores.refresh();
+		tabla2AdminListaProfesores.refresh();
 	}
 	
 	private void CargarValoresFormularioProfesor(){
@@ -599,11 +599,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCCreditosRamos.setCellValueFactory(new PropertyValueFactory<Ramo,Integer>("creditos"));
 			tViewRamos.setItems(datosRamos);
 		}
-		//tViewRamos.refresh();
+		tViewRamos.refresh();
 		List<Ramo> ramos = main.U.lista_ramos;
 		datosRamos = FXCollections.observableArrayList(ramos);
 		tViewRamos.setItems(datosRamos);
-		//tViewRamos.refresh();
+		tViewRamos.refresh();
 	}
 
 	public void ApretarVerPrerrequisitos(ActionEvent event){
@@ -617,7 +617,7 @@ public class AdminOverviewController implements PrincipalController {
 	}
 	
 	private void CargarPrerrequisitosEnTabla(String siglaRamo){
-	//	tViewPrerrequisitos.refresh();
+		tViewPrerrequisitos.refresh();
 		tCSiglaPrerrequisito.setCellValueFactory(new PropertyValueFactory<Ramo,String>("sigla"));
 		tCNombrePrerrequisito.setCellValueFactory(new PropertyValueFactory<Ramo,String>("nombreRamo"));
 		labelRamoPreReq.setText(siglaRamo);
@@ -629,7 +629,7 @@ public class AdminOverviewController implements PrincipalController {
 			datosPrerrequisitos = FXCollections.observableArrayList(prerrequisitos);
 			tViewPrerrequisitos.setItems(datosPrerrequisitos);
 		}
-	//	tViewPrerrequisitos.refresh();
+		tViewPrerrequisitos.refresh();
 	}
 	
 	// MODULO CARRERAS
@@ -696,11 +696,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCDecanoCarrera.setCellValueFactory(new PropertyValueFactory<Carrera,String>("decano"));
 			tViewCarrera.setItems(datosCarreras);
 		}
-//		tViewCarrera.refresh();
+		tViewCarrera.refresh();
 		List<Carrera> carreras = main.U.lista_carreras;
 		datosCarreras = FXCollections.observableArrayList(carreras);
 		tViewCarrera.setItems(datosCarreras);
-	//	tViewCarrera.refresh();
+		tViewCarrera.refresh();
 	}
 	
 	public void ApretoSeleccionarCarrera(ActionEvent event){
@@ -773,11 +773,11 @@ public class AdminOverviewController implements PrincipalController {
 		tCSiglaRamoMalla.setCellValueFactory(new PropertyValueFactory<Ramo,String>("sigla"));
 		tCNombreRamoMalla.setCellValueFactory(new PropertyValueFactory<Ramo,String>("nombreRamo"));
 		tCCreditosRamoMalla.setCellValueFactory(new PropertyValueFactory<Ramo,Integer>("creditos"));
-//		tViewRamoCarrera.refresh();
+		tViewRamoCarrera.refresh();
 		List<Ramo> ramosMalla = mallaSeleccionada.getRamos();
 		datosRamoCarrera = FXCollections.observableArrayList(ramosMalla);
 		tViewRamoCarrera.setItems(datosRamoCarrera);
-	//	tViewRamoCarrera.refresh();
+		tViewRamoCarrera.refresh();
 	}
 	private void CargarChoiceBoxAgregarEliminarRamoMalla(){
 		listaCargaRamosAgregar = FXCollections.observableList(main.U.lista_ramos);
@@ -897,7 +897,7 @@ public class AdminOverviewController implements PrincipalController {
 		// borrar la programacion seleccionada
 		ProgramacionHoraria programacionHoraria = tViewProgramacionHoraria.getSelectionModel().getSelectedItem();
 		listaProgramacionHoraria.remove(programacionHoraria);
-	//	tViewProgramacionHoraria.refresh();
+		tViewProgramacionHoraria.refresh();
 		datosProgramacionHoraria = FXCollections.observableArrayList(listaProgramacionHoraria);
 		tViewProgramacionHoraria.setItems(datosProgramacionHoraria);
 		labelEstadoAgregarModulo.setText("Modulo Eliminado");
@@ -985,11 +985,11 @@ public class AdminOverviewController implements PrincipalController {
 			tCCreditosCursos.setCellValueFactory(new PropertyValueFactory<Curso,Integer>("creditos"));
 			tViewCursos.setItems(datosCursos);
 		}
-	//	tViewCursos.refresh();
+		tViewCursos.refresh();
 		List<Curso> cursos = main.U.getCursosProgramacionAcademica(periodoActual);
 		datosCursos = FXCollections.observableArrayList(cursos);
 		tViewCursos.setItems(datosCursos);
-//		tViewCursos.refresh();
+		tViewCursos.refresh();
 	}
 
 	private boolean SePuedeAgregarHorario(ProgramacionHoraria programacionHoraria){

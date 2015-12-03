@@ -12,6 +12,15 @@ public class Universidad implements java.io.Serializable {
 	public List<Programacion_Academica> historial_de_progrmacion_academica;
     private Random rn;
 	
+    private static Universidad instanciaUniversidad;
+    public static Universidad Instance(){
+		if(instanciaUniversidad == null){
+			instanciaUniversidad = new Universidad();
+		}
+		return instanciaUniversidad;
+    }
+    
+    
     private List<String> periodosOcupados;
     private List<String> periodosLibres;
     
@@ -34,7 +43,7 @@ public class Universidad implements java.io.Serializable {
 	public Profesor profesor_actual;
 	public String periodo_actual = "2016-1";
 	
-	public Universidad(){
+	private Universidad(){
 		
 		historial_de_progrmacion_academica = new ArrayList<Programacion_Academica>();
 		periodosOcupados = new ArrayList<String>();

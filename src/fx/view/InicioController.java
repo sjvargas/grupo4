@@ -94,6 +94,7 @@ public class InicioController implements PrincipalController {
 					aux = true;
 					if (j.acceso== true)
 					{
+						LimpiarTextBoxInicio();
 						System.out.println("con acceso");
 						j.Iniciar_sesion();
 						main.U.alumno_actual = j;
@@ -128,7 +129,7 @@ public class InicioController implements PrincipalController {
 				}
 			}
 			if(aux){
-				
+				LimpiarTextBoxInicio();
 				profe.Iniciar_sesion();
 				main.U.profesor_actual = profe;
 				controlador.setScreen(main.ProfesorID);
@@ -154,7 +155,7 @@ public class InicioController implements PrincipalController {
 				}
 			}
 			if(existeElAdmin){
-				
+				LimpiarTextBoxInicio();
 				administrador.Iniciar_sesion();
 				main.U.administrador_actual = administrador;
 				controlador.setScreen(main.AdminID);
@@ -172,8 +173,10 @@ public class InicioController implements PrincipalController {
 		if(modoAlumnoSelecionado){	
 			System.out.println("nombre: "+tfNombreUsuarioRegistro.getText());
 			// arreglar el sexo
+			
 			Alumno alumno = new Alumno(tfNombreUsuarioRegistro.getText(), tFNombreRegistro.getText(), tFApPatRegistro.getText(), tFApMatRegistro.getText(), tFContrasenaRegistro.getText(), Sexo.Masculino, Integer.parseInt(tFEdadRegistro.getText()));
 			main.U.agregarAlumno(alumno);
+			LimpiarTextBoxInicio();
 			alumno.Iniciar_sesion();
 			main.U.alumno_actual = alumno;
 			controlador.setScreen(main.AlumnoID);
@@ -181,7 +184,7 @@ public class InicioController implements PrincipalController {
 		else{
 			Administrador_academico admin =new Administrador_academico(tfNombreUsuarioRegistro.getText(), tFNombreRegistro.getText(), tFApPatRegistro.getText(), tFApMatRegistro.getText(), tFContrasenaRegistro.getText(), Sexo.Masculino, Integer.parseInt(tFEdadRegistro.getText()));
 			main.U.agregarAdministrador(admin);
-			
+			LimpiarTextBoxInicio();
 			admin.Iniciar_sesion();
 			main.U.administrador_actual = admin;
 			controlador.setScreen(main.AdminID);
@@ -203,6 +206,19 @@ public class InicioController implements PrincipalController {
 		//System.out.println("Modo alumno seleccionado");
 	}
 
+	public void LimpiarTextBoxInicio(){
+		tFNombreUsuarioIngreso.setText("");
+		tFContrasenaIngreso.setText("");
+		tfNombreUsuarioRegistro.setText("");
+		tFNombreRegistro.setText("");
+		tFApPatRegistro.setText("");
+		tFApMatRegistro.setText("");
+		tFContrasenaRegistro.setText("");
+		tFSexoRegistro.setText("");
+		tFEdadRegistro.setText("");
+	}
+	
+	
 	public void ActualizarChoiceBoxSexo(ActionEvent event){
 		ObservableList<Sexo> listaSexos = FXCollections.observableList(Arrays.asList(Sexo.values()));
 		cBSexoRegistro.setItems(listaSexos);
